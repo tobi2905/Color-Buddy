@@ -13,6 +13,13 @@ PATH = Path(__file__).resolve().parent.parent / "data/references.json"
 MIN_ENTRIES = 200
 HEX = re.compile(r"^#[0-9A-F]{6}$")
 LIST_FIELDS = ("references", "associations", "uses")
+# "uses" is exactly [industry or brand type, design role, theme or occasion]; the middle slot
+# comes from this list so the three always differ in kind (decided at review checkpoint 4).
+DESIGN_ROLES = {
+    "backgrounds", "surfaces", "body text", "headings", "buttons", "links", "highlights",
+    "accents", "borders", "icons", "illustrations", "charts", "logos", "packaging", "badges",
+    "success states", "error states", "warning states", "dark mode backgrounds",
+}
 BASIC_TERMS = ["red", "orange", "yellow", "green", "blue", "purple", "pink", "brown", "black", "white", "grey"]
 
 
@@ -53,6 +60,14 @@ def main():
                 problems.append(f"{where}: {field} must contain non-empty strings")
             elif len(set(values)) != len(values):
                 problems.append(f"{where}: {field} has repeated items")
+        uses = entry.get("uses")
+        if isinstance(uses, list) and all(isinstance(u, str) for u in uses):
+            if len(uses) != 3:
+                problems.append(f"{where}: uses must be [industry, design role, theme], got {len(uses)} items")
+            elif uses[1] not in DESIGN_ROLES:
+                problems.append(f"{where}: second use {uses[1]!r} is not a design role ({', '.join(sorted(DESIGN_ROLES))})")
+            elif uses[0] in DESIGN_ROLES or uses[2] in DESIGN_ROLES:
+                problems.append(f"{where}: only the second use may be a design role")
         pairings = entry.get("pairings")
         if not isinstance(pairings, list) or not pairings:
             problems.append(f"{where}: pairings must be a non-empty list")

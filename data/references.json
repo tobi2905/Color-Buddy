@@ -12,9 +12,9 @@
    "passion"
   ],
   "uses": [
-   "sale banners",
+   "food brands",
    "error states",
-   "food brands"
+   "sales events"
   ],
   "pairings": [
    "#FFFFFF",
@@ -35,9 +35,9 @@
    "playfulness"
   ],
   "uses": [
-   "calls to action",
    "sports brands",
-   "children's products"
+   "buttons",
+   "Halloween"
   ],
   "pairings": [
    "#000080",
@@ -58,7 +58,7 @@
    "cheerfulness"
   ],
   "uses": [
-   "warning signs",
+   "children's brands",
    "highlights",
    "summer campaigns"
   ],
@@ -81,9 +81,9 @@
    "safety"
   ],
   "uses": [
-   "success states",
    "eco brands",
-   "finance"
+   "success states",
+   "spring campaigns"
   ],
   "pairings": [
    "#FFFFFF",
@@ -105,8 +105,8 @@
   ],
   "uses": [
    "banks",
-   "tech companies",
-   "links"
+   "links",
+   "corporate reports"
   ],
   "pairings": [
    "#FFFFFF",
@@ -128,7 +128,7 @@
   ],
   "uses": [
    "beauty brands",
-   "premium products",
+   "accents",
    "spiritual themes"
   ],
   "pairings": [
@@ -151,8 +151,8 @@
   ],
   "uses": [
    "cosmetics",
-   "baby products",
-   "confectionery"
+   "badges",
+   "Valentine's Day"
   ],
   "pairings": [
    "#808080",
@@ -173,8 +173,8 @@
    "comfort"
   ],
   "uses": [
-   "outdoor brands",
    "coffee shops",
+   "backgrounds",
    "rustic themes"
   ],
   "pairings": [
@@ -197,8 +197,8 @@
   ],
   "uses": [
    "luxury brands",
-   "text",
-   "fashion"
+   "body text",
+   "formal events"
   ],
   "pairings": [
    "#FFFFFF",
@@ -219,8 +219,8 @@
    "cleanliness"
   ],
   "uses": [
-   "backgrounds",
    "healthcare",
+   "backgrounds",
    "minimalist design"
   ],
   "pairings": [
@@ -242,9 +242,9 @@
    "calm"
   ],
   "uses": [
-   "backgrounds",
-   "corporate design",
-   "secondary text"
+   "corporate brands",
+   "borders",
+   "neutral layouts"
   ],
   "pairings": [
    "#FFFF00",
@@ -266,8 +266,8 @@
   ],
   "uses": [
    "food packaging",
-   "summer themes",
-   "buttons"
+   "buttons",
+   "summer picnics"
   ],
   "pairings": [
    "#FFFFFF",
@@ -289,8 +289,8 @@
   ],
   "uses": [
    "wineries",
-   "luxury packaging",
-   "autumn themes"
+   "headings",
+   "autumn menus"
   ],
   "pairings": [
    "#FFFFC2",
@@ -311,9 +311,9 @@
    "warmth"
   ],
   "uses": [
-   "vintage design",
-   "packaging",
-   "illustrations"
+   "vintage shops",
+   "illustrations",
+   "nostalgic themes"
   ],
   "pairings": [
    "#FFFFC2",
@@ -334,9 +334,9 @@
    "boldness"
   ],
   "uses": [
-   "alerts",
    "sports teams",
-   "logos"
+   "error states",
+   "sales events"
   ],
   "pairings": [
    "#FFFFFF",
@@ -357,9 +357,9 @@
    "drama"
   ],
   "uses": [
-   "theatre",
-   "fashion",
-   "holiday themes"
+   "theatres",
+   "accents",
+   "Christmas"
   ],
   "pairings": [
    "#FFD700",
@@ -380,9 +380,9 @@
    "strength"
   ],
   "uses": [
-   "education",
-   "sports teams",
-   "menswear"
+   "universities",
+   "headings",
+   "graduation"
   ],
   "pairings": [
    "#FFFFC2",
@@ -403,8 +403,8 @@
    "warmth"
   ],
   "uses": [
-   "wine labels",
-   "fashion",
+   "fashion houses",
+   "accents",
    "formal invitations"
   ],
   "pairings": [
@@ -426,9 +426,9 @@
    "intensity"
   ],
   "uses": [
-   "sports teams",
-   "book covers",
-   "logos"
+   "publishers",
+   "logos",
+   "Valentine's Day"
   ],
   "pairings": [
    "#FFFFFF",
@@ -449,9 +449,9 @@
    "energy"
   ],
   "uses": [
-   "fashion",
-   "signage",
-   "logos"
+   "fashion retail",
+   "buttons",
+   "Chinese New Year"
   ],
   "pairings": [
    "#FFFFFF",
@@ -473,8 +473,8 @@
   ],
   "uses": [
    "confectionery",
-   "cosmetics",
-   "retro design"
+   "badges",
+   "retro diner themes"
   ],
   "pairings": [
    "#FFFFFF",
@@ -495,9 +495,9 @@
    "preciousness"
   ],
   "uses": [
-   "jewellery",
-   "anniversary themes",
-   "premium brands"
+   "jewellers",
+   "accents",
+   "anniversaries"
   ],
   "pairings": [
    "#FFD700",
@@ -519,8 +519,8 @@
   ],
   "uses": [
    "restaurants",
-   "wine labels",
-   "autumn fashion"
+   "headings",
+   "dinner parties"
   ],
   "pairings": [
    "#FFFFC2",
@@ -541,9 +541,9 @@
    "warmth"
   ],
   "uses": [
-   "architecture sites",
-   "rustic brands",
-   "outdoor gear"
+   "architecture firms",
+   "illustrations",
+   "rustic themes"
   ],
   "pairings": [
    "#FFFFC2",
@@ -564,9 +564,9 @@
    "drama"
   ],
   "uses": [
-   "horror themes",
-   "alerts",
-   "dramatic posters"
+   "film studios",
+   "error states",
+   "Halloween"
   ],
   "pairings": [
    "#000000",
@@ -587,9 +587,9 @@
    "richness"
   ],
   "uses": [
-   "wine labels",
    "heritage brands",
-   "sports kits"
+   "logos",
+   "sports seasons"
   ],
   "pairings": [
    "#FFFFC2",
@@ -610,8 +610,8 @@
    "sweetness"
   ],
   "uses": [
-   "food brands",
-   "cosmetics",
+   "smoothie brands",
+   "accents",
    "summer menus"
   ],
   "pairings": [
@@ -633,9 +633,9 @@
    "warmth"
   ],
   "uses": [
-   "holiday themes",
-   "food packaging",
-   "autumn design"
+   "food brands",
+   "accents",
+   "Thanksgiving"
   ],
   "pairings": [
    "#FFFFC2",
@@ -656,9 +656,9 @@
    "energy"
   ],
   "uses": [
-   "desserts",
-   "cosmetics",
-   "youthful brands"
+   "dessert shops",
+   "buttons",
+   "summer markets"
   ],
   "pairings": [
    "#FFFFFF",
@@ -679,9 +679,9 @@
    "warmth"
   ],
   "uses": [
-   "food brands",
    "restaurants",
-   "kitchenware"
+   "buttons",
+   "Italian themes"
   ],
   "pairings": [
    "#FFFFFF",
@@ -702,9 +702,9 @@
    "heritage"
   ],
   "uses": [
-   "interiors",
-   "food brands",
-   "illustrations"
+   "spice brands",
+   "illustrations",
+   "harvest festivals"
   ],
   "pairings": [
    "#FFFFC2",
@@ -726,8 +726,8 @@
   ],
   "uses": [
    "children's brands",
-   "summer themes",
-   "promotions"
+   "highlights",
+   "summer camps"
   ],
   "pairings": [
    "#FFFFFF",
@@ -748,9 +748,9 @@
    "energy"
   ],
   "uses": [
-   "harvest themes",
    "sports brands",
-   "packaging"
+   "headings",
+   "harvest themes"
   ],
   "pairings": [
    "#000080",
@@ -772,8 +772,8 @@
   ],
   "uses": [
    "skincare",
-   "baby products",
-   "interiors"
+   "backgrounds",
+   "spring themes"
   ],
   "pairings": [
    "#FFFFFF",
@@ -794,9 +794,9 @@
    "fun"
   ],
   "uses": [
-   "safety gear",
-   "calls to action",
-   "sports"
+   "safety equipment",
+   "warning states",
+   "road safety campaigns"
   ],
   "pairings": [
    "#000080",
@@ -817,9 +817,9 @@
    "nostalgia"
   ],
   "uses": [
-   "autumn campaigns",
-   "70s retro design",
-   "interiors"
+   "interior design",
+   "accents",
+   "70s retro themes"
   ],
   "pairings": [
    "#000080",
@@ -841,8 +841,8 @@
   ],
   "uses": [
    "juice brands",
-   "summer events",
-   "children's toys"
+   "buttons",
+   "summer events"
   ],
   "pairings": [
    "#FFFFFF",
@@ -863,9 +863,9 @@
    "health"
   ],
   "uses": [
-   "skincare",
    "food packaging",
-   "wedding themes"
+   "backgrounds",
+   "weddings"
   ],
   "pairings": [
    "#FFFFC2",
@@ -887,8 +887,8 @@
   ],
   "uses": [
    "cosmetics",
-   "weddings",
-   "lifestyle brands"
+   "surfaces",
+   "weddings"
   ],
   "pairings": [
    "#FFFFFF",
@@ -909,9 +909,9 @@
    "warmth"
   ],
   "uses": [
-   "restaurants",
-   "fashion",
-   "interiors"
+   "seafood restaurants",
+   "accents",
+   "summer fashion"
   ],
   "pairings": [
    "#000080",
@@ -932,9 +932,9 @@
    "friendliness"
   ],
   "uses": [
-   "lifestyle brands",
-   "summer campaigns",
-   "apps"
+   "lifestyle apps",
+   "buttons",
+   "beach holidays"
   ],
   "pairings": [
    "#000080",
@@ -955,9 +955,9 @@
    "summer"
   ],
   "uses": [
-   "food brands",
-   "summer menus",
-   "packaging"
+   "fruit brands",
+   "highlights",
+   "summer menus"
   ],
   "pairings": [
    "#FFFFFF",
@@ -978,9 +978,9 @@
    "nostalgia"
   ],
   "uses": [
+   "whisky distilleries",
    "warning states",
-   "whisky labels",
-   "vintage design"
+   "vintage themes"
   ],
   "pairings": [
    "#343837",
@@ -1001,9 +1001,9 @@
    "playfulness"
   ],
   "uses": [
-   "Halloween themes",
-   "seasonal menus",
-   "children's products"
+   "farm shops",
+   "accents",
+   "Halloween"
   ],
   "pairings": [
    "#000000",
@@ -1024,9 +1024,9 @@
    "durability"
   ],
   "uses": [
-   "kitchenware",
    "breweries",
-   "industrial design"
+   "icons",
+   "industrial themes"
   ],
   "pairings": [
    "#008080",
@@ -1048,8 +1048,8 @@
   ],
   "uses": [
    "outdoor brands",
-   "industrial design",
-   "autumn fashion"
+   "accents",
+   "autumn collections"
   ],
   "pairings": [
    "#000080",
@@ -1070,9 +1070,9 @@
    "craft"
   ],
   "uses": [
-   "interiors",
-   "ceramics",
-   "Mediterranean food"
+   "ceramics studios",
+   "illustrations",
+   "Mediterranean themes"
   ],
   "pairings": [
    "#FFFFC2",
@@ -1094,8 +1094,8 @@
   ],
   "uses": [
    "bakeries",
-   "holiday themes",
-   "candles"
+   "accents",
+   "Christmas markets"
   ],
   "pairings": [
    "#FFFFC2",
@@ -1117,8 +1117,8 @@
   ],
   "uses": [
    "spice brands",
-   "cultural events",
-   "restaurants"
+   "highlights",
+   "Diwali"
   ],
   "pairings": [
    "#000080",
@@ -1139,9 +1139,9 @@
    "softness"
   ],
   "uses": [
-   "backgrounds",
    "baby products",
-   "highlights"
+   "backgrounds",
+   "Easter"
   ],
   "pairings": [
    "#808080",
@@ -1162,9 +1162,9 @@
    "earthiness"
   ],
   "uses": [
-   "retro design",
-   "autumn fashion",
-   "packaging"
+   "furniture retail",
+   "accents",
+   "retro themes"
   ],
   "pairings": [
    "#000080",
@@ -1185,8 +1185,8 @@
    "freshness"
   ],
   "uses": [
-   "stationery",
-   "nurseries",
+   "stationery brands",
+   "surfaces",
    "spring themes"
   ],
   "pairings": [
@@ -1208,9 +1208,9 @@
    "fun"
   ],
   "uses": [
-   "warnings",
+   "taxi services",
    "highlights",
-   "youth brands"
+   "summer festivals"
   ],
   "pairings": [
    "#000000",
@@ -1231,9 +1231,9 @@
    "quirkiness"
   ],
   "uses": [
-   "60s and 70s design",
-   "fashion",
-   "interiors"
+   "fashion retail",
+   "accents",
+   "60s and 70s themes"
   ],
   "pairings": [
    "#000080",
@@ -1255,8 +1255,8 @@
   ],
   "uses": [
    "cleaning products",
-   "drinks",
-   "summer themes"
+   "highlights",
+   "summer drinks"
   ],
   "pairings": [
    "#FFFFFF",
@@ -1277,9 +1277,9 @@
    "energy"
   ],
   "uses": [
-   "signage",
-   "sports gear",
-   "drinks"
+   "sports brands",
+   "warning states",
+   "road signage"
   ],
   "pairings": [
    "#343837",
@@ -1300,9 +1300,9 @@
    "attention"
   ],
   "uses": [
-   "stationery",
-   "children's brands",
-   "highlights"
+   "office supplies",
+   "highlights",
+   "back-to-school"
   ],
   "pairings": [
    "#808080",
@@ -1324,8 +1324,8 @@
   ],
   "uses": [
    "bakeries",
-   "interiors",
-   "packaging"
+   "surfaces",
+   "farmhouse themes"
   ],
   "pairings": [
    "#87AE73",
@@ -1346,9 +1346,9 @@
    "summer"
   ],
   "uses": [
-   "summer campaigns",
-   "floral design",
-   "food brands"
+   "florists",
+   "illustrations",
+   "summer campaigns"
   ],
   "pairings": [
    "#000080",
@@ -1369,9 +1369,9 @@
    "nostalgia"
   ],
   "uses": [
-   "autumn themes",
-   "rustic design",
-   "illustrations"
+   "farm brands",
+   "accents",
+   "harvest themes"
   ],
   "pairings": [
    "#000080",
@@ -1392,9 +1392,9 @@
    "celebration"
   ],
   "uses": [
-   "awards",
-   "luxury brands",
-   "invitations"
+   "award ceremonies",
+   "accents",
+   "New Year's Eve"
   ],
   "pairings": [
    "#000000",
@@ -1415,9 +1415,9 @@
    "spirituality"
   ],
   "uses": [
-   "festivals",
-   "food brands",
-   "textiles"
+   "textile brands",
+   "highlights",
+   "Diwali"
   ],
   "pairings": [
    "#000080",
@@ -1438,9 +1438,9 @@
    "antiquity"
   ],
   "uses": [
-   "interiors",
-   "art supplies",
-   "heritage brands"
+   "art suppliers",
+   "illustrations",
+   "desert themes"
   ],
   "pairings": [
    "#000080",
@@ -1461,9 +1461,9 @@
    "calm"
   ],
   "uses": [
-   "outdoor gear",
-   "menswear",
-   "uniforms"
+   "outdoor brands",
+   "surfaces",
+   "safari themes"
   ],
   "pairings": [
    "#000080",
@@ -1485,8 +1485,8 @@
   ],
   "uses": [
    "health brands",
-   "spring themes",
-   "success messages"
+   "success states",
+   "spring campaigns"
   ],
   "pairings": [
    "#FFFFFF",
@@ -1508,8 +1508,8 @@
   ],
   "uses": [
    "banks",
-   "heritage brands",
-   "outdoor gear"
+   "headings",
+   "Christmas"
   ],
   "pairings": [
    "#FFFFC2",
@@ -1531,8 +1531,8 @@
   ],
   "uses": [
    "spas",
-   "healthcare",
-   "nurseries"
+   "backgrounds",
+   "spring themes"
   ],
   "pairings": [
    "#FFFFFF",
@@ -1553,9 +1553,9 @@
    "vitality"
   ],
   "uses": [
+   "gaming brands",
    "success states",
-   "sports",
-   "gaming"
+   "sports events"
   ],
   "pairings": [
    "#000000",
@@ -1576,9 +1576,9 @@
    "restraint"
   ],
   "uses": [
-   "interiors",
    "wellness brands",
-   "outdoor gear"
+   "surfaces",
+   "botanical themes"
   ],
   "pairings": [
    "#FFFFC2",
@@ -1600,8 +1600,8 @@
   ],
   "uses": [
    "outdoor brands",
-   "holiday themes",
-   "heritage design"
+   "headings",
+   "Christmas"
   ],
   "pairings": [
    "#FFFFC2",
@@ -1622,9 +1622,9 @@
    "ruggedness"
   ],
   "uses": [
-   "outdoor gear",
-   "Mediterranean food",
-   "fashion"
+   "olive oil brands",
+   "accents",
+   "military themes"
   ],
   "pairings": [
    "#FFFFC2",
@@ -1646,8 +1646,8 @@
   ],
   "uses": [
    "spas",
-   "coastal themes",
-   "healthcare"
+   "accents",
+   "coastal themes"
   ],
   "pairings": [
    "#FFFFFF",
@@ -1668,9 +1668,9 @@
    "calm"
   ],
   "uses": [
-   "healthcare",
    "ice cream brands",
-   "spring themes"
+   "badges",
+   "retro themes"
   ],
   "pairings": [
    "#FFFFFF",
@@ -1692,7 +1692,7 @@
   ],
   "uses": [
    "healthcare",
-   "eco brands",
+   "success states",
    "spring themes"
   ],
   "pairings": [
@@ -1714,9 +1714,9 @@
    "maturity"
   ],
   "uses": [
-   "Mediterranean food",
-   "fashion",
-   "outdoor brands"
+   "Mediterranean restaurants",
+   "accents",
+   "harvest themes"
   ],
   "pairings": [
    "#FFFFC2",
@@ -1737,9 +1737,9 @@
    "freshness"
   ],
   "uses": [
-   "drinks",
-   "sports brands",
-   "youthful design"
+   "drinks brands",
+   "highlights",
+   "summer festivals"
   ],
   "pairings": [
    "#343837",
@@ -1760,9 +1760,9 @@
    "freshness"
   ],
   "uses": [
-   "sports",
    "tech startups",
-   "summer events"
+   "buttons",
+   "sports events"
   ],
   "pairings": [
    "#343837",
@@ -1783,9 +1783,9 @@
    "prosperity"
   ],
   "uses": [
-   "jewellery",
-   "luxury brands",
-   "finance"
+   "jewellers",
+   "accents",
+   "St Patrick's Day"
   ],
   "pairings": [
    "#FFD700",
@@ -1806,9 +1806,9 @@
    "good fortune"
   ],
   "uses": [
-   "spas",
-   "Asian cuisine",
-   "jewellery"
+   "tea brands",
+   "accents",
+   "Lunar New Year"
   ],
   "pairings": [
    "#FFFFC2",
@@ -1830,7 +1830,7 @@
   ],
   "uses": [
    "wellness brands",
-   "interiors",
+   "surfaces",
    "weddings"
   ],
   "pairings": [
@@ -1852,9 +1852,9 @@
    "softness"
   ],
   "uses": [
-   "coastal themes",
-   "spas",
-   "nurseries"
+   "swimwear brands",
+   "backgrounds",
+   "beach themes"
   ],
   "pairings": [
    "#FFFFFF",
@@ -1875,9 +1875,9 @@
    "whimsy"
   ],
   "uses": [
-   "desserts",
-   "packaging",
-   "interiors"
+   "gelato shops",
+   "surfaces",
+   "spring themes"
   ],
   "pairings": [
    "#FFC0CB",
@@ -1898,9 +1898,9 @@
    "freshness"
   ],
   "uses": [
-   "fashion",
-   "youth brands",
-   "event posters"
+   "fashion brands",
+   "highlights",
+   "music festivals"
   ],
   "pairings": [
    "#343837",
@@ -1921,9 +1921,9 @@
    "naturalness"
   ],
   "uses": [
-   "outdoor gear",
-   "interiors",
-   "organic brands"
+   "organic brands",
+   "illustrations",
+   "woodland themes"
   ],
   "pairings": [
    "#FFFFC2",
@@ -1945,8 +1945,8 @@
   ],
   "uses": [
    "heritage brands",
-   "menswear",
-   "outdoor gear"
+   "headings",
+   "hunting season"
   ],
   "pairings": [
    "#FFFFC2",
@@ -1968,8 +1968,8 @@
   ],
   "uses": [
    "sports teams",
-   "St Patrick's Day",
-   "logos"
+   "logos",
+   "St Patrick's Day"
   ],
   "pairings": [
    "#FFFFFF",
@@ -1990,9 +1990,9 @@
    "depth"
   ],
   "uses": [
-   "heritage brands",
-   "spirits labels",
-   "menswear"
+   "spirits brands",
+   "packaging",
+   "British heritage themes"
   ],
   "pairings": [
    "#FFFFC2",
@@ -2013,9 +2013,9 @@
    "winter"
   ],
   "uses": [
-   "outdoor brands",
-   "holiday themes",
-   "candles"
+   "candle brands",
+   "accents",
+   "winter holidays"
   ],
   "pairings": [
    "#FFFFC2",
@@ -2036,9 +2036,9 @@
    "optimism"
   ],
   "uses": [
-   "spring campaigns",
-   "eco brands",
-   "gardening"
+   "garden centres",
+   "success states",
+   "spring campaigns"
   ],
   "pairings": [
    "#FFFFFF",
@@ -2059,9 +2059,9 @@
    "play"
   ],
   "uses": [
-   "sports",
-   "gardening",
-   "children's brands"
+   "sports clubs",
+   "illustrations",
+   "summer fêtes"
   ],
   "pairings": [
    "#FFFFFF",
@@ -2083,8 +2083,8 @@
   ],
   "uses": [
    "food brands",
-   "retro design",
-   "interiors"
+   "accents",
+   "70s retro themes"
   ],
   "pairings": [
    "#FFFFC2",
@@ -2105,9 +2105,9 @@
    "restraint"
   ],
   "uses": [
-   "outdoor gear",
-   "military style",
-   "workwear"
+   "workwear brands",
+   "surfaces",
+   "military themes"
   ],
   "pairings": [
    "#F0E68C",
@@ -2128,9 +2128,9 @@
    "attention"
   ],
   "uses": [
-   "gaming",
-   "nightlife",
-   "sportswear"
+   "gaming brands",
+   "highlights",
+   "rave and nightlife themes"
   ],
   "pairings": [
    "#000000",
@@ -2152,8 +2152,8 @@
   ],
   "uses": [
    "baby products",
-   "Easter themes",
-   "stationery"
+   "surfaces",
+   "Easter"
   ],
   "pairings": [
    "#FFFFFF",
@@ -2174,9 +2174,9 @@
    "health"
   ],
   "uses": [
-   "retro design",
-   "food brands",
-   "interiors"
+   "kitchenware",
+   "accents",
+   "70s retro themes"
   ],
   "pairings": [
    "#FFFFC2",
@@ -2198,8 +2198,8 @@
   ],
   "uses": [
    "tech brands",
-   "healthcare",
-   "interiors"
+   "buttons",
+   "coastal themes"
   ],
   "pairings": [
    "#FF7F50",
@@ -2220,9 +2220,9 @@
    "calm"
   ],
   "uses": [
-   "finance",
-   "luxury interiors",
-   "book covers"
+   "financial services",
+   "headings",
+   "winter themes"
   ],
   "pairings": [
    "#FFFFC2",
@@ -2244,8 +2244,8 @@
   ],
   "uses": [
    "health apps",
-   "coastal themes",
-   "spas"
+   "backgrounds",
+   "summer themes"
   ],
   "pairings": [
    "#FFFFFF",
@@ -2266,9 +2266,9 @@
    "holidays"
   ],
   "uses": [
-   "travel brands",
-   "jewellery",
-   "summer campaigns"
+   "travel agencies",
+   "accents",
+   "tropical holidays"
   ],
   "pairings": [
    "#FFFFFF",
@@ -2289,9 +2289,9 @@
    "technology"
   ],
   "uses": [
-   "tech brands",
-   "infographics",
-   "water brands"
+   "printing companies",
+   "charts",
+   "tech events"
   ],
   "pairings": [
    "#000080",
@@ -2313,8 +2313,8 @@
   ],
   "uses": [
    "water brands",
-   "summer themes",
-   "spas"
+   "backgrounds",
+   "pool parties"
   ],
   "pairings": [
    "#FFFFFF",
@@ -2335,9 +2335,9 @@
    "freshness"
   ],
   "uses": [
-   "jewellery",
-   "spas",
-   "coastal design"
+   "jewellers",
+   "accents",
+   "birthdays in March"
   ],
   "pairings": [
    "#FFFFFF",
@@ -2358,9 +2358,9 @@
    "calm"
   ],
   "uses": [
-   "interiors",
-   "fashion",
-   "finance"
+   "interior design",
+   "accents",
+   "autumn collections"
   ],
   "pairings": [
    "#FFFFC2",
@@ -2382,8 +2382,8 @@
   ],
   "uses": [
    "healthcare",
-   "baby products",
-   "backgrounds"
+   "backgrounds",
+   "baby showers"
   ],
   "pairings": [
    "#FFFFFF",
@@ -2404,9 +2404,9 @@
    "trust"
   ],
   "uses": [
-   "banks",
    "law firms",
-   "uniforms"
+   "headings",
+   "corporate events"
   ],
   "pairings": [
    "#FFFFFF",
@@ -2427,9 +2427,9 @@
    "cleanliness"
   ],
   "uses": [
-   "healthcare",
-   "nurseries",
-   "skincare"
+   "skincare",
+   "backgrounds",
+   "winter themes"
   ],
   "pairings": [
    "#FFFFFF",
@@ -2451,8 +2451,8 @@
   ],
   "uses": [
    "tech brands",
-   "sports",
-   "links"
+   "links",
+   "sports events"
   ],
   "pairings": [
    "#FFFFFF",
@@ -2473,9 +2473,9 @@
    "understatement"
   ],
   "uses": [
-   "corporate design",
-   "interiors",
-   "menswear"
+   "consulting firms",
+   "surfaces",
+   "minimalist themes"
   ],
   "pairings": [
    "#FFFFC2",
@@ -2496,9 +2496,9 @@
    "formality"
   ],
   "uses": [
-   "finance",
-   "uniforms",
-   "corporate design"
+   "financial services",
+   "headings",
+   "nautical themes"
   ],
   "pairings": [
    "#FFFFFF",
@@ -2519,9 +2519,9 @@
    "freedom"
   ],
   "uses": [
-   "travel brands",
-   "children's products",
-   "weather apps"
+   "airlines",
+   "backgrounds",
+   "summer holidays"
   ],
   "pairings": [
    "#FFFFFF",
@@ -2543,8 +2543,8 @@
   ],
   "uses": [
    "baby products",
-   "nurseries",
-   "healthcare"
+   "surfaces",
+   "baby showers"
   ],
   "pairings": [
    "#FFFFFF",
@@ -2566,8 +2566,8 @@
   ],
   "uses": [
    "sports teams",
-   "logos",
-   "school uniforms"
+   "buttons",
+   "royal occasions"
   ],
   "pairings": [
    "#FFFFFF",
@@ -2588,9 +2588,9 @@
    "nostalgia"
   ],
   "uses": [
-   "weddings",
-   "nurseries",
-   "stationery"
+   "stationery brands",
+   "surfaces",
+   "weddings"
   ],
   "pairings": [
    "#FFFFFF",
@@ -2611,9 +2611,9 @@
    "confidence"
   ],
   "uses": [
-   "ceramics",
-   "tech brands",
-   "fashion"
+   "ceramics studios",
+   "accents",
+   "tech events"
   ],
   "pairings": [
    "#FFFFFF",
@@ -2634,9 +2634,9 @@
    "depth"
   ],
   "uses": [
-   "jewellery",
-   "finance",
-   "luxury brands"
+   "jewellers",
+   "accents",
+   "anniversaries"
   ],
   "pairings": [
    "#C0C0C0",
@@ -2657,9 +2657,9 @@
    "trust"
   ],
   "uses": [
-   "lifestyle brands",
-   "interiors",
-   "stationery"
+   "homeware brands",
+   "illustrations",
+   "country cottage themes"
   ],
   "pairings": [
    "#FFFFFF",
@@ -2680,9 +2680,9 @@
    "calm"
   ],
   "uses": [
-   "tech brands",
-   "engineering",
-   "corporate design"
+   "engineering firms",
+   "icons",
+   "corporate reports"
   ],
   "pairings": [
    "#FFFFFF",
@@ -2703,9 +2703,9 @@
    "youth"
   ],
   "uses": [
-   "fashion",
-   "lifestyle brands",
-   "casual design"
+   "fashion retail",
+   "surfaces",
+   "casual themes"
   ],
   "pairings": [
    "#FFFFFF",
@@ -2726,9 +2726,9 @@
    "holidays"
   ],
   "uses": [
-   "travel brands",
-   "summer themes",
-   "skincare"
+   "travel agencies",
+   "backgrounds",
+   "Mediterranean holidays"
   ],
   "pairings": [
    "#FFFFFF",
@@ -2749,9 +2749,9 @@
    "optimism"
   ],
   "uses": [
-   "travel brands",
-   "summer design",
-   "skincare"
+   "skincare",
+   "accents",
+   "beach themes"
   ],
   "pairings": [
    "#FFFFFF",
@@ -2772,8 +2772,8 @@
    "mystery"
   ],
   "uses": [
-   "fashion",
-   "spiritual brands",
+   "yoga studios",
+   "dark mode backgrounds",
    "night themes"
   ],
   "pairings": [
@@ -2795,9 +2795,9 @@
    "depth"
   ],
   "uses": [
-   "art supplies",
-   "fashion",
-   "posters"
+   "art suppliers",
+   "illustrations",
+   "poster campaigns"
   ],
   "pairings": [
    "#FFFFFF",
@@ -2819,8 +2819,8 @@
   ],
   "uses": [
    "luxury brands",
-   "evening events",
-   "finance"
+   "dark mode backgrounds",
+   "evening events"
   ],
   "pairings": [
    "#C0C0C0",
@@ -2841,9 +2841,9 @@
    "elegance"
   ],
   "uses": [
-   "finance",
    "law firms",
-   "formalwear"
+   "body text",
+   "formal events"
   ],
   "pairings": [
    "#FFFFFF",
@@ -2864,9 +2864,9 @@
    "energy"
   ],
   "uses": [
-   "tech brands",
-   "gaming",
-   "nightlife"
+   "gaming brands",
+   "buttons",
+   "nightlife themes"
   ],
   "pairings": [
    "#000000",
@@ -2887,9 +2887,9 @@
    "cleanliness"
   ],
   "uses": [
-   "winter themes",
-   "skincare",
-   "drinks"
+   "drinks brands",
+   "backgrounds",
+   "winter themes"
   ],
   "pairings": [
    "#FFFFFF",
@@ -2910,9 +2910,9 @@
    "calm"
   ],
   "uses": [
-   "gifts",
-   "weddings",
-   "retro design"
+   "gift shops",
+   "accents",
+   "spring weddings"
   ],
   "pairings": [
    "#FFFFFF",
@@ -2933,9 +2933,9 @@
    "creativity"
   ],
   "uses": [
-   "interiors",
-   "stationery",
-   "corporate design"
+   "consultancies",
+   "icons",
+   "autumn themes"
   ],
   "pairings": [
    "#FFFFC2",
@@ -2956,9 +2956,9 @@
    "creativity"
   ],
   "uses": [
-   "stationery",
-   "spring themes",
-   "interiors"
+   "stationery brands",
+   "accents",
+   "spring themes"
   ],
   "pairings": [
    "#FFFFFF",
@@ -2980,8 +2980,8 @@
   ],
   "uses": [
    "baby products",
-   "Easter themes",
-   "stationery"
+   "surfaces",
+   "Easter"
   ],
   "pairings": [
    "#FFFFFF",
@@ -3003,8 +3003,8 @@
   ],
   "uses": [
    "beauty brands",
-   "spring themes",
-   "stationery"
+   "surfaces",
+   "spring themes"
   ],
   "pairings": [
    "#FFFFFF",
@@ -3026,8 +3026,8 @@
   ],
   "uses": [
    "premium brands",
-   "evening themes",
-   "packaging"
+   "headings",
+   "evening events"
   ],
   "pairings": [
    "#FFD700",
@@ -3049,8 +3049,8 @@
   ],
   "uses": [
    "skincare",
-   "weddings",
-   "stationery"
+   "backgrounds",
+   "weddings"
   ],
   "pairings": [
    "#FFFFFF",
@@ -3071,9 +3071,9 @@
    "fun"
   ],
   "uses": [
-   "music events",
-   "gaming",
-   "youth brands"
+   "music venues",
+   "buttons",
+   "festivals"
   ],
   "pairings": [
    "#FFFF00",
@@ -3094,9 +3094,9 @@
    "drama"
   ],
   "uses": [
-   "premium brands",
-   "theatre",
-   "spiritual themes"
+   "chocolate brands",
+   "accents",
+   "theatre nights"
   ],
   "pairings": [
    "#FFD700",
@@ -3117,9 +3117,9 @@
    "maturity"
   ],
   "uses": [
-   "interiors",
-   "skincare",
-   "stationery"
+   "homeware brands",
+   "surfaces",
+   "autumn themes"
   ],
   "pairings": [
    "#FFFFC2",
@@ -3141,7 +3141,7 @@
   ],
   "uses": [
    "spas",
-   "skincare",
+   "backgrounds",
    "weddings"
   ],
   "pairings": [
@@ -3163,9 +3163,9 @@
    "charm"
   ],
   "uses": [
-   "spring themes",
    "cosmetics",
-   "weddings"
+   "badges",
+   "spring themes"
   ],
   "pairings": [
    "#FFFFFF",
@@ -3186,9 +3186,9 @@
    "softness"
   ],
   "uses": [
-   "fashion",
-   "cosmetics",
-   "weddings"
+   "fashion retail",
+   "accents",
+   "vintage weddings"
   ],
   "pairings": [
    "#FFFFC2",
@@ -3209,8 +3209,8 @@
    "luxury"
   ],
   "uses": [
-   "fashion",
-   "wine labels",
+   "wine brands",
+   "headings",
    "autumn themes"
   ],
   "pairings": [
@@ -3233,8 +3233,8 @@
   ],
   "uses": [
    "spiritual brands",
-   "art",
-   "cosmetics"
+   "accents",
+   "art festivals"
   ],
   "pairings": [
    "#FFFF00",
@@ -3255,9 +3255,9 @@
    "creativity"
   ],
   "uses": [
-   "cosmetics",
-   "floral design",
-   "boutique brands"
+   "florists",
+   "accents",
+   "tropical themes"
   ],
   "pairings": [
    "#FFFFFF",
@@ -3278,9 +3278,9 @@
    "luxury"
   ],
   "uses": [
-   "jewellery",
-   "wellness brands",
-   "premium packaging"
+   "jewellers",
+   "accents",
+   "birthdays in February"
   ],
   "pairings": [
    "#C0C0C0",
@@ -3301,9 +3301,9 @@
    "sophistication"
   ],
   "uses": [
-   "interiors",
-   "fashion",
-   "food brands"
+   "restaurants",
+   "dark mode backgrounds",
+   "autumn menus"
   ],
   "pairings": [
    "#FFFFC2",
@@ -3324,9 +3324,9 @@
    "energy"
   ],
   "uses": [
-   "cosmetics",
-   "fashion",
-   "music events"
+   "printing companies",
+   "highlights",
+   "music festivals"
   ],
   "pairings": [
    "#000000",
@@ -3347,8 +3347,8 @@
    "fun"
   ],
   "uses": [
-   "fashion",
-   "cosmetics",
+   "fashion brands",
+   "buttons",
    "party themes"
   ],
   "pairings": [
@@ -3371,8 +3371,8 @@
   ],
   "uses": [
    "baby products",
-   "Easter themes",
-   "stationery"
+   "surfaces",
+   "Easter"
   ],
   "pairings": [
    "#FFFFFF",
@@ -3394,8 +3394,8 @@
   ],
   "uses": [
    "baby products",
-   "cosmetics",
-   "weddings"
+   "surfaces",
+   "baby showers"
   ],
   "pairings": [
    "#808080",
@@ -3417,8 +3417,8 @@
   ],
   "uses": [
    "cosmetics",
-   "fashion",
-   "confectionery"
+   "buttons",
+   "Valentine's Day"
   ],
   "pairings": [
    "#FFFFFF",
@@ -3440,8 +3440,8 @@
   ],
   "uses": [
    "skincare",
-   "weddings",
-   "nurseries"
+   "backgrounds",
+   "weddings"
   ],
   "pairings": [
    "#808080",
@@ -3463,8 +3463,8 @@
   ],
   "uses": [
    "youth brands",
-   "party themes",
-   "cosmetics"
+   "badges",
+   "birthday parties"
   ],
   "pairings": [
    "#000000",
@@ -3485,9 +3485,9 @@
    "confidence"
   ],
   "uses": [
-   "fashion",
-   "nightlife",
-   "youth brands"
+   "fashion brands",
+   "highlights",
+   "nightlife themes"
   ],
   "pairings": [
    "#000000",
@@ -3508,9 +3508,9 @@
    "calm"
   ],
   "uses": [
-   "interiors",
-   "weddings",
-   "fashion"
+   "interior design",
+   "surfaces",
+   "vintage weddings"
   ],
   "pairings": [
    "#808080",
@@ -3532,8 +3532,8 @@
   ],
   "uses": [
    "baby products",
-   "confectionery",
-   "stationery"
+   "backgrounds",
+   "baby showers"
   ],
   "pairings": [
    "#FFFFFF",
@@ -3554,9 +3554,9 @@
    "elegance"
   ],
   "uses": [
-   "cosmetics",
-   "weddings",
-   "florists"
+   "florists",
+   "accents",
+   "Valentine's Day"
   ],
   "pairings": [
    "#808080",
@@ -3578,8 +3578,8 @@
   ],
   "uses": [
    "cosmetics",
-   "weddings",
-   "skincare"
+   "surfaces",
+   "weddings"
   ],
   "pairings": [
    "#808080",
@@ -3600,9 +3600,9 @@
    "charm"
   ],
   "uses": [
-   "florists",
-   "confectionery",
-   "greeting cards"
+   "greeting card brands",
+   "illustrations",
+   "Mother's Day"
   ],
   "pairings": [
    "#FFFFFF",
@@ -3623,9 +3623,9 @@
    "fun"
   ],
   "uses": [
-   "toys",
-   "confectionery",
-   "youth brands"
+   "toy brands",
+   "badges",
+   "children's parties"
   ],
   "pairings": [
    "#FFFFFF",
@@ -3646,9 +3646,9 @@
    "calm"
   ],
   "uses": [
-   "baby products",
    "bakeries",
-   "stationery"
+   "surfaces",
+   "Easter"
   ],
   "pairings": [
    "#FFFFFF",
@@ -3669,9 +3669,9 @@
    "rebellion"
   ],
   "uses": [
-   "nightlife",
-   "music events",
-   "youth fashion"
+   "music venues",
+   "highlights",
+   "80s themes"
   ],
   "pairings": [
    "#000000",
@@ -3693,8 +3693,8 @@
   ],
   "uses": [
    "cosmetics",
-   "fashion",
-   "confectionery"
+   "buttons",
+   "breast cancer awareness"
   ],
   "pairings": [
    "#FFFFFF",
@@ -3715,9 +3715,9 @@
    "drama"
   ],
   "uses": [
-   "music events",
-   "fashion",
-   "gaming"
+   "gaming brands",
+   "highlights",
+   "synthwave themes"
   ],
   "pairings": [
    "#000000",
@@ -3738,9 +3738,9 @@
    "comfort"
   ],
   "uses": [
-   "packaging",
-   "interiors",
-   "outdoor brands"
+   "packaging companies",
+   "surfaces",
+   "autumn themes"
   ],
   "pairings": [
    "#FFFFC2",
@@ -3762,8 +3762,8 @@
   ],
   "uses": [
    "coffee brands",
-   "furniture",
-   "leather goods"
+   "body text",
+   "winter themes"
   ],
   "pairings": [
    "#FFFFC2",
@@ -3784,9 +3784,9 @@
    "simplicity"
   ],
   "uses": [
-   "packaging",
-   "interiors",
-   "organic brands"
+   "organic brands",
+   "backgrounds",
+   "harvest themes"
   ],
   "pairings": [
    "#FFFFFF",
@@ -3807,8 +3807,8 @@
    "tradition"
   ],
   "uses": [
-   "interiors",
-   "pottery",
+   "pottery studios",
+   "illustrations",
    "autumn themes"
   ],
   "pairings": [
@@ -3830,9 +3830,9 @@
    "comfort"
   ],
   "uses": [
-   "confectionery",
-   "cafés",
-   "packaging"
+   "chocolatiers",
+   "headings",
+   "Easter"
   ],
   "pairings": [
    "#FFFFC2",
@@ -3854,8 +3854,8 @@
   ],
   "uses": [
    "cafés",
-   "packaging",
-   "interiors"
+   "surfaces",
+   "cosy winter themes"
   ],
   "pairings": [
    "#FFFFC2",
@@ -3876,9 +3876,9 @@
    "warmth"
   ],
   "uses": [
-   "interiors",
-   "travel brands",
-   "skincare"
+   "travel agencies",
+   "backgrounds",
+   "beach themes"
   ],
   "pairings": [
    "#FFFFFF",
@@ -3899,9 +3899,9 @@
    "dependability"
   ],
   "uses": [
-   "fashion",
    "leather goods",
-   "outdoor brands"
+   "surfaces",
+   "safari themes"
   ],
   "pairings": [
    "#000080",
@@ -3922,9 +3922,9 @@
    "calm"
   ],
   "uses": [
-   "interiors",
-   "fashion",
-   "skincare"
+   "interior design",
+   "surfaces",
+   "minimalist themes"
   ],
   "pairings": [
    "#FFFFFF",
@@ -3945,9 +3945,9 @@
    "comfort"
   ],
   "uses": [
-   "fashion",
-   "leather goods",
-   "interiors"
+   "fashion retail",
+   "accents",
+   "autumn collections"
   ],
   "pairings": [
    "#000080",
@@ -3969,8 +3969,8 @@
   ],
   "uses": [
    "confectionery",
-   "cafés",
-   "cosmetics"
+   "accents",
+   "Bonfire Night"
   ],
   "pairings": [
    "#FFFFC2",
@@ -3991,8 +3991,8 @@
    "artistry"
   ],
   "uses": [
-   "interiors",
-   "art supplies",
+   "art suppliers",
+   "illustrations",
    "autumn themes"
   ],
   "pairings": [
@@ -4014,9 +4014,9 @@
    "tradition"
   ],
   "uses": [
-   "art supplies",
-   "interiors",
-   "heritage brands"
+   "furniture makers",
+   "headings",
+   "heritage themes"
   ],
   "pairings": [
    "#FFFFC2",
@@ -4037,9 +4037,9 @@
    "warmth"
   ],
   "uses": [
-   "furniture",
-   "heritage brands",
-   "libraries"
+   "furniture makers",
+   "headings",
+   "library themes"
   ],
   "pairings": [
    "#FFFFC2",
@@ -4060,9 +4060,9 @@
    "autumn"
   ],
   "uses": [
-   "autumn themes",
    "equestrian brands",
-   "hair colour"
+   "accents",
+   "autumn themes"
   ],
   "pairings": [
    "#FFFFC2",
@@ -4084,7 +4084,7 @@
   ],
   "uses": [
    "cafés",
-   "confectionery",
+   "surfaces",
    "winter themes"
   ],
   "pairings": [
@@ -4106,9 +4106,9 @@
    "warmth"
   ],
   "uses": [
-   "awards",
-   "jewellery",
-   "heritage design"
+   "award ceremonies",
+   "icons",
+   "third-place medals"
   ],
   "pairings": [
    "#000000",
@@ -4129,9 +4129,9 @@
    "understatement"
   ],
   "uses": [
-   "interiors",
-   "skincare",
-   "fashion"
+   "homeware brands",
+   "surfaces",
+   "minimalist themes"
   ],
   "pairings": [
    "#FFFFFF",
@@ -4152,9 +4152,9 @@
    "modernity"
   ],
   "uses": [
-   "backgrounds",
-   "interfaces",
-   "interiors"
+   "software companies",
+   "surfaces",
+   "minimalist themes"
   ],
   "pairings": [
    "#FFFF00",
@@ -4175,9 +4175,9 @@
    "modernity"
   ],
   "uses": [
-   "corporate design",
-   "text",
-   "interfaces"
+   "tech brands",
+   "body text",
+   "dark mode themes"
   ],
   "pairings": [
    "#FFFF00",
@@ -4198,9 +4198,9 @@
    "sophistication"
   ],
   "uses": [
-   "text",
-   "corporate design",
-   "menswear"
+   "consulting firms",
+   "body text",
+   "formal events"
   ],
   "pairings": [
    "#FFFF00",
@@ -4221,9 +4221,9 @@
    "understatement"
   ],
   "uses": [
-   "interiors",
-   "corporate design",
-   "outdoor gear"
+   "architecture firms",
+   "headings",
+   "rainy-day themes"
   ],
   "pairings": [
    "#FFFFC2",
@@ -4244,9 +4244,9 @@
    "neutrality"
   ],
   "uses": [
-   "interfaces",
-   "corporate design",
-   "interiors"
+   "software companies",
+   "icons",
+   "corporate reports"
   ],
   "pairings": [
    "#FFFFFF",
@@ -4267,9 +4267,9 @@
    "technology"
   ],
   "uses": [
-   "jewellery",
-   "tech brands",
-   "awards"
+   "jewellers",
+   "icons",
+   "25th anniversaries"
   ],
   "pairings": [
    "#000080",
@@ -4290,9 +4290,9 @@
    "professionalism"
   ],
   "uses": [
-   "interfaces",
    "tech brands",
-   "architecture"
+   "borders",
+   "futuristic themes"
   ],
   "pairings": [
    "#FFFF00",
@@ -4313,9 +4313,9 @@
    "understatement"
   ],
   "uses": [
-   "interiors",
-   "fashion",
-   "packaging"
+   "homeware brands",
+   "surfaces",
+   "Scandinavian themes"
   ],
   "pairings": [
    "#FFFFFF",
@@ -4336,9 +4336,9 @@
    "calm"
   ],
   "uses": [
-   "interiors",
-   "architecture",
-   "outdoor brands"
+   "architecture firms",
+   "backgrounds",
+   "natural themes"
   ],
   "pairings": [
    "#FFFFFF",
@@ -4359,9 +4359,9 @@
    "softness"
   ],
   "uses": [
-   "interiors",
-   "fashion",
-   "packaging"
+   "fashion retail",
+   "surfaces",
+   "minimalist themes"
   ],
   "pairings": [
    "#FFFFFF",
@@ -4382,9 +4382,9 @@
    "seriousness"
   ],
   "uses": [
-   "tech brands",
-   "automotive",
-   "menswear"
+   "car brands",
+   "icons",
+   "industrial themes"
   ],
   "pairings": [
    "#FFFFFF",
@@ -4405,9 +4405,9 @@
    "warmth"
   ],
   "uses": [
+   "stationery brands",
    "backgrounds",
-   "interiors",
-   "stationery"
+   "minimalist themes"
   ],
   "pairings": [
    "#000080",
@@ -4428,9 +4428,9 @@
    "elegance"
   ],
   "uses": [
+   "bakeries",
    "backgrounds",
-   "weddings",
-   "bakeries"
+   "weddings"
   ],
   "pairings": [
    "#000080",
@@ -4451,9 +4451,9 @@
    "calm"
   ],
   "uses": [
-   "weddings",
-   "stationery",
-   "luxury packaging"
+   "luxury stationery",
+   "backgrounds",
+   "weddings"
   ],
   "pairings": [
    "#000080",
@@ -4474,9 +4474,9 @@
    "warmth"
   ],
   "uses": [
-   "interiors",
-   "fashion",
-   "skincare"
+   "skincare",
+   "backgrounds",
+   "neutral interiors"
   ],
   "pairings": [
    "#FFFFFF",
@@ -4497,9 +4497,9 @@
    "subtlety"
   ],
   "uses": [
-   "interiors",
-   "stationery",
-   "backgrounds"
+   "paint brands",
+   "surfaces",
+   "Scandinavian themes"
   ],
   "pairings": [
    "#000080",
@@ -4520,9 +4520,9 @@
    "simplicity"
   ],
   "uses": [
-   "interiors",
-   "fashion",
-   "skincare"
+   "bedding brands",
+   "backgrounds",
+   "natural themes"
   ],
   "pairings": [
    "#000080",
@@ -4543,9 +4543,9 @@
    "quiet"
   ],
   "uses": [
-   "winter themes",
    "healthcare",
-   "backgrounds"
+   "backgrounds",
+   "winter holidays"
   ],
   "pairings": [
    "#000080",
@@ -4567,8 +4567,8 @@
   ],
   "uses": [
    "baby products",
-   "Easter themes",
-   "stationery"
+   "surfaces",
+   "Easter"
   ],
   "pairings": [
    "#808080",
@@ -4589,9 +4589,9 @@
    "friendliness"
   ],
   "uses": [
-   "baby products",
-   "summer themes",
-   "bakeries"
+   "bakeries",
+   "surfaces",
+   "summer themes"
   ],
   "pairings": [
    "#FFFFFF",
@@ -4612,9 +4612,9 @@
    "fun"
   ],
   "uses": [
-   "safety gear",
    "sportswear",
-   "nightlife"
+   "highlights",
+   "rave and nightlife themes"
   ],
   "pairings": [
    "#000000",
@@ -4636,8 +4636,8 @@
   ],
   "uses": [
    "tech brands",
-   "sports",
-   "links"
+   "links",
+   "sports events"
   ],
   "pairings": [
    "#FFFFFF",
@@ -4659,8 +4659,8 @@
   ],
   "uses": [
    "lifestyle brands",
-   "summer themes",
-   "cosmetics"
+   "buttons",
+   "summer themes"
   ],
   "pairings": [
    "#FFFFFF",
@@ -4682,8 +4682,8 @@
   ],
   "uses": [
    "restaurants",
-   "food packaging",
-   "interiors"
+   "accents",
+   "summer menus"
   ],
   "pairings": [
    "#FFFFFF",

@@ -490,3 +490,4 @@ Each phase lists its goal, tasks, acceptance criteria and a review checkpoint. P
 | 2026-10-19 | Reference lookup: nearest entry ≤ 2 ΔE = exact, ≤ 10 ΔE = "similar to <name>", else the basic family's entry | Over a 5,832-colour RGB grid: 7% exact, 85% similar, 8% family |
 | 2026-10-19 | `ColorDetails.associations` = associations followed by uses; new `referenceSource` field (name, hex, match, ΔE, label) | Spec defines associations as "moods, industries, uses"; the UI needs the "similar to …" label |
 | 2026-10-19 | `tools/validate_references.py` runs in CI (macOS job) and in `npm run check` | Data is platform independent |
+| 2026-10-19 | Review of 30 samples: all fit. "Uses" rewritten for all 204 entries as [industry, design role, theme or occasion]; the validator enforces the middle slot from a fixed list | User's feedback: the three uses were often too similar (e.g. khaki: outdoor gear, menswear, uniforms) |
