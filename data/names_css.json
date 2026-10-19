@@ -1,0 +1,755 @@
+{
+ "source": "CSS named colors (https://www.w3.org/TR/css-color-4/#named-colors)",
+ "license": "W3C Document License",
+ "colors": [
+  {
+   "name": "alice blue",
+   "css": "aliceblue",
+   "hex": "#F0F8FF"
+  },
+  {
+   "name": "antique white",
+   "css": "antiquewhite",
+   "hex": "#FAEBD7"
+  },
+  {
+   "name": "aqua",
+   "css": "aqua",
+   "hex": "#00FFFF",
+   "alias": true
+  },
+  {
+   "name": "aquamarine",
+   "css": "aquamarine",
+   "hex": "#7FFFD4"
+  },
+  {
+   "name": "azure",
+   "css": "azure",
+   "hex": "#F0FFFF"
+  },
+  {
+   "name": "beige",
+   "css": "beige",
+   "hex": "#F5F5DC"
+  },
+  {
+   "name": "bisque",
+   "css": "bisque",
+   "hex": "#FFE4C4"
+  },
+  {
+   "name": "black",
+   "css": "black",
+   "hex": "#000000"
+  },
+  {
+   "name": "blanched almond",
+   "css": "blanchedalmond",
+   "hex": "#FFEBCD"
+  },
+  {
+   "name": "blue",
+   "css": "blue",
+   "hex": "#0000FF"
+  },
+  {
+   "name": "blue violet",
+   "css": "blueviolet",
+   "hex": "#8A2BE2"
+  },
+  {
+   "name": "brown",
+   "css": "brown",
+   "hex": "#A52A2A"
+  },
+  {
+   "name": "burlywood",
+   "css": "burlywood",
+   "hex": "#DEB887"
+  },
+  {
+   "name": "cadet blue",
+   "css": "cadetblue",
+   "hex": "#5F9EA0"
+  },
+  {
+   "name": "chartreuse",
+   "css": "chartreuse",
+   "hex": "#7FFF00"
+  },
+  {
+   "name": "chocolate",
+   "css": "chocolate",
+   "hex": "#D2691E"
+  },
+  {
+   "name": "coral",
+   "css": "coral",
+   "hex": "#FF7F50"
+  },
+  {
+   "name": "cornflower blue",
+   "css": "cornflowerblue",
+   "hex": "#6495ED"
+  },
+  {
+   "name": "cornsilk",
+   "css": "cornsilk",
+   "hex": "#FFF8DC"
+  },
+  {
+   "name": "crimson",
+   "css": "crimson",
+   "hex": "#DC143C"
+  },
+  {
+   "name": "cyan",
+   "css": "cyan",
+   "hex": "#00FFFF"
+  },
+  {
+   "name": "dark blue",
+   "css": "darkblue",
+   "hex": "#00008B"
+  },
+  {
+   "name": "dark cyan",
+   "css": "darkcyan",
+   "hex": "#008B8B"
+  },
+  {
+   "name": "dark goldenrod",
+   "css": "darkgoldenrod",
+   "hex": "#B8860B"
+  },
+  {
+   "name": "dark gray",
+   "css": "darkgray",
+   "hex": "#A9A9A9",
+   "alias": true
+  },
+  {
+   "name": "dark green",
+   "css": "darkgreen",
+   "hex": "#006400"
+  },
+  {
+   "name": "dark grey",
+   "css": "darkgrey",
+   "hex": "#A9A9A9"
+  },
+  {
+   "name": "dark khaki",
+   "css": "darkkhaki",
+   "hex": "#BDB76B"
+  },
+  {
+   "name": "dark magenta",
+   "css": "darkmagenta",
+   "hex": "#8B008B"
+  },
+  {
+   "name": "dark olive green",
+   "css": "darkolivegreen",
+   "hex": "#556B2F"
+  },
+  {
+   "name": "dark orange",
+   "css": "darkorange",
+   "hex": "#FF8C00"
+  },
+  {
+   "name": "dark orchid",
+   "css": "darkorchid",
+   "hex": "#9932CC"
+  },
+  {
+   "name": "dark red",
+   "css": "darkred",
+   "hex": "#8B0000"
+  },
+  {
+   "name": "dark salmon",
+   "css": "darksalmon",
+   "hex": "#E9967A"
+  },
+  {
+   "name": "dark sea green",
+   "css": "darkseagreen",
+   "hex": "#8FBC8F"
+  },
+  {
+   "name": "dark slate blue",
+   "css": "darkslateblue",
+   "hex": "#483D8B"
+  },
+  {
+   "name": "dark slate gray",
+   "css": "darkslategray",
+   "hex": "#2F4F4F",
+   "alias": true
+  },
+  {
+   "name": "dark slate grey",
+   "css": "darkslategrey",
+   "hex": "#2F4F4F"
+  },
+  {
+   "name": "dark turquoise",
+   "css": "darkturquoise",
+   "hex": "#00CED1"
+  },
+  {
+   "name": "dark violet",
+   "css": "darkviolet",
+   "hex": "#9400D3"
+  },
+  {
+   "name": "deep pink",
+   "css": "deeppink",
+   "hex": "#FF1493"
+  },
+  {
+   "name": "deep sky blue",
+   "css": "deepskyblue",
+   "hex": "#00BFFF"
+  },
+  {
+   "name": "dim gray",
+   "css": "dimgray",
+   "hex": "#696969",
+   "alias": true
+  },
+  {
+   "name": "dim grey",
+   "css": "dimgrey",
+   "hex": "#696969"
+  },
+  {
+   "name": "dodger blue",
+   "css": "dodgerblue",
+   "hex": "#1E90FF"
+  },
+  {
+   "name": "firebrick",
+   "css": "firebrick",
+   "hex": "#B22222"
+  },
+  {
+   "name": "floral white",
+   "css": "floralwhite",
+   "hex": "#FFFAF0"
+  },
+  {
+   "name": "forest green",
+   "css": "forestgreen",
+   "hex": "#228B22"
+  },
+  {
+   "name": "fuchsia",
+   "css": "fuchsia",
+   "hex": "#FF00FF",
+   "alias": true
+  },
+  {
+   "name": "gainsboro",
+   "css": "gainsboro",
+   "hex": "#DCDCDC"
+  },
+  {
+   "name": "ghost white",
+   "css": "ghostwhite",
+   "hex": "#F8F8FF"
+  },
+  {
+   "name": "gold",
+   "css": "gold",
+   "hex": "#FFD700"
+  },
+  {
+   "name": "goldenrod",
+   "css": "goldenrod",
+   "hex": "#DAA520"
+  },
+  {
+   "name": "gray",
+   "css": "gray",
+   "hex": "#808080",
+   "alias": true
+  },
+  {
+   "name": "green",
+   "css": "green",
+   "hex": "#008000"
+  },
+  {
+   "name": "green yellow",
+   "css": "greenyellow",
+   "hex": "#ADFF2F"
+  },
+  {
+   "name": "grey",
+   "css": "grey",
+   "hex": "#808080"
+  },
+  {
+   "name": "honeydew",
+   "css": "honeydew",
+   "hex": "#F0FFF0"
+  },
+  {
+   "name": "hot pink",
+   "css": "hotpink",
+   "hex": "#FF69B4"
+  },
+  {
+   "name": "indian red",
+   "css": "indianred",
+   "hex": "#CD5C5C"
+  },
+  {
+   "name": "indigo",
+   "css": "indigo",
+   "hex": "#4B0082"
+  },
+  {
+   "name": "ivory",
+   "css": "ivory",
+   "hex": "#FFFFF0"
+  },
+  {
+   "name": "khaki",
+   "css": "khaki",
+   "hex": "#F0E68C"
+  },
+  {
+   "name": "lavender",
+   "css": "lavender",
+   "hex": "#E6E6FA"
+  },
+  {
+   "name": "lavender blush",
+   "css": "lavenderblush",
+   "hex": "#FFF0F5"
+  },
+  {
+   "name": "lawn green",
+   "css": "lawngreen",
+   "hex": "#7CFC00"
+  },
+  {
+   "name": "lemon chiffon",
+   "css": "lemonchiffon",
+   "hex": "#FFFACD"
+  },
+  {
+   "name": "light blue",
+   "css": "lightblue",
+   "hex": "#ADD8E6"
+  },
+  {
+   "name": "light coral",
+   "css": "lightcoral",
+   "hex": "#F08080"
+  },
+  {
+   "name": "light cyan",
+   "css": "lightcyan",
+   "hex": "#E0FFFF"
+  },
+  {
+   "name": "light goldenrod yellow",
+   "css": "lightgoldenrodyellow",
+   "hex": "#FAFAD2"
+  },
+  {
+   "name": "light gray",
+   "css": "lightgray",
+   "hex": "#D3D3D3",
+   "alias": true
+  },
+  {
+   "name": "light green",
+   "css": "lightgreen",
+   "hex": "#90EE90"
+  },
+  {
+   "name": "light grey",
+   "css": "lightgrey",
+   "hex": "#D3D3D3"
+  },
+  {
+   "name": "light pink",
+   "css": "lightpink",
+   "hex": "#FFB6C1"
+  },
+  {
+   "name": "light salmon",
+   "css": "lightsalmon",
+   "hex": "#FFA07A"
+  },
+  {
+   "name": "light sea green",
+   "css": "lightseagreen",
+   "hex": "#20B2AA"
+  },
+  {
+   "name": "light sky blue",
+   "css": "lightskyblue",
+   "hex": "#87CEFA"
+  },
+  {
+   "name": "light slate gray",
+   "css": "lightslategray",
+   "hex": "#778899",
+   "alias": true
+  },
+  {
+   "name": "light slate grey",
+   "css": "lightslategrey",
+   "hex": "#778899"
+  },
+  {
+   "name": "light steel blue",
+   "css": "lightsteelblue",
+   "hex": "#B0C4DE"
+  },
+  {
+   "name": "light yellow",
+   "css": "lightyellow",
+   "hex": "#FFFFE0"
+  },
+  {
+   "name": "lime",
+   "css": "lime",
+   "hex": "#00FF00"
+  },
+  {
+   "name": "lime green",
+   "css": "limegreen",
+   "hex": "#32CD32"
+  },
+  {
+   "name": "linen",
+   "css": "linen",
+   "hex": "#FAF0E6"
+  },
+  {
+   "name": "magenta",
+   "css": "magenta",
+   "hex": "#FF00FF"
+  },
+  {
+   "name": "maroon",
+   "css": "maroon",
+   "hex": "#800000"
+  },
+  {
+   "name": "medium aquamarine",
+   "css": "mediumaquamarine",
+   "hex": "#66CDAA"
+  },
+  {
+   "name": "medium blue",
+   "css": "mediumblue",
+   "hex": "#0000CD"
+  },
+  {
+   "name": "medium orchid",
+   "css": "mediumorchid",
+   "hex": "#BA55D3"
+  },
+  {
+   "name": "medium purple",
+   "css": "mediumpurple",
+   "hex": "#9370DB"
+  },
+  {
+   "name": "medium sea green",
+   "css": "mediumseagreen",
+   "hex": "#3CB371"
+  },
+  {
+   "name": "medium slate blue",
+   "css": "mediumslateblue",
+   "hex": "#7B68EE"
+  },
+  {
+   "name": "medium spring green",
+   "css": "mediumspringgreen",
+   "hex": "#00FA9A"
+  },
+  {
+   "name": "medium turquoise",
+   "css": "mediumturquoise",
+   "hex": "#48D1CC"
+  },
+  {
+   "name": "medium violet red",
+   "css": "mediumvioletred",
+   "hex": "#C71585"
+  },
+  {
+   "name": "midnight blue",
+   "css": "midnightblue",
+   "hex": "#191970"
+  },
+  {
+   "name": "mint cream",
+   "css": "mintcream",
+   "hex": "#F5FFFA"
+  },
+  {
+   "name": "misty rose",
+   "css": "mistyrose",
+   "hex": "#FFE4E1"
+  },
+  {
+   "name": "moccasin",
+   "css": "moccasin",
+   "hex": "#FFE4B5"
+  },
+  {
+   "name": "navajo white",
+   "css": "navajowhite",
+   "hex": "#FFDEAD"
+  },
+  {
+   "name": "navy",
+   "css": "navy",
+   "hex": "#000080"
+  },
+  {
+   "name": "old lace",
+   "css": "oldlace",
+   "hex": "#FDF5E6"
+  },
+  {
+   "name": "olive",
+   "css": "olive",
+   "hex": "#808000"
+  },
+  {
+   "name": "olive drab",
+   "css": "olivedrab",
+   "hex": "#6B8E23"
+  },
+  {
+   "name": "orange",
+   "css": "orange",
+   "hex": "#FFA500"
+  },
+  {
+   "name": "orange red",
+   "css": "orangered",
+   "hex": "#FF4500"
+  },
+  {
+   "name": "orchid",
+   "css": "orchid",
+   "hex": "#DA70D6"
+  },
+  {
+   "name": "pale goldenrod",
+   "css": "palegoldenrod",
+   "hex": "#EEE8AA"
+  },
+  {
+   "name": "pale green",
+   "css": "palegreen",
+   "hex": "#98FB98"
+  },
+  {
+   "name": "pale turquoise",
+   "css": "paleturquoise",
+   "hex": "#AFEEEE"
+  },
+  {
+   "name": "pale violet red",
+   "css": "palevioletred",
+   "hex": "#DB7093"
+  },
+  {
+   "name": "papaya whip",
+   "css": "papayawhip",
+   "hex": "#FFEFD5"
+  },
+  {
+   "name": "peach puff",
+   "css": "peachpuff",
+   "hex": "#FFDAB9"
+  },
+  {
+   "name": "peru",
+   "css": "peru",
+   "hex": "#CD853F"
+  },
+  {
+   "name": "pink",
+   "css": "pink",
+   "hex": "#FFC0CB"
+  },
+  {
+   "name": "plum",
+   "css": "plum",
+   "hex": "#DDA0DD"
+  },
+  {
+   "name": "powder blue",
+   "css": "powderblue",
+   "hex": "#B0E0E6"
+  },
+  {
+   "name": "purple",
+   "css": "purple",
+   "hex": "#800080"
+  },
+  {
+   "name": "rebecca purple",
+   "css": "rebeccapurple",
+   "hex": "#663399"
+  },
+  {
+   "name": "red",
+   "css": "red",
+   "hex": "#FF0000"
+  },
+  {
+   "name": "rosy brown",
+   "css": "rosybrown",
+   "hex": "#BC8F8F"
+  },
+  {
+   "name": "royal blue",
+   "css": "royalblue",
+   "hex": "#4169E1"
+  },
+  {
+   "name": "saddle brown",
+   "css": "saddlebrown",
+   "hex": "#8B4513"
+  },
+  {
+   "name": "salmon",
+   "css": "salmon",
+   "hex": "#FA8072"
+  },
+  {
+   "name": "sandy brown",
+   "css": "sandybrown",
+   "hex": "#F4A460"
+  },
+  {
+   "name": "sea green",
+   "css": "seagreen",
+   "hex": "#2E8B57"
+  },
+  {
+   "name": "seashell",
+   "css": "seashell",
+   "hex": "#FFF5EE"
+  },
+  {
+   "name": "sienna",
+   "css": "sienna",
+   "hex": "#A0522D"
+  },
+  {
+   "name": "silver",
+   "css": "silver",
+   "hex": "#C0C0C0"
+  },
+  {
+   "name": "sky blue",
+   "css": "skyblue",
+   "hex": "#87CEEB"
+  },
+  {
+   "name": "slate blue",
+   "css": "slateblue",
+   "hex": "#6A5ACD"
+  },
+  {
+   "name": "slate gray",
+   "css": "slategray",
+   "hex": "#708090",
+   "alias": true
+  },
+  {
+   "name": "slate grey",
+   "css": "slategrey",
+   "hex": "#708090"
+  },
+  {
+   "name": "snow",
+   "css": "snow",
+   "hex": "#FFFAFA"
+  },
+  {
+   "name": "spring green",
+   "css": "springgreen",
+   "hex": "#00FF7F"
+  },
+  {
+   "name": "steel blue",
+   "css": "steelblue",
+   "hex": "#4682B4"
+  },
+  {
+   "name": "tan",
+   "css": "tan",
+   "hex": "#D2B48C"
+  },
+  {
+   "name": "teal",
+   "css": "teal",
+   "hex": "#008080"
+  },
+  {
+   "name": "thistle",
+   "css": "thistle",
+   "hex": "#D8BFD8"
+  },
+  {
+   "name": "tomato",
+   "css": "tomato",
+   "hex": "#FF6347"
+  },
+  {
+   "name": "turquoise",
+   "css": "turquoise",
+   "hex": "#40E0D0"
+  },
+  {
+   "name": "violet",
+   "css": "violet",
+   "hex": "#EE82EE"
+  },
+  {
+   "name": "wheat",
+   "css": "wheat",
+   "hex": "#F5DEB3"
+  },
+  {
+   "name": "white",
+   "css": "white",
+   "hex": "#FFFFFF"
+  },
+  {
+   "name": "white smoke",
+   "css": "whitesmoke",
+   "hex": "#F5F5F5"
+  },
+  {
+   "name": "yellow",
+   "css": "yellow",
+   "hex": "#FFFF00"
+  },
+  {
+   "name": "yellow green",
+   "css": "yellowgreen",
+   "hex": "#9ACD32"
+  }
+ ]
+}

@@ -1,0 +1,38 @@
+// Shared by tests/basic_names.rs and examples/name_table.rs via include!.
+
+/// (CSS name, hex, expected basic term). Chosen to avoid colours that sit on a basic-term
+/// boundary (coral, violet, olive, teal, turquoise, tan, sienna…).
+const TEST_COLORS: [(&str, &str, &str); 32] = [
+    ("red", "#FF0000", "red"),
+    ("dark red", "#8B0000", "red"),
+    ("crimson", "#DC143C", "red"),
+    ("firebrick", "#B22222", "red"),
+    ("orange", "#FFA500", "orange"),
+    ("dark orange", "#FF8C00", "orange"),
+    ("gold", "#FFD700", "yellow"),
+    ("yellow", "#FFFF00", "yellow"),
+    ("green", "#008000", "green"),
+    ("lime", "#00FF00", "green"),
+    ("forest green", "#228B22", "green"),
+    ("dark green", "#006400", "green"),
+    ("sea green", "#2E8B57", "green"),
+    ("blue", "#0000FF", "blue"),
+    ("navy", "#000080", "blue"),
+    ("royal blue", "#4169E1", "blue"),
+    ("sky blue", "#87CEEB", "blue"),
+    ("steel blue", "#4682B4", "blue"),
+    ("dodger blue", "#1E90FF", "blue"),
+    ("purple", "#800080", "purple"),
+    ("indigo", "#4B0082", "purple"),
+    ("medium purple", "#9370DB", "purple"),
+    ("pink", "#FFC0CB", "pink"),
+    ("hot pink", "#FF69B4", "pink"),
+    ("deep pink", "#FF1493", "pink"),
+    ("saddle brown", "#8B4513", "brown"),
+    ("dark brown", "#5C4033", "brown"),
+    ("black", "#000000", "black"),
+    ("white", "#FFFFFF", "white"),
+    ("grey", "#808080", "grey"),
+    ("silver", "#C0C0C0", "grey"),
+    ("dim grey", "#696969", "grey"),
+];

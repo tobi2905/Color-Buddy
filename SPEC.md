@@ -228,17 +228,21 @@ Each phase lists its goal, tasks, acceptance criteria and a review checkpoint. P
 **Goal:** prove that we can read the correct pixel colors under the cursor, fast enough, on both platforms.
 
 **Tasks**
-- [ ] `sampler.rs`: get global cursor position in physical pixels on each monitor.
-- [ ] Capture an N×N area (N = 1, 3, 5, configurable) around the cursor.
-- [ ] Handle HiDPI and multi-monitor setups with different scale factors.
-- [ ] Convert captured pixels to sRGB; detect and log when the display profile isn't sRGB (no correction yet).
-- [ ] Register a global hotkey (default `Ctrl+Shift+C` / `Cmd+Shift+C`) that starts/stops sampling.
-- [ ] Emit a temporary `color-hovered` event with hex only; show it in a bare debug window.
-- [ ] macOS: detect missing Screen Recording permission and surface a clear error.
-- [ ] Measure: latency from hotkey to first sample, and samples per second.
+- [x] `sampler.rs`: get global cursor position in physical pixels on each monitor.
+- [x] Capture an N×N area (N = 1, 3, 5, configurable) around the cursor.
+- [x] Handle HiDPI and multi-monitor setups with different scale factors. *(Implemented per display; verified on a single 2× Retina display only. Multi-monitor still untested.)*
+- [x] Convert captured pixels to sRGB; detect and log when the display profile isn't sRGB (no correction yet). *(macOS: the screen buffer is stored in the display profile, so captured pixels are converted back to sRGB with ColorSync. Windows: no correction, profile is logged.)*
+- [x] Register a global hotkey (default `Ctrl+Shift+C` / `Cmd+Shift+C`) that starts/stops sampling.
+- [x] Emit a temporary `color-hovered` event with hex only; show it in a bare debug window.
+- [x] macOS: detect missing Screen Recording permission and surface a clear error.
+- [x] Measure: latency from hotkey to first sample, and samples per second. *(macOS done; Windows pending, see TODO below.)*
+- [ ] **TODO (deferred, no Windows machine yet):** verify on Windows, including a display at 150% scaling:
+    - `cargo run --release --example sampler_bench` (timing per N) and `... -- watch` while hovering `tools/test-patches.png`.
+    - `$env:VITE_SELFTEST="1"; npm run tauri dev` and check the `self-test` log lines (expect every patch exact at N = 1, 3, 5).
+    - Press `Ctrl+Shift+C` in the app and read "Hotkey to first sample" in the debug window.
 
 **Acceptance criteria**
-- Hovering a known test image (pure #FF0000, #00FF00, #0000FF, #87CEEB patches) reports the exact hex on both platforms, including on a scaled (e.g. 150%) display.
+- Hovering a known test image (pure #FF0000, #00FF00, #0000FF, #87CEEB patches) reports the exact hex on sRGB displays on both platforms, including on a scaled (e.g. 150%) display. On wide-gamut (e.g. Display P3) Macs, each channel is within 3 of the expected value; fully saturated colors at the gamut edge can't round-trip exactly through the 8-bit display buffer (see Decision log).
 - At least 30 samples per second with N = 5.
 - Hotkey to first sample in under 150 ms.
 
@@ -251,16 +255,16 @@ Each phase lists its goal, tasks, acceptance criteria and a review checkpoint. P
 **Goal:** given any hex, return correct `ColorInfo`.
 
 **Tasks**
-- [ ] `convert.rs`: sRGB ↔ linear RGB ↔ XYZ (D65) ↔ CIELAB, and ↔ OKLab/OKLCH.
-- [ ] `delta_e.rs`: CIEDE2000.
-- [ ] Prepare `data/` name lists:
+- [x] `convert.rs`: sRGB ↔ linear RGB ↔ XYZ (D65) ↔ CIELAB, and ↔ OKLab/OKLCH.
+- [x] `delta_e.rs`: CIEDE2000.
+- [x] Prepare `data/` name lists:
     - `names_basic.json`: 11 basic terms (red, orange, yellow, green, blue, purple, pink, brown, black, white, grey) with representative hex values.
     - `names_xkcd.json`: XKCD color survey names (CC0).
     - `names_css.json`: CSS named colors.
-- [ ] `naming.rs`: load lists, precompute Lab, build a k-d tree per list; nearest lookup by Lab, refined by CIEDE2000 over the k nearest candidates.
-- [ ] `describe.rs`: map OKLCH to words for lightness (very dark … very light), chroma (greyish … vivid), temperature (warm/cool/neutral), plus the basic hue name.
-- [ ] `search_color_by_name`: fuzzy match across all lists (e.g. "skyblue", "sky blue", "Sky-Blue" all match).
-- [ ] Expose `get_color_info` and `search_color_by_name` as Tauri commands.
+- [x] `naming.rs`: load lists, precompute Lab, build a k-d tree per list; nearest lookup by Lab, refined by CIEDE2000 over the k nearest candidates.
+- [x] `describe.rs`: map OKLCH to words for lightness (very dark … very light), chroma (greyish … vivid), temperature (warm/cool/neutral), plus the basic hue name.
+- [x] `search_color_by_name`: fuzzy match across all lists (e.g. "skyblue", "sky blue", "Sky-Blue" all match).
+- [x] Expose `get_color_info` and `search_color_by_name` as Tauri commands.
 
 **Acceptance criteria**
 - Conversions match published reference values (e.g. Bruce Lindbloom / CSS Color 4 test values) within 0.01.
@@ -277,19 +281,21 @@ Each phase lists its goal, tasks, acceptance criteria and a review checkpoint. P
 **Goal:** generate palettes and judge whether their colors are distinguishable and readable.
 
 **Tasks**
-- [ ] `palette.rs`: generate schemes in OKLCH, holding lightness and chroma where sensible:
+- [x] `palette.rs`: generate schemes in OKLCH, holding lightness and chroma where sensible:
     - Complementary (h + 180°), Analogous (h ± 30°), Triadic (h ± 120°), Split-complementary (h ± 150°), Monochrome (lightness steps only).
+    - *Changed at checkpoint 3: accents step 0.2 (OKLCH L) lighter or darker than the primary instead of holding its lightness, so they stay apart for colourblind viewers.*
     - Gamut-map results back into sRGB (reduce chroma until in gamut).
     - Assign roles (background, surface, primary, accent, text) by lightness and chroma.
     - Write a one-line `explanation` per palette in plain language.
-- [ ] `simulate.rs`: Machado et al. (2009) matrices for protan, deutan, tritan with severity 0–1 (interpolate between the published severity steps); achromat = luminance only. Apply in linear RGB.
-- [ ] `check.rs`: for each color pair, ΔE2000 under normal vision and each simulated type. Initial thresholds (tune later):
+- [x] `simulate.rs`: Machado et al. (2009) matrices for protan, deutan, tritan with severity 0–1 (interpolate between the published severity steps); achromat = luminance only. Apply in linear RGB.
+- [x] `check.rs`: for each color pair, ΔE2000 under normal vision and each simulated type. Initial thresholds (tune later):
     - ΔE ≥ 15 → `Distinct`
     - 8 ≤ ΔE < 15 → `Caution`
     - ΔE < 8 → `HardToTell`
-- [ ] `contrast.rs`: WCAG 2.x contrast ratio; flag text/background pairs below 4.5:1 (AA) and 7:1 (AAA).
-- [ ] "Confused with": simulate a color under the user's profile, return named colors within a small ΔE (start at 5) of the simulated result, excluding near-identical names.
-- [ ] Expose `generate_palettes`, `check_palette` and `get_color_details` (without references yet) as commands.
+    - *Tuned at checkpoint 3: these apply to normal vision; simulated deficiencies use 20 / 10. Background/surface pairs are marked `subtle` and not counted as warnings.*
+- [x] `contrast.rs`: WCAG 2.x contrast ratio; flag text/background pairs below 4.5:1 (AA) and 7:1 (AAA).
+- [x] "Confused with": simulate a color under the user's profile, return named colors within a small ΔE (start at 5) of the simulated result, excluding near-identical names.
+- [x] Expose `generate_palettes`, `check_palette` and `get_color_details` (without references yet) as commands.
 
 **Acceptance criteria**
 - Simulation output matches reference images/values from the Machado paper or a trusted implementation (e.g. DaltonLens) within a small tolerance.
@@ -456,3 +462,27 @@ Each phase lists its goal, tasks, acceptance criteria and a review checkpoint. P
 | 2026-10-19 | ESLint 9 (not 10) | `eslint-plugin-jsx-a11y` doesn't support ESLint 10 yet; a11y lint needed for Phase 6 |
 | 2026-10-19 | Cargo workspace at repo root (`src-tauri`, `crates/color-core`); release profile at root | Profiles only apply from the workspace root |
 | 2026-10-19 | Working app name "Color-Buddy", identifier `com.colorbuddy.app` | Placeholder until the app-name open question is settled |
+| 2026-10-19 | Cursor position read directly from the OS (`CGEventGetLocation` / `GetCursorPos`), not `device_query` | `device_query` requires macOS Accessibility permission and truncates to whole points; Tauri's `cursor_position` uses the primary display's scale on every monitor |
+| 2026-10-19 | Windows capture: `xcap` (GDI region capture, physical pixels) | Pixel-exact and fast enough; no colour management on the Windows desktop |
+| 2026-10-19 | macOS capture: native CoreGraphics (`CGWindowListCreateImage`) + ColorSync conversion to sRGB, not `xcap` | xcap uses the same API but returns display-profile values (sRGB #FF0000 read as #EA3323 on P3) and whole-point regions. ~20 ms/capture (vsync-bound), ~44/s headroom |
+| 2026-10-19 | ScreenCaptureKit evaluated and not adopted for now | Screenshot API ~45 ms per capture (< 30/s) and no accuracy gain (#00FF00 → #03FF00 SDR, #02FF00 HDR). Revisit if Apple removes `CGWindowListCreateImage` (deprecated) |
+| 2026-10-19 | Acceptance relaxed to ±3 per channel on wide-gamut Macs | 8-bit P3 screen buffer loses precision for sRGB gamut-edge colours (#00FF00 stored as #75FB4C → #03FF00); approved by user |
+| 2026-10-19 | Sampling loop capped at 30 Hz | Matches the `color-hovered` rate in the spec; capture capacity is higher |
+| 2026-10-19 | Name levels: basic = 11 basic terms, descriptive = CSS named colours (148), precise = XKCD survey (922) | CSS names are familiar to web designers; XKCD is finer-grained. Approved by user |
+| 2026-10-19 | Basic-term anchors = every XKCD survey name whose last word is the term (540 anchors, e.g. "reddish brown" → brown); searched exhaustively | Survey-derived rather than hand-picked; only the 11 plain terms + light/dark variants misnamed indigo and sienna. Exhaustive because white/black have only 2 anchors each (~0.13 ms) |
+| 2026-10-19 | k-d tree in chroma-compressed Lab (a*, b* ÷ (1 + 0.045·C)), K = 64, then CIEDE2000 | Plain Lab with K = 8 picked a different name than exhaustive search for 7% of XKCD lookups; K = 64 differs for 0.05% (≤ 1.0 ΔE worse) at ~10 µs |
+| 2026-10-19 | Removed 27 crude XKCD names (e.g. containing "puke", "poop"); split 4 glued names ("lightblue" → "light blue") | Names are shown to users |
+| 2026-10-19 | Conversion references use the sRGB matrix derived from its primaries (CSS Color 4 / Lindbloom); OKLCH hue compared within 0.05° | The 4-decimal IEC matrix shifts CIELAB by ~0.02; OKLab matrix variants differ by ~0.02° in hue |
+| 2026-10-19 | Description saturation = min(chroma relative to the sRGB gamut at that L/h, C / 0.15) | Relative chroma alone called pale pink "vivid" |
+| 2026-10-19 | Basic-name test set avoids boundary colours (coral, violet, olive, teal, tan, sienna); sienna #A0522D is named orange | Boundary colours have no single correct basic name |
+| 2026-10-19 | Sighted review: all 32 test colours fit; 21 boundary colours checked (results in `tests/boundary_names.rs`) | Required by checkpoint 2 |
+| 2026-10-19 | Boundary colours show both basic terms, closer one first (`basicAlternative`, description ends ", bordering on X") when the second term is within 2.0 ΔE | User's call. Every review case of "either" or second-term preference had a gap ≤ 1.5 |
+| 2026-10-19 | Known miss: violet #EE82EE is named pink (reviewer: purple, 6.8 ΔE further) | Not tuned away for one colour; revisit with beta feedback (Phase 8) |
+| 2026-10-19 | "Confused with" = CSS-named colours that look alike under the user's profile (simulated ΔE < 5) but differ for typical vision (ΔE ≥ 15) and belong to another basic family | User's choice: a mix-up warning rather than a description of their perception |
+| 2026-10-19 | Check grid uses full severity for every deficiency | User's choice: a passing palette works for all colourblind viewers; the profile drives "confused with" |
+| 2026-10-19 | Machado matrices exported from DaltonLens (`tools/gen_machado.py`); severities between steps interpolated linearly | DaltonLens' own in-between interpolation uses an unscaled weight, so tests compare only at the published steps (108 cases, ±1 per channel) |
+| 2026-10-19 | Palettes: background/surface/text are tints and a shade of the base hue (OKLCH L 0.98 / 0.94 / 0.25); primary is the base; accents rotate hue at the base's L (clamped 0.35–0.85) and C; near-grey bases get accent chroma 0.10; chroma reduced to fit sRGB | Text on background ≥ 7:1 for every base tested (216 bases × 5 schemes) |
+| 2026-10-19 | PairCheck/ColorDetails and enums serialise as camelCase (`hardToTell`, `splitComplementary`, `contrastRatio`) | Matches the TypeScript mirror |
+| 2026-10-19 | Thresholds: normal vision 15 / 8, simulated deficiencies 20 / 10 | User's choice at checkpoint 3. Red vs green under deutan measured 15.7 (lightness only); the margin flags it without adding noise for typical vision |
+| 2026-10-19 | Background/surface pairs marked `subtle` and excluded from warnings (`check_palette` takes optional roles) | User's choice: a deliberate subtle tint was "hard to tell" in every palette |
+| 2026-10-19 | Accents offset 0.2 OKLCH L from the primary (either side when both fit, else two steps one way; clamped 0.30–0.90) | User's choice. Across the 25 review palettes, hard-to-tell pairs fell: protan 12→3, deutan 13→1, tritan 7→0, achromat 78→19 |

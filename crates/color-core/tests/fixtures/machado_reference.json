@@ -1,0 +1,653 @@
+{
+ "source": "DaltonLens Simulator_Machado2009",
+ "cases": [
+  {
+   "hex": "#FF0000",
+   "deficiency": "protan",
+   "severity": 0.3,
+   "expected": "#CF4A00"
+  },
+  {
+   "hex": "#FF0000",
+   "deficiency": "protan",
+   "severity": 0.7,
+   "expected": "#995B00"
+  },
+  {
+   "hex": "#FF0000",
+   "deficiency": "protan",
+   "severity": 1.0,
+   "expected": "#6C5F00"
+  },
+  {
+   "hex": "#FF0000",
+   "deficiency": "deutan",
+   "severity": 0.3,
+   "expected": "#D66300"
+  },
+  {
+   "hex": "#FF0000",
+   "deficiency": "deutan",
+   "severity": 0.7,
+   "expected": "#B48200"
+  },
+  {
+   "hex": "#FF0000",
+   "deficiency": "deutan",
+   "severity": 1.0,
+   "expected": "#A39000"
+  },
+  {
+   "hex": "#FF0000",
+   "deficiency": "tritan",
+   "severity": 0.3,
+   "expected": "#F42D1E"
+  },
+  {
+   "hex": "#FF0000",
+   "deficiency": "tritan",
+   "severity": 0.7,
+   "expected": "#FE0000"
+  },
+  {
+   "hex": "#FF0000",
+   "deficiency": "tritan",
+   "severity": 1.0,
+   "expected": "#FE000E"
+  },
+  {
+   "hex": "#00FF00",
+   "deficiency": "protan",
+   "severity": 0.3,
+   "expected": "#B5F200"
+  },
+  {
+   "hex": "#00FF00",
+   "deficiency": "protan",
+   "severity": 0.7,
+   "expected": "#EDE900"
+  },
+  {
+   "hex": "#00FF00",
+   "deficiency": "protan",
+   "severity": 1.0,
+   "expected": "#FEE500"
+  },
+  {
+   "hex": "#00FF00",
+   "deficiency": "deutan",
+   "severity": 0.3,
+   "expected": "#AFED25"
+  },
+  {
+   "hex": "#00FF00",
+   "deficiency": "deutan",
+   "severity": 0.7,
+   "expected": "#DEDE33"
+  },
+  {
+   "hex": "#00FF00",
+   "deficiency": "deutan",
+   "severity": 1.0,
+   "expected": "#EED63A"
+  },
+  {
+   "hex": "#00FF00",
+   "deficiency": "tritan",
+   "severity": 0.3,
+   "expected": "#64F86B"
+  },
+  {
+   "hex": "#00FF00",
+   "deficiency": "tritan",
+   "severity": 0.7,
+   "expected": "#00FCAA"
+  },
+  {
+   "hex": "#00FF00",
+   "deficiency": "tritan",
+   "severity": 1.0,
+   "expected": "#00F7D8"
+  },
+  {
+   "hex": "#0000FF",
+   "deficiency": "protan",
+   "severity": 0.3,
+   "expected": "#0038FE"
+  },
+  {
+   "hex": "#0000FF",
+   "deficiency": "protan",
+   "severity": 0.7,
+   "expected": "#004EFE"
+  },
+  {
+   "hex": "#0000FF",
+   "deficiency": "protan",
+   "severity": 1.0,
+   "expected": "#0058FE"
+  },
+  {
+   "hex": "#0000FF",
+   "deficiency": "deutan",
+   "severity": 0.3,
+   "expected": "#002DFD"
+  },
+  {
+   "hex": "#0000FF",
+   "deficiency": "deutan",
+   "severity": 0.7,
+   "expected": "#003AFC"
+  },
+  {
+   "hex": "#0000FF",
+   "deficiency": "deutan",
+   "severity": 1.0,
+   "expected": "#003DFB"
+  },
+  {
+   "hex": "#0000FF",
+   "deficiency": "tritan",
+   "severity": 0.3,
+   "expected": "#0031EB"
+  },
+  {
+   "hex": "#0000FF",
+   "deficiency": "tritan",
+   "severity": 0.7,
+   "expected": "#004FCB"
+  },
+  {
+   "hex": "#0000FF",
+   "deficiency": "tritan",
+   "severity": 1.0,
+   "expected": "#006B95"
+  },
+  {
+   "hex": "#008000",
+   "deficiency": "protan",
+   "severity": 0.3,
+   "expected": "#597900"
+  },
+  {
+   "hex": "#008000",
+   "deficiency": "protan",
+   "severity": 0.7,
+   "expected": "#767400"
+  },
+  {
+   "hex": "#008000",
+   "deficiency": "protan",
+   "severity": 1.0,
+   "expected": "#837200"
+  },
+  {
+   "hex": "#008000",
+   "deficiency": "deutan",
+   "severity": 0.3,
+   "expected": "#56760C"
+  },
+  {
+   "hex": "#008000",
+   "deficiency": "deutan",
+   "severity": 0.7,
+   "expected": "#6E6E14"
+  },
+  {
+   "hex": "#008000",
+   "deficiency": "deutan",
+   "severity": 1.0,
+   "expected": "#776A18"
+  },
+  {
+   "hex": "#008000",
+   "deficiency": "tritan",
+   "severity": 0.3,
+   "expected": "#2E7C32"
+  },
+  {
+   "hex": "#008000",
+   "deficiency": "tritan",
+   "severity": 0.7,
+   "expected": "#007E53"
+  },
+  {
+   "hex": "#008000",
+   "deficiency": "tritan",
+   "severity": 1.0,
+   "expected": "#007B6B"
+  },
+  {
+   "hex": "#87CEEB",
+   "deficiency": "protan",
+   "severity": 0.3,
+   "expected": "#A1CBEB"
+  },
+  {
+   "hex": "#87CEEB",
+   "deficiency": "protan",
+   "severity": 0.7,
+   "expected": "#B4CAEC"
+  },
+  {
+   "hex": "#87CEEB",
+   "deficiency": "protan",
+   "severity": 1.0,
+   "expected": "#BECAEC"
+  },
+  {
+   "hex": "#87CEEB",
+   "deficiency": "deutan",
+   "severity": 0.3,
+   "expected": "#9DC7EB"
+  },
+  {
+   "hex": "#87CEEB",
+   "deficiency": "deutan",
+   "severity": 0.7,
+   "expected": "#AAC2EA"
+  },
+  {
+   "hex": "#87CEEB",
+   "deficiency": "deutan",
+   "severity": 1.0,
+   "expected": "#AFBFEA"
+  },
+  {
+   "hex": "#87CEEB",
+   "deficiency": "tritan",
+   "severity": 0.3,
+   "expected": "#8DCDE5"
+  },
+  {
+   "hex": "#87CEEB",
+   "deficiency": "tritan",
+   "severity": 0.7,
+   "expected": "#6CD3E0"
+  },
+  {
+   "hex": "#87CEEB",
+   "deficiency": "tritan",
+   "severity": 1.0,
+   "expected": "#5CD6D7"
+  },
+  {
+   "hex": "#FFA500",
+   "deficiency": "protan",
+   "severity": 0.3,
+   "expected": "#E7AA00"
+  },
+  {
+   "hex": "#FFA500",
+   "deficiency": "protan",
+   "severity": 0.7,
+   "expected": "#D1AC00"
+  },
+  {
+   "hex": "#FFA500",
+   "deficiency": "protan",
+   "severity": 1.0,
+   "expected": "#C3AB00"
+  },
+  {
+   "hex": "#FFA500",
+   "deficiency": "deutan",
+   "severity": 0.3,
+   "expected": "#EBB100"
+  },
+  {
+   "hex": "#FFA500",
+   "deficiency": "deutan",
+   "severity": 0.7,
+   "expected": "#DEBB04"
+  },
+  {
+   "hex": "#FFA500",
+   "deficiency": "deutan",
+   "severity": 1.0,
+   "expected": "#D8C00D"
+  },
+  {
+   "hex": "#FFA500",
+   "deficiency": "tritan",
+   "severity": 0.3,
+   "expected": "#F9A54A"
+  },
+  {
+   "hex": "#FFA500",
+   "deficiency": "tritan",
+   "severity": 0.7,
+   "expected": "#FE976B"
+  },
+  {
+   "hex": "#FFA500",
+   "deficiency": "tritan",
+   "severity": 1.0,
+   "expected": "#FE8E8C"
+  },
+  {
+   "hex": "#800080",
+   "deficiency": "protan",
+   "severity": 0.3,
+   "expected": "#5F2A80"
+  },
+  {
+   "hex": "#800080",
+   "deficiency": "protan",
+   "severity": 0.7,
+   "expected": "#323881"
+  },
+  {
+   "hex": "#800080",
+   "deficiency": "protan",
+   "severity": 1.0,
+   "expected": "#003C82"
+  },
+  {
+   "hex": "#800080",
+   "deficiency": "deutan",
+   "severity": 0.3,
+   "expected": "#62327E"
+  },
+  {
+   "hex": "#800080",
+   "deficiency": "deutan",
+   "severity": 0.7,
+   "expected": "#44447D"
+  },
+  {
+   "hex": "#800080",
+   "deficiency": "deutan",
+   "severity": 1.0,
+   "expected": "#304B7D"
+  },
+  {
+   "hex": "#800080",
+   "deficiency": "tritan",
+   "severity": 0.3,
+   "expected": "#781D76"
+  },
+  {
+   "hex": "#800080",
+   "deficiency": "tritan",
+   "severity": 0.7,
+   "expected": "#860E64"
+  },
+  {
+   "hex": "#800080",
+   "deficiency": "tritan",
+   "severity": 1.0,
+   "expected": "#842048"
+  },
+  {
+   "hex": "#808080",
+   "deficiency": "protan",
+   "severity": 0.3,
+   "expected": "#808080"
+  },
+  {
+   "hex": "#808080",
+   "deficiency": "protan",
+   "severity": 0.7,
+   "expected": "#7F8080"
+  },
+  {
+   "hex": "#808080",
+   "deficiency": "protan",
+   "severity": 1.0,
+   "expected": "#808080"
+  },
+  {
+   "hex": "#808080",
+   "deficiency": "deutan",
+   "severity": 0.3,
+   "expected": "#808080"
+  },
+  {
+   "hex": "#808080",
+   "deficiency": "deutan",
+   "severity": 0.7,
+   "expected": "#80807F"
+  },
+  {
+   "hex": "#808080",
+   "deficiency": "deutan",
+   "severity": 1.0,
+   "expected": "#807F80"
+  },
+  {
+   "hex": "#808080",
+   "deficiency": "tritan",
+   "severity": 0.3,
+   "expected": "#808080"
+  },
+  {
+   "hex": "#808080",
+   "deficiency": "tritan",
+   "severity": 0.7,
+   "expected": "#808080"
+  },
+  {
+   "hex": "#808080",
+   "deficiency": "tritan",
+   "severity": 1.0,
+   "expected": "#808080"
+  },
+  {
+   "hex": "#FFFFFF",
+   "deficiency": "protan",
+   "severity": 0.3,
+   "expected": "#FEFEFE"
+  },
+  {
+   "hex": "#FFFFFF",
+   "deficiency": "protan",
+   "severity": 0.7,
+   "expected": "#FEFEFE"
+  },
+  {
+   "hex": "#FFFFFF",
+   "deficiency": "protan",
+   "severity": 1.0,
+   "expected": "#FEFEFE"
+  },
+  {
+   "hex": "#FFFFFF",
+   "deficiency": "deutan",
+   "severity": 0.3,
+   "expected": "#FEFEFE"
+  },
+  {
+   "hex": "#FFFFFF",
+   "deficiency": "deutan",
+   "severity": 0.7,
+   "expected": "#FEFEFE"
+  },
+  {
+   "hex": "#FFFFFF",
+   "deficiency": "deutan",
+   "severity": 1.0,
+   "expected": "#FEFEFE"
+  },
+  {
+   "hex": "#FFFFFF",
+   "deficiency": "tritan",
+   "severity": 0.3,
+   "expected": "#FEFEFE"
+  },
+  {
+   "hex": "#FFFFFF",
+   "deficiency": "tritan",
+   "severity": 0.7,
+   "expected": "#FEFEFE"
+  },
+  {
+   "hex": "#FFFFFF",
+   "deficiency": "tritan",
+   "severity": 1.0,
+   "expected": "#FEFEFE"
+  },
+  {
+   "hex": "#000000",
+   "deficiency": "protan",
+   "severity": 0.3,
+   "expected": "#000000"
+  },
+  {
+   "hex": "#000000",
+   "deficiency": "protan",
+   "severity": 0.7,
+   "expected": "#000000"
+  },
+  {
+   "hex": "#000000",
+   "deficiency": "protan",
+   "severity": 1.0,
+   "expected": "#000000"
+  },
+  {
+   "hex": "#000000",
+   "deficiency": "deutan",
+   "severity": 0.3,
+   "expected": "#000000"
+  },
+  {
+   "hex": "#000000",
+   "deficiency": "deutan",
+   "severity": 0.7,
+   "expected": "#000000"
+  },
+  {
+   "hex": "#000000",
+   "deficiency": "deutan",
+   "severity": 1.0,
+   "expected": "#000000"
+  },
+  {
+   "hex": "#000000",
+   "deficiency": "tritan",
+   "severity": 0.3,
+   "expected": "#000000"
+  },
+  {
+   "hex": "#000000",
+   "deficiency": "tritan",
+   "severity": 0.7,
+   "expected": "#000000"
+  },
+  {
+   "hex": "#000000",
+   "deficiency": "tritan",
+   "severity": 1.0,
+   "expected": "#000000"
+  },
+  {
+   "hex": "#D2691E",
+   "deficiency": "protan",
+   "severity": 0.3,
+   "expected": "#B67215"
+  },
+  {
+   "hex": "#D2691E",
+   "deficiency": "protan",
+   "severity": 0.7,
+   "expected": "#9A770F"
+  },
+  {
+   "hex": "#D2691E",
+   "deficiency": "protan",
+   "severity": 1.0,
+   "expected": "#87770D"
+  },
+  {
+   "hex": "#D2691E",
+   "deficiency": "deutan",
+   "severity": 0.3,
+   "expected": "#BA7B1A"
+  },
+  {
+   "hex": "#D2691E",
+   "deficiency": "deutan",
+   "severity": 0.7,
+   "expected": "#A88819"
+  },
+  {
+   "hex": "#D2691E",
+   "deficiency": "deutan",
+   "severity": 1.0,
+   "expected": "#A08F1B"
+  },
+  {
+   "hex": "#D2691E",
+   "deficiency": "tritan",
+   "severity": 0.3,
+   "expected": "#CB6C38"
+  },
+  {
+   "hex": "#D2691E",
+   "deficiency": "tritan",
+   "severity": 0.7,
+   "expected": "#E05947"
+  },
+  {
+   "hex": "#D2691E",
+   "deficiency": "tritan",
+   "severity": 1.0,
+   "expected": "#E6515B"
+  },
+  {
+   "hex": "#2E8B57",
+   "deficiency": "protan",
+   "severity": 0.3,
+   "expected": "#648556"
+  },
+  {
+   "hex": "#2E8B57",
+   "deficiency": "protan",
+   "severity": 0.7,
+   "expected": "#7E8155"
+  },
+  {
+   "hex": "#2E8B57",
+   "deficiency": "protan",
+   "severity": 1.0,
+   "expected": "#8A7F53"
+  },
+  {
+   "hex": "#2E8B57",
+   "deficiency": "deutan",
+   "severity": 0.3,
+   "expected": "#618258"
+  },
+  {
+   "hex": "#2E8B57",
+   "deficiency": "deutan",
+   "severity": 0.7,
+   "expected": "#767B59"
+  },
+  {
+   "hex": "#2E8B57",
+   "deficiency": "deutan",
+   "severity": 1.0,
+   "expected": "#7E775A"
+  },
+  {
+   "hex": "#2E8B57",
+   "deficiency": "tritan",
+   "severity": 0.3,
+   "expected": "#428860"
+  },
+  {
+   "hex": "#2E8B57",
+   "deficiency": "tritan",
+   "severity": 0.7,
+   "expected": "#008B6F"
+  },
+  {
+   "hex": "#2E8B57",
+   "deficiency": "tritan",
+   "severity": 1.0,
+   "expected": "#00897D"
+  }
+ ]
+}
