@@ -1,0 +1,8 @@
+[package]
+name = "color-core"
+description = "Pure color math for Color-Buddy: conversions, naming, palettes, simulation and checks"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
