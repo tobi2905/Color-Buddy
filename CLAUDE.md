@@ -35,6 +35,13 @@ Review checkpoint, tick tasks as they are done, and record decisions in its Deci
 - `cargo run --release --example sampler_bench [-- watch]`: capture timing per N, or live hex under the cursor.
 - macOS: the app that launches these (e.g. VS Code) needs Screen Recording permission.
 
+## Color core (Phase 2)
+
+- Name data in `data/` is generated: `python3 tools/gen_name_data.py <xkcd_rgb.txt> <css-color.html>` (sources in the script).
+- Conversion test expectations: `tools/gen_reference_values.py` (needs `colour-science`).
+- `cargo run --release -p color-core --example naming_bench`: lookup timing.
+- `cargo run -p color-core --example name_table`: review table of the test colours.
+
 ## Conventions
 
 - The app UI must never rely on color alone; pair color with text/icons. WCAG AA text contrast.

@@ -255,16 +255,16 @@ Each phase lists its goal, tasks, acceptance criteria and a review checkpoint. P
 **Goal:** given any hex, return correct `ColorInfo`.
 
 **Tasks**
-- [ ] `convert.rs`: sRGB ↔ linear RGB ↔ XYZ (D65) ↔ CIELAB, and ↔ OKLab/OKLCH.
-- [ ] `delta_e.rs`: CIEDE2000.
-- [ ] Prepare `data/` name lists:
+- [x] `convert.rs`: sRGB ↔ linear RGB ↔ XYZ (D65) ↔ CIELAB, and ↔ OKLab/OKLCH.
+- [x] `delta_e.rs`: CIEDE2000.
+- [x] Prepare `data/` name lists:
     - `names_basic.json`: 11 basic terms (red, orange, yellow, green, blue, purple, pink, brown, black, white, grey) with representative hex values.
     - `names_xkcd.json`: XKCD color survey names (CC0).
     - `names_css.json`: CSS named colors.
-- [ ] `naming.rs`: load lists, precompute Lab, build a k-d tree per list; nearest lookup by Lab, refined by CIEDE2000 over the k nearest candidates.
-- [ ] `describe.rs`: map OKLCH to words for lightness (very dark … very light), chroma (greyish … vivid), temperature (warm/cool/neutral), plus the basic hue name.
-- [ ] `search_color_by_name`: fuzzy match across all lists (e.g. "skyblue", "sky blue", "Sky-Blue" all match).
-- [ ] Expose `get_color_info` and `search_color_by_name` as Tauri commands.
+- [x] `naming.rs`: load lists, precompute Lab, build a k-d tree per list; nearest lookup by Lab, refined by CIEDE2000 over the k nearest candidates.
+- [x] `describe.rs`: map OKLCH to words for lightness (very dark … very light), chroma (greyish … vivid), temperature (warm/cool/neutral), plus the basic hue name.
+- [x] `search_color_by_name`: fuzzy match across all lists (e.g. "skyblue", "sky blue", "Sky-Blue" all match).
+- [x] Expose `get_color_info` and `search_color_by_name` as Tauri commands.
 
 **Acceptance criteria**
 - Conversions match published reference values (e.g. Bruce Lindbloom / CSS Color 4 test values) within 0.01.
@@ -466,3 +466,10 @@ Each phase lists its goal, tasks, acceptance criteria and a review checkpoint. P
 | 2026-10-19 | ScreenCaptureKit evaluated and not adopted for now | Screenshot API ~45 ms per capture (< 30/s) and no accuracy gain (#00FF00 → #03FF00 SDR, #02FF00 HDR). Revisit if Apple removes `CGWindowListCreateImage` (deprecated) |
 | 2026-10-19 | Acceptance relaxed to ±3 per channel on wide-gamut Macs | 8-bit P3 screen buffer loses precision for sRGB gamut-edge colours (#00FF00 stored as #75FB4C → #03FF00); approved by user |
 | 2026-10-19 | Sampling loop capped at 30 Hz | Matches the `color-hovered` rate in the spec; capture capacity is higher |
+| 2026-10-19 | Name levels: basic = 11 basic terms, descriptive = CSS named colours (148), precise = XKCD survey (922) | CSS names are familiar to web designers; XKCD is finer-grained. To be confirmed at review |
+| 2026-10-19 | Basic-term anchors = every XKCD survey name whose last word is the term (540 anchors, e.g. "reddish brown" → brown); searched exhaustively | Survey-derived rather than hand-picked; only the 11 plain terms + light/dark variants misnamed indigo and sienna. Exhaustive because white/black have only 2 anchors each (~0.13 ms) |
+| 2026-10-19 | k-d tree in chroma-compressed Lab (a*, b* ÷ (1 + 0.045·C)), K = 64, then CIEDE2000 | Plain Lab with K = 8 picked a different name than exhaustive search for 7% of XKCD lookups; K = 64 differs for 0.05% (≤ 1.0 ΔE worse) at ~10 µs |
+| 2026-10-19 | Removed 27 crude XKCD names (e.g. containing "puke", "poop"); split 4 glued names ("lightblue" → "light blue") | Names are shown to users |
+| 2026-10-19 | Conversion references use the sRGB matrix derived from its primaries (CSS Color 4 / Lindbloom); OKLCH hue compared within 0.05° | The 4-decimal IEC matrix shifts CIELAB by ~0.02; OKLab matrix variants differ by ~0.02° in hue |
+| 2026-10-19 | Description saturation = min(chroma relative to the sRGB gamut at that L/h, C / 0.15) | Relative chroma alone called pale pink "vivid" |
+| 2026-10-19 | Basic-name test set avoids boundary colours (coral, violet, olive, teal, tan, sienna); sienna #A0522D is named orange | Boundary colours have no single correct basic name |

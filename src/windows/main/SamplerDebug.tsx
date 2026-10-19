@@ -9,6 +9,8 @@ import {
   startPicker,
   stopPicker,
 } from "../../lib/sampler";
+import { getColorInfo } from "../../lib/color";
+import type { ColorInfo } from "../../types/color";
 import type { PatchResult, SamplerStatus } from "../../types/sampler";
 import { TEST_PATCHES } from "./testPatches";
 
@@ -19,6 +21,7 @@ const HOTKEY = isMac ? "⌘ Shift C" : "Ctrl + Shift + C";
 /** Bare Phase 1 debug panel for the screen sampler. Replaced by real UI in later phases. */
 function SamplerDebug() {
   const [hex, setHex] = useState<string | null>(null);
+  const [info, setInfo] = useState<ColorInfo | null>(null);
   const [status, setStatus] = useState<SamplerStatus | null>(null);
   const [results, setResults] = useState<PatchResult[] | null>(null);
   const [testError, setTestError] = useState<string | null>(null);
@@ -37,6 +40,18 @@ function SamplerDebug() {
     const timer = setTimeout(() => void runSelfTest(), 1500);
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    if (!hex) return;
+    let current = true;
+    getColorInfo(hex).then(
+      (next) => current && setInfo(next),
+      () => {},
+    );
+    return () => {
+      current = false;
+    };
+  }, [hex]);
 
   const running = status?.running ?? false;
   const size = status?.size ?? 5;
@@ -121,6 +136,25 @@ function SamplerDebug() {
           <p className="font-mono text-3xl" data-testid="hovered-hex">
             {hex ?? "—"}
           </p>
+          {info && info.hex === hex && (
+            <dl
+              className="mt-1 grid grid-cols-[max-content_1fr] gap-x-3 text-sm"
+              data-testid="hovered-names"
+            >
+              <dt>Basic</dt>
+              <dd>{info.basic.name}</dd>
+              <dt>Descriptive</dt>
+              <dd>
+                {info.descriptive.name} (ΔE {info.descriptive.deltaE.toFixed(1)})
+              </dd>
+              <dt>Precise</dt>
+              <dd>
+                {info.precise.name} (ΔE {info.precise.deltaE.toFixed(1)})
+              </dd>
+              <dt>Description</dt>
+              <dd>{info.description}</dd>
+            </dl>
+          )}
         </div>
       </section>
 

@@ -8,6 +8,18 @@ use tauri::{AppHandle, State, WebviewWindow};
 use crate::sampler::{self, Sampler, SamplerStatus};
 
 #[tauri::command]
+pub fn get_color_info(hex: String) -> Result<color_core::ColorInfo, String> {
+    let rgb = color_core::Rgb::from_hex(&hex).ok_or_else(|| format!("not a hex colour: {hex}"))?;
+    Ok(color_core::color_info(rgb))
+}
+
+/// Best matches first, at most 10.
+#[tauri::command]
+pub fn search_color_by_name(query: String) -> Vec<color_core::ColorName> {
+    color_core::search_color_by_name(&query, 10)
+}
+
+#[tauri::command]
 pub fn start_picker(app: AppHandle, sampler: State<'_, Sampler>) {
     sampler.start(app, Instant::now());
 }
@@ -74,7 +86,8 @@ pub fn self_test(window: WebviewWindow, patches: Vec<Patch>) -> Result<Vec<Patch
 
     let mut results = Vec::new();
     for patch in patches {
-        let expected = parse_hex(&patch.hex).ok_or_else(|| format!("bad hex {}", patch.hex))?;
+        let expected = color_core::Rgb::from_hex(&patch.hex)
+            .ok_or_else(|| format!("bad hex {}", patch.hex))?;
         // Convert to the sampler's platform-native global coordinates.
         #[cfg(target_os = "macos")]
         let (gx, gy) = (
@@ -114,17 +127,4 @@ pub fn self_test(window: WebviewWindow, patches: Vec<Patch>) -> Result<Vec<Patch
         }
     }
     Ok(results)
-}
-
-fn parse_hex(hex: &str) -> Option<color_core::Rgb> {
-    let h = hex.strip_prefix('#')?;
-    if h.len() != 6 {
-        return None;
-    }
-    let v = u32::from_str_radix(h, 16).ok()?;
-    Some(color_core::Rgb::new(
-        (v >> 16) as u8,
-        (v >> 8) as u8,
-        v as u8,
-    ))
 }

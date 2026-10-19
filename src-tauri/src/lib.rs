@@ -64,6 +64,8 @@ pub fn run() {
             Ok(())
         })
         .invoke_handler(tauri::generate_handler![
+            commands::get_color_info,
+            commands::search_color_by_name,
             commands::start_picker,
             commands::stop_picker,
             commands::set_sample_size,
