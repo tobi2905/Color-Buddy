@@ -26,13 +26,20 @@ pub fn generate_palettes(base_hex: String) -> Result<Vec<color_core::palette::Pa
     Ok(color_core::palette::generate_palettes(parse(&base_hex)?))
 }
 
+/// `roles` (optional, one per colour) marks background/surface pairs as subtle.
 #[tauri::command]
-pub fn check_palette(hexes: Vec<String>) -> Result<Vec<color_core::check::PairCheck>, String> {
+pub fn check_palette(
+    hexes: Vec<String>,
+    roles: Option<Vec<color_core::palette::Role>>,
+) -> Result<Vec<color_core::check::PairCheck>, String> {
     let colors = hexes
         .iter()
         .map(|h| parse(h))
         .collect::<Result<Vec<_>, _>>()?;
-    Ok(color_core::check::check_palette(&colors))
+    if roles.as_ref().is_some_and(|r| r.len() != colors.len()) {
+        return Err("roles must have one entry per colour".into());
+    }
+    Ok(color_core::check::check_palette(&colors, roles.as_deref()))
 }
 
 fn parse(hex: &str) -> Result<color_core::Rgb, String> {

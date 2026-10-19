@@ -71,4 +71,6 @@ export interface PairCheck {
   /** [vision type, ΔE2000 as seen with it, verdict]; deficiencies at full severity. */
   results: [VisionType, number, PairVerdict][];
   contrastRatio: number;
+  /** Meant to look alike (background/surface): show, but never count as a warning. */
+  subtle: boolean;
 }

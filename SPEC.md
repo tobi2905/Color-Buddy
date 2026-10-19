@@ -283,6 +283,7 @@ Each phase lists its goal, tasks, acceptance criteria and a review checkpoint. P
 **Tasks**
 - [x] `palette.rs`: generate schemes in OKLCH, holding lightness and chroma where sensible:
     - Complementary (h + 180°), Analogous (h ± 30°), Triadic (h ± 120°), Split-complementary (h ± 150°), Monochrome (lightness steps only).
+    - *Changed at checkpoint 3: accents step 0.2 (OKLCH L) lighter or darker than the primary instead of holding its lightness, so they stay apart for colourblind viewers.*
     - Gamut-map results back into sRGB (reduce chroma until in gamut).
     - Assign roles (background, surface, primary, accent, text) by lightness and chroma.
     - Write a one-line `explanation` per palette in plain language.
@@ -291,6 +292,7 @@ Each phase lists its goal, tasks, acceptance criteria and a review checkpoint. P
     - ΔE ≥ 15 → `Distinct`
     - 8 ≤ ΔE < 15 → `Caution`
     - ΔE < 8 → `HardToTell`
+    - *Tuned at checkpoint 3: these apply to normal vision; simulated deficiencies use 20 / 10. Background/surface pairs are marked `subtle` and not counted as warnings.*
 - [x] `contrast.rs`: WCAG 2.x contrast ratio; flag text/background pairs below 4.5:1 (AA) and 7:1 (AAA).
 - [x] "Confused with": simulate a color under the user's profile, return named colors within a small ΔE (start at 5) of the simulated result, excluding near-identical names.
 - [x] Expose `generate_palettes`, `check_palette` and `get_color_details` (without references yet) as commands.
@@ -481,3 +483,6 @@ Each phase lists its goal, tasks, acceptance criteria and a review checkpoint. P
 | 2026-10-19 | Machado matrices exported from DaltonLens (`tools/gen_machado.py`); severities between steps interpolated linearly | DaltonLens' own in-between interpolation uses an unscaled weight, so tests compare only at the published steps (108 cases, ±1 per channel) |
 | 2026-10-19 | Palettes: background/surface/text are tints and a shade of the base hue (OKLCH L 0.98 / 0.94 / 0.25); primary is the base; accents rotate hue at the base's L (clamped 0.35–0.85) and C; near-grey bases get accent chroma 0.10; chroma reduced to fit sRGB | Text on background ≥ 7:1 for every base tested (216 bases × 5 schemes) |
 | 2026-10-19 | PairCheck/ColorDetails and enums serialise as camelCase (`hardToTell`, `splitComplementary`, `contrastRatio`) | Matches the TypeScript mirror |
+| 2026-10-19 | Thresholds: normal vision 15 / 8, simulated deficiencies 20 / 10 | User's choice at checkpoint 3. Red vs green under deutan measured 15.7 (lightness only); the margin flags it without adding noise for typical vision |
+| 2026-10-19 | Background/surface pairs marked `subtle` and excluded from warnings (`check_palette` takes optional roles) | User's choice: a deliberate subtle tint was "hard to tell" in every palette |
+| 2026-10-19 | Accents offset 0.2 OKLCH L from the primary (either side when both fit, else two steps one way; clamped 0.30–0.90) | User's choice. Across the 25 review palettes, hard-to-tell pairs fell: protan 12→3, deutan 13→1, tritan 7→0, achromat 78→19 |

@@ -62,9 +62,10 @@ const TEXT: (f64, f64) = (0.25, 0.035);
 const NEUTRAL_BASE_CHROMA: f64 = 0.03;
 const NEUTRAL_ACCENT_CHROMA: f64 = 0.10;
 /// Accent lightness range, so accents of very light or dark bases stay usable.
-const ACCENT_L: (f64, f64) = (0.35, 0.85);
-/// Lightness step between monochrome accents and the base.
-const MONO_STEP: f64 = 0.18;
+const ACCENT_L: (f64, f64) = (0.30, 0.90);
+/// OKLCH lightness step between the primary and each accent. Accents differ in lightness, not
+/// only hue, so they stay apart for colourblind viewers (decided at review checkpoint 3).
+const LIGHTNESS_STEP: f64 = 0.2;
 
 /// The closest in-gamut colour: same L and h, chroma reduced until it fits sRGB.
 pub fn gamut_map(lch: Oklch) -> Rgb {
@@ -82,10 +83,9 @@ pub fn generate(base: Rgb, scheme: Scheme) -> Palette {
     let b = base.to_oklch();
     let neutral = b.c < NEUTRAL_BASE_CHROMA;
     let accent_c = if neutral { NEUTRAL_ACCENT_CHROMA } else { b.c };
-    let accent_l = b.l.clamp(ACCENT_L.0, ACCENT_L.1);
-    let at = |dh: f64| {
+    let at = |dh: f64, l: f64| {
         gamut_map(Oklch {
-            l: accent_l,
+            l,
             c: accent_c,
             h: (b.h + dh).rem_euclid(360.0),
         })
@@ -98,24 +98,25 @@ pub fn generate(base: Rgb, scheme: Scheme) -> Palette {
         })
     };
 
-    let accents: Vec<Rgb> = match scheme {
-        Scheme::Complementary => vec![at(180.0)],
-        Scheme::Analogous => vec![at(-30.0), at(30.0)],
-        Scheme::Triadic => vec![at(120.0), at(240.0)],
-        Scheme::SplitComplementary => vec![at(150.0), at(210.0)],
-        Scheme::Monochrome => {
-            // Step away from the base in whichever direction has room; two steps if both do.
-            let up = (b.l + MONO_STEP).min(0.92);
-            let down = (b.l - MONO_STEP).max(0.30);
-            let mut steps = Vec::new();
-            for l in [down, up] {
-                if (l - b.l).abs() >= MONO_STEP * 0.5 {
-                    steps.push(gamut_map(Oklch { l, c: b.c, h: b.h }));
-                }
-            }
-            steps
-        }
+    let hue_steps: &[f64] = match scheme {
+        Scheme::Complementary => &[180.0],
+        Scheme::Analogous => &[-30.0, 30.0],
+        Scheme::Triadic => &[120.0, 240.0],
+        Scheme::SplitComplementary => &[150.0, 210.0],
+        Scheme::Monochrome => &[0.0, 0.0],
     };
+    let lightness = accent_lightness(b.l, hue_steps.len());
+    let accents: Vec<Rgb> = hue_steps
+        .iter()
+        .zip(lightness)
+        .map(|(&dh, l)| {
+            if scheme == Scheme::Monochrome {
+                gamut_map(Oklch { l, c: b.c, h: b.h })
+            } else {
+                at(dh, l)
+            }
+        })
+        .collect();
 
     let mut colors = vec![
         (tint(BACKGROUND), Role::Background),
@@ -139,6 +140,28 @@ pub fn generate(base: Rgb, scheme: Scheme) -> Palette {
         base_hex: base.to_hex(),
         explanation: explain(scheme, &colors, neutral),
         colors,
+    }
+}
+
+/// Lightness of each accent, a [`LIGHTNESS_STEP`] or more away from the primary's `base_l`.
+/// One accent goes the way with more room; two go either side when both fit, otherwise two
+/// steps the same way. Clamped to [`ACCENT_L`].
+fn accent_lightness(base_l: f64, count: usize) -> Vec<f64> {
+    let (lo, hi) = ACCENT_L;
+    let clamp = |l: f64| l.clamp(lo, hi);
+    let room_up = hi - base_l;
+    let room_down = base_l - lo;
+    let dir = if room_up >= room_down { 1.0 } else { -1.0 };
+    match count {
+        0 => Vec::new(),
+        1 => vec![clamp(base_l + dir * LIGHTNESS_STEP)],
+        _ if room_up >= LIGHTNESS_STEP && room_down >= LIGHTNESS_STEP => {
+            vec![base_l - LIGHTNESS_STEP, base_l + LIGHTNESS_STEP]
+        }
+        _ => vec![
+            clamp(base_l + dir * LIGHTNESS_STEP),
+            clamp(base_l + dir * 2.0 * LIGHTNESS_STEP),
+        ],
     }
 }
 
@@ -182,6 +205,11 @@ fn explain(scheme: Scheme, colors: &[PaletteColor], neutral_base: bool) -> Strin
             both(&accents)
         ),
     };
+    if scheme != Scheme::Monochrome {
+        text.push_str(
+            " The accents are also lighter or darker, so they stay apart without relying on hue.",
+        );
+    }
     if neutral_base && scheme != Scheme::Monochrome {
         text.push_str(" The base is nearly grey, so the accents add the colour.");
     }
@@ -272,6 +300,45 @@ mod tests {
                 );
             }
         }
+    }
+
+    /// Accents are offset in lightness so that, across many bases, primary/accent pairs are
+    /// rarely hard to tell apart for colourblind viewers.
+    #[test]
+    fn primary_and_accents_stay_apart_for_colourblind_viewers() {
+        use crate::check::{PairVerdict, check_palette};
+        use crate::simulate::VisionType;
+        let (mut hard, mut total) = (0, 0);
+        for base in grid() {
+            for p in generate_palettes(base) {
+                let rgbs: Vec<Rgb> = p
+                    .colors
+                    .iter()
+                    .map(|c| Rgb::from_hex(&c.hex).unwrap())
+                    .collect();
+                let roles: Vec<Role> = p.colors.iter().map(|c| c.role).collect();
+                for c in check_palette(&rgbs, Some(&roles)) {
+                    if roles[c.a] != Role::Primary || roles[c.b] != Role::Accent {
+                        continue;
+                    }
+                    for (v, _, verdict) in &c.results {
+                        if matches!(
+                            v,
+                            VisionType::Protan | VisionType::Deutan | VisionType::Tritan
+                        ) {
+                            total += 1;
+                            hard += usize::from(*verdict == PairVerdict::HardToTell);
+                        }
+                    }
+                }
+            }
+        }
+        let rate = hard as f64 / total as f64;
+        assert!(
+            rate < 0.05,
+            "{hard}/{total} primary/accent checks hard to tell ({:.1}%)",
+            rate * 100.0
+        );
     }
 
     #[test]

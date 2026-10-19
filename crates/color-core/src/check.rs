@@ -7,13 +7,18 @@ use serde::{Deserialize, Serialize};
 use crate::convert::Lab;
 use crate::delta_e::ciede2000;
 use crate::naming::{ColorName, Names};
+use crate::palette::Role;
 use crate::simulate::{VisionProfile, VisionType, simulate_lab};
 use crate::{Rgb, contrast};
 
-/// ΔE2000 at or above this: clearly different.
+/// Typical vision: ΔE2000 at or above this is clearly different…
 pub const DISTINCT_DE: f64 = 15.0;
-/// ΔE2000 at or above this (and below [`DISTINCT_DE`]): tellable apart with care.
+/// …and at or above this (below [`DISTINCT_DE`]) tellable apart with care.
 pub const CAUTION_DE: f64 = 8.0;
+/// Simulated colour vision deficiencies use stricter thresholds: simulation is an approximation
+/// and people vary, so leave a margin (decided at review checkpoint 3).
+pub const CVD_DISTINCT_DE: f64 = 20.0;
+pub const CVD_CAUTION_DE: f64 = 10.0;
 /// Severity used for every deficiency in palette checks: the worst case, so a palette that
 /// passes works for all colourblind viewers, not only the user.
 pub const CHECK_SEVERITY: f64 = 1.0;
@@ -32,10 +37,15 @@ pub enum PairVerdict {
     HardToTell,
 }
 
-pub fn verdict(delta_e: f64) -> PairVerdict {
-    if delta_e >= DISTINCT_DE {
+/// Verdict for a ΔE2000 seen with `vision`.
+pub fn verdict(delta_e: f64, vision: VisionType) -> PairVerdict {
+    let (distinct, caution) = match vision {
+        VisionType::Normal => (DISTINCT_DE, CAUTION_DE),
+        _ => (CVD_DISTINCT_DE, CVD_CAUTION_DE),
+    };
+    if delta_e >= distinct {
         PairVerdict::Distinct
-    } else if delta_e >= CAUTION_DE {
+    } else if delta_e >= caution {
         PairVerdict::Caution
     } else {
         PairVerdict::HardToTell
@@ -53,10 +63,21 @@ pub struct PairCheck {
     pub results: Vec<(VisionType, f32, PairVerdict)>,
     /// WCAG 2.x contrast ratio.
     pub contrast_ratio: f32,
+    /// Meant to look alike (background and surface); never counted as a warning.
+    pub subtle: bool,
 }
 
-/// Every pair of `colors`, under normal vision and each deficiency.
-pub fn check_palette(colors: &[Rgb]) -> Vec<PairCheck> {
+/// Background and surface are a deliberate subtle tint of each other.
+pub fn is_subtle_pair(a: Role, b: Role) -> bool {
+    matches!(
+        (a, b),
+        (Role::Background, Role::Surface) | (Role::Surface, Role::Background)
+    )
+}
+
+/// Every pair of `colors`, under normal vision and each deficiency. `roles`, when given (one per
+/// colour), marks pairs that are meant to look alike as [`PairCheck::subtle`].
+pub fn check_palette(colors: &[Rgb], roles: Option<&[Role]>) -> Vec<PairCheck> {
     let seen: Vec<Vec<Lab>> = colors
         .iter()
         .map(|&c| {
@@ -75,7 +96,7 @@ pub fn check_palette(colors: &[Rgb]) -> Vec<PairCheck> {
                 .enumerate()
                 .map(|(i, &v)| {
                     let de = ciede2000(seen[a][i], seen[b][i]);
-                    (v, de as f32, verdict(de))
+                    (v, de as f32, verdict(de, v))
                 })
                 .collect();
             out.push(PairCheck {
@@ -83,6 +104,7 @@ pub fn check_palette(colors: &[Rgb]) -> Vec<PairCheck> {
                 b,
                 results,
                 contrast_ratio: contrast::contrast_ratio(colors[a], colors[b]) as f32,
+                subtle: roles.is_some_and(|r| is_subtle_pair(r[a], r[b])),
             });
         }
     }
@@ -162,7 +184,7 @@ mod tests {
 
     #[test]
     fn red_and_green_are_flagged_for_protan() {
-        let checks = check_palette(&[hex("#FF0000"), hex("#008000")]);
+        let checks = check_palette(&[hex("#FF0000"), hex("#008000")], None);
         assert_eq!(checks.len(), 1);
         assert_eq!(
             result(&checks[0], VisionType::Normal).1,
@@ -174,13 +196,11 @@ mod tests {
         );
     }
 
-    /// SPEC Phase 3 acceptance: #FF0000 vs #008000 under deutan is Caution or HardToTell.
-    /// With the initial thresholds it measures ΔE 15.7 (Distinct by 0.7, almost all lightness);
-    /// pending the threshold decision at review checkpoint 3.
+    /// SPEC Phase 3 acceptance: #FF0000 vs #008000 under deutan is Caution or HardToTell
+    /// (ΔE 15.7: distinct for typical-vision thresholds, caution with the CVD margin).
     #[test]
-    #[ignore = "pending threshold decision at review checkpoint 3"]
     fn red_and_green_are_flagged_for_deutan() {
-        let checks = check_palette(&[hex("#FF0000"), hex("#008000")]);
+        let checks = check_palette(&[hex("#FF0000"), hex("#008000")], None);
         assert_ne!(
             result(&checks[0], VisionType::Deutan).1,
             PairVerdict::Distinct
@@ -189,7 +209,7 @@ mod tests {
 
     #[test]
     fn black_and_white_are_distinct_for_everyone() {
-        let checks = check_palette(&[hex("#000000"), hex("#FFFFFF")]);
+        let checks = check_palette(&[hex("#000000"), hex("#FFFFFF")], None);
         for (_, _, v) in &checks[0].results {
             assert_eq!(*v, PairVerdict::Distinct);
         }
@@ -204,18 +224,35 @@ mod tests {
             hex("#0000FF"),
             hex("#FFFFFF"),
         ];
-        let pairs: Vec<(usize, usize)> =
-            check_palette(&colors).iter().map(|c| (c.a, c.b)).collect();
+        let pairs: Vec<(usize, usize)> = check_palette(&colors, None)
+            .iter()
+            .map(|c| (c.a, c.b))
+            .collect();
         assert_eq!(pairs, [(0, 1), (0, 2), (0, 3), (1, 2), (1, 3), (2, 3)]);
     }
 
     #[test]
     fn thresholds() {
-        assert_eq!(verdict(20.0), PairVerdict::Distinct);
-        assert_eq!(verdict(15.0), PairVerdict::Distinct);
-        assert_eq!(verdict(10.0), PairVerdict::Caution);
-        assert_eq!(verdict(8.0), PairVerdict::Caution);
-        assert_eq!(verdict(7.9), PairVerdict::HardToTell);
+        use VisionType::*;
+        assert_eq!(verdict(15.0, Normal), PairVerdict::Distinct);
+        assert_eq!(verdict(8.0, Normal), PairVerdict::Caution);
+        assert_eq!(verdict(7.9, Normal), PairVerdict::HardToTell);
+        for v in [Protan, Deutan, Tritan, Achromat] {
+            assert_eq!(verdict(20.0, v), PairVerdict::Distinct);
+            assert_eq!(verdict(15.0, v), PairVerdict::Caution);
+            assert_eq!(verdict(10.0, v), PairVerdict::Caution);
+            assert_eq!(verdict(9.9, v), PairVerdict::HardToTell);
+        }
+    }
+
+    #[test]
+    fn background_and_surface_are_marked_subtle() {
+        use Role::*;
+        let colors = [hex("#F3F9FF"), hex("#DEEDFB"), hex("#4682B4")];
+        let checks = check_palette(&colors, Some(&[Background, Surface, Primary]));
+        let subtle: Vec<bool> = checks.iter().map(|c| c.subtle).collect();
+        assert_eq!(subtle, [true, false, false]);
+        assert!(check_palette(&colors, None).iter().all(|c| !c.subtle));
     }
 
     #[test]
