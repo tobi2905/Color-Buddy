@@ -30,35 +30,59 @@ impl Rgb {
     }
 }
 
+/// When the second-closest basic term is within this CIEDE2000 distance of the closest, the
+/// colour sits on a boundary and both names are shown. Calibrated on the Phase 2 sighted review:
+/// every boundary colour where the reviewer chose "either" or the second term had a gap ≤ 1.5.
+pub const BASIC_NEAR_TIE_DE: f32 = 2.0;
+
 /// Everything we know about a single colour.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct ColorInfo {
     pub hex: String,
     pub rgb: Rgb,
     /// OKLCH: L (0–1), C, h (degrees).
     pub oklch: [f32; 3],
-    /// e.g. "blue"
+    /// e.g. "blue" — the closest basic term.
     pub basic: ColorName,
+    /// The second-closest basic term when it is nearly as close (see [`BASIC_NEAR_TIE_DE`]),
+    /// e.g. "brown" for sienna, whose basic name is "orange".
+    pub basic_alternative: Option<ColorName>,
     /// e.g. "sky blue" (CSS named colours)
     pub descriptive: ColorName,
     /// e.g. "light sky blue" (XKCD colour survey)
     pub precise: ColorName,
-    /// e.g. "light, slightly desaturated, cool blue"
+    /// e.g. "light, slightly desaturated, cool blue"; boundary colours end in
+    /// ", bordering on <alternative>".
     pub description: String,
 }
 
 /// Names, OKLCH values and description for a colour.
 pub fn color_info(rgb: Rgb) -> ColorInfo {
-    let (basic, descriptive, precise) = naming::Names::bundled().name(rgb);
+    let names = naming::Names::bundled();
+    let lab = rgb.to_lab();
+    let mut terms = names.basic.ranked_names(lab).into_iter();
+    let basic = terms.next().expect("basic list is empty");
+    let basic_alternative = terms
+        .next()
+        .filter(|alt| alt.delta_e - basic.delta_e <= BASIC_NEAR_TIE_DE);
+
+    let mut description = describe::describe(rgb, &basic.name);
+    if let Some(alt) = &basic_alternative {
+        description.push_str(", bordering on ");
+        description.push_str(&alt.name);
+    }
+
     let lch = rgb.to_oklch();
     ColorInfo {
         hex: rgb.to_hex(),
         rgb,
         oklch: [lch.l as f32, lch.c as f32, lch.h as f32],
-        description: describe::describe(rgb, &basic.name),
+        descriptive: names.descriptive.nearest(lab),
+        precise: names.precise.nearest(lab),
+        description,
         basic,
-        descriptive,
-        precise,
+        basic_alternative,
     }
 }
 

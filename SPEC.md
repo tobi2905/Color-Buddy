@@ -466,10 +466,13 @@ Each phase lists its goal, tasks, acceptance criteria and a review checkpoint. P
 | 2026-10-19 | ScreenCaptureKit evaluated and not adopted for now | Screenshot API ~45 ms per capture (< 30/s) and no accuracy gain (#00FF00 → #03FF00 SDR, #02FF00 HDR). Revisit if Apple removes `CGWindowListCreateImage` (deprecated) |
 | 2026-10-19 | Acceptance relaxed to ±3 per channel on wide-gamut Macs | 8-bit P3 screen buffer loses precision for sRGB gamut-edge colours (#00FF00 stored as #75FB4C → #03FF00); approved by user |
 | 2026-10-19 | Sampling loop capped at 30 Hz | Matches the `color-hovered` rate in the spec; capture capacity is higher |
-| 2026-10-19 | Name levels: basic = 11 basic terms, descriptive = CSS named colours (148), precise = XKCD survey (922) | CSS names are familiar to web designers; XKCD is finer-grained. To be confirmed at review |
+| 2026-10-19 | Name levels: basic = 11 basic terms, descriptive = CSS named colours (148), precise = XKCD survey (922) | CSS names are familiar to web designers; XKCD is finer-grained. Approved by user |
 | 2026-10-19 | Basic-term anchors = every XKCD survey name whose last word is the term (540 anchors, e.g. "reddish brown" → brown); searched exhaustively | Survey-derived rather than hand-picked; only the 11 plain terms + light/dark variants misnamed indigo and sienna. Exhaustive because white/black have only 2 anchors each (~0.13 ms) |
 | 2026-10-19 | k-d tree in chroma-compressed Lab (a*, b* ÷ (1 + 0.045·C)), K = 64, then CIEDE2000 | Plain Lab with K = 8 picked a different name than exhaustive search for 7% of XKCD lookups; K = 64 differs for 0.05% (≤ 1.0 ΔE worse) at ~10 µs |
 | 2026-10-19 | Removed 27 crude XKCD names (e.g. containing "puke", "poop"); split 4 glued names ("lightblue" → "light blue") | Names are shown to users |
 | 2026-10-19 | Conversion references use the sRGB matrix derived from its primaries (CSS Color 4 / Lindbloom); OKLCH hue compared within 0.05° | The 4-decimal IEC matrix shifts CIELAB by ~0.02; OKLab matrix variants differ by ~0.02° in hue |
 | 2026-10-19 | Description saturation = min(chroma relative to the sRGB gamut at that L/h, C / 0.15) | Relative chroma alone called pale pink "vivid" |
 | 2026-10-19 | Basic-name test set avoids boundary colours (coral, violet, olive, teal, tan, sienna); sienna #A0522D is named orange | Boundary colours have no single correct basic name |
+| 2026-10-19 | Sighted review: all 32 test colours fit; 21 boundary colours checked (results in `tests/boundary_names.rs`) | Required by checkpoint 2 |
+| 2026-10-19 | Boundary colours show both basic terms, closer one first (`basicAlternative`, description ends ", bordering on X") when the second term is within 2.0 ΔE | User's call. Every review case of "either" or second-term preference had a gap ≤ 1.5 |
+| 2026-10-19 | Known miss: violet #EE82EE is named pink (reviewer: purple, 6.8 ΔE further) | Not tuned away for one colour; revisit with beta feedback (Phase 8) |

@@ -59,6 +59,7 @@ describe("SamplerDebug", () => {
       rgb: { r: 135, g: 206, b: 235 },
       oklch: [0.81, 0.09, 222],
       basic: { name: "blue", hex: "#75BBFD", deltaE: 6.1 },
+      basicAlternative: null,
       descriptive: { name: "sky blue", hex: "#87CEEB", deltaE: 0 },
       precise: { name: "light blue", hex: "#95D0FC", deltaE: 3.2 },
       description: "light, slightly desaturated, cool blue",

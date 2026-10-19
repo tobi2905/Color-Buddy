@@ -142,7 +142,10 @@ function SamplerDebug() {
               data-testid="hovered-names"
             >
               <dt>Basic</dt>
-              <dd>{info.basic.name}</dd>
+              <dd>
+                {info.basic.name}
+                {info.basicAlternative && ` (bordering on ${info.basicAlternative.name})`}
+              </dd>
               <dt>Descriptive</dt>
               <dd>
                 {info.descriptive.name} (ΔE {info.descriptive.deltaE.toFixed(1)})

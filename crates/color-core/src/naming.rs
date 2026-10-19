@@ -128,6 +128,28 @@ impl NameList {
         }
     }
 
+    /// The closest entry for each distinct name, best first (exhaustive). For the basic list
+    /// this ranks the basic terms, e.g. sienna: orange 7.7, brown 8.2, red …
+    pub fn ranked_names(&self, lab: Lab) -> Vec<ColorName> {
+        let mut best: Vec<(f64, &Entry)> = Vec::new();
+        for e in self.entries.iter().filter(|e| !e.alias) {
+            let de = ciede2000(lab, e.lab);
+            match best.iter_mut().find(|(_, b)| b.name == e.name) {
+                Some(slot) if de < slot.0 => *slot = (de, e),
+                Some(_) => {}
+                None => best.push((de, e)),
+            }
+        }
+        best.sort_by(|a, b| a.0.total_cmp(&b.0));
+        best.into_iter()
+            .map(|(de, e)| ColorName {
+                name: e.name.clone(),
+                hex: e.hex.clone(),
+                delta_e: de as f32,
+            })
+            .collect()
+    }
+
     /// Reference implementation: CIEDE2000 against every entry (used by tests and benchmarks).
     pub fn nearest_brute_force(&self, lab: Lab) -> ColorName {
         let e = self

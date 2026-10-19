@@ -18,7 +18,10 @@ export interface ColorInfo {
   rgb: Rgb;
   /** OKLCH: L (0–1), C, h (degrees). */
   oklch: [number, number, number];
+  /** The closest basic term. */
   basic: ColorName;
+  /** Second-closest basic term when nearly as close (boundary colours), else null. */
+  basicAlternative: ColorName | null;
   descriptive: ColorName;
   precise: ColorName;
   description: string;
