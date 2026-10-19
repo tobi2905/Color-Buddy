@@ -281,19 +281,19 @@ Each phase lists its goal, tasks, acceptance criteria and a review checkpoint. P
 **Goal:** generate palettes and judge whether their colors are distinguishable and readable.
 
 **Tasks**
-- [ ] `palette.rs`: generate schemes in OKLCH, holding lightness and chroma where sensible:
+- [x] `palette.rs`: generate schemes in OKLCH, holding lightness and chroma where sensible:
     - Complementary (h + 180°), Analogous (h ± 30°), Triadic (h ± 120°), Split-complementary (h ± 150°), Monochrome (lightness steps only).
     - Gamut-map results back into sRGB (reduce chroma until in gamut).
     - Assign roles (background, surface, primary, accent, text) by lightness and chroma.
     - Write a one-line `explanation` per palette in plain language.
-- [ ] `simulate.rs`: Machado et al. (2009) matrices for protan, deutan, tritan with severity 0–1 (interpolate between the published severity steps); achromat = luminance only. Apply in linear RGB.
-- [ ] `check.rs`: for each color pair, ΔE2000 under normal vision and each simulated type. Initial thresholds (tune later):
+- [x] `simulate.rs`: Machado et al. (2009) matrices for protan, deutan, tritan with severity 0–1 (interpolate between the published severity steps); achromat = luminance only. Apply in linear RGB.
+- [x] `check.rs`: for each color pair, ΔE2000 under normal vision and each simulated type. Initial thresholds (tune later):
     - ΔE ≥ 15 → `Distinct`
     - 8 ≤ ΔE < 15 → `Caution`
     - ΔE < 8 → `HardToTell`
-- [ ] `contrast.rs`: WCAG 2.x contrast ratio; flag text/background pairs below 4.5:1 (AA) and 7:1 (AAA).
-- [ ] "Confused with": simulate a color under the user's profile, return named colors within a small ΔE (start at 5) of the simulated result, excluding near-identical names.
-- [ ] Expose `generate_palettes`, `check_palette` and `get_color_details` (without references yet) as commands.
+- [x] `contrast.rs`: WCAG 2.x contrast ratio; flag text/background pairs below 4.5:1 (AA) and 7:1 (AAA).
+- [x] "Confused with": simulate a color under the user's profile, return named colors within a small ΔE (start at 5) of the simulated result, excluding near-identical names.
+- [x] Expose `generate_palettes`, `check_palette` and `get_color_details` (without references yet) as commands.
 
 **Acceptance criteria**
 - Simulation output matches reference images/values from the Machado paper or a trusted implementation (e.g. DaltonLens) within a small tolerance.
@@ -476,3 +476,8 @@ Each phase lists its goal, tasks, acceptance criteria and a review checkpoint. P
 | 2026-10-19 | Sighted review: all 32 test colours fit; 21 boundary colours checked (results in `tests/boundary_names.rs`) | Required by checkpoint 2 |
 | 2026-10-19 | Boundary colours show both basic terms, closer one first (`basicAlternative`, description ends ", bordering on X") when the second term is within 2.0 ΔE | User's call. Every review case of "either" or second-term preference had a gap ≤ 1.5 |
 | 2026-10-19 | Known miss: violet #EE82EE is named pink (reviewer: purple, 6.8 ΔE further) | Not tuned away for one colour; revisit with beta feedback (Phase 8) |
+| 2026-10-19 | "Confused with" = CSS-named colours that look alike under the user's profile (simulated ΔE < 5) but differ for typical vision (ΔE ≥ 15) and belong to another basic family | User's choice: a mix-up warning rather than a description of their perception |
+| 2026-10-19 | Check grid uses full severity for every deficiency | User's choice: a passing palette works for all colourblind viewers; the profile drives "confused with" |
+| 2026-10-19 | Machado matrices exported from DaltonLens (`tools/gen_machado.py`); severities between steps interpolated linearly | DaltonLens' own in-between interpolation uses an unscaled weight, so tests compare only at the published steps (108 cases, ±1 per channel) |
+| 2026-10-19 | Palettes: background/surface/text are tints and a shade of the base hue (OKLCH L 0.98 / 0.94 / 0.25); primary is the base; accents rotate hue at the base's L (clamped 0.35–0.85) and C; near-grey bases get accent chroma 0.10; chroma reduced to fit sRGB | Text on background ≥ 7:1 for every base tested (216 bases × 5 schemes) |
+| 2026-10-19 | PairCheck/ColorDetails and enums serialise as camelCase (`hardToTell`, `splitComplementary`, `contrastRatio`) | Matches the TypeScript mirror |

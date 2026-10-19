@@ -2,10 +2,16 @@
 //!
 //! This crate has no Tauri dependency so it can be tested on its own. See `SPEC.md`.
 
+pub mod check;
+pub mod contrast;
 pub mod convert;
 pub mod delta_e;
 pub mod describe;
+#[rustfmt::skip]
+mod machado_matrices;
 pub mod naming;
+pub mod palette;
+pub mod simulate;
 
 use serde::{Deserialize, Serialize};
 
@@ -83,6 +89,31 @@ pub fn color_info(rgb: Rgb) -> ColorInfo {
         description,
         basic,
         basic_alternative,
+    }
+}
+
+/// Colour details for a vision profile. References, associations and pairings arrive in Phase 4.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ColorDetails {
+    pub info: ColorInfo,
+    /// Real-world objects.
+    pub references: Vec<String>,
+    /// Moods, industries, uses.
+    pub associations: Vec<String>,
+    /// Common pairings (hex or names).
+    pub pairings: Vec<String>,
+    /// Named colours that look alike with this profile (see [`check::confused_with`]).
+    pub confused_with: Vec<ColorName>,
+}
+
+pub fn color_details(rgb: Rgb, profile: simulate::VisionProfile) -> ColorDetails {
+    ColorDetails {
+        info: color_info(rgb),
+        references: Vec::new(),
+        associations: Vec::new(),
+        pairings: Vec::new(),
+        confused_with: check::confused_with(rgb, profile),
     }
 }
 

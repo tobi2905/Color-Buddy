@@ -128,6 +128,20 @@ impl NameList {
         }
     }
 
+    /// Every non-alias entry with its Lab value.
+    pub fn colors(&self) -> impl Iterator<Item = (ColorName, Lab)> + '_ {
+        self.entries.iter().filter(|e| !e.alias).map(|e| {
+            (
+                ColorName {
+                    name: e.name.clone(),
+                    hex: e.hex.clone(),
+                    delta_e: 0.0,
+                },
+                e.lab,
+            )
+        })
+    }
+
     /// The closest entry for each distinct name, best first (exhaustive). For the basic list
     /// this ranks the basic terms, e.g. sienna: orange 7.7, brown 8.2, red …
     pub fn ranked_names(&self, lab: Lab) -> Vec<ColorName> {

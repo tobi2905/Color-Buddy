@@ -9,8 +9,34 @@ use crate::sampler::{self, Sampler, SamplerStatus};
 
 #[tauri::command]
 pub fn get_color_info(hex: String) -> Result<color_core::ColorInfo, String> {
-    let rgb = color_core::Rgb::from_hex(&hex).ok_or_else(|| format!("not a hex colour: {hex}"))?;
-    Ok(color_core::color_info(rgb))
+    Ok(color_core::color_info(parse(&hex)?))
+}
+
+#[tauri::command]
+pub fn get_color_details(
+    hex: String,
+    profile: color_core::simulate::VisionProfile,
+) -> Result<color_core::ColorDetails, String> {
+    Ok(color_core::color_details(parse(&hex)?, profile))
+}
+
+/// One palette per scheme.
+#[tauri::command]
+pub fn generate_palettes(base_hex: String) -> Result<Vec<color_core::palette::Palette>, String> {
+    Ok(color_core::palette::generate_palettes(parse(&base_hex)?))
+}
+
+#[tauri::command]
+pub fn check_palette(hexes: Vec<String>) -> Result<Vec<color_core::check::PairCheck>, String> {
+    let colors = hexes
+        .iter()
+        .map(|h| parse(h))
+        .collect::<Result<Vec<_>, _>>()?;
+    Ok(color_core::check::check_palette(&colors))
+}
+
+fn parse(hex: &str) -> Result<color_core::Rgb, String> {
+    color_core::Rgb::from_hex(hex).ok_or_else(|| format!("not a hex colour: {hex}"))
 }
 
 /// Best matches first, at most 10.
