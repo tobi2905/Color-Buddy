@@ -4,16 +4,81 @@
 //! MacBook displays), so we redraw the captured image into an sRGB bitmap context, which makes
 //! ColorSync convert it. Without this, sRGB #FF0000 on a P3 panel reads back as ~#EB3323.
 
+use std::collections::HashMap;
+use std::sync::Mutex;
+
 use objc2_core_foundation::{CFRetained, CGPoint, CGRect, CGSize};
 use objc2_core_graphics::{
     CGBitmapContextCreate, CGColorRenderingIntent, CGColorSpace, CGContext, CGDirectDisplayID,
     CGDisplayBounds, CGDisplayCopyColorSpace, CGDisplayCopyDisplayMode, CGDisplayMode, CGError,
-    CGEvent, CGGetDisplaysWithPoint, CGImage, CGImageAlphaInfo, CGInterpolationQuality,
-    CGPreflightScreenCaptureAccess, CGRequestScreenCaptureAccess, CGWindowImageOption,
-    CGWindowListOption, kCGColorSpaceSRGB, kCGNullWindowID,
+    CGEvent, CGGetActiveDisplayList, CGGetDisplaysWithPoint, CGImage, CGImageAlphaInfo,
+    CGInterpolationQuality, CGPreflightScreenCaptureAccess, CGRequestScreenCaptureAccess,
+    CGWarpMouseCursorPosition, CGWindowID, CGWindowImageOption, CGWindowListOption,
+    kCGColorSpaceSRGB, kCGNullWindowID,
 };
 
-use super::{Capture, DisplayInfo, SampleError, covering_points, crop_rgba, window_start};
+use super::{Capture, Display, DisplayInfo, SampleError, covering_points, crop_rgba, window_start};
+
+/// Picker overlay window per display; captures on that display only include windows below it,
+/// so the overlay never ends up in the sample.
+static EXCLUDED: Mutex<Option<HashMap<CGDirectDisplayID, CGWindowID>>> = Mutex::new(None);
+
+pub fn set_excluded_window(display: u32, window: Option<u32>) {
+    let mut map = EXCLUDED.lock().unwrap();
+    let map = map.get_or_insert_with(HashMap::new);
+    match window {
+        Some(w) => map.insert(display, w),
+        None => map.remove(&display),
+    };
+}
+
+fn excluded_window(display: CGDirectDisplayID) -> Option<CGWindowID> {
+    EXCLUDED.lock().unwrap().as_ref()?.get(&display).copied()
+}
+
+/// Active displays in global points (CSS pixels equal points on macOS).
+pub fn displays() -> Vec<Display> {
+    let mut ids = [0 as CGDirectDisplayID; 16];
+    let mut count = 0u32;
+    let err = unsafe { CGGetActiveDisplayList(ids.len() as u32, ids.as_mut_ptr(), &mut count) };
+    if err != CGError::Success {
+        return Vec::new();
+    }
+    ids[..count as usize]
+        .iter()
+        .map(|&id| {
+            let b = CGDisplayBounds(id);
+            Display {
+                id,
+                x: b.origin.x,
+                y: b.origin.y,
+                width: b.size.width,
+                height: b.size.height,
+                css_per_native: 1.0,
+            }
+        })
+        .collect()
+}
+
+/// Move the cursor by whole physical pixels (half a point on a 2× display).
+pub fn nudge(dx: i32, dy: i32) -> Result<(), SampleError> {
+    let (x, y) = cursor()?;
+    let id = display_at(x, y).ok_or(SampleError::NoDisplay)?;
+    let scale = display_scale(id)?;
+    let err = CGWarpMouseCursorPosition(CGPoint {
+        x: x + dx as f64 / scale,
+        y: y + dy as f64 / scale,
+    });
+    (err == CGError::Success)
+        .then_some(())
+        .ok_or_else(|| SampleError::Capture(format!("CGWarpMouseCursorPosition: {err:?}")))
+}
+
+fn display_scale(id: CGDirectDisplayID) -> Result<f64, SampleError> {
+    let mode = CGDisplayCopyDisplayMode(id)
+        .ok_or_else(|| SampleError::Capture("CGDisplayCopyDisplayMode".into()))?;
+    Ok(CGDisplayMode::pixel_width(Some(&mode)) as f64 / CGDisplayBounds(id).size.width)
+}
 
 pub fn init() {}
 
@@ -88,11 +153,15 @@ pub fn capture_at(x: f64, y: f64, size: u32) -> Result<Capture, SampleError> {
         },
     };
 
+    let (option, below) = match excluded_window(id) {
+        Some(w) => (CGWindowListOption::OptionOnScreenBelowWindow, w),
+        None => (CGWindowListOption::OptionOnScreenOnly, kCGNullWindowID),
+    };
     #[allow(deprecated)] // ScreenCaptureKit is the replacement; see SPEC.md decision log.
     let image = objc2_core_graphics::CGWindowListCreateImage(
         rect,
-        CGWindowListOption::OptionOnScreenOnly,
-        kCGNullWindowID,
+        option,
+        below,
         CGWindowImageOption::BestResolution,
     )
     .ok_or_else(|| SampleError::Capture("CGWindowListCreateImage returned nothing".into()))?;
@@ -111,6 +180,7 @@ pub fn capture_at(x: f64, y: f64, size: u32) -> Result<Capture, SampleError> {
     }
 
     Ok(Capture {
+        cursor: (x, y),
         size,
         pixels: crop_rgba(&rgba, w, ox, oy, size),
         display: display_info(id, scale),

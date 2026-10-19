@@ -1,3 +1,5 @@
+import type { ColorInfo, Rgb } from "./color";
+
 // Mirrors src-tauri/src/sampler.rs and commands.rs (Phase 1 debug types).
 
 export interface DisplayInfo {
@@ -19,9 +21,18 @@ export interface SamplerStatus {
   errorKind: "permission" | "capture" | null;
 }
 
-/** Temporary Phase 1 payload of the `color-hovered` event. */
+/** Payload of the `color-hovered` and `picker-frozen` events. */
 export interface HoveredEvent {
-  hex: string;
+  /** Cursor in platform-native global coordinates. */
+  x: number;
+  y: number;
+  /** Display under the cursor, and the cursor relative to it in CSS pixels. */
+  display: number;
+  localX: number;
+  localY: number;
+  info: ColorInfo;
+  /** The N×N sample, row by row; the centre is the pixel under the cursor. */
+  loupe: Rgb[][];
 }
 
 export interface Patch {

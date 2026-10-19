@@ -1,4 +1,6 @@
 mod commands;
+mod history;
+mod picker;
 pub mod sampler;
 
 use std::time::Instant;
@@ -30,12 +32,14 @@ pub fn run() {
                 .with_handler(|app, shortcut, event| {
                     let pressed = Instant::now();
                     if event.state() == ShortcutState::Pressed && *shortcut == picker_shortcut() {
-                        app.state::<sampler::Sampler>().toggle(app.clone(), pressed);
+                        picker::on_hotkey(app, pressed);
                     }
                 })
                 .build(),
         )
+        .plugin(tauri_plugin_clipboard_manager::init())
         .manage(sampler::Sampler::default())
+        .manage(history::History::default())
         .setup(|app| {
             use tauri_plugin_global_shortcut::GlobalShortcutExt;
             // Dev aid for Phase 1 measurements: keep the debug window (and its test patches) visible.
@@ -44,7 +48,8 @@ pub fn run() {
             {
                 let _ = window.set_always_on_top(true);
             }
-            // Dev aid: `COLOR_BUDDY_AUTOSTART=<seconds>` samples for that long after launch.
+            picker::ensure_windows(app.handle());
+            // Dev aid: `COLOR_BUDDY_AUTOSTART=<seconds>` opens the picker for that long after launch.
             if let Some(secs) = std::env::var("COLOR_BUDDY_AUTOSTART")
                 .ok()
                 .and_then(|v| v.parse::<f64>().ok())
@@ -52,10 +57,11 @@ pub fn run() {
                 let handle = app.handle().clone();
                 std::thread::spawn(move || {
                     std::thread::sleep(std::time::Duration::from_secs(2));
-                    let sampler = handle.state::<sampler::Sampler>();
-                    sampler.start(handle.clone(), Instant::now());
+                    let h = handle.clone();
+                    let _ = handle.run_on_main_thread(move || picker::open(&h, Instant::now()));
                     std::thread::sleep(std::time::Duration::from_secs_f64(secs));
-                    sampler.stop(&handle);
+                    let h = handle.clone();
+                    let _ = handle.run_on_main_thread(move || picker::close(&h));
                 });
             }
             if let Err(err) = app.global_shortcut().register(picker_shortcut()) {
@@ -71,6 +77,9 @@ pub fn run() {
             commands::check_palette,
             commands::start_picker,
             commands::stop_picker,
+            commands::freeze_pick,
+            commands::nudge_cursor,
+            commands::list_history,
             commands::set_sample_size,
             commands::get_sampler_status,
             commands::open_screen_recording_settings,

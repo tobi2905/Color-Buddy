@@ -9,7 +9,7 @@ import {
   startPicker,
   stopPicker,
 } from "../../lib/sampler";
-import { getColorInfo } from "../../lib/color";
+import { listHistory, onPickerFrozen, type HistoryEntry } from "../../lib/picker";
 import type { ColorInfo } from "../../types/color";
 import type { PatchResult, SamplerStatus } from "../../types/sampler";
 import { TEST_PATCHES } from "./testPatches";
@@ -20,38 +20,34 @@ const HOTKEY = isMac ? "⌘ Shift C" : "Ctrl + Shift + C";
 
 /** Bare Phase 1 debug panel for the screen sampler. Replaced by real UI in later phases. */
 function SamplerDebug() {
-  const [hex, setHex] = useState<string | null>(null);
   const [info, setInfo] = useState<ColorInfo | null>(null);
+  const [history, setHistory] = useState<HistoryEntry[]>([]);
+  const hex = info?.hex ?? null;
   const [status, setStatus] = useState<SamplerStatus | null>(null);
   const [results, setResults] = useState<PatchResult[] | null>(null);
   const [testError, setTestError] = useState<string | null>(null);
   const patchRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
-    const unlisten = [onColorHovered((e) => setHex(e.hex)), onSamplerStatus(setStatus)];
+    const refreshHistory = () => listHistory(10).then(setHistory, () => {});
+    const unlisten = [
+      onColorHovered((e) => setInfo(e.info)),
+      onSamplerStatus(setStatus),
+      onPickerFrozen(() => void refreshHistory()),
+    ];
+    void refreshHistory();
     getSamplerStatus().then(setStatus, () => {});
     return () => unlisten.forEach((p) => p.then((off) => off()));
   }, []);
 
-  // `VITE_SELFTEST=1 npm run tauri dev` runs the self-test once the window has rendered;
-  // results are logged by the backend.
+  // `VITE_SELFTEST=1 npm run tauri dev` runs the self-test once the window has rendered
+  // (after `VITE_SELFTEST_DELAY_MS`, default 1500); results are logged by the backend.
   useEffect(() => {
     if (import.meta.env.VITE_SELFTEST !== "1") return;
-    const timer = setTimeout(() => void runSelfTest(), 1500);
+    const delay = Number(import.meta.env.VITE_SELFTEST_DELAY_MS ?? 1500);
+    const timer = setTimeout(() => void runSelfTest(), delay);
     return () => clearTimeout(timer);
   }, []);
-
-  useEffect(() => {
-    if (!hex) return;
-    let current = true;
-    getColorInfo(hex).then(
-      (next) => current && setInfo(next),
-      () => {},
-    );
-    return () => {
-      current = false;
-    };
-  }, [hex]);
 
   const running = status?.running ?? false;
   const size = status?.size ?? 5;
@@ -136,7 +132,7 @@ function SamplerDebug() {
           <p className="font-mono text-3xl" data-testid="hovered-hex">
             {hex ?? "—"}
           </p>
-          {info && info.hex === hex && (
+          {info && (
             <dl
               className="mt-1 grid grid-cols-[max-content_1fr] gap-x-3 text-sm"
               data-testid="hovered-names"
@@ -159,6 +155,28 @@ function SamplerDebug() {
             </dl>
           )}
         </div>
+      </section>
+
+      <section aria-label="Picked colours">
+        <h2 className="text-lg font-semibold">Picked colours</h2>
+        {history.length === 0 ? (
+          <p className="text-neutral-700 dark:text-neutral-300">
+            None yet. Open the picker and click to copy a colour.
+          </p>
+        ) : (
+          <ol className="flex flex-wrap gap-2" data-testid="history">
+            {history.map((h) => (
+              <li key={h.id} className="flex items-center gap-2 rounded border px-2 py-1">
+                <span
+                  className="h-4 w-4 rounded-sm border border-neutral-500"
+                  style={{ backgroundColor: h.hex }}
+                  aria-hidden="true"
+                />
+                <span className="font-mono">{h.hex}</span>
+              </li>
+            ))}
+          </ol>
+        )}
       </section>
 
       <section aria-label="Measurements">

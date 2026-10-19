@@ -1,13 +1,18 @@
 import { act, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import * as colorApi from "../../lib/color";
 import * as api from "../../lib/sampler";
+import type { ColorInfo } from "../../types/color";
 import type { HoveredEvent, SamplerStatus } from "../../types/sampler";
 import SamplerDebug from "./SamplerDebug";
 import { TEST_PATCHES } from "./testPatches";
 
-vi.mock("../../lib/color", () => ({ getColorInfo: vi.fn() }));
+vi.mock("../../lib/picker", () => ({
+  listHistory: vi.fn(() =>
+    Promise.resolve([{ id: 1, hex: "#A0522D", pickedAt: 0, source: "picker" }]),
+  ),
+  onPickerFrozen: vi.fn(() => Promise.resolve(() => {})),
+}));
 
 vi.mock("../../lib/sampler", () => ({
   getSamplerStatus: vi.fn(),
@@ -54,7 +59,7 @@ async function renderPanel() {
 
 describe("SamplerDebug", () => {
   it("shows the hex and names from color-hovered events", async () => {
-    vi.mocked(colorApi.getColorInfo).mockResolvedValue({
+    const info: ColorInfo = {
       hex: "#87CEEB",
       rgb: { r: 135, g: 206, b: 235 },
       oklch: [0.81, 0.09, 222],
@@ -63,15 +68,21 @@ describe("SamplerDebug", () => {
       descriptive: { name: "sky blue", hex: "#87CEEB", deltaE: 0 },
       precise: { name: "light blue", hex: "#95D0FC", deltaE: 3.2 },
       description: "light, slightly desaturated, cool blue",
-    });
+    };
     await renderPanel();
     expect(screen.getByTestId("hovered-hex")).toHaveTextContent("—");
-    act(() => emitHovered({ hex: "#87CEEB" }));
+    act(() =>
+      emitHovered({ x: 0, y: 0, display: 1, localX: 0, localY: 0, info, loupe: [[info.rgb]] }),
+    );
     expect(screen.getByTestId("hovered-hex")).toHaveTextContent("#87CEEB");
-    expect(colorApi.getColorInfo).toHaveBeenCalledWith("#87CEEB");
-    const names = await screen.findByTestId("hovered-names");
+    const names = screen.getByTestId("hovered-names");
     expect(names).toHaveTextContent("sky blue (ΔE 0.0)");
     expect(names).toHaveTextContent("light, slightly desaturated, cool blue");
+  });
+
+  it("lists picked colours from history", async () => {
+    await renderPanel();
+    expect(await screen.findByTestId("history")).toHaveTextContent("#A0522D");
   });
 
   it("shows measurements and a not-sRGB note from status events", async () => {
