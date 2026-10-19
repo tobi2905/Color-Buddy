@@ -38,6 +38,26 @@ pub fn run() {
         .manage(sampler::Sampler::default())
         .setup(|app| {
             use tauri_plugin_global_shortcut::GlobalShortcutExt;
+            // Dev aid for Phase 1 measurements: keep the debug window (and its test patches) visible.
+            if std::env::var("COLOR_BUDDY_ON_TOP").as_deref() == Ok("1")
+                && let Some(window) = app.get_webview_window("main")
+            {
+                let _ = window.set_always_on_top(true);
+            }
+            // Dev aid: `COLOR_BUDDY_AUTOSTART=<seconds>` samples for that long after launch.
+            if let Some(secs) = std::env::var("COLOR_BUDDY_AUTOSTART")
+                .ok()
+                .and_then(|v| v.parse::<f64>().ok())
+            {
+                let handle = app.handle().clone();
+                std::thread::spawn(move || {
+                    std::thread::sleep(std::time::Duration::from_secs(2));
+                    let sampler = handle.state::<sampler::Sampler>();
+                    sampler.start(handle.clone(), Instant::now());
+                    std::thread::sleep(std::time::Duration::from_secs_f64(secs));
+                    sampler.stop(&handle);
+                });
+            }
             if let Err(err) = app.global_shortcut().register(picker_shortcut()) {
                 log::error!("could not register picker hotkey: {err}");
             }

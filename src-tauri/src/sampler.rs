@@ -307,6 +307,7 @@ impl Sampler {
         let mut last_status = Instant::now();
         let mut last_display: Option<DisplayInfo> = None;
         let mut next = Instant::now();
+        let loop_started = Instant::now();
 
         while self.shared.running.load(Ordering::SeqCst)
             && self.shared.generation.load(Ordering::SeqCst) == generation
@@ -386,6 +387,13 @@ impl Sampler {
                 next = now;
             }
         }
+
+        let secs = loop_started.elapsed().as_secs_f64();
+        log::info!(
+            "sampling stopped: {capture_count} samples in {secs:.1} s ({:.1}/s), avg capture {:.2} ms",
+            capture_count as f64 / secs,
+            capture_total.as_secs_f64() * 1000.0 / capture_count.max(1) as f64
+        );
     }
 }
 

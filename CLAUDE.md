@@ -27,6 +27,14 @@ Review checkpoint, tick tasks as they are done, and record decisions in its Deci
 `cargo clippy`/`cargo test` on the workspace need `dist/` to exist (Tauri embeds it), so run
 `npm run build` once first on a fresh checkout.
 
+## Dev switches (Phase 1 sampler)
+
+- `VITE_SELFTEST=1 npm run tauri dev`: samples the debug window's test patches on launch; results in the log (`self-test ...`).
+- `COLOR_BUDDY_ON_TOP=1`: keeps the debug window above other windows.
+- `COLOR_BUDDY_AUTOSTART=<seconds>`: samples for that long after launch and logs `sampling stopped: ... /s`.
+- `cargo run --release --example sampler_bench [-- watch]`: capture timing per N, or live hex under the cursor.
+- macOS: the app that launches these (e.g. VS Code) needs Screen Recording permission.
+
 ## Conventions
 
 - The app UI must never rely on color alone; pair color with text/icons. WCAG AA text contrast.

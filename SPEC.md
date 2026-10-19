@@ -228,21 +228,21 @@ Each phase lists its goal, tasks, acceptance criteria and a review checkpoint. P
 **Goal:** prove that we can read the correct pixel colors under the cursor, fast enough, on both platforms.
 
 **Tasks**
-- [ ] `sampler.rs`: get global cursor position in physical pixels on each monitor.
-- [ ] Capture an N×N area (N = 1, 3, 5, configurable) around the cursor.
-- [ ] Handle HiDPI and multi-monitor setups with different scale factors.
-- [ ] Convert captured pixels to sRGB; detect and log when the display profile isn't sRGB (no correction yet).
-- [ ] Register a global hotkey (default `Ctrl+Shift+C` / `Cmd+Shift+C`) that starts/stops sampling.
-- [ ] Emit a temporary `color-hovered` event with hex only; show it in a bare debug window.
-- [ ] macOS: detect missing Screen Recording permission and surface a clear error.
-- [ ] Measure: latency from hotkey to first sample, and samples per second.
+- [x] `sampler.rs`: get global cursor position in physical pixels on each monitor.
+- [x] Capture an N×N area (N = 1, 3, 5, configurable) around the cursor.
+- [x] Handle HiDPI and multi-monitor setups with different scale factors. *(Implemented per display; verified on a single 2× Retina display only. Multi-monitor still untested.)*
+- [x] Convert captured pixels to sRGB; detect and log when the display profile isn't sRGB (no correction yet). *(macOS: the screen buffer is stored in the display profile, so captured pixels are converted back to sRGB with ColorSync. Windows: no correction, profile is logged.)*
+- [x] Register a global hotkey (default `Ctrl+Shift+C` / `Cmd+Shift+C`) that starts/stops sampling.
+- [x] Emit a temporary `color-hovered` event with hex only; show it in a bare debug window.
+- [x] macOS: detect missing Screen Recording permission and surface a clear error.
+- [x] Measure: latency from hotkey to first sample, and samples per second. *(macOS done; Windows pending, see TODO below.)*
 - [ ] **TODO (deferred, no Windows machine yet):** verify on Windows, including a display at 150% scaling:
     - `cargo run --release --example sampler_bench` (timing per N) and `... -- watch` while hovering `tools/test-patches.png`.
     - `$env:VITE_SELFTEST="1"; npm run tauri dev` and check the `self-test` log lines (expect every patch exact at N = 1, 3, 5).
     - Press `Ctrl+Shift+C` in the app and read "Hotkey to first sample" in the debug window.
 
 **Acceptance criteria**
-- Hovering a known test image (pure #FF0000, #00FF00, #0000FF, #87CEEB patches) reports the exact hex on both platforms, including on a scaled (e.g. 150%) display.
+- Hovering a known test image (pure #FF0000, #00FF00, #0000FF, #87CEEB patches) reports the exact hex on sRGB displays on both platforms, including on a scaled (e.g. 150%) display. On wide-gamut (e.g. Display P3) Macs, each channel is within 3 of the expected value; fully saturated colors at the gamut edge can't round-trip exactly through the 8-bit display buffer (see Decision log).
 - At least 30 samples per second with N = 5.
 - Hotkey to first sample in under 150 ms.
 
@@ -460,3 +460,9 @@ Each phase lists its goal, tasks, acceptance criteria and a review checkpoint. P
 | 2026-10-19 | ESLint 9 (not 10) | `eslint-plugin-jsx-a11y` doesn't support ESLint 10 yet; a11y lint needed for Phase 6 |
 | 2026-10-19 | Cargo workspace at repo root (`src-tauri`, `crates/color-core`); release profile at root | Profiles only apply from the workspace root |
 | 2026-10-19 | Working app name "Color-Buddy", identifier `com.colorbuddy.app` | Placeholder until the app-name open question is settled |
+| 2026-10-19 | Cursor position read directly from the OS (`CGEventGetLocation` / `GetCursorPos`), not `device_query` | `device_query` requires macOS Accessibility permission and truncates to whole points; Tauri's `cursor_position` uses the primary display's scale on every monitor |
+| 2026-10-19 | Windows capture: `xcap` (GDI region capture, physical pixels) | Pixel-exact and fast enough; no colour management on the Windows desktop |
+| 2026-10-19 | macOS capture: native CoreGraphics (`CGWindowListCreateImage`) + ColorSync conversion to sRGB, not `xcap` | xcap uses the same API but returns display-profile values (sRGB #FF0000 read as #EA3323 on P3) and whole-point regions. ~20 ms/capture (vsync-bound), ~44/s headroom |
+| 2026-10-19 | ScreenCaptureKit evaluated and not adopted for now | Screenshot API ~45 ms per capture (< 30/s) and no accuracy gain (#00FF00 → #03FF00 SDR, #02FF00 HDR). Revisit if Apple removes `CGWindowListCreateImage` (deprecated) |
+| 2026-10-19 | Acceptance relaxed to ±3 per channel on wide-gamut Macs | 8-bit P3 screen buffer loses precision for sRGB gamut-edge colours (#00FF00 stored as #75FB4C → #03FF00); approved by user |
+| 2026-10-19 | Sampling loop capped at 30 Hz | Matches the `color-hovered` rate in the spec; capture capacity is higher |

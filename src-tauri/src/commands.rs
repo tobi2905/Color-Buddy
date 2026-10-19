@@ -100,7 +100,7 @@ pub fn self_test(window: WebviewWindow, patches: Vec<Patch>) -> Result<Vec<Patch
                 .max()
                 .unwrap_or(0);
             log::info!(
-                "self-test {} N={size}: centre {} max diff {max_channel_diff}",
+                "self-test {} at ({gx:.1}, {gy:.1}) N={size}: centre {} max diff {max_channel_diff}",
                 expected.to_hex(),
                 cap.center().to_hex()
             );
