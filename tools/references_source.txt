@@ -5,229 +5,229 @@
 # data/names_xkcd.json, which supply the hex values. The 11 basic terms are the family fallbacks.
 
 # --- Basic families ---------------------------------------------------------------------------
-red | stop signs; ripe strawberries; fire engines | energy; urgency; passion | food brands; error states; sales events | white; black; navy
-orange | oranges; traffic cones; autumn leaves | warmth; enthusiasm; playfulness | sports brands; buttons; Halloween | navy; white; teal
-yellow | lemons; school buses; sunflowers | optimism; attention; cheerfulness | children's brands; highlights; summer campaigns | charcoal; navy; white
-green | grass; leaves; traffic go lights | nature; growth; safety | eco brands; success states; spring campaigns | white; cream; brown
-blue | clear skies; the sea; denim jeans | trust; calm; reliability | banks; links; corporate reports | white; orange; grey
-purple | grapes; lavender fields; royal robes | luxury; creativity; mystery | beauty brands; accents; spiritual themes | gold; white; mint
-pink | cherry blossoms; flamingos; bubblegum | sweetness; romance; playfulness | cosmetics; badges; Valentine's Day | grey; navy; mint
-brown | tree bark; chocolate; coffee beans | earthiness; reliability; comfort | coffee shops; backgrounds; rustic themes | cream; teal; beige
-black | night sky; ink; tuxedos | elegance; power; formality | luxury brands; body text; formal events | white; gold; red
-white | snow; paper; clouds | purity; simplicity; cleanliness | healthcare; backgrounds; minimalist design | black; navy; red
-grey | concrete; storm clouds; pencil graphite | neutrality; balance; calm | corporate brands; borders; neutral layouts | yellow; pink; navy
+red | stop signs; ripe strawberries; fire engines | energy; urgency; passion | food brands; signals and warnings; sales events | white; black; navy
+orange | oranges; traffic cones; autumn leaves | warmth; enthusiasm; playfulness | sports brands; focal points; Halloween | navy; white; teal
+yellow | lemons; school buses; sunflowers | optimism; attention; cheerfulness | children's brands; focal points; summer campaigns | charcoal; navy; white
+green | grass; leaves; traffic go lights | nature; growth; safety | eco brands; signals and warnings; spring campaigns | white; cream; brown
+blue | clear skies; the sea; denim jeans | trust; calm; reliability | banks; text and line work; corporate reports | white; orange; grey
+purple | grapes; lavender fields; royal robes | luxury; creativity; mystery | beauty brands; small accents; spiritual themes | gold; white; mint
+pink | cherry blossoms; flamingos; bubblegum | sweetness; romance; playfulness | cosmetics; small accents; Valentine's Day | grey; navy; mint
+brown | tree bark; chocolate; coffee beans | earthiness; reliability; comfort | coffee shops; large areas; rustic themes | cream; teal; beige
+black | night sky; ink; tuxedos | elegance; power; formality | luxury brands; text and line work; formal events | white; gold; red
+white | snow; paper; clouds | purity; simplicity; cleanliness | healthcare; large areas; minimalist design | black; navy; red
+grey | concrete; storm clouds; pencil graphite | neutrality; balance; calm | corporate brands; outlines and details; neutral layouts | yellow; pink; navy
 
 # --- Reds -------------------------------------------------------------------------------------
-light red | watermelon flesh; coral lipstick; poppies | friendliness; warmth; energy | food packaging; buttons; summer picnics | white; navy; light grey
-dark red | red wine; garnets; dried roses | sophistication; seriousness; richness | wineries; headings; autumn menus | cream; gold; charcoal
-pale red | faded brick; rose hips; salmon roe | softness; nostalgia; warmth | vintage shops; illustrations; nostalgic themes | cream; sage; navy
-bright red | fire trucks; red lacquer; lifeguard gear | alarm; excitement; boldness | sports teams; error states; sales events | white; black; yellow
-deep red | pomegranate seeds; velvet curtains; cherries | intensity; luxury; drama | theatres; accents; Christmas | gold; cream; dark green
-maroon | university sweaters; dried chili; mahogany wood | tradition; maturity; strength | universities; headings; graduation | cream; gold; grey
-burgundy | burgundy wine; leather armchairs; plums | refinement; wealth; warmth | fashion houses; accents; formal invitations | cream; gold; navy
-crimson | rose petals; cardinal birds; blood | passion; courage; intensity | publishers; logos; Valentine's Day | white; charcoal; gold
-scarlet | scarlet macaws; British army coats; ladybirds | boldness; confidence; energy | fashion retail; buttons; Chinese New Year | white; black; navy
-cherry | cherries; cherry lipstick; red sports cars | fun; flirtation; freshness | confectionery; badges; retro diner themes | white; mint; navy
-ruby | rubies; red gemstones; pomegranate juice | luxury; love; preciousness | jewellers; accents; anniversaries | gold; white; charcoal
-wine | red wine; velvet; ripe plums | elegance; indulgence; maturity | restaurants; headings; dinner parties | cream; gold; sage
-brick red | brick walls; clay pots; red barns | sturdiness; tradition; warmth | architecture firms; illustrations; rustic themes | cream; navy; sage
-blood red | blood; red roses; warning lights | danger; intensity; drama | film studios; error states; Halloween | black; white; charcoal
-claret | claret wine; red leather; cranberries | refinement; tradition; richness | heritage brands; logos; sports seasons | cream; gold; navy
-berry | raspberries; berry smoothies; jam | juiciness; playfulness; sweetness | smoothie brands; accents; summer menus | cream; mint; white
-cranberry | cranberries; holiday sauce; red berries | festivity; tartness; warmth | food brands; accents; Thanksgiving | cream; forest green; gold
-raspberry | raspberries; raspberry sorbet; magenta tulips | fun; sweetness; energy | dessert shops; buttons; summer markets | white; mint; charcoal
-tomato | tomatoes; ketchup; red peppers | freshness; appetite; warmth | restaurants; buttons; Italian themes | white; olive; cream
-indian red | red clay; terracotta tiles; spice markets | earthiness; warmth; heritage | spice brands; illustrations; harvest festivals | cream; teal; sage
+light red | watermelon flesh; coral lipstick; poppies | friendliness; warmth; energy | food packaging; focal points; summer picnics | white; navy; light grey
+dark red | red wine; garnets; dried roses | sophistication; seriousness; richness | wineries; text and line work; autumn menus | cream; gold; charcoal
+pale red | faded brick; rose hips; salmon roe | softness; nostalgia; warmth | vintage shops; illustration and data; nostalgic themes | cream; sage; navy
+bright red | fire trucks; red lacquer; lifeguard gear | alarm; excitement; boldness | sports teams; signals and warnings; sales events | white; black; yellow
+deep red | pomegranate seeds; velvet curtains; cherries | intensity; luxury; drama | theatres; small accents; Christmas | gold; cream; dark green
+maroon | university sweaters; dried chili; mahogany wood | tradition; maturity; strength | universities; text and line work; graduation | cream; gold; grey
+burgundy | burgundy wine; leather armchairs; plums | refinement; wealth; warmth | fashion houses; small accents; formal invitations | cream; gold; navy
+crimson | rose petals; cardinal birds; blood | passion; courage; intensity | publishers; focal points; Valentine's Day | white; charcoal; gold
+scarlet | scarlet macaws; British army coats; ladybirds | boldness; confidence; energy | fashion retail; focal points; Chinese New Year | white; black; navy
+cherry | cherries; cherry lipstick; red sports cars | fun; flirtation; freshness | confectionery; small accents; retro diner themes | white; mint; navy
+ruby | rubies; red gemstones; pomegranate juice | luxury; love; preciousness | jewellers; small accents; anniversaries | gold; white; charcoal
+wine | red wine; velvet; ripe plums | elegance; indulgence; maturity | restaurants; text and line work; dinner parties | cream; gold; sage
+brick red | brick walls; clay pots; red barns | sturdiness; tradition; warmth | architecture firms; illustration and data; rustic themes | cream; navy; sage
+blood red | blood; red roses; warning lights | danger; intensity; drama | film studios; signals and warnings; Halloween | black; white; charcoal
+claret | claret wine; red leather; cranberries | refinement; tradition; richness | heritage brands; focal points; sports seasons | cream; gold; navy
+berry | raspberries; berry smoothies; jam | juiciness; playfulness; sweetness | smoothie brands; small accents; summer menus | cream; mint; white
+cranberry | cranberries; holiday sauce; red berries | festivity; tartness; warmth | food brands; small accents; Thanksgiving | cream; forest green; gold
+raspberry | raspberries; raspberry sorbet; magenta tulips | fun; sweetness; energy | dessert shops; focal points; summer markets | white; mint; charcoal
+tomato | tomatoes; ketchup; red peppers | freshness; appetite; warmth | restaurants; focal points; Italian themes | white; olive; cream
+indian red | red clay; terracotta tiles; spice markets | earthiness; warmth; heritage | spice brands; illustration and data; harvest festivals | cream; teal; sage
 
 # --- Oranges ----------------------------------------------------------------------------------
-light orange | cantaloupe; orange sherbet; sunsets | friendliness; warmth; approachability | children's brands; highlights; summer camps | white; teal; navy
-dark orange | burnt toast; amber glass; pumpkins | autumn; warmth; energy | sports brands; headings; harvest themes | navy; cream; charcoal
-pale orange | peach skin; apricot jam; sand at sunset | gentleness; warmth; comfort | skincare; backgrounds; spring themes | white; sage; grey
-bright orange | traffic cones; safety vests; goldfish | alertness; energy; fun | safety equipment; warning states; road safety campaigns | navy; white; black
-burnt orange | autumn leaves; rust; roasted squash | coziness; earthiness; nostalgia | interior design; accents; 70s retro themes | navy; cream; teal
-tangerine | tangerines; marigolds; orange juice | zest; cheerfulness; freshness | juice brands; buttons; summer events | white; teal; navy
-apricot | apricots; peach blossom; terracotta pots | softness; warmth; health | food packaging; backgrounds; weddings | cream; sage; navy
-peach | peaches; peach fuzz; summer skies | gentleness; warmth; youthfulness | cosmetics; surfaces; weddings | white; grey; mint
-salmon | salmon fillets; coral reefs; summer dresses | softness; friendliness; warmth | seafood restaurants; accents; summer fashion | navy; white; grey
-coral | coral reefs; hibiscus; tropical fish | liveliness; summer; friendliness | lifestyle apps; buttons; beach holidays | navy; white; teal
-melon | cantaloupe flesh; papaya; sorbet | freshness; sweetness; summer | fruit brands; highlights; summer menus | white; mint; grey
-amber | amber jewellery; honey; traffic amber lights | warmth; caution; nostalgia | whisky distilleries; warning states; vintage themes | charcoal; cream; navy
-pumpkin | pumpkins; Halloween; carrots | autumn; harvest; playfulness | farm shops; accents; Halloween | black; cream; dark green
-copper | copper pans; pennies; copper pipes | craftsmanship; warmth; durability | breweries; icons; industrial themes | teal; charcoal; cream
-rust | rusty metal; autumn ferns; iron oxide | ruggedness; age; warmth | outdoor brands; accents; autumn collections | navy; cream; slate
-terracotta | flower pots; clay roof tiles; Mediterranean villas | earthiness; warmth; craft | ceramics studios; illustrations; Mediterranean themes | cream; sage; navy
-cinnamon | cinnamon sticks; ground spice; autumn bakes | coziness; spice; comfort | bakeries; accents; Christmas markets | cream; forest green; gold
-saffron | saffron threads; monks' robes; paella | richness; spirituality; warmth | spice brands; highlights; Diwali | navy; cream; maroon
+light orange | cantaloupe; orange sherbet; sunsets | friendliness; warmth; approachability | children's brands; focal points; summer camps | white; teal; navy
+dark orange | burnt toast; amber glass; pumpkins | autumn; warmth; energy | sports brands; text and line work; harvest themes | navy; cream; charcoal
+pale orange | peach skin; apricot jam; sand at sunset | gentleness; warmth; comfort | skincare; large areas; spring themes | white; sage; grey
+bright orange | traffic cones; safety vests; goldfish | alertness; energy; fun | safety equipment; signals and warnings; road safety campaigns | navy; white; black
+burnt orange | autumn leaves; rust; roasted squash | coziness; earthiness; nostalgia | interior design; small accents; 70s retro themes | navy; cream; teal
+tangerine | tangerines; marigolds; orange juice | zest; cheerfulness; freshness | juice brands; focal points; summer events | white; teal; navy
+apricot | apricots; peach blossom; terracotta pots | softness; warmth; health | food packaging; large areas; weddings | cream; sage; navy
+peach | peaches; peach fuzz; summer skies | gentleness; warmth; youthfulness | cosmetics; large areas; weddings | white; grey; mint
+salmon | salmon fillets; coral reefs; summer dresses | softness; friendliness; warmth | seafood restaurants; small accents; summer fashion | navy; white; grey
+coral | coral reefs; hibiscus; tropical fish | liveliness; summer; friendliness | lifestyle apps; focal points; beach holidays | navy; white; teal
+melon | cantaloupe flesh; papaya; sorbet | freshness; sweetness; summer | fruit brands; focal points; summer menus | white; mint; grey
+amber | amber jewellery; honey; traffic amber lights | warmth; caution; nostalgia | whisky distilleries; signals and warnings; vintage themes | charcoal; cream; navy
+pumpkin | pumpkins; Halloween; carrots | autumn; harvest; playfulness | farm shops; small accents; Halloween | black; cream; dark green
+copper | copper pans; pennies; copper pipes | craftsmanship; warmth; durability | breweries; outlines and details; industrial themes | teal; charcoal; cream
+rust | rusty metal; autumn ferns; iron oxide | ruggedness; age; warmth | outdoor brands; small accents; autumn collections | navy; cream; slate
+terracotta | flower pots; clay roof tiles; Mediterranean villas | earthiness; warmth; craft | ceramics studios; illustration and data; Mediterranean themes | cream; sage; navy
+cinnamon | cinnamon sticks; ground spice; autumn bakes | coziness; spice; comfort | bakeries; small accents; Christmas markets | cream; forest green; gold
+saffron | saffron threads; monks' robes; paella | richness; spirituality; warmth | spice brands; focal points; Diwali | navy; cream; maroon
 
 # --- Yellows ----------------------------------------------------------------------------------
-light yellow | butter; lemon chiffon; morning sun | lightness; calm optimism; softness | baby products; backgrounds; Easter | grey; navy; sage
-dark yellow | mustard; old gold; autumn leaves | warmth; vintage; earthiness | furniture retail; accents; retro themes | navy; charcoal; cream
-pale yellow | vanilla ice cream; primroses; parchment | gentleness; calm; freshness | stationery brands; surfaces; spring themes | grey; lavender; sage
-bright yellow | highlighter pens; taxis; rubber ducks | attention; energy; fun | taxi services; highlights; summer festivals | black; charcoal; navy
-mustard | mustard; dried grass; vintage sofas | retro charm; warmth; quirkiness | fashion retail; accents; 60s and 70s themes | navy; charcoal; cream
-lemon | lemons; lemon sorbet; canaries | freshness; zest; cheerfulness | cleaning products; highlights; summer drinks | white; grey; navy
-lemon yellow | lemon peel; rain jackets; road markings | brightness; clarity; energy | sports brands; warning states; road signage | charcoal; navy; white
-canary yellow | canaries; sticky notes; daffodils | cheerfulness; playfulness; attention | office supplies; highlights; back-to-school | grey; navy; white
-butter | butter; cream crackers; vanilla custard | softness; homeliness; comfort | bakeries; surfaces; farmhouse themes | sage; grey; navy
-sunflower | sunflowers; sunshine; corn | warmth; joy; summer | florists; illustrations; summer campaigns | navy; brown; white
-goldenrod | goldenrod flowers; wheat fields; autumn meadows | harvest; warmth; nostalgia | farm brands; accents; harvest themes | navy; brown; cream
-gold | gold coins; trophies; wedding rings | wealth; success; celebration | award ceremonies; accents; New Year's Eve | black; navy; burgundy
-marigold | marigolds; turmeric; festival garlands | celebration; warmth; spirituality | textile brands; highlights; Diwali | navy; maroon; cream
-ochre | ochre pigment; desert rock; autumn hills | earthiness; warmth; antiquity | art suppliers; illustrations; desert themes | navy; cream; slate
-khaki | military uniforms; safari jackets; chinos | practicality; ruggedness; calm | outdoor brands; surfaces; safari themes | navy; white; brown
+light yellow | butter; lemon chiffon; morning sun | lightness; calm optimism; softness | baby products; large areas; Easter | grey; navy; sage
+dark yellow | mustard; old gold; autumn leaves | warmth; vintage; earthiness | furniture retail; small accents; retro themes | navy; charcoal; cream
+pale yellow | vanilla ice cream; primroses; parchment | gentleness; calm; freshness | stationery brands; large areas; spring themes | grey; lavender; sage
+bright yellow | highlighter pens; taxis; rubber ducks | attention; energy; fun | taxi services; focal points; summer festivals | black; charcoal; navy
+mustard | mustard; dried grass; vintage sofas | retro charm; warmth; quirkiness | fashion retail; small accents; 60s and 70s themes | navy; charcoal; cream
+lemon | lemons; lemon sorbet; canaries | freshness; zest; cheerfulness | cleaning products; focal points; summer drinks | white; grey; navy
+lemon yellow | lemon peel; rain jackets; road markings | brightness; clarity; energy | sports brands; signals and warnings; road signage | charcoal; navy; white
+canary yellow | canaries; sticky notes; daffodils | cheerfulness; playfulness; attention | office supplies; focal points; back-to-school | grey; navy; white
+butter | butter; cream crackers; vanilla custard | softness; homeliness; comfort | bakeries; large areas; farmhouse themes | sage; grey; navy
+sunflower | sunflowers; sunshine; corn | warmth; joy; summer | florists; illustration and data; summer campaigns | navy; brown; white
+goldenrod | goldenrod flowers; wheat fields; autumn meadows | harvest; warmth; nostalgia | farm brands; small accents; harvest themes | navy; brown; cream
+gold | gold coins; trophies; wedding rings | wealth; success; celebration | award ceremonies; small accents; New Year's Eve | black; navy; burgundy
+marigold | marigolds; turmeric; festival garlands | celebration; warmth; spirituality | textile brands; focal points; Diwali | navy; maroon; cream
+ochre | ochre pigment; desert rock; autumn hills | earthiness; warmth; antiquity | art suppliers; illustration and data; desert themes | navy; cream; slate
+khaki | military uniforms; safari jackets; chinos | practicality; ruggedness; calm | outdoor brands; large areas; safari themes | navy; white; brown
 
 # --- Greens -----------------------------------------------------------------------------------
-light green | spring leaves; lettuce; matcha latte | freshness; renewal; calm | health brands; success states; spring campaigns | white; navy; grey
-dark green | pine forests; billiard tables; racing cars | stability; tradition; wealth | banks; headings; Christmas | cream; gold; white
-pale green | mint ice cream; celery; sea glass | softness; calm; cleanliness | spas; backgrounds; spring themes | white; grey; pink
-bright green | traffic go lights; tree frogs; tennis balls | energy; go-ahead; vitality | gaming brands; success states; sports events | black; white; navy
-muted green | sage leaves; olive groves; army canvas | calm; naturalness; restraint | wellness brands; surfaces; botanical themes | cream; terracotta; white
-forest green | forests; Christmas trees; hunting jackets | nature; tradition; endurance | outdoor brands; headings; Christmas | cream; gold; brown
-olive green | olives; military fatigues; olive oil | earthiness; peace; ruggedness | olive oil brands; accents; military themes | cream; rust; navy
-sea green | sea glass; shallow tropical water; algae | calm; freshness; balance | spas; accents; coastal themes | white; coral; navy
-mint green | mint leaves; toothpaste; retro kitchenware | freshness; cleanliness; calm | ice cream brands; badges; retro themes | white; pink; charcoal
-mint | mint leaves; mint ice cream; medical scrubs | freshness; clean; calm | healthcare; success states; spring themes | white; pink; charcoal
-olive | olives; olive oil; army uniforms | earthiness; peace; maturity | Mediterranean restaurants; accents; harvest themes | cream; rust; navy
-lime | limes; tennis balls; neon highlighters | zest; energy; freshness | drinks brands; highlights; summer festivals | charcoal; white; navy
-lime green | lime wedges; new shoots; high-visibility vests | vibrancy; youth; freshness | tech startups; buttons; sports events | charcoal; navy; white
-emerald | emeralds; rainforests; Irish hills | luxury; renewal; prosperity | jewellers; accents; St Patrick's Day | gold; white; black
-jade | jade carvings; celadon pottery; jade plants | serenity; harmony; good fortune | tea brands; accents; Lunar New Year | cream; gold; charcoal
-sage | sage leaves; dried herbs; eucalyptus | calm; wisdom; naturalness | wellness brands; surfaces; weddings | cream; terracotta; white
-seafoam | sea foam; beach glass; mint cream | freshness; coastal calm; softness | swimwear brands; backgrounds; beach themes | white; coral; navy
-pistachio | pistachio nuts; pistachio ice cream; pale leaves | softness; freshness; whimsy | gelato shops; surfaces; spring themes | pink; cream; brown
-chartreuse | chartreuse liqueur; spring buds; tennis balls | vibrancy; quirkiness; freshness | fashion brands; highlights; music festivals | charcoal; purple; white
-moss | moss on stones; forest floors; lichen | calm; age; naturalness | organic brands; illustrations; woodland themes | cream; rust; grey
-hunter green | hunting jackets; pine needles; library lamps | tradition; ruggedness; stability | heritage brands; headings; hunting season | cream; gold; tan
-kelly green | Irish flags; shamrocks; sports pitches | luck; energy; youth | sports teams; logos; St Patrick's Day | white; navy; gold
-bottle green | glass bottles; British racing cars; ivy | tradition; class; depth | spirits brands; packaging; British heritage themes | cream; gold; burgundy
-pine | pine trees; pine needles; evergreen wreaths | steadiness; nature; winter | candle brands; accents; winter holidays | cream; brown; red
-spring green | new leaves; spring meadows; peas | renewal; youth; optimism | garden centres; success states; spring campaigns | white; yellow; navy
-grass green | lawns; football pitches; fresh grass | nature; vitality; play | sports clubs; illustrations; summer fêtes | white; yellow; brown
-avocado | avocados; 70s kitchen appliances; guacamole | retro warmth; health; earthiness | food brands; accents; 70s retro themes | cream; brown; orange
-olive drab | army uniforms; canvas tents; dry olive leaves | utility; toughness; restraint | workwear brands; surfaces; military themes | khaki; cream; rust
-neon green | glow sticks; highlighters; arcade signs | electricity; youth; attention | gaming brands; highlights; rave and nightlife themes | black; charcoal; purple
-pastel green | mint macarons; spring nurseries; celery | gentleness; freshness; calm | baby products; surfaces; Easter | white; pink; lavender
-avocado green | avocado skins; vintage fridges; olive groves | retro; earthiness; health | kitchenware; accents; 70s retro themes | cream; orange; brown
+light green | spring leaves; lettuce; matcha latte | freshness; renewal; calm | health brands; signals and warnings; spring campaigns | white; navy; grey
+dark green | pine forests; billiard tables; racing cars | stability; tradition; wealth | banks; text and line work; Christmas | cream; gold; white
+pale green | mint ice cream; celery; sea glass | softness; calm; cleanliness | spas; large areas; spring themes | white; grey; pink
+bright green | traffic go lights; tree frogs; tennis balls | energy; go-ahead; vitality | gaming brands; signals and warnings; sports events | black; white; navy
+muted green | sage leaves; olive groves; army canvas | calm; naturalness; restraint | wellness brands; large areas; botanical themes | cream; terracotta; white
+forest green | forests; Christmas trees; hunting jackets | nature; tradition; endurance | outdoor brands; text and line work; Christmas | cream; gold; brown
+olive green | olives; military fatigues; olive oil | earthiness; peace; ruggedness | olive oil brands; small accents; military themes | cream; rust; navy
+sea green | sea glass; shallow tropical water; algae | calm; freshness; balance | spas; small accents; coastal themes | white; coral; navy
+mint green | mint leaves; toothpaste; retro kitchenware | freshness; cleanliness; calm | ice cream brands; small accents; retro themes | white; pink; charcoal
+mint | mint leaves; mint ice cream; medical scrubs | freshness; clean; calm | healthcare; signals and warnings; spring themes | white; pink; charcoal
+olive | olives; olive oil; army uniforms | earthiness; peace; maturity | Mediterranean restaurants; small accents; harvest themes | cream; rust; navy
+lime | limes; tennis balls; neon highlighters | zest; energy; freshness | drinks brands; focal points; summer festivals | charcoal; white; navy
+lime green | lime wedges; new shoots; high-visibility vests | vibrancy; youth; freshness | tech startups; focal points; sports events | charcoal; navy; white
+emerald | emeralds; rainforests; Irish hills | luxury; renewal; prosperity | jewellers; small accents; St Patrick's Day | gold; white; black
+jade | jade carvings; celadon pottery; jade plants | serenity; harmony; good fortune | tea brands; small accents; Lunar New Year | cream; gold; charcoal
+sage | sage leaves; dried herbs; eucalyptus | calm; wisdom; naturalness | wellness brands; large areas; weddings | cream; terracotta; white
+seafoam | sea foam; beach glass; mint cream | freshness; coastal calm; softness | swimwear brands; large areas; beach themes | white; coral; navy
+pistachio | pistachio nuts; pistachio ice cream; pale leaves | softness; freshness; whimsy | gelato shops; large areas; spring themes | pink; cream; brown
+chartreuse | chartreuse liqueur; spring buds; tennis balls | vibrancy; quirkiness; freshness | fashion brands; focal points; music festivals | charcoal; purple; white
+moss | moss on stones; forest floors; lichen | calm; age; naturalness | organic brands; illustration and data; woodland themes | cream; rust; grey
+hunter green | hunting jackets; pine needles; library lamps | tradition; ruggedness; stability | heritage brands; text and line work; hunting season | cream; gold; tan
+kelly green | Irish flags; shamrocks; sports pitches | luck; energy; youth | sports teams; focal points; St Patrick's Day | white; navy; gold
+bottle green | glass bottles; British racing cars; ivy | tradition; class; depth | spirits brands; large areas; British heritage themes | cream; gold; burgundy
+pine | pine trees; pine needles; evergreen wreaths | steadiness; nature; winter | candle brands; small accents; winter holidays | cream; brown; red
+spring green | new leaves; spring meadows; peas | renewal; youth; optimism | garden centres; signals and warnings; spring campaigns | white; yellow; navy
+grass green | lawns; football pitches; fresh grass | nature; vitality; play | sports clubs; illustration and data; summer fêtes | white; yellow; brown
+avocado | avocados; 70s kitchen appliances; guacamole | retro warmth; health; earthiness | food brands; small accents; 70s retro themes | cream; brown; orange
+olive drab | army uniforms; canvas tents; dry olive leaves | utility; toughness; restraint | workwear brands; large areas; military themes | khaki; cream; rust
+neon green | glow sticks; highlighters; arcade signs | electricity; youth; attention | gaming brands; focal points; rave and nightlife themes | black; charcoal; purple
+pastel green | mint macarons; spring nurseries; celery | gentleness; freshness; calm | baby products; large areas; Easter | white; pink; lavender
+avocado green | avocado skins; vintage fridges; olive groves | retro; earthiness; health | kitchenware; small accents; 70s retro themes | cream; orange; brown
 
 # --- Blue-greens ------------------------------------------------------------------------------
-teal | teal ducks; peacock feathers; tropical lagoons | sophistication; calm; balance | tech brands; buttons; coastal themes | coral; cream; mustard
-dark teal | deep sea water; peacock tails; ink | depth; elegance; calm | financial services; headings; winter themes | cream; gold; coral
-light teal | swimming pools; tropical shallows; sea glass | freshness; clarity; calm | health apps; backgrounds; summer themes | white; coral; navy
-turquoise | turquoise stones; Caribbean sea; swimming pools | refreshment; tranquillity; holidays | travel agencies; accents; tropical holidays | white; coral; navy
-cyan | printer ink; ice; clear pool water | clarity; coolness; technology | printing companies; charts; tech events | navy; white; charcoal
-aqua | swimming pools; aquariums; tropical water | refreshment; calm; playfulness | water brands; backgrounds; pool parties | white; coral; navy
-aquamarine | aquamarine gems; glacial lakes; shallow seas | serenity; clarity; freshness | jewellers; accents; birthdays in March | white; navy; coral
-petrol | petrol sheen; deep teal velvet; peacock feathers | depth; sophistication; calm | interior design; accents; autumn collections | cream; mustard; coral
+teal | teal ducks; peacock feathers; tropical lagoons | sophistication; calm; balance | tech brands; focal points; coastal themes | coral; cream; mustard
+dark teal | deep sea water; peacock tails; ink | depth; elegance; calm | financial services; text and line work; winter themes | cream; gold; coral
+light teal | swimming pools; tropical shallows; sea glass | freshness; clarity; calm | health apps; large areas; summer themes | white; coral; navy
+turquoise | turquoise stones; Caribbean sea; swimming pools | refreshment; tranquillity; holidays | travel agencies; small accents; tropical holidays | white; coral; navy
+cyan | printer ink; ice; clear pool water | clarity; coolness; technology | printing companies; illustration and data; tech events | navy; white; charcoal
+aqua | swimming pools; aquariums; tropical water | refreshment; calm; playfulness | water brands; large areas; pool parties | white; coral; navy
+aquamarine | aquamarine gems; glacial lakes; shallow seas | serenity; clarity; freshness | jewellers; small accents; birthdays in March | white; navy; coral
+petrol | petrol sheen; deep teal velvet; peacock feathers | depth; sophistication; calm | interior design; small accents; autumn collections | cream; mustard; coral
 
 # --- Blues ------------------------------------------------------------------------------------
-light blue | summer sky; forget-me-nots; baby clothes | calm; openness; gentleness | healthcare; backgrounds; baby showers | white; navy; yellow
-dark blue | night sky; deep ocean; school blazers | authority; depth; trust | law firms; headings; corporate events | white; gold; orange
-pale blue | ice; morning sky; hospital gowns | serenity; coolness; cleanliness | skincare; backgrounds; winter themes | white; grey; peach
-bright blue | swimming pool tiles; blue jays; sports kits | energy; confidence; clarity | tech brands; links; sports events | white; orange; yellow
-muted blue | faded denim; slate roofs; overcast sea | calm; reliability; understatement | consulting firms; surfaces; minimalist themes | cream; tan; white
-navy | naval uniforms; blazers; the night sea | authority; trust; formality | financial services; headings; nautical themes | white; gold; coral
-sky blue | clear daytime sky; bluebirds; summer days | calm; openness; freedom | airlines; backgrounds; summer holidays | white; yellow; navy
-baby blue | baby clothes; nursery walls; robin's eggs | gentleness; innocence; calm | baby products; surfaces; baby showers | white; pink; grey
-royal blue | royal sashes; sports kits; sapphires | confidence; loyalty; authority | sports teams; buttons; royal occasions | white; gold; red
-powder blue | powder puffs; winter sky; vintage cars | softness; calm; nostalgia | stationery brands; surfaces; weddings | white; grey; pink
-cobalt | cobalt glass; Delft pottery; deep blue paint | vibrancy; depth; confidence | ceramics studios; accents; tech events | white; orange; yellow
-sapphire | sapphires; deep sea; evening gowns | luxury; loyalty; depth | jewellers; accents; anniversaries | silver; white; gold
-cornflower blue | cornflowers; denim shirts; blue willow china | friendliness; calm; trust | homeware brands; illustrations; country cottage themes | white; yellow; navy
-steel blue | steel girders; overcast lakes; workwear | reliability; strength; calm | engineering firms; icons; corporate reports | white; orange; grey
-denim | blue jeans; workwear; chambray shirts | casualness; reliability; youth | fashion retail; surfaces; casual themes | white; tan; red
-azure | Mediterranean sky; azure seas; swimming pools | clarity; serenity; holidays | travel agencies; backgrounds; Mediterranean holidays | white; sand; coral
-cerulean | cerulean sky; tropical lagoons; Greek shutters | calm; freshness; optimism | skincare; accents; beach themes | white; sand; coral
-indigo | indigo dye; denim; twilight sky | depth; intuition; mystery | yoga studios; dark mode backgrounds; night themes | cream; gold; silver
-ultramarine | lapis lazuli; ultramarine paint; deep sea | intensity; creativity; depth | art suppliers; illustrations; poster campaigns | white; yellow; orange
-midnight blue | midnight sky; formal suits; deep ocean | elegance; mystery; calm | luxury brands; dark mode backgrounds; evening events | silver; gold; white
-dark navy | officers' uniforms; night sky; ink | authority; seriousness; elegance | law firms; body text; formal events | white; gold; grey
-electric blue | electric sparks; neon signs; sports cars | excitement; technology; energy | gaming brands; buttons; nightlife themes | black; white; yellow
-ice blue | ice; glaciers; frosted glass | coolness; clarity; cleanliness | drinks brands; backgrounds; winter themes | white; navy; silver
-robin's egg blue | robin eggs; jewellery boxes; vintage enamel | freshness; charm; calm | gift shops; accents; spring weddings | white; brown; pink
-slate blue | slate tiles; dusk sky; blueberries | calm; maturity; creativity | consultancies; icons; autumn themes | cream; peach; grey
-periwinkle | periwinkle flowers; hydrangeas; twilight | whimsy; calm; creativity | stationery brands; accents; spring themes | white; yellow; grey
-pastel blue | baby blankets; spring sky; candy | gentleness; calm; innocence | baby products; surfaces; Easter | white; pink; yellow
+light blue | summer sky; forget-me-nots; baby clothes | calm; openness; gentleness | healthcare; large areas; baby showers | white; navy; yellow
+dark blue | night sky; deep ocean; school blazers | authority; depth; trust | law firms; text and line work; corporate events | white; gold; orange
+pale blue | ice; morning sky; hospital gowns | serenity; coolness; cleanliness | skincare; large areas; winter themes | white; grey; peach
+bright blue | swimming pool tiles; blue jays; sports kits | energy; confidence; clarity | tech brands; text and line work; sports events | white; orange; yellow
+muted blue | faded denim; slate roofs; overcast sea | calm; reliability; understatement | consulting firms; large areas; minimalist themes | cream; tan; white
+navy | naval uniforms; blazers; the night sea | authority; trust; formality | financial services; text and line work; nautical themes | white; gold; coral
+sky blue | clear daytime sky; bluebirds; summer days | calm; openness; freedom | airlines; large areas; summer holidays | white; yellow; navy
+baby blue | baby clothes; nursery walls; robin's eggs | gentleness; innocence; calm | baby products; large areas; baby showers | white; pink; grey
+royal blue | royal sashes; sports kits; sapphires | confidence; loyalty; authority | sports teams; focal points; royal occasions | white; gold; red
+powder blue | powder puffs; winter sky; vintage cars | softness; calm; nostalgia | stationery brands; large areas; weddings | white; grey; pink
+cobalt | cobalt glass; Delft pottery; deep blue paint | vibrancy; depth; confidence | ceramics studios; small accents; tech events | white; orange; yellow
+sapphire | sapphires; deep sea; evening gowns | luxury; loyalty; depth | jewellers; small accents; anniversaries | silver; white; gold
+cornflower blue | cornflowers; denim shirts; blue willow china | friendliness; calm; trust | homeware brands; illustration and data; country cottage themes | white; yellow; navy
+steel blue | steel girders; overcast lakes; workwear | reliability; strength; calm | engineering firms; outlines and details; corporate reports | white; orange; grey
+denim | blue jeans; workwear; chambray shirts | casualness; reliability; youth | fashion retail; large areas; casual themes | white; tan; red
+azure | Mediterranean sky; azure seas; swimming pools | clarity; serenity; holidays | travel agencies; large areas; Mediterranean holidays | white; sand; coral
+cerulean | cerulean sky; tropical lagoons; Greek shutters | calm; freshness; optimism | skincare; small accents; beach themes | white; sand; coral
+indigo | indigo dye; denim; twilight sky | depth; intuition; mystery | yoga studios; large areas; night themes | cream; gold; silver
+ultramarine | lapis lazuli; ultramarine paint; deep sea | intensity; creativity; depth | art suppliers; illustration and data; poster campaigns | white; yellow; orange
+midnight blue | midnight sky; formal suits; deep ocean | elegance; mystery; calm | luxury brands; large areas; evening events | silver; gold; white
+dark navy | officers' uniforms; night sky; ink | authority; seriousness; elegance | law firms; text and line work; formal events | white; gold; grey
+electric blue | electric sparks; neon signs; sports cars | excitement; technology; energy | gaming brands; focal points; nightlife themes | black; white; yellow
+ice blue | ice; glaciers; frosted glass | coolness; clarity; cleanliness | drinks brands; large areas; winter themes | white; navy; silver
+robin's egg blue | robin eggs; jewellery boxes; vintage enamel | freshness; charm; calm | gift shops; small accents; spring weddings | white; brown; pink
+slate blue | slate tiles; dusk sky; blueberries | calm; maturity; creativity | consultancies; outlines and details; autumn themes | cream; peach; grey
+periwinkle | periwinkle flowers; hydrangeas; twilight | whimsy; calm; creativity | stationery brands; small accents; spring themes | white; yellow; grey
+pastel blue | baby blankets; spring sky; candy | gentleness; calm; innocence | baby products; large areas; Easter | white; pink; yellow
 
 # --- Purples ----------------------------------------------------------------------------------
-light purple | lilac blossom; lavender sachets; amethyst | gentleness; creativity; romance | beauty brands; surfaces; spring themes | white; grey; mint
-dark purple | aubergines; blackberries; royal velvet | luxury; mystery; depth | premium brands; headings; evening events | gold; cream; silver
-pale purple | lavender fields at dusk; wisteria; lilac soap | softness; nostalgia; calm | skincare; backgrounds; weddings | white; sage; grey
-bright purple | violets; neon signs; ultraviolet light | creativity; boldness; fun | music venues; buttons; festivals | yellow; black; white
-deep purple | royal robes; ripe plums; amethyst geodes | luxury; spirituality; drama | chocolate brands; accents; theatre nights | gold; cream; silver
-muted purple | dried lavender; heather; dusk sky | calm; nostalgia; maturity | homeware brands; surfaces; autumn themes | cream; sage; grey
-lavender | lavender fields; lavender soap; lilac blossom | calm; gentleness; nostalgia | spas; backgrounds; weddings | white; sage; grey
-lilac | lilac blossom; Easter eggs; violet sweets | youthfulness; romance; charm | cosmetics; badges; spring themes | white; mint; grey
-mauve | dried roses; vintage lipstick; heather | sophistication; nostalgia; softness | fashion retail; accents; vintage weddings | cream; grey; sage
-plum | plums; plum wine; autumn heather | richness; maturity; luxury | wine brands; headings; autumn themes | cream; gold; sage
-violet | violets; amethysts; twilight | spirituality; creativity; individuality | spiritual brands; accents; art festivals | yellow; white; mint
-orchid | orchids; tropical flowers; boutique hotels | exoticism; grace; creativity | florists; accents; tropical themes | white; sage; grey
-amethyst | amethyst crystals; violet glass; grape juice | calm; spirituality; luxury | jewellers; accents; birthdays in February | silver; white; gold
-eggplant | aubergines; blackberries; plum skins | depth; earthiness; sophistication | restaurants; dark mode backgrounds; autumn menus | cream; gold; sage
-magenta | printer ink; bougainvillea; fuchsia flowers | boldness; creativity; energy | printing companies; highlights; music festivals | black; white; lime
-fuchsia | fuchsia flowers; dragon fruit; neon signs | vibrancy; confidence; fun | fashion brands; buttons; party themes | white; black; lime
-pastel purple | lavender macarons; lilac nurseries; candy | gentleness; whimsy; calm | baby products; surfaces; Easter | white; mint; pink
+light purple | lilac blossom; lavender sachets; amethyst | gentleness; creativity; romance | beauty brands; large areas; spring themes | white; grey; mint
+dark purple | aubergines; blackberries; royal velvet | luxury; mystery; depth | premium brands; text and line work; evening events | gold; cream; silver
+pale purple | lavender fields at dusk; wisteria; lilac soap | softness; nostalgia; calm | skincare; large areas; weddings | white; sage; grey
+bright purple | violets; neon signs; ultraviolet light | creativity; boldness; fun | music venues; focal points; festivals | yellow; black; white
+deep purple | royal robes; ripe plums; amethyst geodes | luxury; spirituality; drama | chocolate brands; small accents; theatre nights | gold; cream; silver
+muted purple | dried lavender; heather; dusk sky | calm; nostalgia; maturity | homeware brands; large areas; autumn themes | cream; sage; grey
+lavender | lavender fields; lavender soap; lilac blossom | calm; gentleness; nostalgia | spas; large areas; weddings | white; sage; grey
+lilac | lilac blossom; Easter eggs; violet sweets | youthfulness; romance; charm | cosmetics; small accents; spring themes | white; mint; grey
+mauve | dried roses; vintage lipstick; heather | sophistication; nostalgia; softness | fashion retail; small accents; vintage weddings | cream; grey; sage
+plum | plums; plum wine; autumn heather | richness; maturity; luxury | wine brands; text and line work; autumn themes | cream; gold; sage
+violet | violets; amethysts; twilight | spirituality; creativity; individuality | spiritual brands; small accents; art festivals | yellow; white; mint
+orchid | orchids; tropical flowers; boutique hotels | exoticism; grace; creativity | florists; small accents; tropical themes | white; sage; grey
+amethyst | amethyst crystals; violet glass; grape juice | calm; spirituality; luxury | jewellers; small accents; birthdays in February | silver; white; gold
+eggplant | aubergines; blackberries; plum skins | depth; earthiness; sophistication | restaurants; large areas; autumn menus | cream; gold; sage
+magenta | printer ink; bougainvillea; fuchsia flowers | boldness; creativity; energy | printing companies; focal points; music festivals | black; white; lime
+fuchsia | fuchsia flowers; dragon fruit; neon signs | vibrancy; confidence; fun | fashion brands; focal points; party themes | white; black; lime
+pastel purple | lavender macarons; lilac nurseries; candy | gentleness; whimsy; calm | baby products; large areas; Easter | white; mint; pink
 
 # --- Pinks ------------------------------------------------------------------------------------
-light pink | ballet slippers; cherry blossoms; strawberry milk | tenderness; romance; softness | baby products; surfaces; baby showers | grey; white; navy
-dark pink | raspberries; peonies; pink lipstick | confidence; romance; energy | cosmetics; buttons; Valentine's Day | white; navy; grey
-pale pink | blush; seashells; rose petals | gentleness; calm; innocence | skincare; backgrounds; weddings | grey; white; sage
-bright pink | flamingos; bubblegum; pink highlighters | fun; energy; boldness | youth brands; badges; birthday parties | black; white; lime
-hot pink | hot pink lipstick; tropical flowers; neon signs | boldness; fun; confidence | fashion brands; highlights; nightlife themes | black; white; lime
-dusty pink | dried roses; vintage linen; plaster walls | nostalgia; softness; calm | interior design; surfaces; vintage weddings | grey; sage; navy
-baby pink | baby clothes; candy floss; ballet tutus | sweetness; innocence; softness | baby products; backgrounds; baby showers | white; grey; mint
-rose | roses; rosé wine; rose quartz | romance; love; elegance | florists; accents; Valentine's Day | grey; cream; sage
-blush | blushing cheeks; peaches; rose quartz | warmth; softness; modesty | cosmetics; surfaces; weddings | grey; white; navy
-carnation pink | carnations; strawberry ice cream; candy | affection; sweetness; charm | greeting card brands; illustrations; Mother's Day | white; mint; grey
-bubblegum | bubblegum; candy floss; toy figures | playfulness; youth; fun | toy brands; badges; children's parties | white; mint; black
-pastel pink | strawberry macarons; nursery walls; sea shells | gentleness; sweetness; calm | bakeries; surfaces; Easter | white; mint; grey
-neon pink | neon signs; highlighters; 80s fashion | excitement; nightlife; rebellion | music venues; highlights; 80s themes | black; white; neon green
-deep pink | peonies; raspberry sorbet; pink lipstick | confidence; passion; fun | cosmetics; buttons; breast cancer awareness | white; black; navy
-hot magenta | fuchsia flowers; neon signs; synthwave art | boldness; energy; drama | gaming brands; highlights; synthwave themes | black; white; lime
+light pink | ballet slippers; cherry blossoms; strawberry milk | tenderness; romance; softness | baby products; large areas; baby showers | grey; white; navy
+dark pink | raspberries; peonies; pink lipstick | confidence; romance; energy | cosmetics; focal points; Valentine's Day | white; navy; grey
+pale pink | blush; seashells; rose petals | gentleness; calm; innocence | skincare; large areas; weddings | grey; white; sage
+bright pink | flamingos; bubblegum; pink highlighters | fun; energy; boldness | youth brands; small accents; birthday parties | black; white; lime
+hot pink | hot pink lipstick; tropical flowers; neon signs | boldness; fun; confidence | fashion brands; focal points; nightlife themes | black; white; lime
+dusty pink | dried roses; vintage linen; plaster walls | nostalgia; softness; calm | interior design; large areas; vintage weddings | grey; sage; navy
+baby pink | baby clothes; candy floss; ballet tutus | sweetness; innocence; softness | baby products; large areas; baby showers | white; grey; mint
+rose | roses; rosé wine; rose quartz | romance; love; elegance | florists; small accents; Valentine's Day | grey; cream; sage
+blush | blushing cheeks; peaches; rose quartz | warmth; softness; modesty | cosmetics; large areas; weddings | grey; white; navy
+carnation pink | carnations; strawberry ice cream; candy | affection; sweetness; charm | greeting card brands; illustration and data; Mother's Day | white; mint; grey
+bubblegum | bubblegum; candy floss; toy figures | playfulness; youth; fun | toy brands; small accents; children's parties | white; mint; black
+pastel pink | strawberry macarons; nursery walls; sea shells | gentleness; sweetness; calm | bakeries; large areas; Easter | white; mint; grey
+neon pink | neon signs; highlighters; 80s fashion | excitement; nightlife; rebellion | music venues; focal points; 80s themes | black; white; neon green
+deep pink | peonies; raspberry sorbet; pink lipstick | confidence; passion; fun | cosmetics; focal points; breast cancer awareness | white; black; navy
+hot magenta | fuchsia flowers; neon signs; synthwave art | boldness; energy; drama | gaming brands; focal points; synthwave themes | black; white; lime
 
 # --- Browns -----------------------------------------------------------------------------------
-light brown | caramel; oak wood; cardboard boxes | warmth; naturalness; comfort | packaging companies; surfaces; autumn themes | cream; navy; teal
-dark brown | dark chocolate; espresso; walnut furniture | richness; reliability; warmth | coffee brands; body text; winter themes | cream; gold; teal
-pale brown | sand; oatmeal; kraft paper | calm; naturalness; simplicity | organic brands; backgrounds; harvest themes | white; sage; navy
-reddish brown | red clay; chestnuts; terracotta | earthiness; warmth; tradition | pottery studios; illustrations; autumn themes | cream; teal; sage
-chocolate | chocolate bars; cocoa; brownies | indulgence; warmth; comfort | chocolatiers; headings; Easter | cream; pink; teal
-coffee | coffee beans; latte; espresso cups | comfort; warmth; energy | cafés; surfaces; cosy winter themes | cream; white; orange
-sand | beach sand; dunes; linen | calm; naturalness; warmth | travel agencies; backgrounds; beach themes | white; navy; teal
-tan | leather bags; suede; toast | casualness; warmth; dependability | leather goods; surfaces; safari themes | navy; white; olive
-taupe | taupe stone; mushrooms; linen | neutrality; sophistication; calm | interior design; surfaces; minimalist themes | white; navy; blush
-camel | camel coats; camel hair; desert sand | classic style; warmth; comfort | fashion retail; accents; autumn collections | navy; white; burgundy
-caramel | caramel sauce; toffee; honey | sweetness; warmth; indulgence | confectionery; accents; Bonfire Night | cream; chocolate; teal
-sienna | sienna pigment; autumn leaves; clay | earthiness; warmth; artistry | art suppliers; illustrations; autumn themes | cream; teal; navy
-umber | umber pigment; tilled soil; old wood | earthiness; depth; tradition | furniture makers; headings; heritage themes | cream; gold; sage
-mahogany | mahogany furniture; violins; red-brown leather | luxury; tradition; warmth | furniture makers; headings; library themes | cream; gold; forest green
-chestnut | chestnuts; horse coats; autumn leaves | warmth; reliability; autumn | equestrian brands; accents; autumn themes | cream; sage; navy
-cocoa | cocoa powder; hot chocolate; brownies | comfort; warmth; indulgence | cafés; surfaces; winter themes | cream; pink; mint
-bronze | bronze medals; statues; old coins | achievement; durability; warmth | award ceremonies; icons; third-place medals | black; cream; navy
-mushroom | mushrooms; stone; linen | calm; naturalness; understatement | homeware brands; surfaces; minimalist themes | white; sage; blush
+light brown | caramel; oak wood; cardboard boxes | warmth; naturalness; comfort | packaging companies; large areas; autumn themes | cream; navy; teal
+dark brown | dark chocolate; espresso; walnut furniture | richness; reliability; warmth | coffee brands; text and line work; winter themes | cream; gold; teal
+pale brown | sand; oatmeal; kraft paper | calm; naturalness; simplicity | organic brands; large areas; harvest themes | white; sage; navy
+reddish brown | red clay; chestnuts; terracotta | earthiness; warmth; tradition | pottery studios; illustration and data; autumn themes | cream; teal; sage
+chocolate | chocolate bars; cocoa; brownies | indulgence; warmth; comfort | chocolatiers; text and line work; Easter | cream; pink; teal
+coffee | coffee beans; latte; espresso cups | comfort; warmth; energy | cafés; large areas; cosy winter themes | cream; white; orange
+sand | beach sand; dunes; linen | calm; naturalness; warmth | travel agencies; large areas; beach themes | white; navy; teal
+tan | leather bags; suede; toast | casualness; warmth; dependability | leather goods; large areas; safari themes | navy; white; olive
+taupe | taupe stone; mushrooms; linen | neutrality; sophistication; calm | interior design; large areas; minimalist themes | white; navy; blush
+camel | camel coats; camel hair; desert sand | classic style; warmth; comfort | fashion retail; small accents; autumn collections | navy; white; burgundy
+caramel | caramel sauce; toffee; honey | sweetness; warmth; indulgence | confectionery; small accents; Bonfire Night | cream; chocolate; teal
+sienna | sienna pigment; autumn leaves; clay | earthiness; warmth; artistry | art suppliers; illustration and data; autumn themes | cream; teal; navy
+umber | umber pigment; tilled soil; old wood | earthiness; depth; tradition | furniture makers; text and line work; heritage themes | cream; gold; sage
+mahogany | mahogany furniture; violins; red-brown leather | luxury; tradition; warmth | furniture makers; text and line work; library themes | cream; gold; forest green
+chestnut | chestnuts; horse coats; autumn leaves | warmth; reliability; autumn | equestrian brands; small accents; autumn themes | cream; sage; navy
+cocoa | cocoa powder; hot chocolate; brownies | comfort; warmth; indulgence | cafés; large areas; winter themes | cream; pink; mint
+bronze | bronze medals; statues; old coins | achievement; durability; warmth | award ceremonies; outlines and details; third-place medals | black; cream; navy
+mushroom | mushrooms; stone; linen | calm; naturalness; understatement | homeware brands; large areas; minimalist themes | white; sage; blush
 
 # --- Neutrals ---------------------------------------------------------------------------------
-light grey | pebbles; morning fog; aluminium | calm; neutrality; modernity | software companies; surfaces; minimalist themes | yellow; navy; pink
-dark grey | slate; charcoal suits; asphalt | seriousness; stability; modernity | tech brands; body text; dark mode themes | yellow; white; orange
-charcoal | charcoal; business suits; graphite pencils | seriousness; strength; sophistication | consulting firms; body text; formal events | yellow; white; coral
-slate | slate roofs; school chalkboards; rainy skies | stability; calm; understatement | architecture firms; headings; rainy-day themes | cream; mustard; coral
-slate grey | slate tiles; storm clouds; pewter | calm; maturity; neutrality | software companies; icons; corporate reports | white; yellow; coral
-silver | silver jewellery; cutlery; foil | modernity; elegance; technology | jewellers; icons; 25th anniversaries | navy; black; white
-cool grey | concrete; steel; overcast sky | modernity; calm; professionalism | tech brands; borders; futuristic themes | yellow; navy; white
-warm grey | stone walls; driftwood; elephant skin | comfort; balance; understatement | homeware brands; surfaces; Scandinavian themes | white; terracotta; navy
-stone | stone walls; pebbles; limestone | stability; naturalness; calm | architecture firms; backgrounds; natural themes | white; navy; sage
-putty | putty; plaster; unbleached cotton | calm; practicality; softness | fashion retail; surfaces; minimalist themes | white; navy; terracotta
-gunmetal | gun barrels; steel tools; storm clouds | toughness; modernity; seriousness | car brands; icons; industrial themes | white; orange; silver
-off white | eggshells; cotton; old paper | softness; calm; warmth | stationery brands; backgrounds; minimalist themes | navy; black; sage
-cream | cream; vanilla ice cream; old lace | warmth; softness; elegance | bakeries; backgrounds; weddings | navy; burgundy; forest green
-ivory | piano keys; ivory paper; wedding dresses | elegance; purity; calm | luxury stationery; backgrounds; weddings | navy; gold; black
-beige | sand; linen; oatmeal | calm; neutrality; warmth | skincare; backgrounds; neutral interiors | white; navy; brown
-eggshell | eggshells; matte paint; parchment | softness; calm; subtlety | paint brands; surfaces; Scandinavian themes | navy; grey; sage
-linen | linen sheets; flax; natural fabric | naturalness; calm; simplicity | bedding brands; backgrounds; natural themes | navy; sage; brown
-snow | fresh snow; white sheets; frost | purity; freshness; quiet | healthcare; backgrounds; winter holidays | navy; red; silver
+light grey | pebbles; morning fog; aluminium | calm; neutrality; modernity | software companies; large areas; minimalist themes | yellow; navy; pink
+dark grey | slate; charcoal suits; asphalt | seriousness; stability; modernity | tech brands; text and line work; dark mode themes | yellow; white; orange
+charcoal | charcoal; business suits; graphite pencils | seriousness; strength; sophistication | consulting firms; text and line work; formal events | yellow; white; coral
+slate | slate roofs; school chalkboards; rainy skies | stability; calm; understatement | architecture firms; text and line work; rainy-day themes | cream; mustard; coral
+slate grey | slate tiles; storm clouds; pewter | calm; maturity; neutrality | software companies; outlines and details; corporate reports | white; yellow; coral
+silver | silver jewellery; cutlery; foil | modernity; elegance; technology | jewellers; outlines and details; 25th anniversaries | navy; black; white
+cool grey | concrete; steel; overcast sky | modernity; calm; professionalism | tech brands; outlines and details; futuristic themes | yellow; navy; white
+warm grey | stone walls; driftwood; elephant skin | comfort; balance; understatement | homeware brands; large areas; Scandinavian themes | white; terracotta; navy
+stone | stone walls; pebbles; limestone | stability; naturalness; calm | architecture firms; large areas; natural themes | white; navy; sage
+putty | putty; plaster; unbleached cotton | calm; practicality; softness | fashion retail; large areas; minimalist themes | white; navy; terracotta
+gunmetal | gun barrels; steel tools; storm clouds | toughness; modernity; seriousness | car brands; outlines and details; industrial themes | white; orange; silver
+off white | eggshells; cotton; old paper | softness; calm; warmth | stationery brands; large areas; minimalist themes | navy; black; sage
+cream | cream; vanilla ice cream; old lace | warmth; softness; elegance | bakeries; large areas; weddings | navy; burgundy; forest green
+ivory | piano keys; ivory paper; wedding dresses | elegance; purity; calm | luxury stationery; large areas; weddings | navy; gold; black
+beige | sand; linen; oatmeal | calm; neutrality; warmth | skincare; large areas; neutral interiors | white; navy; brown
+eggshell | eggshells; matte paint; parchment | softness; calm; subtlety | paint brands; large areas; Scandinavian themes | navy; grey; sage
+linen | linen sheets; flax; natural fabric | naturalness; calm; simplicity | bedding brands; large areas; natural themes | navy; sage; brown
+snow | fresh snow; white sheets; frost | purity; freshness; quiet | healthcare; large areas; winter holidays | navy; red; silver
 
 # --- Extras -----------------------------------------------------------------------------------
-pastel yellow | lemon meringue; baby chicks; primroses | gentleness; cheer; calm | baby products; surfaces; Easter | grey; lavender; white
-pastel orange | peach sorbet; apricot jam; sunset clouds | warmth; gentleness; friendliness | bakeries; surfaces; summer themes | white; teal; grey
-neon yellow | highlighter pens; safety vests; tennis balls | alertness; energy; fun | sportswear; highlights; rave and nightlife themes | black; charcoal; purple
-dodger blue | swimming pools; sports kits; summer skies | energy; trust; friendliness | tech brands; links; sports events | white; orange; yellow
-light coral | coral; pink grapefruit; summer dresses | warmth; friendliness; softness | lifestyle brands; buttons; summer themes | white; navy; teal
-dark salmon | smoked salmon; terracotta; papaya | warmth; appetite; softness | restaurants; accents; summer menus | white; navy; teal
+pastel yellow | lemon meringue; baby chicks; primroses | gentleness; cheer; calm | baby products; large areas; Easter | grey; lavender; white
+pastel orange | peach sorbet; apricot jam; sunset clouds | warmth; gentleness; friendliness | bakeries; large areas; summer themes | white; teal; grey
+neon yellow | highlighter pens; safety vests; tennis balls | alertness; energy; fun | sportswear; focal points; rave and nightlife themes | black; charcoal; purple
+dodger blue | swimming pools; sports kits; summer skies | energy; trust; friendliness | tech brands; text and line work; sports events | white; orange; yellow
+light coral | coral; pink grapefruit; summer dresses | warmth; friendliness; softness | lifestyle brands; focal points; summer themes | white; navy; teal
+dark salmon | smoked salmon; terracotta; papaya | warmth; appetite; softness | restaurants; small accents; summer menus | white; navy; teal

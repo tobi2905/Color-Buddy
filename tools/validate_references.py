@@ -14,11 +14,11 @@ MIN_ENTRIES = 200
 HEX = re.compile(r"^#[0-9A-F]{6}$")
 LIST_FIELDS = ("references", "associations", "uses")
 # "uses" is exactly [industry or brand type, design role, theme or occasion]; the middle slot
-# comes from this list so the three always differ in kind (decided at review checkpoint 4).
+# comes from this medium-neutral list (web, print, illustration) so the three always differ in
+# kind (decided at review checkpoint 4).
 DESIGN_ROLES = {
-    "backgrounds", "surfaces", "body text", "headings", "buttons", "links", "highlights",
-    "accents", "borders", "icons", "illustrations", "charts", "logos", "packaging", "badges",
-    "success states", "error states", "warning states", "dark mode backgrounds",
+    "large areas", "small accents", "focal points", "text and line work",
+    "outlines and details", "signals and warnings", "illustration and data",
 }
 BASIC_TERMS = ["red", "orange", "yellow", "green", "blue", "purple", "pink", "brown", "black", "white", "grey"]
 

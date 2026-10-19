@@ -13,7 +13,7 @@
   ],
   "uses": [
    "food brands",
-   "error states",
+   "signals and warnings",
    "sales events"
   ],
   "pairings": [
@@ -36,7 +36,7 @@
   ],
   "uses": [
    "sports brands",
-   "buttons",
+   "focal points",
    "Halloween"
   ],
   "pairings": [
@@ -59,7 +59,7 @@
   ],
   "uses": [
    "children's brands",
-   "highlights",
+   "focal points",
    "summer campaigns"
   ],
   "pairings": [
@@ -82,7 +82,7 @@
   ],
   "uses": [
    "eco brands",
-   "success states",
+   "signals and warnings",
    "spring campaigns"
   ],
   "pairings": [
@@ -105,7 +105,7 @@
   ],
   "uses": [
    "banks",
-   "links",
+   "text and line work",
    "corporate reports"
   ],
   "pairings": [
@@ -128,7 +128,7 @@
   ],
   "uses": [
    "beauty brands",
-   "accents",
+   "small accents",
    "spiritual themes"
   ],
   "pairings": [
@@ -151,7 +151,7 @@
   ],
   "uses": [
    "cosmetics",
-   "badges",
+   "small accents",
    "Valentine's Day"
   ],
   "pairings": [
@@ -174,7 +174,7 @@
   ],
   "uses": [
    "coffee shops",
-   "backgrounds",
+   "large areas",
    "rustic themes"
   ],
   "pairings": [
@@ -197,7 +197,7 @@
   ],
   "uses": [
    "luxury brands",
-   "body text",
+   "text and line work",
    "formal events"
   ],
   "pairings": [
@@ -220,7 +220,7 @@
   ],
   "uses": [
    "healthcare",
-   "backgrounds",
+   "large areas",
    "minimalist design"
   ],
   "pairings": [
@@ -243,7 +243,7 @@
   ],
   "uses": [
    "corporate brands",
-   "borders",
+   "outlines and details",
    "neutral layouts"
   ],
   "pairings": [
@@ -266,7 +266,7 @@
   ],
   "uses": [
    "food packaging",
-   "buttons",
+   "focal points",
    "summer picnics"
   ],
   "pairings": [
@@ -289,7 +289,7 @@
   ],
   "uses": [
    "wineries",
-   "headings",
+   "text and line work",
    "autumn menus"
   ],
   "pairings": [
@@ -312,7 +312,7 @@
   ],
   "uses": [
    "vintage shops",
-   "illustrations",
+   "illustration and data",
    "nostalgic themes"
   ],
   "pairings": [
@@ -335,7 +335,7 @@
   ],
   "uses": [
    "sports teams",
-   "error states",
+   "signals and warnings",
    "sales events"
   ],
   "pairings": [
@@ -358,7 +358,7 @@
   ],
   "uses": [
    "theatres",
-   "accents",
+   "small accents",
    "Christmas"
   ],
   "pairings": [
@@ -381,7 +381,7 @@
   ],
   "uses": [
    "universities",
-   "headings",
+   "text and line work",
    "graduation"
   ],
   "pairings": [
@@ -404,7 +404,7 @@
   ],
   "uses": [
    "fashion houses",
-   "accents",
+   "small accents",
    "formal invitations"
   ],
   "pairings": [
@@ -427,7 +427,7 @@
   ],
   "uses": [
    "publishers",
-   "logos",
+   "focal points",
    "Valentine's Day"
   ],
   "pairings": [
@@ -450,7 +450,7 @@
   ],
   "uses": [
    "fashion retail",
-   "buttons",
+   "focal points",
    "Chinese New Year"
   ],
   "pairings": [
@@ -473,7 +473,7 @@
   ],
   "uses": [
    "confectionery",
-   "badges",
+   "small accents",
    "retro diner themes"
   ],
   "pairings": [
@@ -496,7 +496,7 @@
   ],
   "uses": [
    "jewellers",
-   "accents",
+   "small accents",
    "anniversaries"
   ],
   "pairings": [
@@ -519,7 +519,7 @@
   ],
   "uses": [
    "restaurants",
-   "headings",
+   "text and line work",
    "dinner parties"
   ],
   "pairings": [
@@ -542,7 +542,7 @@
   ],
   "uses": [
    "architecture firms",
-   "illustrations",
+   "illustration and data",
    "rustic themes"
   ],
   "pairings": [
@@ -565,7 +565,7 @@
   ],
   "uses": [
    "film studios",
-   "error states",
+   "signals and warnings",
    "Halloween"
   ],
   "pairings": [
@@ -588,7 +588,7 @@
   ],
   "uses": [
    "heritage brands",
-   "logos",
+   "focal points",
    "sports seasons"
   ],
   "pairings": [
@@ -611,7 +611,7 @@
   ],
   "uses": [
    "smoothie brands",
-   "accents",
+   "small accents",
    "summer menus"
   ],
   "pairings": [
@@ -634,7 +634,7 @@
   ],
   "uses": [
    "food brands",
-   "accents",
+   "small accents",
    "Thanksgiving"
   ],
   "pairings": [
@@ -657,7 +657,7 @@
   ],
   "uses": [
    "dessert shops",
-   "buttons",
+   "focal points",
    "summer markets"
   ],
   "pairings": [
@@ -680,7 +680,7 @@
   ],
   "uses": [
    "restaurants",
-   "buttons",
+   "focal points",
    "Italian themes"
   ],
   "pairings": [
@@ -703,7 +703,7 @@
   ],
   "uses": [
    "spice brands",
-   "illustrations",
+   "illustration and data",
    "harvest festivals"
   ],
   "pairings": [
@@ -726,7 +726,7 @@
   ],
   "uses": [
    "children's brands",
-   "highlights",
+   "focal points",
    "summer camps"
   ],
   "pairings": [
@@ -749,7 +749,7 @@
   ],
   "uses": [
    "sports brands",
-   "headings",
+   "text and line work",
    "harvest themes"
   ],
   "pairings": [
@@ -772,7 +772,7 @@
   ],
   "uses": [
    "skincare",
-   "backgrounds",
+   "large areas",
    "spring themes"
   ],
   "pairings": [
@@ -795,7 +795,7 @@
   ],
   "uses": [
    "safety equipment",
-   "warning states",
+   "signals and warnings",
    "road safety campaigns"
   ],
   "pairings": [
@@ -818,7 +818,7 @@
   ],
   "uses": [
    "interior design",
-   "accents",
+   "small accents",
    "70s retro themes"
   ],
   "pairings": [
@@ -841,7 +841,7 @@
   ],
   "uses": [
    "juice brands",
-   "buttons",
+   "focal points",
    "summer events"
   ],
   "pairings": [
@@ -864,7 +864,7 @@
   ],
   "uses": [
    "food packaging",
-   "backgrounds",
+   "large areas",
    "weddings"
   ],
   "pairings": [
@@ -887,7 +887,7 @@
   ],
   "uses": [
    "cosmetics",
-   "surfaces",
+   "large areas",
    "weddings"
   ],
   "pairings": [
@@ -910,7 +910,7 @@
   ],
   "uses": [
    "seafood restaurants",
-   "accents",
+   "small accents",
    "summer fashion"
   ],
   "pairings": [
@@ -933,7 +933,7 @@
   ],
   "uses": [
    "lifestyle apps",
-   "buttons",
+   "focal points",
    "beach holidays"
   ],
   "pairings": [
@@ -956,7 +956,7 @@
   ],
   "uses": [
    "fruit brands",
-   "highlights",
+   "focal points",
    "summer menus"
   ],
   "pairings": [
@@ -979,7 +979,7 @@
   ],
   "uses": [
    "whisky distilleries",
-   "warning states",
+   "signals and warnings",
    "vintage themes"
   ],
   "pairings": [
@@ -1002,7 +1002,7 @@
   ],
   "uses": [
    "farm shops",
-   "accents",
+   "small accents",
    "Halloween"
   ],
   "pairings": [
@@ -1025,7 +1025,7 @@
   ],
   "uses": [
    "breweries",
-   "icons",
+   "outlines and details",
    "industrial themes"
   ],
   "pairings": [
@@ -1048,7 +1048,7 @@
   ],
   "uses": [
    "outdoor brands",
-   "accents",
+   "small accents",
    "autumn collections"
   ],
   "pairings": [
@@ -1071,7 +1071,7 @@
   ],
   "uses": [
    "ceramics studios",
-   "illustrations",
+   "illustration and data",
    "Mediterranean themes"
   ],
   "pairings": [
@@ -1094,7 +1094,7 @@
   ],
   "uses": [
    "bakeries",
-   "accents",
+   "small accents",
    "Christmas markets"
   ],
   "pairings": [
@@ -1117,7 +1117,7 @@
   ],
   "uses": [
    "spice brands",
-   "highlights",
+   "focal points",
    "Diwali"
   ],
   "pairings": [
@@ -1140,7 +1140,7 @@
   ],
   "uses": [
    "baby products",
-   "backgrounds",
+   "large areas",
    "Easter"
   ],
   "pairings": [
@@ -1163,7 +1163,7 @@
   ],
   "uses": [
    "furniture retail",
-   "accents",
+   "small accents",
    "retro themes"
   ],
   "pairings": [
@@ -1186,7 +1186,7 @@
   ],
   "uses": [
    "stationery brands",
-   "surfaces",
+   "large areas",
    "spring themes"
   ],
   "pairings": [
@@ -1209,7 +1209,7 @@
   ],
   "uses": [
    "taxi services",
-   "highlights",
+   "focal points",
    "summer festivals"
   ],
   "pairings": [
@@ -1232,7 +1232,7 @@
   ],
   "uses": [
    "fashion retail",
-   "accents",
+   "small accents",
    "60s and 70s themes"
   ],
   "pairings": [
@@ -1255,7 +1255,7 @@
   ],
   "uses": [
    "cleaning products",
-   "highlights",
+   "focal points",
    "summer drinks"
   ],
   "pairings": [
@@ -1278,7 +1278,7 @@
   ],
   "uses": [
    "sports brands",
-   "warning states",
+   "signals and warnings",
    "road signage"
   ],
   "pairings": [
@@ -1301,7 +1301,7 @@
   ],
   "uses": [
    "office supplies",
-   "highlights",
+   "focal points",
    "back-to-school"
   ],
   "pairings": [
@@ -1324,7 +1324,7 @@
   ],
   "uses": [
    "bakeries",
-   "surfaces",
+   "large areas",
    "farmhouse themes"
   ],
   "pairings": [
@@ -1347,7 +1347,7 @@
   ],
   "uses": [
    "florists",
-   "illustrations",
+   "illustration and data",
    "summer campaigns"
   ],
   "pairings": [
@@ -1370,7 +1370,7 @@
   ],
   "uses": [
    "farm brands",
-   "accents",
+   "small accents",
    "harvest themes"
   ],
   "pairings": [
@@ -1393,7 +1393,7 @@
   ],
   "uses": [
    "award ceremonies",
-   "accents",
+   "small accents",
    "New Year's Eve"
   ],
   "pairings": [
@@ -1416,7 +1416,7 @@
   ],
   "uses": [
    "textile brands",
-   "highlights",
+   "focal points",
    "Diwali"
   ],
   "pairings": [
@@ -1439,7 +1439,7 @@
   ],
   "uses": [
    "art suppliers",
-   "illustrations",
+   "illustration and data",
    "desert themes"
   ],
   "pairings": [
@@ -1462,7 +1462,7 @@
   ],
   "uses": [
    "outdoor brands",
-   "surfaces",
+   "large areas",
    "safari themes"
   ],
   "pairings": [
@@ -1485,7 +1485,7 @@
   ],
   "uses": [
    "health brands",
-   "success states",
+   "signals and warnings",
    "spring campaigns"
   ],
   "pairings": [
@@ -1508,7 +1508,7 @@
   ],
   "uses": [
    "banks",
-   "headings",
+   "text and line work",
    "Christmas"
   ],
   "pairings": [
@@ -1531,7 +1531,7 @@
   ],
   "uses": [
    "spas",
-   "backgrounds",
+   "large areas",
    "spring themes"
   ],
   "pairings": [
@@ -1554,7 +1554,7 @@
   ],
   "uses": [
    "gaming brands",
-   "success states",
+   "signals and warnings",
    "sports events"
   ],
   "pairings": [
@@ -1577,7 +1577,7 @@
   ],
   "uses": [
    "wellness brands",
-   "surfaces",
+   "large areas",
    "botanical themes"
   ],
   "pairings": [
@@ -1600,7 +1600,7 @@
   ],
   "uses": [
    "outdoor brands",
-   "headings",
+   "text and line work",
    "Christmas"
   ],
   "pairings": [
@@ -1623,7 +1623,7 @@
   ],
   "uses": [
    "olive oil brands",
-   "accents",
+   "small accents",
    "military themes"
   ],
   "pairings": [
@@ -1646,7 +1646,7 @@
   ],
   "uses": [
    "spas",
-   "accents",
+   "small accents",
    "coastal themes"
   ],
   "pairings": [
@@ -1669,7 +1669,7 @@
   ],
   "uses": [
    "ice cream brands",
-   "badges",
+   "small accents",
    "retro themes"
   ],
   "pairings": [
@@ -1692,7 +1692,7 @@
   ],
   "uses": [
    "healthcare",
-   "success states",
+   "signals and warnings",
    "spring themes"
   ],
   "pairings": [
@@ -1715,7 +1715,7 @@
   ],
   "uses": [
    "Mediterranean restaurants",
-   "accents",
+   "small accents",
    "harvest themes"
   ],
   "pairings": [
@@ -1738,7 +1738,7 @@
   ],
   "uses": [
    "drinks brands",
-   "highlights",
+   "focal points",
    "summer festivals"
   ],
   "pairings": [
@@ -1761,7 +1761,7 @@
   ],
   "uses": [
    "tech startups",
-   "buttons",
+   "focal points",
    "sports events"
   ],
   "pairings": [
@@ -1784,7 +1784,7 @@
   ],
   "uses": [
    "jewellers",
-   "accents",
+   "small accents",
    "St Patrick's Day"
   ],
   "pairings": [
@@ -1807,7 +1807,7 @@
   ],
   "uses": [
    "tea brands",
-   "accents",
+   "small accents",
    "Lunar New Year"
   ],
   "pairings": [
@@ -1830,7 +1830,7 @@
   ],
   "uses": [
    "wellness brands",
-   "surfaces",
+   "large areas",
    "weddings"
   ],
   "pairings": [
@@ -1853,7 +1853,7 @@
   ],
   "uses": [
    "swimwear brands",
-   "backgrounds",
+   "large areas",
    "beach themes"
   ],
   "pairings": [
@@ -1876,7 +1876,7 @@
   ],
   "uses": [
    "gelato shops",
-   "surfaces",
+   "large areas",
    "spring themes"
   ],
   "pairings": [
@@ -1899,7 +1899,7 @@
   ],
   "uses": [
    "fashion brands",
-   "highlights",
+   "focal points",
    "music festivals"
   ],
   "pairings": [
@@ -1922,7 +1922,7 @@
   ],
   "uses": [
    "organic brands",
-   "illustrations",
+   "illustration and data",
    "woodland themes"
   ],
   "pairings": [
@@ -1945,7 +1945,7 @@
   ],
   "uses": [
    "heritage brands",
-   "headings",
+   "text and line work",
    "hunting season"
   ],
   "pairings": [
@@ -1968,7 +1968,7 @@
   ],
   "uses": [
    "sports teams",
-   "logos",
+   "focal points",
    "St Patrick's Day"
   ],
   "pairings": [
@@ -1991,7 +1991,7 @@
   ],
   "uses": [
    "spirits brands",
-   "packaging",
+   "large areas",
    "British heritage themes"
   ],
   "pairings": [
@@ -2014,7 +2014,7 @@
   ],
   "uses": [
    "candle brands",
-   "accents",
+   "small accents",
    "winter holidays"
   ],
   "pairings": [
@@ -2037,7 +2037,7 @@
   ],
   "uses": [
    "garden centres",
-   "success states",
+   "signals and warnings",
    "spring campaigns"
   ],
   "pairings": [
@@ -2060,7 +2060,7 @@
   ],
   "uses": [
    "sports clubs",
-   "illustrations",
+   "illustration and data",
    "summer fêtes"
   ],
   "pairings": [
@@ -2083,7 +2083,7 @@
   ],
   "uses": [
    "food brands",
-   "accents",
+   "small accents",
    "70s retro themes"
   ],
   "pairings": [
@@ -2106,7 +2106,7 @@
   ],
   "uses": [
    "workwear brands",
-   "surfaces",
+   "large areas",
    "military themes"
   ],
   "pairings": [
@@ -2129,7 +2129,7 @@
   ],
   "uses": [
    "gaming brands",
-   "highlights",
+   "focal points",
    "rave and nightlife themes"
   ],
   "pairings": [
@@ -2152,7 +2152,7 @@
   ],
   "uses": [
    "baby products",
-   "surfaces",
+   "large areas",
    "Easter"
   ],
   "pairings": [
@@ -2175,7 +2175,7 @@
   ],
   "uses": [
    "kitchenware",
-   "accents",
+   "small accents",
    "70s retro themes"
   ],
   "pairings": [
@@ -2198,7 +2198,7 @@
   ],
   "uses": [
    "tech brands",
-   "buttons",
+   "focal points",
    "coastal themes"
   ],
   "pairings": [
@@ -2221,7 +2221,7 @@
   ],
   "uses": [
    "financial services",
-   "headings",
+   "text and line work",
    "winter themes"
   ],
   "pairings": [
@@ -2244,7 +2244,7 @@
   ],
   "uses": [
    "health apps",
-   "backgrounds",
+   "large areas",
    "summer themes"
   ],
   "pairings": [
@@ -2267,7 +2267,7 @@
   ],
   "uses": [
    "travel agencies",
-   "accents",
+   "small accents",
    "tropical holidays"
   ],
   "pairings": [
@@ -2290,7 +2290,7 @@
   ],
   "uses": [
    "printing companies",
-   "charts",
+   "illustration and data",
    "tech events"
   ],
   "pairings": [
@@ -2313,7 +2313,7 @@
   ],
   "uses": [
    "water brands",
-   "backgrounds",
+   "large areas",
    "pool parties"
   ],
   "pairings": [
@@ -2336,7 +2336,7 @@
   ],
   "uses": [
    "jewellers",
-   "accents",
+   "small accents",
    "birthdays in March"
   ],
   "pairings": [
@@ -2359,7 +2359,7 @@
   ],
   "uses": [
    "interior design",
-   "accents",
+   "small accents",
    "autumn collections"
   ],
   "pairings": [
@@ -2382,7 +2382,7 @@
   ],
   "uses": [
    "healthcare",
-   "backgrounds",
+   "large areas",
    "baby showers"
   ],
   "pairings": [
@@ -2405,7 +2405,7 @@
   ],
   "uses": [
    "law firms",
-   "headings",
+   "text and line work",
    "corporate events"
   ],
   "pairings": [
@@ -2428,7 +2428,7 @@
   ],
   "uses": [
    "skincare",
-   "backgrounds",
+   "large areas",
    "winter themes"
   ],
   "pairings": [
@@ -2451,7 +2451,7 @@
   ],
   "uses": [
    "tech brands",
-   "links",
+   "text and line work",
    "sports events"
   ],
   "pairings": [
@@ -2474,7 +2474,7 @@
   ],
   "uses": [
    "consulting firms",
-   "surfaces",
+   "large areas",
    "minimalist themes"
   ],
   "pairings": [
@@ -2497,7 +2497,7 @@
   ],
   "uses": [
    "financial services",
-   "headings",
+   "text and line work",
    "nautical themes"
   ],
   "pairings": [
@@ -2520,7 +2520,7 @@
   ],
   "uses": [
    "airlines",
-   "backgrounds",
+   "large areas",
    "summer holidays"
   ],
   "pairings": [
@@ -2543,7 +2543,7 @@
   ],
   "uses": [
    "baby products",
-   "surfaces",
+   "large areas",
    "baby showers"
   ],
   "pairings": [
@@ -2566,7 +2566,7 @@
   ],
   "uses": [
    "sports teams",
-   "buttons",
+   "focal points",
    "royal occasions"
   ],
   "pairings": [
@@ -2589,7 +2589,7 @@
   ],
   "uses": [
    "stationery brands",
-   "surfaces",
+   "large areas",
    "weddings"
   ],
   "pairings": [
@@ -2612,7 +2612,7 @@
   ],
   "uses": [
    "ceramics studios",
-   "accents",
+   "small accents",
    "tech events"
   ],
   "pairings": [
@@ -2635,7 +2635,7 @@
   ],
   "uses": [
    "jewellers",
-   "accents",
+   "small accents",
    "anniversaries"
   ],
   "pairings": [
@@ -2658,7 +2658,7 @@
   ],
   "uses": [
    "homeware brands",
-   "illustrations",
+   "illustration and data",
    "country cottage themes"
   ],
   "pairings": [
@@ -2681,7 +2681,7 @@
   ],
   "uses": [
    "engineering firms",
-   "icons",
+   "outlines and details",
    "corporate reports"
   ],
   "pairings": [
@@ -2704,7 +2704,7 @@
   ],
   "uses": [
    "fashion retail",
-   "surfaces",
+   "large areas",
    "casual themes"
   ],
   "pairings": [
@@ -2727,7 +2727,7 @@
   ],
   "uses": [
    "travel agencies",
-   "backgrounds",
+   "large areas",
    "Mediterranean holidays"
   ],
   "pairings": [
@@ -2750,7 +2750,7 @@
   ],
   "uses": [
    "skincare",
-   "accents",
+   "small accents",
    "beach themes"
   ],
   "pairings": [
@@ -2773,7 +2773,7 @@
   ],
   "uses": [
    "yoga studios",
-   "dark mode backgrounds",
+   "large areas",
    "night themes"
   ],
   "pairings": [
@@ -2796,7 +2796,7 @@
   ],
   "uses": [
    "art suppliers",
-   "illustrations",
+   "illustration and data",
    "poster campaigns"
   ],
   "pairings": [
@@ -2819,7 +2819,7 @@
   ],
   "uses": [
    "luxury brands",
-   "dark mode backgrounds",
+   "large areas",
    "evening events"
   ],
   "pairings": [
@@ -2842,7 +2842,7 @@
   ],
   "uses": [
    "law firms",
-   "body text",
+   "text and line work",
    "formal events"
   ],
   "pairings": [
@@ -2865,7 +2865,7 @@
   ],
   "uses": [
    "gaming brands",
-   "buttons",
+   "focal points",
    "nightlife themes"
   ],
   "pairings": [
@@ -2888,7 +2888,7 @@
   ],
   "uses": [
    "drinks brands",
-   "backgrounds",
+   "large areas",
    "winter themes"
   ],
   "pairings": [
@@ -2911,7 +2911,7 @@
   ],
   "uses": [
    "gift shops",
-   "accents",
+   "small accents",
    "spring weddings"
   ],
   "pairings": [
@@ -2934,7 +2934,7 @@
   ],
   "uses": [
    "consultancies",
-   "icons",
+   "outlines and details",
    "autumn themes"
   ],
   "pairings": [
@@ -2957,7 +2957,7 @@
   ],
   "uses": [
    "stationery brands",
-   "accents",
+   "small accents",
    "spring themes"
   ],
   "pairings": [
@@ -2980,7 +2980,7 @@
   ],
   "uses": [
    "baby products",
-   "surfaces",
+   "large areas",
    "Easter"
   ],
   "pairings": [
@@ -3003,7 +3003,7 @@
   ],
   "uses": [
    "beauty brands",
-   "surfaces",
+   "large areas",
    "spring themes"
   ],
   "pairings": [
@@ -3026,7 +3026,7 @@
   ],
   "uses": [
    "premium brands",
-   "headings",
+   "text and line work",
    "evening events"
   ],
   "pairings": [
@@ -3049,7 +3049,7 @@
   ],
   "uses": [
    "skincare",
-   "backgrounds",
+   "large areas",
    "weddings"
   ],
   "pairings": [
@@ -3072,7 +3072,7 @@
   ],
   "uses": [
    "music venues",
-   "buttons",
+   "focal points",
    "festivals"
   ],
   "pairings": [
@@ -3095,7 +3095,7 @@
   ],
   "uses": [
    "chocolate brands",
-   "accents",
+   "small accents",
    "theatre nights"
   ],
   "pairings": [
@@ -3118,7 +3118,7 @@
   ],
   "uses": [
    "homeware brands",
-   "surfaces",
+   "large areas",
    "autumn themes"
   ],
   "pairings": [
@@ -3141,7 +3141,7 @@
   ],
   "uses": [
    "spas",
-   "backgrounds",
+   "large areas",
    "weddings"
   ],
   "pairings": [
@@ -3164,7 +3164,7 @@
   ],
   "uses": [
    "cosmetics",
-   "badges",
+   "small accents",
    "spring themes"
   ],
   "pairings": [
@@ -3187,7 +3187,7 @@
   ],
   "uses": [
    "fashion retail",
-   "accents",
+   "small accents",
    "vintage weddings"
   ],
   "pairings": [
@@ -3210,7 +3210,7 @@
   ],
   "uses": [
    "wine brands",
-   "headings",
+   "text and line work",
    "autumn themes"
   ],
   "pairings": [
@@ -3233,7 +3233,7 @@
   ],
   "uses": [
    "spiritual brands",
-   "accents",
+   "small accents",
    "art festivals"
   ],
   "pairings": [
@@ -3256,7 +3256,7 @@
   ],
   "uses": [
    "florists",
-   "accents",
+   "small accents",
    "tropical themes"
   ],
   "pairings": [
@@ -3279,7 +3279,7 @@
   ],
   "uses": [
    "jewellers",
-   "accents",
+   "small accents",
    "birthdays in February"
   ],
   "pairings": [
@@ -3302,7 +3302,7 @@
   ],
   "uses": [
    "restaurants",
-   "dark mode backgrounds",
+   "large areas",
    "autumn menus"
   ],
   "pairings": [
@@ -3325,7 +3325,7 @@
   ],
   "uses": [
    "printing companies",
-   "highlights",
+   "focal points",
    "music festivals"
   ],
   "pairings": [
@@ -3348,7 +3348,7 @@
   ],
   "uses": [
    "fashion brands",
-   "buttons",
+   "focal points",
    "party themes"
   ],
   "pairings": [
@@ -3371,7 +3371,7 @@
   ],
   "uses": [
    "baby products",
-   "surfaces",
+   "large areas",
    "Easter"
   ],
   "pairings": [
@@ -3394,7 +3394,7 @@
   ],
   "uses": [
    "baby products",
-   "surfaces",
+   "large areas",
    "baby showers"
   ],
   "pairings": [
@@ -3417,7 +3417,7 @@
   ],
   "uses": [
    "cosmetics",
-   "buttons",
+   "focal points",
    "Valentine's Day"
   ],
   "pairings": [
@@ -3440,7 +3440,7 @@
   ],
   "uses": [
    "skincare",
-   "backgrounds",
+   "large areas",
    "weddings"
   ],
   "pairings": [
@@ -3463,7 +3463,7 @@
   ],
   "uses": [
    "youth brands",
-   "badges",
+   "small accents",
    "birthday parties"
   ],
   "pairings": [
@@ -3486,7 +3486,7 @@
   ],
   "uses": [
    "fashion brands",
-   "highlights",
+   "focal points",
    "nightlife themes"
   ],
   "pairings": [
@@ -3509,7 +3509,7 @@
   ],
   "uses": [
    "interior design",
-   "surfaces",
+   "large areas",
    "vintage weddings"
   ],
   "pairings": [
@@ -3532,7 +3532,7 @@
   ],
   "uses": [
    "baby products",
-   "backgrounds",
+   "large areas",
    "baby showers"
   ],
   "pairings": [
@@ -3555,7 +3555,7 @@
   ],
   "uses": [
    "florists",
-   "accents",
+   "small accents",
    "Valentine's Day"
   ],
   "pairings": [
@@ -3578,7 +3578,7 @@
   ],
   "uses": [
    "cosmetics",
-   "surfaces",
+   "large areas",
    "weddings"
   ],
   "pairings": [
@@ -3601,7 +3601,7 @@
   ],
   "uses": [
    "greeting card brands",
-   "illustrations",
+   "illustration and data",
    "Mother's Day"
   ],
   "pairings": [
@@ -3624,7 +3624,7 @@
   ],
   "uses": [
    "toy brands",
-   "badges",
+   "small accents",
    "children's parties"
   ],
   "pairings": [
@@ -3647,7 +3647,7 @@
   ],
   "uses": [
    "bakeries",
-   "surfaces",
+   "large areas",
    "Easter"
   ],
   "pairings": [
@@ -3670,7 +3670,7 @@
   ],
   "uses": [
    "music venues",
-   "highlights",
+   "focal points",
    "80s themes"
   ],
   "pairings": [
@@ -3693,7 +3693,7 @@
   ],
   "uses": [
    "cosmetics",
-   "buttons",
+   "focal points",
    "breast cancer awareness"
   ],
   "pairings": [
@@ -3716,7 +3716,7 @@
   ],
   "uses": [
    "gaming brands",
-   "highlights",
+   "focal points",
    "synthwave themes"
   ],
   "pairings": [
@@ -3739,7 +3739,7 @@
   ],
   "uses": [
    "packaging companies",
-   "surfaces",
+   "large areas",
    "autumn themes"
   ],
   "pairings": [
@@ -3762,7 +3762,7 @@
   ],
   "uses": [
    "coffee brands",
-   "body text",
+   "text and line work",
    "winter themes"
   ],
   "pairings": [
@@ -3785,7 +3785,7 @@
   ],
   "uses": [
    "organic brands",
-   "backgrounds",
+   "large areas",
    "harvest themes"
   ],
   "pairings": [
@@ -3808,7 +3808,7 @@
   ],
   "uses": [
    "pottery studios",
-   "illustrations",
+   "illustration and data",
    "autumn themes"
   ],
   "pairings": [
@@ -3831,7 +3831,7 @@
   ],
   "uses": [
    "chocolatiers",
-   "headings",
+   "text and line work",
    "Easter"
   ],
   "pairings": [
@@ -3854,7 +3854,7 @@
   ],
   "uses": [
    "cafés",
-   "surfaces",
+   "large areas",
    "cosy winter themes"
   ],
   "pairings": [
@@ -3877,7 +3877,7 @@
   ],
   "uses": [
    "travel agencies",
-   "backgrounds",
+   "large areas",
    "beach themes"
   ],
   "pairings": [
@@ -3900,7 +3900,7 @@
   ],
   "uses": [
    "leather goods",
-   "surfaces",
+   "large areas",
    "safari themes"
   ],
   "pairings": [
@@ -3923,7 +3923,7 @@
   ],
   "uses": [
    "interior design",
-   "surfaces",
+   "large areas",
    "minimalist themes"
   ],
   "pairings": [
@@ -3946,7 +3946,7 @@
   ],
   "uses": [
    "fashion retail",
-   "accents",
+   "small accents",
    "autumn collections"
   ],
   "pairings": [
@@ -3969,7 +3969,7 @@
   ],
   "uses": [
    "confectionery",
-   "accents",
+   "small accents",
    "Bonfire Night"
   ],
   "pairings": [
@@ -3992,7 +3992,7 @@
   ],
   "uses": [
    "art suppliers",
-   "illustrations",
+   "illustration and data",
    "autumn themes"
   ],
   "pairings": [
@@ -4015,7 +4015,7 @@
   ],
   "uses": [
    "furniture makers",
-   "headings",
+   "text and line work",
    "heritage themes"
   ],
   "pairings": [
@@ -4038,7 +4038,7 @@
   ],
   "uses": [
    "furniture makers",
-   "headings",
+   "text and line work",
    "library themes"
   ],
   "pairings": [
@@ -4061,7 +4061,7 @@
   ],
   "uses": [
    "equestrian brands",
-   "accents",
+   "small accents",
    "autumn themes"
   ],
   "pairings": [
@@ -4084,7 +4084,7 @@
   ],
   "uses": [
    "cafés",
-   "surfaces",
+   "large areas",
    "winter themes"
   ],
   "pairings": [
@@ -4107,7 +4107,7 @@
   ],
   "uses": [
    "award ceremonies",
-   "icons",
+   "outlines and details",
    "third-place medals"
   ],
   "pairings": [
@@ -4130,7 +4130,7 @@
   ],
   "uses": [
    "homeware brands",
-   "surfaces",
+   "large areas",
    "minimalist themes"
   ],
   "pairings": [
@@ -4153,7 +4153,7 @@
   ],
   "uses": [
    "software companies",
-   "surfaces",
+   "large areas",
    "minimalist themes"
   ],
   "pairings": [
@@ -4176,7 +4176,7 @@
   ],
   "uses": [
    "tech brands",
-   "body text",
+   "text and line work",
    "dark mode themes"
   ],
   "pairings": [
@@ -4199,7 +4199,7 @@
   ],
   "uses": [
    "consulting firms",
-   "body text",
+   "text and line work",
    "formal events"
   ],
   "pairings": [
@@ -4222,7 +4222,7 @@
   ],
   "uses": [
    "architecture firms",
-   "headings",
+   "text and line work",
    "rainy-day themes"
   ],
   "pairings": [
@@ -4245,7 +4245,7 @@
   ],
   "uses": [
    "software companies",
-   "icons",
+   "outlines and details",
    "corporate reports"
   ],
   "pairings": [
@@ -4268,7 +4268,7 @@
   ],
   "uses": [
    "jewellers",
-   "icons",
+   "outlines and details",
    "25th anniversaries"
   ],
   "pairings": [
@@ -4291,7 +4291,7 @@
   ],
   "uses": [
    "tech brands",
-   "borders",
+   "outlines and details",
    "futuristic themes"
   ],
   "pairings": [
@@ -4314,7 +4314,7 @@
   ],
   "uses": [
    "homeware brands",
-   "surfaces",
+   "large areas",
    "Scandinavian themes"
   ],
   "pairings": [
@@ -4337,7 +4337,7 @@
   ],
   "uses": [
    "architecture firms",
-   "backgrounds",
+   "large areas",
    "natural themes"
   ],
   "pairings": [
@@ -4360,7 +4360,7 @@
   ],
   "uses": [
    "fashion retail",
-   "surfaces",
+   "large areas",
    "minimalist themes"
   ],
   "pairings": [
@@ -4383,7 +4383,7 @@
   ],
   "uses": [
    "car brands",
-   "icons",
+   "outlines and details",
    "industrial themes"
   ],
   "pairings": [
@@ -4406,7 +4406,7 @@
   ],
   "uses": [
    "stationery brands",
-   "backgrounds",
+   "large areas",
    "minimalist themes"
   ],
   "pairings": [
@@ -4429,7 +4429,7 @@
   ],
   "uses": [
    "bakeries",
-   "backgrounds",
+   "large areas",
    "weddings"
   ],
   "pairings": [
@@ -4452,7 +4452,7 @@
   ],
   "uses": [
    "luxury stationery",
-   "backgrounds",
+   "large areas",
    "weddings"
   ],
   "pairings": [
@@ -4475,7 +4475,7 @@
   ],
   "uses": [
    "skincare",
-   "backgrounds",
+   "large areas",
    "neutral interiors"
   ],
   "pairings": [
@@ -4498,7 +4498,7 @@
   ],
   "uses": [
    "paint brands",
-   "surfaces",
+   "large areas",
    "Scandinavian themes"
   ],
   "pairings": [
@@ -4521,7 +4521,7 @@
   ],
   "uses": [
    "bedding brands",
-   "backgrounds",
+   "large areas",
    "natural themes"
   ],
   "pairings": [
@@ -4544,7 +4544,7 @@
   ],
   "uses": [
    "healthcare",
-   "backgrounds",
+   "large areas",
    "winter holidays"
   ],
   "pairings": [
@@ -4567,7 +4567,7 @@
   ],
   "uses": [
    "baby products",
-   "surfaces",
+   "large areas",
    "Easter"
   ],
   "pairings": [
@@ -4590,7 +4590,7 @@
   ],
   "uses": [
    "bakeries",
-   "surfaces",
+   "large areas",
    "summer themes"
   ],
   "pairings": [
@@ -4613,7 +4613,7 @@
   ],
   "uses": [
    "sportswear",
-   "highlights",
+   "focal points",
    "rave and nightlife themes"
   ],
   "pairings": [
@@ -4636,7 +4636,7 @@
   ],
   "uses": [
    "tech brands",
-   "links",
+   "text and line work",
    "sports events"
   ],
   "pairings": [
@@ -4659,7 +4659,7 @@
   ],
   "uses": [
    "lifestyle brands",
-   "buttons",
+   "focal points",
    "summer themes"
   ],
   "pairings": [
@@ -4682,7 +4682,7 @@
   ],
   "uses": [
    "restaurants",
-   "accents",
+   "small accents",
    "summer menus"
   ],
   "pairings": [
