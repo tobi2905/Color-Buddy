@@ -236,6 +236,10 @@ Each phase lists its goal, tasks, acceptance criteria and a review checkpoint. P
 - [ ] Emit a temporary `color-hovered` event with hex only; show it in a bare debug window.
 - [ ] macOS: detect missing Screen Recording permission and surface a clear error.
 - [ ] Measure: latency from hotkey to first sample, and samples per second.
+- [ ] **TODO (deferred, no Windows machine yet):** verify on Windows, including a display at 150% scaling:
+    - `cargo run --release --example sampler_bench` (timing per N) and `... -- watch` while hovering `tools/test-patches.png`.
+    - `$env:VITE_SELFTEST="1"; npm run tauri dev` and check the `self-test` log lines (expect every patch exact at N = 1, 3, 5).
+    - Press `Ctrl+Shift+C` in the app and read "Hotkey to first sample" in the debug window.
 
 **Acceptance criteria**
 - Hovering a known test image (pure #FF0000, #00FF00, #0000FF, #87CEEB patches) reports the exact hex on both platforms, including on a scaled (e.g. 150%) display.
