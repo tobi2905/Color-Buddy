@@ -15,7 +15,8 @@
     "test:watch": "vitest",
     "lint:rust": "cargo fmt --all --check && cargo clippy --workspace --all-targets -- -D warnings",
     "test:rust": "cargo test --workspace",
-    "check": "npm run lint && npm run typecheck && npm test && npm run lint:rust && npm run test:rust"
+    "check": "npm run lint && npm run typecheck && npm test && npm run lint:data && npm run lint:rust && npm run test:rust",
+    "lint:data": "python3 tools/validate_references.py"
   },
   "dependencies": {
     "@tauri-apps/api": "^2",

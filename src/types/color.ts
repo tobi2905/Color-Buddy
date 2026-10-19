@@ -35,11 +35,27 @@ export interface VisionProfile {
   severity: number;
 }
 
+export type ReferenceMatch = "exact" | "similar" | "family";
+
+export interface ReferenceSource {
+  name: string;
+  hex: string;
+  match: ReferenceMatch;
+  deltaE: number;
+  /** e.g. "mint", "similar to mint", "greens in general" */
+  label: string;
+}
+
 export interface ColorDetails {
   info: ColorInfo;
+  /** Real-world objects. */
   references: string[];
+  /** Moods first, then industries and uses. */
   associations: string[];
+  /** Common pairings, as hex. */
   pairings: string[];
+  /** Which reference entry these came from. */
+  referenceSource: ReferenceSource;
   /** Named colours that look alike with the given profile, closest first. */
   confusedWith: ColorName[];
 }

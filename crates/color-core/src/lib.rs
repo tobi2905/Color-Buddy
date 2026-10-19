@@ -11,6 +11,7 @@ pub mod describe;
 mod machado_matrices;
 pub mod naming;
 pub mod palette;
+pub mod references;
 pub mod simulate;
 
 use serde::{Deserialize, Serialize};
@@ -92,28 +93,38 @@ pub fn color_info(rgb: Rgb) -> ColorInfo {
     }
 }
 
-/// Colour details for a vision profile. References, associations and pairings arrive in Phase 4.
+/// Colour details for a vision profile.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct ColorDetails {
     pub info: ColorInfo,
     /// Real-world objects.
     pub references: Vec<String>,
-    /// Moods, industries, uses.
+    /// Moods first, then industries and uses.
     pub associations: Vec<String>,
-    /// Common pairings (hex or names).
+    /// Common pairings, as hex.
     pub pairings: Vec<String>,
+    /// Which reference entry these came from ("mint", "similar to mint", "greens in general").
+    pub reference_source: references::ReferenceSource,
     /// Named colours that look alike with this profile (see [`check::confused_with`]).
     pub confused_with: Vec<ColorName>,
 }
 
 pub fn color_details(rgb: Rgb, profile: simulate::VisionProfile) -> ColorDetails {
+    let info = color_info(rgb);
+    let (source, entry) = references::lookup(rgb, &info.basic.name);
     ColorDetails {
-        info: color_info(rgb),
-        references: Vec::new(),
-        associations: Vec::new(),
-        pairings: Vec::new(),
+        references: entry.references.clone(),
+        associations: entry
+            .associations
+            .iter()
+            .chain(&entry.uses)
+            .cloned()
+            .collect(),
+        pairings: entry.pairings.clone(),
+        reference_source: source,
         confused_with: check::confused_with(rgb, profile),
+        info,
     }
 }
 

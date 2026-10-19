@@ -312,7 +312,7 @@ Each phase lists its goal, tasks, acceptance criteria and a review checkpoint. P
 **Goal:** real-world references, associations and pairings for common colors.
 
 **Tasks**
-- [ ] Define `references.json` schema:
+- [x] Define `references.json` schema:
     ```json
     {
       "mint": {
@@ -324,10 +324,10 @@ Each phase lists its goal, tasks, acceptance criteria and a review checkpoint. P
       }
     }
     ```
-- [ ] Write entries for the top 200 colors (prioritize basic hues and their common light/dark/muted variants).
-- [ ] Fallback: when a color has no entry, use the nearest entry within a ΔE limit and label it "similar to <name>"; otherwise use the basic-name family entry.
-- [ ] Validation script: schema check, valid hex, no duplicate keys.
-- [ ] Complete `get_color_details` with references.
+- [x] Write entries for the top 200 colors (prioritize basic hues and their common light/dark/muted variants).
+- [x] Fallback: when a color has no entry, use the nearest entry within a ΔE limit and label it "similar to <name>"; otherwise use the basic-name family entry.
+- [x] Validation script: schema check, valid hex, no duplicate keys.
+- [x] Complete `get_color_details` with references.
 
 **Acceptance criteria**
 - 200 entries pass validation.
@@ -486,3 +486,7 @@ Each phase lists its goal, tasks, acceptance criteria and a review checkpoint. P
 | 2026-10-19 | Thresholds: normal vision 15 / 8, simulated deficiencies 20 / 10 | User's choice at checkpoint 3. Red vs green under deutan measured 15.7 (lightness only); the margin flags it without adding noise for typical vision |
 | 2026-10-19 | Background/surface pairs marked `subtle` and excluded from warnings (`check_palette` takes optional roles) | User's choice: a deliberate subtle tint was "hard to tell" in every palette |
 | 2026-10-19 | Accents offset 0.2 OKLCH L from the primary (either side when both fit, else two steps one way; clamped 0.30–0.90) | User's choice. Across the 25 review palettes, hard-to-tell pairs fell: protan 12→3, deutan 13→1, tritan 7→0, achromat 78→19 |
+| 2026-10-19 | `references.json` (204 colours) is generated from `tools/references_source.txt`; entry and pairing hex values come from the name lists | Keeps names and values consistent; pairings are authored as names, not hand-typed hex |
+| 2026-10-19 | Reference lookup: nearest entry ≤ 2 ΔE = exact, ≤ 10 ΔE = "similar to <name>", else the basic family's entry | Over a 5,832-colour RGB grid: 7% exact, 85% similar, 8% family |
+| 2026-10-19 | `ColorDetails.associations` = associations followed by uses; new `referenceSource` field (name, hex, match, ΔE, label) | Spec defines associations as "moods, industries, uses"; the UI needs the "similar to …" label |
+| 2026-10-19 | `tools/validate_references.py` runs in CI (macOS job) and in `npm run check` | Data is platform independent |

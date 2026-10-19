@@ -41,6 +41,7 @@ Review checkpoint, tick tasks as they are done, and record decisions in its Deci
 - Conversion test expectations: `tools/gen_reference_values.py` (needs `colour-science`).
 - `cargo run --release -p color-core --example naming_bench`: lookup timing.
 - `cargo run -p color-core --example name_table`: review table of the test colours.
+- Reference data: edit `tools/references_source.txt`, run `python3 tools/gen_references.py`, then `npm run lint:data`.
 
 ## Conventions
 

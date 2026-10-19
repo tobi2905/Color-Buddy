@@ -41,6 +41,11 @@ jobs:
       - name: Test (Vitest)
         run: npm test
 
+      # Data is platform independent; validating once is enough.
+      - name: Validate reference data
+        if: runner.os == 'macOS'
+        run: python3 tools/validate_references.py
+
       # Tauri's generate_context! needs the frontend build output (dist/) to exist.
       - name: Build frontend
         run: npm run build
