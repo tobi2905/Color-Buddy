@@ -172,7 +172,7 @@ pub fn export(p: &ExportPalette, format: Format, level: NameLevel) -> Result<Str
         }),
         Format::Css => {
             let mut out = format!(
-                "/* {}: {} palette from {} (Color-Buddy) */\n:root {{\n",
+                "/* {}: {} palette from {} (ColorBuddy) */\n:root {{\n",
                 p.name.replace("*/", "* /"),
                 scheme_word(p.scheme),
                 p.base_hex
@@ -267,7 +267,7 @@ pub fn export(p: &ExportPalette, format: Format, level: NameLevel) -> Result<Str
                     "byVision": by_vision,
                     "problems": problems,
                 },
-                "generator": "Color-Buddy",
+                "generator": "ColorBuddy",
             });
             serde_json::to_string_pretty(&doc).expect("serialisable") + "\n"
         }

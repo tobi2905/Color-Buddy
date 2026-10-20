@@ -461,7 +461,7 @@ Each phase lists its goal, tasks, acceptance criteria and a review checkpoint. P
 
 ## 6. Open questions
 
-- App name?
+- ~~App name?~~ ColorBuddy (decided 2026-10-20).
 - Default hotkey: does `Ctrl/Cmd+Shift+C` clash with tools you use (it opens DevTools' element picker in browsers)?
 - License for the app itself (open source or closed)?
 - Should the "not sure" vision profile default to deutan, or should onboarding include a short self-check?
@@ -525,3 +525,4 @@ Each phase lists its goal, tasks, acceptance criteria and a review checkpoint. P
 | 2026-10-20 | Export formats are computed in Rust (`export.rs`) and checked against committed samples (`src-tauri/tests/fixtures/exports`), which a Vitest test validates with PostCSS, JSON shape checks and Tailwind's own compiler (`@config`) | Covers "CSS parses, JSON validates, Tailwind snippet loads in a sample config" |
 | 2026-10-20 | A second accent is keyed `accent-2` in CSS, Tailwind and JSON; text formats follow the "name shown first" setting | Keys stay unique and valid identifiers |
 | 2026-10-20 | Deletes and resets use an in-page confirmation step; settings reset keeps "welcome steps done" | No system dialogs; resetting shouldn't restart onboarding |
+| 2026-10-20 | App name is "ColorBuddy" (no hyphen) in all user-facing text; repo, folder, crate names and the `com.colorbuddy.app` identifier stay | User's choice; the identifier decides where data is stored, so it must not change |

@@ -1,4 +1,4 @@
-# Color-Buddy — working notes for Claude Code
+# ColorBuddy — working notes for Claude Code
 
 Read `SPEC.md` first. It is the source of truth: work one phase at a time, stop at each
 Review checkpoint, tick tasks as they are done, and record decisions in its Decision log.

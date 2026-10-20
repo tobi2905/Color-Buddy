@@ -27,7 +27,7 @@ export function Onboarding({ mac = isMac }: { mac?: boolean }) {
       {step === "welcome" && (
         <section className="flex flex-col gap-4" aria-labelledby="ob-title">
           <h1 id="ob-title" className="text-4xl font-extrabold text-balance">
-            Welcome to Color-Buddy
+            Welcome to ColorBuddy
           </h1>
           <p className="text-lg">
             Pick, name and combine colours with confidence, without relying on your own colour
@@ -93,7 +93,7 @@ export function Onboarding({ mac = isMac }: { mac?: boolean }) {
           onClick={() => (last ? s.update({ onboarded: true }) : setIndex(index + 1))}
           className="rounded-md bg-accent px-4 py-2 font-semibold text-on-accent"
         >
-          {last ? "Start using Color-Buddy" : "Next"}
+          {last ? "Start using ColorBuddy" : "Next"}
         </button>
       </nav>
     </main>
@@ -112,7 +112,7 @@ function PermissionStep() {
         Screen access
       </h1>
       <p className="text-lg">
-        macOS asks before an app can read colours from the screen. Color-Buddy only looks at the few
+        macOS asks before an app can read colours from the screen. ColorBuddy only looks at the few
         pixels under the cursor while the picker is open, and nothing leaves your computer.
       </p>
       {granted ? (
@@ -123,8 +123,8 @@ function PermissionStep() {
         <>
           <ol className="list-decimal pl-6 text-lg">
             <li>Choose “Allow screen access”.</li>
-            <li>Turn on Color-Buddy under Screen &amp; System Audio Recording.</li>
-            <li>Quit and reopen Color-Buddy so the change takes effect.</li>
+            <li>Turn on ColorBuddy under Screen &amp; System Audio Recording.</li>
+            <li>Quit and reopen ColorBuddy so the change takes effect.</li>
           </ol>
           <button
             type="button"

@@ -64,7 +64,7 @@ function MainWindow() {
     // Only <main> scrolls; the frame never does.
     <div className="flex h-screen overflow-hidden bg-app text-ink">
       <nav aria-label="Main" className="flex w-52 shrink-0 flex-col gap-1 border-r border-line p-3">
-        <p className="px-3 pt-1 pb-4 text-lg font-extrabold">Color-Buddy</p>
+        <p className="px-3 pt-1 pb-4 text-lg font-extrabold">ColorBuddy</p>
         {NAV.map((n) => (
           <button
             key={n.id}

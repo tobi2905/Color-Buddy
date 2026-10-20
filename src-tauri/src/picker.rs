@@ -76,7 +76,7 @@ fn matches_geometry(w: &WebviewWindow, d: &Display) -> bool {
 fn create_window(app: &AppHandle, d: &Display) -> tauri::Result<WebviewWindow> {
     let url = WebviewUrl::App(format!("picker.html?display={}", d.id).into());
     let builder = WebviewWindowBuilder::new(app, label(d), url)
-        .title("Color-Buddy picker")
+        .title("ColorBuddy picker")
         .transparent(true)
         .decorations(false)
         .always_on_top(true)
