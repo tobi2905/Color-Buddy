@@ -10,7 +10,9 @@ import {
   renamePalette,
   type SavedPalette,
 } from "../../../lib/storage";
+import { FORMAT_LABEL, useColorValues, valueIn } from "../../../lib/values";
 import { useApp } from "../../../store/app";
+import { useSettings } from "../../../store/settings";
 
 const SCHEME_LABEL = {
   complementary: "Complementary",
@@ -83,6 +85,8 @@ function PaletteCard({
   onDeleted: () => void;
 }) {
   const openPalette = useApp((s) => s.openPalette);
+  const valueFormat = useSettings((s) => s.valueFormat);
+  const values = useColorValues(p.colors.map((c) => c.hex));
   const [renaming, setRenaming] = useState(false);
   const [name, setName] = useState(p.name);
   const [exporting, setExporting] = useState(false);
@@ -161,7 +165,11 @@ function PaletteCard({
         {p.colors.map((c, i) => (
           <li key={i} className="inline-flex items-baseline gap-1">
             {ROLE_LABEL[c.role]}{" "}
-            <CopyValue label={`${ROLE_LABEL[c.role].toLowerCase()} hex`} value={c.hex} compact />
+            <CopyValue
+              label={`${ROLE_LABEL[c.role].toLowerCase()} ${FORMAT_LABEL[valueFormat]}`}
+              value={valueIn(c.hex, values[c.hex], valueFormat)}
+              compact
+            />
           </li>
         ))}
       </ul>

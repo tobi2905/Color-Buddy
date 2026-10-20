@@ -9,6 +9,7 @@ import { checkPalette, generatePalettes, getColorInfo } from "../../../lib/color
 import { headlineName, ROLE_LABEL } from "../../../lib/names";
 import { mergeRegenerated, type WorkingColor } from "../../../lib/palette";
 import { savePalette } from "../../../lib/storage";
+import { FORMAT_LABEL } from "../../../lib/values";
 import { useApp } from "../../../store/app";
 import { useSettings } from "../../../store/settings";
 import type { PairCheck, Scheme } from "../../../types/color";
@@ -27,6 +28,7 @@ export function PaletteBuilderView() {
   const openedPalette = useApp((s) => s.openedPalette);
   const clearOpenedPalette = useApp((s) => s.clearOpenedPalette);
   const nameLevel = useSettings((s) => s.nameLevel);
+  const valueFormat = useSettings((s) => s.valueFormat);
   const vision = useSettings((s) => s.profile.vision);
   const [scheme, setScheme] = useState<Scheme>("complementary");
   const [working, setWorking] = useState<Partial<Record<Scheme, WorkingColor[]>>>({});
@@ -191,8 +193,8 @@ export function PaletteBuilderView() {
               </span>
               <span className="text-sm text-muted">
                 <CopyValue
-                  label={`${ROLE_LABEL[c.role].toLowerCase()} hex`}
-                  value={c.hex}
+                  label={`${ROLE_LABEL[c.role].toLowerCase()} ${FORMAT_LABEL[valueFormat]}`}
+                  value={c.info.values[valueFormat]}
                   compact
                 />
               </span>

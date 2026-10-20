@@ -71,6 +71,7 @@ pub fn run() {
         })
         .invoke_handler(tauri::generate_handler![
             commands::get_color_info,
+            commands::color_values,
             commands::search_color_by_name,
             commands::get_color_details,
             commands::generate_palettes,

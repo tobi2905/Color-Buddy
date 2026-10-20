@@ -5,6 +5,7 @@ import type { VisionProfile, VisionType } from "../types/color";
 export type NameLevel = "basic" | "descriptive" | "precise";
 export type Theme = "system" | "light" | "dark";
 export type SampleSize = 1 | 3 | 5;
+export type ValueFormat = "hex" | "rgb" | "hsl" | "oklch";
 
 export interface Settings {
   onboarded: boolean;
@@ -16,6 +17,8 @@ export interface Settings {
   sampleSize: SampleSize;
   theme: Theme;
   nameLevel: NameLevel;
+  /** How colour values are shown and copied in lists. */
+  valueFormat: ValueFormat;
 }
 
 export const DEFAULT_SETTINGS: Settings = {
@@ -26,6 +29,7 @@ export const DEFAULT_SETTINGS: Settings = {
   sampleSize: 5,
   theme: "system",
   nameLevel: "descriptive",
+  valueFormat: "hex",
 };
 
 /** The "not sure" default: moderate deutan, the most common type. */
@@ -65,6 +69,7 @@ const pick = (s: Settings): Settings => ({
   sampleSize: s.sampleSize,
   theme: s.theme,
   nameLevel: s.nameLevel,
+  valueFormat: s.valueFormat,
 });
 
 export const useSettings = create<SettingsStore>()((set, get) => ({

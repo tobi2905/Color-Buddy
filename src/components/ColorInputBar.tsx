@@ -2,6 +2,8 @@ import { useEffect, useId, useRef, useState } from "react";
 import { searchColorByName } from "../lib/color";
 import { parseColorInput } from "../lib/parseColorInput";
 import { startPicker } from "../lib/sampler";
+import { useColorValues, valueIn } from "../lib/values";
+import { useSettings } from "../store/settings";
 import type { ColorName } from "../types/color";
 import { Swatch } from "./Swatch";
 
@@ -28,6 +30,8 @@ export function ColorInputBar({
   const listId = useId();
   const inputId = useId();
   const requestId = useRef(0);
+  const valueFormat = useSettings((st) => st.valueFormat);
+  const values = useColorValues(suggestions.map((sg) => sg.hex));
 
   useEffect(() => {
     const parsed = parseColorInput(text);
@@ -156,7 +160,9 @@ export function ColorInputBar({
           >
             <Swatch hex={s.hex} />
             <span className="flex-1">{s.name}</span>{" "}
-            <span className="font-mono text-sm text-muted">{s.hex}</span>
+            <span className="font-mono text-sm text-muted">
+              {valueIn(s.hex, values[s.hex], valueFormat)}
+            </span>
           </li>
         ))}
       </ul>

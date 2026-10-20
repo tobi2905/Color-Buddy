@@ -86,6 +86,40 @@ describe("Saved palettes", () => {
   });
 });
 
+describe("Value format setting", () => {
+  it("shows and copies values in the chosen format", async () => {
+    useSettings.setState({ valueFormat: "rgb" });
+    mockCommands({
+      list_palettes: () => [saved],
+      color_values: ({ hexes }) =>
+        (hexes as string[]).map((h) => ({ hex: h, rgb: `rgb(of ${h})`, hsl: "", oklch: "" })),
+      copy_to_clipboard: () => undefined,
+    });
+    render(<LibraryView />);
+    const value = await screen.findByRole("button", { name: "Copy primary RGB rgb(of #87CEEB)" });
+    await userEvent.click(value);
+    expect(invoke).toHaveBeenCalledWith("copy_to_clipboard", { text: "rgb(of #87CEEB)" });
+  });
+
+  it("uses it in history and offers every format in details and settings", async () => {
+    useSettings.setState({ valueFormat: "hsl" });
+    const { unmount } = render(<HistoryView />);
+    expect(await screen.findAllByText("hsl(197, 71%, 73%)")).not.toHaveLength(0);
+    unmount();
+    render(<ColorDetailsView />);
+    for (const label of ["hex #87CEEB", "RGB rgb(135, 206, 235)", "HSL hsl(197, 71%, 73%)"]) {
+      expect(await screen.findByRole("button", { name: `Copy ${label}` })).toBeInTheDocument();
+    }
+  });
+
+  it("can be changed in settings", async () => {
+    mockCommands({ list_history: () => [], update_settings: () => undefined });
+    render(<SettingsView />);
+    await userEvent.click(screen.getByRole("radio", { name: /OKLCH/ }));
+    expect(useSettings.getState().valueFormat).toBe("oklch");
+  });
+});
+
 describe("Copy and reset", () => {
   it("copies hex, RGB and OKLCH values when clicked", async () => {
     render(<ColorDetailsView />);

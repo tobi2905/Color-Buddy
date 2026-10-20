@@ -48,6 +48,15 @@ fn parse(hex: &str) -> Result<color_core::Rgb, String> {
     color_core::Rgb::from_hex(hex).ok_or_else(|| format!("not a hex colour: {hex}"))
 }
 
+/// Each colour written in every format (hex, RGB, HSL, OKLCH), in input order.
+#[tauri::command]
+pub fn color_values(hexes: Vec<String>) -> Result<Vec<color_core::ColorValues>, String> {
+    hexes
+        .iter()
+        .map(|h| parse(h).map(color_core::color_values))
+        .collect()
+}
+
 /// Best matches first, at most 10.
 #[tauri::command]
 pub fn search_color_by_name(query: String) -> Vec<color_core::ColorName> {

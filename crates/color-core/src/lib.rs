@@ -62,6 +62,37 @@ pub struct ColorInfo {
     /// e.g. "light, slightly desaturated, cool blue"; boundary colours end in
     /// ", bordering on <alternative>".
     pub description: String,
+    /// The colour written in each supported format.
+    pub values: ColorValues,
+}
+
+/// One colour as text in every format the app shows or copies.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+pub struct ColorValues {
+    /// `#87CEEB`
+    pub hex: String,
+    /// `rgb(135, 206, 235)`
+    pub rgb: String,
+    /// `hsl(197, 71%, 73%)`
+    pub hsl: String,
+    /// `oklch(81.4% 0.088 225.3)`
+    pub oklch: String,
+}
+
+pub fn color_values(rgb: Rgb) -> ColorValues {
+    let (h, s, l) = rgb.to_hsl();
+    let lch = rgb.to_oklch();
+    ColorValues {
+        hex: rgb.to_hex(),
+        rgb: format!("rgb({}, {}, {})", rgb.r, rgb.g, rgb.b),
+        hsl: format!(
+            "hsl({}, {}%, {}%)",
+            h.round() as i64 % 360,
+            (s * 100.0).round(),
+            (l * 100.0).round()
+        ),
+        oklch: format!("oklch({:.1}% {:.3} {:.1})", lch.l * 100.0, lch.c, lch.h),
+    }
 }
 
 /// Names, OKLCH values and description for a colour.
@@ -90,6 +121,7 @@ pub fn color_info(rgb: Rgb) -> ColorInfo {
         description,
         basic,
         basic_alternative,
+        values: color_values(rgb),
     }
 }
 
@@ -136,6 +168,22 @@ pub fn search_color_by_name(query: &str, limit: usize) -> Vec<ColorName> {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn values_in_every_format() {
+        let v = color_values(Rgb::new(0x87, 0xCE, 0xEB));
+        assert_eq!(v.hex, "#87CEEB");
+        assert_eq!(v.rgb, "rgb(135, 206, 235)");
+        // CSS Color 4 lists skyblue as hsl(197, 71%, 73%).
+        assert_eq!(v.hsl, "hsl(197, 71%, 73%)");
+        assert!(
+            v.oklch.starts_with("oklch(") && v.oklch.ends_with(')'),
+            "{}",
+            v.oklch
+        );
+        assert_eq!(color_values(Rgb::new(0, 0, 0)).hsl, "hsl(0, 0%, 0%)");
+        assert_eq!(color_values(Rgb::new(255, 0, 0)).hsl, "hsl(0, 100%, 50%)");
+    }
 
     #[test]
     fn to_hex_is_uppercase_and_zero_padded() {
