@@ -393,12 +393,29 @@ impl Sampler {
         Ok(())
     }
 
+    /// Mark a new run as started and return its generation; `None` if one is already running.
+    fn begin(&self) -> Option<u64> {
+        if self.shared.running.swap(true, Ordering::SeqCst) {
+            return None;
+        }
+        Some(self.shared.generation.fetch_add(1, Ordering::SeqCst) + 1)
+    }
+
+    fn end(&self) {
+        self.shared.running.store(false, Ordering::SeqCst);
+    }
+
+    /// Whether the run with this generation is still the live one.
+    fn is_current(&self, generation: u64) -> bool {
+        self.shared.running.load(Ordering::SeqCst)
+            && self.shared.generation.load(Ordering::SeqCst) == generation
+    }
+
     /// `trigger` is when the user asked to start (hotkey press), for latency measurement.
     pub fn start(&self, app: AppHandle, trigger: Instant) {
-        if self.shared.running.swap(true, Ordering::SeqCst) {
+        let Some(generation) = self.begin() else {
             return;
-        }
-        let generation = self.shared.generation.fetch_add(1, Ordering::SeqCst) + 1;
+        };
         *self.shared.status.lock().unwrap() = SamplerStatus::default();
         *self.shared.last.lock().unwrap() = None;
         *self.shared.displays.lock().unwrap() = displays();
@@ -420,7 +437,7 @@ impl Sampler {
     }
 
     pub fn stop(&self, app: &AppHandle) {
-        self.shared.running.store(false, Ordering::SeqCst);
+        self.end();
         self.emit_status(app);
     }
 
@@ -434,7 +451,7 @@ impl Sampler {
 
     fn fail(&self, app: &AppHandle, err: SampleError) {
         log::error!("sampler stopped: {err}");
-        self.shared.running.store(false, Ordering::SeqCst);
+        self.end();
         {
             let mut status = self.shared.status.lock().unwrap();
             status.error = Some(err.to_string());
@@ -458,9 +475,7 @@ impl Sampler {
         let loop_started = Instant::now();
         let displays = self.displays();
 
-        while self.shared.running.load(Ordering::SeqCst)
-            && self.shared.generation.load(Ordering::SeqCst) == generation
-        {
+        while self.is_current(generation) {
             if self.is_frozen() {
                 std::thread::sleep(interval);
                 next = Instant::now();
@@ -471,6 +486,10 @@ impl Sampler {
             let sample = self
                 .sample_point(&displays)
                 .and_then(|(x, y)| capture_at(x, y, size));
+            // The capture may have blocked while the picker was closed or reopened.
+            if !self.is_current(generation) {
+                break;
+            }
             match sample {
                 Ok(cap) => {
                     let hover = HoveredEvent::from_capture(&cap, &displays);
@@ -679,6 +698,21 @@ mod tests {
             offset_point((5000.0, 5000.0), (1, -1), &[retina]),
             (5001.0, 4999.0)
         );
+    }
+
+    #[test]
+    fn a_restarted_sampler_ignores_the_previous_run() {
+        // A capture can block for up to 30 s; when it returns, the run that started it may have
+        // been stopped and replaced. Its result must not reach the new run.
+        let s = Sampler::default();
+        let first = s.begin().unwrap();
+        assert!(s.begin().is_none(), "already running");
+        assert!(s.is_current(first));
+        s.end();
+        assert!(!s.is_current(first));
+        let second = s.begin().unwrap();
+        assert!(!s.is_current(first));
+        assert!(s.is_current(second));
     }
 
     #[test]

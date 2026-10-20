@@ -9,9 +9,20 @@ export const nudgeCursor = (dx: number, dy: number) => invoke<void>("nudge_curso
 export const onPickerFrozen = (cb: (e: HoveredEvent) => void): Promise<UnlistenFn> =>
   listen<HoveredEvent>("picker-frozen", (event) => cb(event.payload));
 
-/** "picker-opened" | "picker-resumed" | "picker-closed" */
+/** Payload of `picker-opened`: where the cursor was when the picker opened. */
+export interface PickerOpened {
+  /** Display under the cursor, and the cursor relative to it in CSS pixels. */
+  display: number;
+  localX: number;
+  localY: number;
+}
+
+/** `null` when the cursor isn't on any display. */
+export const onPickerOpened = (cb: (e: PickerOpened | null) => void): Promise<UnlistenFn> =>
+  listen<PickerOpened | null>("picker-opened", (event) => cb(event.payload));
+
 export const onPickerState = (
-  name: "picker-opened" | "picker-resumed" | "picker-closed",
+  name: "picker-resumed" | "picker-closed",
   cb: () => void,
 ): Promise<UnlistenFn> => listen(name, () => cb());
 

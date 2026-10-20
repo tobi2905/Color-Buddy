@@ -1,6 +1,13 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import { freezePick, nudgeCursor, onPickerFrozen, onPickerState } from "../../lib/picker";
-import { onColorHovered, stopPicker } from "../../lib/sampler";
+import {
+  freezePick,
+  nudgeCursor,
+  onPickerFrozen,
+  onPickerOpened,
+  onPickerState,
+  type PickerOpened,
+} from "../../lib/picker";
+import { onColorHovered, onSamplerStatus, stopPicker } from "../../lib/sampler";
 import { headlineName } from "../../lib/names";
 import { useSettings } from "../../store/settings";
 import type { Rgb } from "../../types/color";
@@ -9,6 +16,8 @@ import { matchLabel, placePanel } from "./placement";
 
 /** Width of the magnified loupe in CSS pixels, whatever the sample size. */
 const LOUPE_PX = 96;
+/** How long the waiting panel waits for the first colour before saying something is wrong. */
+const SLOW_MS = 1000;
 const ARROWS: Record<string, [number, number]> = {
   ArrowLeft: [-1, 0],
   ArrowRight: [1, 0],
@@ -23,6 +32,10 @@ function PickerOverlay({ display }: { display: number }) {
   const [hover, setHover] = useState<HoveredEvent | null>(null);
   const [frozen, setFrozen] = useState<HoveredEvent | null>(null);
   const [error, setError] = useState<string | null>(null);
+  // Shown from opening until the first colour arrives, so the overlay is never blank.
+  const [waiting, setWaiting] = useState<PickerOpened | null>(null);
+  const [slow, setSlow] = useState(false);
+  const [samplerError, setSamplerError] = useState<string | null>(null);
   const [size, setSize] = useState({ width: 280, height: 180 });
   const panelRef = useRef<HTMLDivElement>(null);
   // Event callbacks and key handlers are registered once; they read the frozen state here.
@@ -38,8 +51,10 @@ function PickerOverlay({ display }: { display: number }) {
     };
     const unlisten = [
       onColorHovered((e) => {
+        setWaiting(null);
         if (!frozenRef.current) setHover(e);
       }),
+      onSamplerStatus((s) => setSamplerError(s.error)),
       onPickerFrozen((e) => {
         frozenRef.current = true;
         setHover(e);
@@ -47,17 +62,27 @@ function PickerOverlay({ display }: { display: number }) {
         setError(null);
       }),
       onPickerState("picker-resumed", reset),
-      onPickerState("picker-opened", () => {
+      onPickerOpened((e) => {
         reset();
         setHover(null);
+        setSamplerError(null);
+        setSlow(false);
+        setWaiting(e);
       }),
       onPickerState("picker-closed", () => {
         reset();
         setHover(null);
+        setWaiting(null);
       }),
     ];
     return () => unlisten.forEach((p) => p.then((off) => off()));
   }, []);
+
+  useEffect(() => {
+    if (!waiting) return;
+    const timer = setTimeout(() => setSlow(true), SLOW_MS);
+    return () => clearTimeout(timer);
+  }, [waiting]);
 
   async function freezeOrClose() {
     if (frozenRef.current) {
@@ -96,10 +121,20 @@ function PickerOverlay({ display }: { display: number }) {
     if (el && (el.offsetWidth !== size.width || el.offsetHeight !== size.height)) {
       setSize({ width: el.offsetWidth, height: el.offsetHeight });
     }
-  }, [hover, frozen, error, size.width, size.height]);
+  }, [hover, frozen, error, waiting, slow, samplerError, size.width, size.height]);
 
   const shown = hover && hover.display === display ? hover : null;
   const isFrozen = frozen !== null && shown === frozen;
+  const waitingHere = !shown && waiting && waiting.display === display ? waiting : null;
+  const waitingProblem =
+    samplerError ?? (slow ? "The screen can't be read right now. Press Esc and try again." : null);
+  const panelClass =
+    "pointer-events-none absolute flex w-max max-w-[340px] gap-3 rounded-lg border border-white/30 bg-[#14171c] p-3 text-white shadow-[0_6px_24px_rgb(0_0_0/0.45)]";
+  const panelStyle = (at: { localX: number; localY: number }) =>
+    placePanel({ x: at.localX, y: at.localY }, size, {
+      width: window.innerWidth,
+      height: window.innerHeight,
+    });
 
   return (
     <>
@@ -119,14 +154,26 @@ function PickerOverlay({ display }: { display: number }) {
           ref={panelRef}
           role="status"
           aria-live="polite"
-          className="pointer-events-none absolute flex w-max max-w-[340px] gap-3 rounded-lg border border-white/30 bg-[#14171c] p-3 text-white shadow-[0_6px_24px_rgb(0_0_0/0.45)]"
-          style={placePanel({ x: shown.localX, y: shown.localY }, size, {
-            width: window.innerWidth,
-            height: window.innerHeight,
-          })}
+          className={panelClass}
+          style={panelStyle(shown)}
         >
           <Loupe grid={shown.loupe} />
           <Label event={shown} frozen={isFrozen} error={error} />
+        </div>
+      )}
+      {waitingHere && (
+        <div ref={panelRef} className={panelClass} style={panelStyle(waitingHere)}>
+          <div className="flex flex-col gap-1">
+            <p role="status" aria-live="polite" className="font-semibold">
+              Reading the screen…
+            </p>
+            {waitingProblem && (
+              <p role="alert" className="text-sm font-semibold">
+                ⚠ {waitingProblem}
+              </p>
+            )}
+            <p className="text-xs text-white/70">Esc to close</p>
+          </div>
         </div>
       )}
     </>
