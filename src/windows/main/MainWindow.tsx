@@ -7,6 +7,7 @@ import { useApp, type View } from "../../store/app";
 import { useSettings, type Theme } from "../../store/settings";
 import { ColorDetailsView } from "./views/ColorDetailsView";
 import { HistoryView } from "./views/HistoryView";
+import { LibraryView } from "./views/LibraryView";
 import { Onboarding } from "./views/Onboarding";
 import { PaletteBuilderView } from "./views/PaletteBuilderView";
 import { SettingsView } from "./views/SettingsView";
@@ -14,6 +15,7 @@ import { SettingsView } from "./views/SettingsView";
 const NAV: { id: View; label: string; icon: string }[] = [
   { id: "color", label: "Colour", icon: "◎" },
   { id: "palettes", label: "Palettes", icon: "▦" },
+  { id: "saved", label: "Saved palettes", icon: "★" },
   { id: "history", label: "History", icon: "↺" },
   { id: "settings", label: "Settings", icon: "⚙" },
 ];
@@ -84,6 +86,7 @@ function MainWindow() {
         <main className="min-h-0 flex-1 overflow-auto px-6 py-6">
           {view === "color" && <ColorDetailsView />}
           {view === "palettes" && <PaletteBuilderView />}
+          {view === "saved" && <LibraryView />}
           {view === "history" && <HistoryView />}
           {view === "settings" && <SettingsView />}
         </main>

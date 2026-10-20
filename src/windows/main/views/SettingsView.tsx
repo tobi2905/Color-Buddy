@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { ConfirmButton } from "../../../components/ConfirmButton";
 import { HotkeyRecorder } from "../../../components/HotkeyRecorder";
 import { ProfilePicker } from "../../../components/ProfilePicker";
 import { useSettings, type NameLevel, type SampleSize, type Theme } from "../../../store/settings";
@@ -109,6 +110,22 @@ export function SettingsView() {
             { value: "dark", label: "Dark" },
           ]}
         />
+      </Section>
+
+      <Section title="Reset">
+        <p className="text-muted">
+          Puts every setting above back to its default, including your colour vision profile. Saved
+          palettes and history stay.
+        </p>
+        <div>
+          <ConfirmButton
+            question="Reset all settings to their defaults?"
+            confirmLabel="Reset settings"
+            onConfirm={() => s.reset()}
+          >
+            Reset settings to default
+          </ConfirmButton>
+        </div>
       </Section>
 
       <Section title="Diagnostics">

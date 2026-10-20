@@ -1,0 +1,212 @@
+{
+  "name": "Sky afternoon",
+  "scheme": "splitComplementary",
+  "baseHex": "#87CEEB",
+  "colors": [
+    {
+      "key": "background",
+      "role": "background",
+      "hex": "#F0FAFF",
+      "rgb": [
+        240,
+        250,
+        255
+      ],
+      "names": {
+        "basic": "white",
+        "descriptive": "alice blue",
+        "precise": "pale grey"
+      },
+      "description": "neutral white"
+    },
+    {
+      "key": "surface",
+      "role": "surface",
+      "hex": "#DAEFF8",
+      "rgb": [
+        218,
+        239,
+        248
+      ],
+      "names": {
+        "basic": "blue",
+        "descriptive": "alice blue",
+        "precise": "ice blue"
+      },
+      "description": "very light, muted, cool blue, bordering on white"
+    },
+    {
+      "key": "primary",
+      "role": "primary",
+      "hex": "#87CEEB",
+      "rgb": [
+        135,
+        206,
+        235
+      ],
+      "names": {
+        "basic": "blue",
+        "descriptive": "sky blue",
+        "precise": "light blue"
+      },
+      "description": "light, slightly desaturated, cool blue"
+    },
+    {
+      "key": "accent",
+      "role": "accent",
+      "hex": "#B07074",
+      "rgb": [
+        176,
+        112,
+        116
+      ],
+      "names": {
+        "basic": "pink",
+        "descriptive": "indian red",
+        "precise": "dusty rose"
+      },
+      "description": "medium, muted, warm pink, bordering on grey"
+    },
+    {
+      "key": "accent-2",
+      "role": "accent",
+      "hex": "#65440A",
+      "rgb": [
+        101,
+        68,
+        10
+      ],
+      "names": {
+        "basic": "brown",
+        "descriptive": "saddle brown",
+        "precise": "mud brown"
+      },
+      "description": "dark, slightly desaturated, warm brown"
+    },
+    {
+      "key": "text",
+      "role": "text",
+      "hex": "#0D252E",
+      "rgb": [
+        13,
+        37,
+        46
+      ],
+      "names": {
+        "basic": "grey",
+        "descriptive": "midnight blue",
+        "precise": "dark"
+      },
+      "description": "very dark, muted, cool grey, bordering on black"
+    }
+  ],
+  "checks": {
+    "note": "Deficiencies simulated at full severity; background/surface tints are not counted.",
+    "byVision": {
+      "normal": {
+        "hardToTell": 0,
+        "caution": 1
+      },
+      "protan": {
+        "hardToTell": 0,
+        "caution": 2
+      },
+      "deutan": {
+        "hardToTell": 0,
+        "caution": 2
+      },
+      "tritan": {
+        "hardToTell": 0,
+        "caution": 1
+      },
+      "achromat": {
+        "hardToTell": 1,
+        "caution": 2
+      }
+    },
+    "problems": [
+      {
+        "pair": [
+          "background",
+          "primary"
+        ],
+        "vision": "protan",
+        "deltaE": 14.7,
+        "verdict": "caution"
+      },
+      {
+        "pair": [
+          "background",
+          "primary"
+        ],
+        "vision": "deutan",
+        "deltaE": 17.7,
+        "verdict": "caution"
+      },
+      {
+        "pair": [
+          "background",
+          "primary"
+        ],
+        "vision": "achromat",
+        "deltaE": 11.7,
+        "verdict": "caution"
+      },
+      {
+        "pair": [
+          "surface",
+          "primary"
+        ],
+        "vision": "normal",
+        "deltaE": 13.9,
+        "verdict": "caution"
+      },
+      {
+        "pair": [
+          "surface",
+          "primary"
+        ],
+        "vision": "protan",
+        "deltaE": 11.4,
+        "verdict": "caution"
+      },
+      {
+        "pair": [
+          "surface",
+          "primary"
+        ],
+        "vision": "deutan",
+        "deltaE": 13.8,
+        "verdict": "caution"
+      },
+      {
+        "pair": [
+          "surface",
+          "primary"
+        ],
+        "vision": "tritan",
+        "deltaE": 15.8,
+        "verdict": "caution"
+      },
+      {
+        "pair": [
+          "surface",
+          "primary"
+        ],
+        "vision": "achromat",
+        "deltaE": 9.1,
+        "verdict": "hardToTell"
+      },
+      {
+        "pair": [
+          "accent-2",
+          "text"
+        ],
+        "vision": "achromat",
+        "deltaE": 13.0,
+        "verdict": "caution"
+      }
+    ]
+  },
+  "generator": "Color-Buddy"
+}

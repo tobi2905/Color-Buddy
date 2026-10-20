@@ -1,0 +1,6 @@
+alice blue #F0FAFF
+alice blue #DAEFF8
+sky blue #87CEEB
+indian red #B07074
+saddle brown #65440A
+midnight blue #0D252E
