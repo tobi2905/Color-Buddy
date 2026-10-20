@@ -63,7 +63,9 @@ describe("Saved palettes", () => {
   it("lists palettes with their values as text and opens one", async () => {
     render(<LibraryView />);
     expect(await screen.findByRole("heading", { name: "Sky afternoon" })).toBeInTheDocument();
-    expect(screen.getByText("Background #F0FAFF · Primary #87CEEB")).toBeInTheDocument();
+    await userEvent.click(screen.getByRole("button", { name: "Copy primary hex #87CEEB" }));
+    expect(invoke).toHaveBeenCalledWith("copy_to_clipboard", { text: "#87CEEB" });
+    expect(screen.getByRole("button", { name: "Copy background hex #F0FAFF" })).toBeInTheDocument();
     await userEvent.click(screen.getByRole("button", { name: "Open" }));
     expect(useApp.getState()).toMatchObject({ view: "palettes", openedPalette: { id: 7 } });
   });

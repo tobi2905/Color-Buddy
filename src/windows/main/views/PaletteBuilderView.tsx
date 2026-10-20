@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { CheckGrid } from "../../../components/CheckGrid";
 import { ColorInputBar } from "../../../components/ColorInputBar";
+import { CopyValue } from "../../../components/CopyValue";
 import { ExportPanel } from "../../../components/ExportPanel";
 import { Swatch } from "../../../components/Swatch";
 import { Tabs } from "../../../components/Tabs";
@@ -188,7 +189,13 @@ export function PaletteBuilderView() {
               <span className="leading-tight font-semibold">
                 {headlineName(c.info, nameLevel).name}
               </span>
-              <span className="font-mono text-sm text-muted">{c.hex}</span>
+              <span className="text-sm text-muted">
+                <CopyValue
+                  label={`${ROLE_LABEL[c.role].toLowerCase()} hex`}
+                  value={c.hex}
+                  compact
+                />
+              </span>
               <div className="mt-1 flex flex-wrap gap-2">
                 <button
                   type="button"
