@@ -61,7 +61,8 @@ function MainWindow() {
   if (!onboarded) return <Onboarding />;
 
   return (
-    <div className="flex h-screen bg-app text-ink">
+    // Only <main> scrolls; the frame never does.
+    <div className="flex h-screen overflow-hidden bg-app text-ink">
       <nav aria-label="Main" className="flex w-52 shrink-0 flex-col gap-1 border-r border-line p-3">
         <p className="px-3 pt-1 pb-4 text-lg font-extrabold">Color-Buddy</p>
         {NAV.map((n) => (
@@ -83,7 +84,9 @@ function MainWindow() {
         <header className="border-b border-line bg-surface px-6 py-3">
           <ColorInputBar onSelect={(hex) => selectColor(hex)} />
         </header>
-        <main className="min-h-0 flex-1 overflow-auto px-6 py-6">
+        {/* `relative` keeps absolutely positioned helpers (e.g. screen-reader-only captions)
+            inside the scroll area instead of stretching the whole page. */}
+        <main className="relative min-h-0 flex-1 overflow-auto px-6 py-6">
           {view === "color" && <ColorDetailsView />}
           {view === "palettes" && <PaletteBuilderView />}
           {view === "saved" && <LibraryView />}

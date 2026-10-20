@@ -67,7 +67,6 @@ export function ColorDetailsView() {
           </h1>
           <p className="text-lg">{info.description}</p>
           <p className="flex flex-col items-start gap-0.5 text-muted">
-            <span className="text-sm">Click a value to copy it:</span>
             <CopyValue label="hex" value={info.hex} />
             <CopyValue label="RGB" value={`rgb(${info.rgb.r}, ${info.rgb.g}, ${info.rgb.b})`} />
             <CopyValue
