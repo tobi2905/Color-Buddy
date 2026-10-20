@@ -38,15 +38,10 @@ mod platform {
     pub fn displays() -> Vec<Display> {
         Vec::new()
     }
-    pub fn nudge(_dx: i32, _dy: i32) -> Result<(), SampleError> {
-        Err(SampleError::Unsupported)
-    }
     pub fn set_excluded_window(_display: u32, _window: Option<u32>) {}
 }
 
-pub use platform::{
-    displays, has_permission, init, nudge, request_permission, set_excluded_window,
-};
+pub use platform::{displays, has_permission, init, request_permission, set_excluded_window};
 
 /// Allowed sample sizes (N in N×N).
 pub const SIZES: [u32; 3] = [1, 3, 5];
@@ -78,6 +73,8 @@ pub struct Display {
     pub height: f64,
     /// CSS pixels of a webview on this display per native unit (macOS 1; Windows 1/scale).
     pub css_per_native: f64,
+    /// Physical pixels per native unit (macOS: the backing scale, e.g. 2; Windows 1).
+    pub physical_per_native: f64,
 }
 
 impl Display {
@@ -148,6 +145,25 @@ impl SampleError {
 /// (macOS: points, origin top-left of the main display; Windows: physical pixels).
 pub fn cursor() -> Result<(f64, f64), SampleError> {
     platform::cursor()
+}
+
+/// `cursor` moved by whole physical pixels on the display under it. Used for arrow-key nudges:
+/// the OS only places the cursor on whole points (2 px on a 2× display), so the sampler keeps
+/// its own pixel offset instead of moving the cursor.
+pub(crate) fn offset_point(
+    cursor: (f64, f64),
+    offset: (i32, i32),
+    displays: &[Display],
+) -> (f64, f64) {
+    let per = displays
+        .iter()
+        .find(|d| d.contains(cursor.0, cursor.1))
+        .map(|d| d.physical_per_native)
+        .unwrap_or(1.0);
+    (
+        cursor.0 + offset.0 as f64 / per,
+        cursor.1 + offset.1 as f64 / per,
+    )
 }
 
 /// Sample the N×N area under the cursor.
@@ -289,6 +305,15 @@ struct Shared {
     status: Mutex<SamplerStatus>,
     last: Mutex<Option<HoveredEvent>>,
     displays: Mutex<Vec<Display>>,
+    nudge: Mutex<Nudge>,
+}
+
+/// Arrow-key offset from the cursor, in physical pixels. Cleared when the mouse moves away from
+/// `anchor`, the cursor position when the offset was set.
+#[derive(Debug, Default)]
+struct Nudge {
+    offset: (i32, i32),
+    anchor: Option<(f64, f64)>,
 }
 
 /// Starts/stops the background sampling thread. Cheap to clone.
@@ -329,6 +354,28 @@ impl Sampler {
         self.shared.last.lock().unwrap().clone()
     }
 
+    /// Shift the sampled point by whole physical pixels, relative to the current cursor.
+    pub fn nudge(&self, dx: i32, dy: i32) -> Result<(), SampleError> {
+        let cursor = cursor()?;
+        let mut n = self.shared.nudge.lock().unwrap();
+        if n.anchor != Some(cursor) {
+            n.offset = (0, 0);
+        }
+        n.offset = (n.offset.0 + dx, n.offset.1 + dy);
+        n.anchor = Some(cursor);
+        Ok(())
+    }
+
+    /// The point to sample: the cursor plus any arrow-key offset (cleared once the mouse moves).
+    fn sample_point(&self, displays: &[Display]) -> Result<(f64, f64), SampleError> {
+        let cursor = cursor()?;
+        let mut n = self.shared.nudge.lock().unwrap();
+        if n.anchor.is_some() && n.anchor != Some(cursor) {
+            *n = Nudge::default();
+        }
+        Ok(offset_point(cursor, n.offset, displays))
+    }
+
     pub fn resume(&self) {
         self.shared.frozen.store(false, Ordering::SeqCst);
     }
@@ -355,6 +402,7 @@ impl Sampler {
         *self.shared.status.lock().unwrap() = SamplerStatus::default();
         *self.shared.last.lock().unwrap() = None;
         *self.shared.displays.lock().unwrap() = displays();
+        *self.shared.nudge.lock().unwrap() = Nudge::default();
         self.shared.frozen.store(false, Ordering::SeqCst);
 
         if !has_permission() {
@@ -420,7 +468,10 @@ impl Sampler {
             }
             let size = self.shared.size.load(Ordering::Relaxed);
             let started = Instant::now();
-            match capture(size) {
+            let sample = self
+                .sample_point(&displays)
+                .and_then(|(x, y)| capture_at(x, y, size));
+            match sample {
                 Ok(cap) => {
                     let hover = HoveredEvent::from_capture(&cap, &displays);
                     let now = Instant::now();
@@ -597,9 +648,37 @@ mod tests {
             width: 2880.0,
             height: 1620.0,
             css_per_native: 1.0 / 1.5,
+            physical_per_native: 1.0,
         };
         assert!(d.contains(1920.0, 0.0) && !d.contains(1919.0, 0.0));
         assert_eq!(d.to_local_css(2220.0, 300.0), (200.0, 200.0));
+    }
+
+    #[test]
+    fn offsets_are_whole_physical_pixels() {
+        // A 2× Mac display: one physical pixel is half a point.
+        let retina = Display {
+            id: 1,
+            x: 0.0,
+            y: 0.0,
+            width: 1728.0,
+            height: 1117.0,
+            css_per_native: 1.0,
+            physical_per_native: 2.0,
+        };
+        assert_eq!(
+            offset_point((100.0, 50.0), (1, 1), &[retina]),
+            (100.5, 50.5)
+        );
+        assert_eq!(
+            offset_point((100.0, 50.0), (-3, 0), &[retina]),
+            (98.5, 50.0)
+        );
+        // Windows works in physical pixels already; off-display falls back to 1:1.
+        assert_eq!(
+            offset_point((5000.0, 5000.0), (1, -1), &[retina]),
+            (5001.0, 4999.0)
+        );
     }
 
     #[test]

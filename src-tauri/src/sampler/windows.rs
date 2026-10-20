@@ -17,7 +17,7 @@ use windows_sys::Win32::UI::ColorSystem::GetICMProfileW;
 use windows_sys::Win32::UI::HiDpi::{
     DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2, SetProcessDpiAwarenessContext,
 };
-use windows_sys::Win32::UI::WindowsAndMessaging::{GetCursorPos, SetCursorPos};
+use windows_sys::Win32::UI::WindowsAndMessaging::GetCursorPos;
 
 use super::{Capture, Display, DisplayInfo, SampleError, crop_rgba, window_start};
 
@@ -37,18 +37,10 @@ pub fn displays() -> Vec<Display> {
                 width: m.width().ok()? as f64,
                 height: m.height().ok()? as f64,
                 css_per_native: 1.0 / m.scale_factor().ok()? as f64,
+                physical_per_native: 1.0,
             })
         })
         .collect()
-}
-
-/// Move the cursor by whole physical pixels.
-pub fn nudge(dx: i32, dy: i32) -> Result<(), SampleError> {
-    let mut pt = POINT { x: 0, y: 0 };
-    if unsafe { GetCursorPos(&mut pt) } == 0 || unsafe { SetCursorPos(pt.x + dx, pt.y + dy) } == 0 {
-        return Err(SampleError::Capture("moving the cursor failed".into()));
-    }
-    Ok(())
 }
 
 pub fn init() {

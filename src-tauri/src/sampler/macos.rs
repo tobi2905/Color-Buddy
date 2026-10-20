@@ -13,8 +13,7 @@ use objc2_core_graphics::{
     CGDisplayBounds, CGDisplayCopyColorSpace, CGDisplayCopyDisplayMode, CGDisplayMode, CGError,
     CGEvent, CGGetActiveDisplayList, CGGetDisplaysWithPoint, CGImage, CGImageAlphaInfo,
     CGInterpolationQuality, CGPreflightScreenCaptureAccess, CGRequestScreenCaptureAccess,
-    CGWarpMouseCursorPosition, CGWindowID, CGWindowImageOption, CGWindowListOption,
-    kCGColorSpaceSRGB, kCGNullWindowID,
+    CGWindowID, CGWindowImageOption, CGWindowListOption, kCGColorSpaceSRGB, kCGNullWindowID,
 };
 
 use super::{Capture, Display, DisplayInfo, SampleError, covering_points, crop_rgba, window_start};
@@ -55,23 +54,10 @@ pub fn displays() -> Vec<Display> {
                 width: b.size.width,
                 height: b.size.height,
                 css_per_native: 1.0,
+                physical_per_native: display_scale(id).unwrap_or(1.0),
             }
         })
         .collect()
-}
-
-/// Move the cursor by whole physical pixels (half a point on a 2× display).
-pub fn nudge(dx: i32, dy: i32) -> Result<(), SampleError> {
-    let (x, y) = cursor()?;
-    let id = display_at(x, y).ok_or(SampleError::NoDisplay)?;
-    let scale = display_scale(id)?;
-    let err = CGWarpMouseCursorPosition(CGPoint {
-        x: x + dx as f64 / scale,
-        y: y + dy as f64 / scale,
-    });
-    (err == CGError::Success)
-        .then_some(())
-        .ok_or_else(|| SampleError::Capture(format!("CGWarpMouseCursorPosition: {err:?}")))
 }
 
 fn display_scale(id: CGDirectDisplayID) -> Result<f64, SampleError> {

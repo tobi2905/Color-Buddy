@@ -68,7 +68,7 @@ pub fn freeze_pick(app: AppHandle) -> Result<color_core::ColorInfo, String> {
     crate::picker::freeze(&app).map(|hover| hover.info)
 }
 
-/// Move the cursor by whole physical pixels (arrow keys in the picker).
+/// Shift the sampled point by whole physical pixels (arrow keys in the picker).
 #[tauri::command]
 pub fn nudge_cursor(app: AppHandle, dx: i32, dy: i32) -> Result<(), String> {
     crate::picker::nudge(&app, dx.clamp(-10, 10), dy.clamp(-10, 10))

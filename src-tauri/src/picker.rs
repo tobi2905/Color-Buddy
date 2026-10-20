@@ -195,14 +195,15 @@ pub fn freeze(app: &AppHandle) -> Result<HoveredEvent, String> {
     Ok(hover)
 }
 
-/// Move the cursor by whole physical pixels; resumes live sampling if frozen.
+/// Shift the sampled point by whole physical pixels (the cursor itself stays put); resumes
+/// live sampling if frozen.
 pub fn nudge(app: &AppHandle, dx: i32, dy: i32) -> Result<(), String> {
     let sampler = app.state::<Sampler>();
     if sampler.is_frozen() {
         sampler.resume();
         let _ = app.emit("picker-resumed", ());
     }
-    sampler::nudge(dx, dy).map_err(|e| e.to_string())
+    sampler.nudge(dx, dy).map_err(|e| e.to_string())
 }
 
 pub fn close(app: &AppHandle) {
