@@ -12,6 +12,9 @@ export interface GridColor {
 
 const VISIONS: VisionType[] = ["normal", "protan", "deutan", "tritan", "achromat"];
 
+const pairName = (colors: GridColor[], c: PairCheck) =>
+  `${ROLE_LABEL[colors[c.a]?.role ?? "background"]} × ${ROLE_LABEL[colors[c.b]?.role ?? "surface"].toLowerCase()}`;
+
 /** Text pairs, where WCAG text contrast matters most. */
 const isTextPair = (a: Role, b: Role) => (a === "text") !== (b === "text");
 
@@ -31,6 +34,8 @@ export function CheckGrid({
     const caution = counted.filter((c) => c.results[i][2] === "caution").length;
     return { vision, hard, caution };
   });
+
+  const subtle = checks.filter((c) => c.subtle);
 
   return (
     <div className="flex flex-col gap-4">
@@ -59,6 +64,13 @@ export function CheckGrid({
           );
         })}
       </ul>
+      {subtle.length > 0 && (
+        <p className="text-sm text-muted">
+          Not counted above: {subtle.map((c) => pairName(colors, c)).join(", ")}. It's a subtle tint
+          by design. If it stops being one (identical colours, or a strong difference), it counts
+          again.
+        </p>
+      )}
 
       <div className="overflow-x-auto rounded-md border border-line">
         <table className="w-full border-collapse text-left text-sm">

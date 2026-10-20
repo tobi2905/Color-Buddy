@@ -442,6 +442,7 @@ Each phase lists its goal, tasks, acceptance criteria and a review checkpoint. P
 - Display color profile correction
 - Text-to-speech for color names
 - Linux support (X11, then xdg-desktop-portal on Wayland)
+- Experiment: a compact "mini view" that stays in a screen corner with only the crucial information, customisable by the user (requested at review checkpoint 6)
 
 ---
 
@@ -505,3 +506,4 @@ Each phase lists its goal, tasks, acceptance criteria and a review checkpoint. P
 | 2026-10-20 | Picker hotkey is configurable (`set_hotkey`, needs Ctrl/Cmd/Alt); "Pick from screen" returns focus to the main window | Settings and onboarding both set it |
 | 2026-10-20 | Atkinson Hyperlegible Next/Mono bundled via @fontsource | Designed for legibility; bundled so the app works offline |
 | 2026-10-20 | Phase 6 acceptance "exported, checked palette in under 2 minutes" measured without export until Phase 7 builds it | Export is a Phase 7 task |
+| 2026-10-20 | Background/surface counts as "subtle" only while it is a tint (typical-vision ΔE 1–15); the check grid says which pair isn't counted | Review: the overview must not silently hide a pair; identical or clashing surfaces are checked like any pair |

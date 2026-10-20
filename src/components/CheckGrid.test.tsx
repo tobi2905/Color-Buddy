@@ -43,6 +43,20 @@ describe("CheckGrid", () => {
     expect(within(summary).getByText("Protan").closest("li")).toHaveTextContent("1 to check");
   });
 
+  it("says which subtle pair isn't counted, and only when there is one", () => {
+    const { unmount } = render(<CheckGrid colors={colors} checks={checks} userVision="deutan" />);
+    expect(screen.getByText(/Not counted above: Background × surface/)).toBeInTheDocument();
+    unmount();
+    render(
+      <CheckGrid
+        colors={colors}
+        checks={checks.map((c) => ({ ...c, subtle: false }))}
+        userVision="deutan"
+      />,
+    );
+    expect(screen.queryByText(/Not counted above/)).toBeNull();
+  });
+
   it("shows a WCAG level for text pairs", () => {
     render(<CheckGrid colors={colors} checks={checks} userVision="deutan" />);
     const row = screen.getByRole("rowheader", { name: /Background × Text/ }).closest("tr")!;
