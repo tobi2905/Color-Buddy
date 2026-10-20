@@ -25,6 +25,8 @@ export function useColorValues(hexes: string[]): Record<string, ColorValues | un
     let current = true;
     colorValues(missing).then(
       (values) => {
+        // Ignore anything that isn't one value set per colour; hex stays shown.
+        if (!Array.isArray(values) || values.length !== missing.length) return;
         values.forEach((v, i) => cache.set(missing[i], v));
         if (current) setVersion((n) => n + 1);
       },
