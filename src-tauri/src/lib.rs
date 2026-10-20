@@ -15,6 +15,17 @@ pub fn run() {
     sampler::init();
 
     tauri::Builder::default()
+        // Must be registered first. Two running copies fight over screen capture (each capture
+        // blocks for up to 30 s) and both react to the hotkey, so a second launch only brings
+        // the existing window to the front and quits.
+        .plugin(tauri_plugin_single_instance::init(|app, _args, _cwd| {
+            log::info!("second launch: showing the running copy instead");
+            if let Some(main) = app.get_webview_window("main") {
+                let _ = main.unminimize();
+                let _ = main.show();
+                let _ = main.set_focus();
+            }
+        }))
         .plugin(
             tauri_plugin_log::Builder::new()
                 .level(log::LevelFilter::Info)

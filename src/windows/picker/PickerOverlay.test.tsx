@@ -1,9 +1,9 @@
 import { act, fireEvent, render, screen } from "@testing-library/react";
-import { beforeEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import * as pickerApi from "../../lib/picker";
 import * as samplerApi from "../../lib/sampler";
 import type { ColorInfo } from "../../types/color";
-import type { HoveredEvent } from "../../types/sampler";
+import type { HoveredEvent, SamplerStatus } from "../../types/sampler";
 import PickerOverlay from "./PickerOverlay";
 
 vi.mock("../../lib/picker", () => ({
@@ -11,8 +11,13 @@ vi.mock("../../lib/picker", () => ({
   nudgeCursor: vi.fn(),
   onPickerFrozen: vi.fn(),
   onPickerState: vi.fn(),
+  onPickerOpened: vi.fn(),
 }));
-vi.mock("../../lib/sampler", () => ({ onColorHovered: vi.fn(), stopPicker: vi.fn() }));
+vi.mock("../../lib/sampler", () => ({
+  onColorHovered: vi.fn(),
+  onSamplerStatus: vi.fn(),
+  stopPicker: vi.fn(),
+}));
 
 const info: ColorInfo = {
   hex: "#A0522D",
@@ -37,6 +42,8 @@ const hover = (display: number): HoveredEvent => ({
 
 let emitHover: (e: HoveredEvent) => void;
 let emitFrozen: (e: HoveredEvent) => void;
+let emitOpened: (e: pickerApi.PickerOpened | null) => void;
+let emitStatus: (s: SamplerStatus) => void;
 const stateHandlers: Record<string, () => void> = {};
 
 beforeEach(() => {
@@ -51,6 +58,14 @@ beforeEach(() => {
   });
   vi.mocked(pickerApi.onPickerState).mockImplementation((name, cb) => {
     stateHandlers[name] = cb;
+    return Promise.resolve(() => {});
+  });
+  vi.mocked(pickerApi.onPickerOpened).mockImplementation((cb) => {
+    emitOpened = cb;
+    return Promise.resolve(() => {});
+  });
+  vi.mocked(samplerApi.onSamplerStatus).mockImplementation((cb) => {
+    emitStatus = cb;
     return Promise.resolve(() => {});
   });
   vi.mocked(pickerApi.freezePick).mockResolvedValue(info);
@@ -114,5 +129,62 @@ describe("PickerOverlay", () => {
     expect(screen.getByTestId("toast")).toBeInTheDocument();
     act(() => stateHandlers["picker-resumed"]());
     expect(screen.queryByTestId("toast")).toBeNull();
+  });
+
+  describe("before the first colour arrives", () => {
+    afterEach(() => {
+      vi.useRealTimers();
+    });
+
+    it("shows a waiting panel at the cursor, only on the cursor's display", () => {
+      render(<PickerOverlay display={1} />);
+      act(() => emitOpened({ display: 2, localX: 50, localY: 60 }));
+      expect(screen.queryByText("Reading the screen…")).toBeNull();
+      act(() => emitOpened({ display: 1, localX: 50, localY: 60 }));
+      expect(screen.getByRole("status")).toHaveTextContent("Reading the screen…");
+    });
+
+    it("says so when no colour arrives within a second", () => {
+      vi.useFakeTimers();
+      render(<PickerOverlay display={1} />);
+      act(() => emitOpened({ display: 1, localX: 50, localY: 60 }));
+      act(() => vi.advanceTimersByTime(999));
+      expect(screen.queryByRole("alert")).toBeNull();
+      act(() => vi.advanceTimersByTime(1));
+      expect(screen.getByRole("alert")).toHaveTextContent(
+        "The screen can't be read right now. Press Esc and try again.",
+      );
+    });
+
+    it("shows a sampler error while waiting", () => {
+      render(<PickerOverlay display={1} />);
+      act(() => emitOpened({ display: 1, localX: 50, localY: 60 }));
+      act(() =>
+        emitStatus({
+          running: false,
+          size: 5,
+          samplesPerSecond: 0,
+          avgCaptureMs: 0,
+          firstSampleMs: null,
+          display: null,
+          error: "Screen Recording permission is missing.",
+          errorKind: "permission",
+        }),
+      );
+      expect(screen.getByRole("alert")).toHaveTextContent(
+        "Screen Recording permission is missing.",
+      );
+    });
+
+    it("is replaced by the loupe once a colour arrives", () => {
+      vi.useFakeTimers();
+      render(<PickerOverlay display={1} />);
+      act(() => emitOpened({ display: 1, localX: 50, localY: 60 }));
+      act(() => emitHover(hover(1)));
+      expect(screen.queryByText("Reading the screen…")).toBeNull();
+      expect(screen.getByTestId("loupe")).toBeInTheDocument();
+      act(() => vi.advanceTimersByTime(2000));
+      expect(screen.queryByRole("alert")).toBeNull();
+    });
   });
 });

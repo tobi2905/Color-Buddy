@@ -10,6 +10,7 @@
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::time::Instant;
 
+use serde::Serialize;
 use tauri::{AppHandle, Emitter, Manager, WebviewUrl, WebviewWindow, WebviewWindowBuilder};
 use tauri_plugin_clipboard_manager::ClipboardExt;
 
@@ -137,6 +138,27 @@ fn raise_overlay(window: &WebviewWindow) -> Option<u32> {
     }
 }
 
+/// Payload of `picker-opened`: where the cursor is, so the overlay there can show a
+/// "Reading the screen…" panel until the first colour arrives.
+#[derive(Debug, Clone, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct OpenedEvent {
+    pub display: u32,
+    pub local_x: f64,
+    pub local_y: f64,
+}
+
+fn opened_event(cursor: Option<(f64, f64)>, displays: &[Display]) -> Option<OpenedEvent> {
+    let (x, y) = cursor?;
+    let d = displays.iter().find(|d| d.contains(x, y))?;
+    let (local_x, local_y) = d.to_local_css(x, y);
+    Some(OpenedEvent {
+        display: d.id,
+        local_x,
+        local_y,
+    })
+}
+
 /// Set when the picker was opened from the main window, so closing returns there.
 static RETURN_TO_MAIN: AtomicBool = AtomicBool::new(false);
 
@@ -164,12 +186,14 @@ pub fn open(app: &AppHandle, trigger: Instant) {
             }
         }
     }
+    let displays = sampler::displays();
+    let opened = opened_event(cursor, &displays);
     // Keys go to the overlay under the cursor.
     let under_cursor = cursor.and_then(|(x, y)| {
-        sampler::displays()
-            .into_iter()
+        displays
+            .iter()
             .find(|d| d.contains(x, y))
-            .and_then(|d| app.get_webview_window(&label(&d)))
+            .and_then(|d| app.get_webview_window(&label(d)))
     });
     if let Some(w) = under_cursor.or_else(|| picker_windows(app).into_iter().next()) {
         let _ = w.set_focus();
@@ -183,7 +207,7 @@ pub fn open(app: &AppHandle, trigger: Instant) {
             w.inner_size()
         );
     }
-    let _ = app.emit("picker-opened", ());
+    let _ = app.emit("picker-opened", opened);
     sampler.start(app.clone(), trigger);
 }
 
@@ -246,5 +270,31 @@ pub fn on_hotkey(app: &AppHandle, pressed: Instant) {
             }
         }
         (true, true) => close(app),
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn display(id: u32, x: f64) -> Display {
+        Display {
+            id,
+            x,
+            y: 0.0,
+            width: 1728.0,
+            height: 1117.0,
+            css_per_native: 1.0,
+            physical_per_native: 2.0,
+        }
+    }
+
+    #[test]
+    fn opened_event_names_the_display_under_the_cursor() {
+        let displays = [display(1, 0.0), display(2, 1728.0)];
+        let e = opened_event(Some((1828.0, 50.0)), &displays).unwrap();
+        assert_eq!((e.display, e.local_x, e.local_y), (2, 100.0, 50.0));
+        assert!(opened_event(Some((-5.0, 50.0)), &displays).is_none());
+        assert!(opened_event(None, &displays).is_none());
     }
 }
