@@ -1,21 +1,13 @@
 mod commands;
 mod history;
+mod hotkey;
 mod picker;
 pub mod sampler;
 
 use std::time::Instant;
 
 use tauri::Manager;
-use tauri_plugin_global_shortcut::{Code, Modifiers, Shortcut, ShortcutState};
-
-/// Ctrl+Shift+C on Windows, Cmd+Shift+C on macOS.
-fn picker_shortcut() -> Shortcut {
-    #[cfg(target_os = "macos")]
-    let mods = Modifiers::SUPER | Modifiers::SHIFT;
-    #[cfg(not(target_os = "macos"))]
-    let mods = Modifiers::CONTROL | Modifiers::SHIFT;
-    Shortcut::new(Some(mods), Code::KeyC)
-}
+use tauri_plugin_global_shortcut::ShortcutState;
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
@@ -31,7 +23,9 @@ pub fn run() {
             tauri_plugin_global_shortcut::Builder::new()
                 .with_handler(|app, shortcut, event| {
                     let pressed = Instant::now();
-                    if event.state() == ShortcutState::Pressed && *shortcut == picker_shortcut() {
+                    if event.state() == ShortcutState::Pressed
+                        && app.state::<hotkey::Hotkey>().matches(shortcut)
+                    {
                         picker::on_hotkey(app, pressed);
                     }
                 })
@@ -40,8 +34,8 @@ pub fn run() {
         .plugin(tauri_plugin_clipboard_manager::init())
         .manage(sampler::Sampler::default())
         .manage(history::History::default())
+        .manage(hotkey::Hotkey::default())
         .setup(|app| {
-            use tauri_plugin_global_shortcut::GlobalShortcutExt;
             // Dev aid for Phase 1 measurements: keep the debug window (and its test patches) visible.
             if std::env::var("COLOR_BUDDY_ON_TOP").as_deref() == Ok("1")
                 && let Some(window) = app.get_webview_window("main")
@@ -64,9 +58,8 @@ pub fn run() {
                     let _ = handle.run_on_main_thread(move || picker::close(&h));
                 });
             }
-            if let Err(err) = app.global_shortcut().register(picker_shortcut()) {
-                log::error!("could not register picker hotkey: {err}");
-            }
+            // The frontend applies the user's saved shortcut via `set_hotkey` on start.
+            hotkey::register_default(app.handle());
             Ok(())
         })
         .invoke_handler(tauri::generate_handler![
@@ -84,6 +77,9 @@ pub fn run() {
             commands::get_sampler_status,
             commands::open_screen_recording_settings,
             commands::self_test,
+            commands::set_hotkey,
+            commands::get_screen_permission,
+            commands::request_screen_permission,
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

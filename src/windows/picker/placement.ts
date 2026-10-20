@@ -17,9 +17,4 @@ export function placePanel(
   return { left: Math.max(0, left), top: Math.max(0, top) };
 }
 
-/** Plain-language confidence of a name match from its CIEDE2000 distance. */
-export function matchLabel(deltaE: number): string | null {
-  if (deltaE <= 1) return null;
-  if (deltaE <= 5) return "close match";
-  return "closest match";
-}
+export { matchLabel } from "../../lib/names";

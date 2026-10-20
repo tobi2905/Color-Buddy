@@ -189,8 +189,10 @@ pub struct PairCheck {
 | `freeze_pick` | — | `ColorInfo` (also copies hex, adds to history) |
 | `get_profile` / `set_profile` | `VisionProfile` | `VisionProfile` |
 | `list_history` | `limit` | `Vec<HistoryEntry>` |
+| `delete_history_entry` / `clear_history` | `id` / — | — |
+| `reset_settings` | — | settings at their defaults |
 | `save_palette` / `list_palettes` / `delete_palette` | `Palette` / — / `id` | `SavedPalette` / `Vec<SavedPalette>` / — |
-| `export_palette` | `id` or `Palette`, `format` (`css` \| `json` \| `tailwind`) | `String` |
+| `export_palette` | `id` or `Palette`, `format` (`css` \| `json` \| `tailwind` \| `text-detailed` \| `text-hex` \| `text-names` \| `text-names-hex`) | `String` |
 
 **Event:** `color-hovered` → `{ x, y, info: ColorInfo, loupe: [[Rgb; N]; N] }`, emitted about 30 times per second while the picker is active.
 
@@ -365,14 +367,14 @@ Each phase lists its goal, tasks, acceptance criteria and a review checkpoint. P
 **Goal:** the main app window with all MVP screens.
 
 **Tasks**
-- [ ] Onboarding (first launch): explain the app, choose vision type and severity (with a "not sure" option defaulting to deutan, moderate, and a note that this isn't a medical test), set the hotkey, macOS permission step.
-- [ ] Color input bar: hex, RGB, or name search with autocomplete; "pick from screen" button.
-- [ ] Color details view: swatch, three name levels, description, references, associations, pairings, "confused with" list for the user's profile.
-- [ ] Palette builder: scheme tabs, swatches with role and name labels, explanation, check grid (pairs × vision types) using icons + text (✓ distinct, ! caution, ✕ hard to tell), contrast badges.
-- [ ] Edit a palette: replace a color, lock colors, regenerate the rest.
-- [ ] History view.
-- [ ] Settings: profile, hotkey, sample size, theme (light/dark), default name level.
-- [ ] App UI itself never uses color as the only signal; passes an accessibility lint.
+- [x] Onboarding (first launch): explain the app, choose vision type and severity (with a "not sure" option defaulting to deutan, moderate, and a note that this isn't a medical test), set the hotkey, macOS permission step.
+- [x] Color input bar: hex, RGB, or name search with autocomplete; "pick from screen" button.
+- [x] Color details view: swatch, three name levels, description, references, associations, pairings, "confused with" list for the user's profile.
+- [x] Palette builder: scheme tabs, swatches with role and name labels, explanation, check grid (pairs × vision types) using icons + text (✓ distinct, ! caution, ✕ hard to tell), contrast badges.
+- [x] Edit a palette: replace a color, lock colors, regenerate the rest.
+- [x] History view.
+- [x] Settings: profile, hotkey, sample size, theme (light/dark), default name level.
+- [x] App UI itself never uses color as the only signal; passes an accessibility lint.
 
 **Acceptance criteria**
 - A first-time user can go from launch to an exported, checked palette in under 2 minutes.
@@ -395,15 +397,26 @@ Each phase lists its goal, tasks, acceptance criteria and a review checkpoint. P
     - `palette_colors(palette_id, position, hex, role)`
     - `settings(key, value)`
 - [ ] Save, rename, delete, list palettes; palette library view in the UI.
+    - *Added 2026-10-20:* "Save palette" in the palette builder keeps the current colours, roles and locks; a saved palette reopens in the builder.
 - [ ] `export.rs`:
     - CSS: `:root { --color-primary: #...; }` using role names.
     - JSON: palette with names, roles, hex, check summary.
     - Tailwind: `theme.extend.colors` snippet.
 - [ ] Export UI: copy to clipboard or save file.
+- [ ] *Added 2026-10-20:* copy a palette to the clipboard as plain text, with a choice of format:
+    - Detailed: role, name, hex and RGB for every colour (one colour per line).
+    - Hex values only (one per line).
+    - Names only (one per line).
+    - Names with hex values.
+- [ ] *Added 2026-10-20:* in Colour details, clicking the hex, RGB or OKLCH value copies it, with a short "Copied" confirmation.
+- [ ] *Added 2026-10-20:* delete history: remove a single entry or clear all (with a confirmation step in the page).
+- [ ] *Added 2026-10-20:* Settings → "Reset settings to default" (with a confirmation step; vision profile included, onboarding not shown again).
 
 **Acceptance criteria**
 - Data survives restarts; migrations run cleanly on a fresh install and on an existing DB.
 - Export output is valid (CSS parses, JSON validates, Tailwind snippet loads in a sample config).
+- Each plain-text clipboard format matches its description for a sample palette.
+- Deleted history entries and reset settings stay deleted/reset after a restart.
 
 **🔍 Review checkpoint 7:** sample export files for one palette in each format. Wait for approval.
 
@@ -442,6 +455,7 @@ Each phase lists its goal, tasks, acceptance criteria and a review checkpoint. P
 - Display color profile correction
 - Text-to-speech for color names
 - Linux support (X11, then xdg-desktop-portal on Wayland)
+- Experiment: a compact "mini view" that stays in a screen corner with only the crucial information, customisable by the user (requested at review checkpoint 6)
 
 ---
 
@@ -499,3 +513,10 @@ Each phase lists its goal, tasks, acceptance criteria and a review checkpoint. P
 | 2026-10-20 | Arrow keys offset the sampled point in the sampler instead of moving the OS cursor; the offset clears when the mouse moves | Found in review: macOS only places the cursor on whole points (2 px on a 2× display), so right/down nudges snapped back and left/up jumped 2 px |
 | 2026-10-19 | History kept in memory (cap 500, newest first) with `list_history`; SQLite persistence is Phase 7 | Phase 5 needs "add to history"; storage is specified for Phase 7 |
 | 2026-10-19 | macOS overlays sit at screen-saver level, on all Spaces and over full-screen apps; needs Tauri `macOSPrivateApi` for transparency | Covers the menu bar and Dock so a click there freezes instead of opening menus |
+| 2026-10-20 | Settings (profile, hotkey, sample size, theme, name level, onboarding done) saved in the webview's local storage until Phase 7 moves them to SQLite | Onboarding must not repeat on every launch; storage is specified for Phase 7 |
+| 2026-10-20 | Profile option "Typical colour vision" (`normal`) | User's request: everyone can use the app; look-alike warnings are skipped, palette checks still cover every colour vision type |
+| 2026-10-20 | "Regenerate the rest" rebuilds the scheme from the current primary and keeps locked colours in their slots; replacing a colour locks it | Generation is deterministic, so unlocked colours change when the primary does |
+| 2026-10-20 | Picker hotkey is configurable (`set_hotkey`, needs Ctrl/Cmd/Alt); "Pick from screen" returns focus to the main window | Settings and onboarding both set it |
+| 2026-10-20 | Atkinson Hyperlegible Next/Mono bundled via @fontsource | Designed for legibility; bundled so the app works offline |
+| 2026-10-20 | Phase 6 acceptance "exported, checked palette in under 2 minutes" measured without export until Phase 7 builds it | Export is a Phase 7 task |
+| 2026-10-20 | Background/surface counts as "subtle" only while it is a tint (typical-vision ΔE 1–15); the check grid says which pair isn't counted | Review: the overview must not silently hide a pair; identical or clashing surfaces are checked like any pair |

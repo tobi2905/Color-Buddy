@@ -63,11 +63,12 @@ pub struct PairCheck {
     pub results: Vec<(VisionType, f32, PairVerdict)>,
     /// WCAG 2.x contrast ratio.
     pub contrast_ratio: f32,
-    /// Meant to look alike (background and surface); never counted as a warning.
+    /// Background and surface that form a subtle tint, so they're meant to look alike; never
+    /// counted as a warning. See [`is_subtle_tint`].
     pub subtle: bool,
 }
 
-/// Background and surface are a deliberate subtle tint of each other.
+/// Background and surface are meant to be a subtle tint of each other.
 pub fn is_subtle_pair(a: Role, b: Role) -> bool {
     matches!(
         (a, b),
@@ -75,8 +76,19 @@ pub fn is_subtle_pair(a: Role, b: Role) -> bool {
     )
 }
 
+/// Below this typical-vision ΔE2000 a background and surface are the same colour, which hides
+/// the surface rather than tinting it.
+pub const SUBTLE_MIN_DE: f64 = 1.0;
+
+/// A background/surface pair counts as a subtle tint only while it is one: visibly different
+/// for typical vision, but less than [`DISTINCT_DE`] apart. Identical or replaced-with-anything
+/// pairs are checked like every other pair (decided at review checkpoint 6).
+pub fn is_subtle_tint(a: Role, b: Role, normal_delta_e: f64) -> bool {
+    is_subtle_pair(a, b) && (SUBTLE_MIN_DE..DISTINCT_DE).contains(&normal_delta_e)
+}
+
 /// Every pair of `colors`, under normal vision and each deficiency. `roles`, when given (one per
-/// colour), marks pairs that are meant to look alike as [`PairCheck::subtle`].
+/// colour), marks a background/surface tint as [`PairCheck::subtle`].
 pub fn check_palette(colors: &[Rgb], roles: Option<&[Role]>) -> Vec<PairCheck> {
     let seen: Vec<Vec<Lab>> = colors
         .iter()
@@ -91,7 +103,7 @@ pub fn check_palette(colors: &[Rgb], roles: Option<&[Role]>) -> Vec<PairCheck> {
     let mut out = Vec::new();
     for a in 0..colors.len() {
         for b in a + 1..colors.len() {
-            let results = VisionType::ALL
+            let results: Vec<(VisionType, f32, PairVerdict)> = VisionType::ALL
                 .iter()
                 .enumerate()
                 .map(|(i, &v)| {
@@ -102,9 +114,9 @@ pub fn check_palette(colors: &[Rgb], roles: Option<&[Role]>) -> Vec<PairCheck> {
             out.push(PairCheck {
                 a,
                 b,
+                subtle: roles.is_some_and(|r| is_subtle_tint(r[a], r[b], results[0].1 as f64)),
                 results,
                 contrast_ratio: contrast::contrast_ratio(colors[a], colors[b]) as f32,
-                subtle: roles.is_some_and(|r| is_subtle_pair(r[a], r[b])),
             });
         }
     }
@@ -253,6 +265,18 @@ mod tests {
         let subtle: Vec<bool> = checks.iter().map(|c| c.subtle).collect();
         assert_eq!(subtle, [true, false, false]);
         assert!(check_palette(&colors, None).iter().all(|c| !c.subtle));
+    }
+
+    #[test]
+    fn identical_or_clashing_surfaces_are_checked_normally() {
+        use Role::*;
+        let roles = [Background, Surface];
+        // Same colour: the surface disappears, so it counts.
+        let same = check_palette(&[hex("#F3F9FF"), hex("#F3F9FF")], Some(&roles));
+        assert!(!same[0].subtle);
+        // Replaced with something that no longer reads as a tint: counts.
+        let clash = check_palette(&[hex("#F3F9FF"), hex("#C0392B")], Some(&roles));
+        assert!(!clash[0].subtle);
     }
 
     #[test]
