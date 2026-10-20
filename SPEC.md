@@ -189,8 +189,10 @@ pub struct PairCheck {
 | `freeze_pick` | — | `ColorInfo` (also copies hex, adds to history) |
 | `get_profile` / `set_profile` | `VisionProfile` | `VisionProfile` |
 | `list_history` | `limit` | `Vec<HistoryEntry>` |
+| `delete_history_entry` / `clear_history` | `id` / — | — |
+| `reset_settings` | — | settings at their defaults |
 | `save_palette` / `list_palettes` / `delete_palette` | `Palette` / — / `id` | `SavedPalette` / `Vec<SavedPalette>` / — |
-| `export_palette` | `id` or `Palette`, `format` (`css` \| `json` \| `tailwind`) | `String` |
+| `export_palette` | `id` or `Palette`, `format` (`css` \| `json` \| `tailwind` \| `text-detailed` \| `text-hex` \| `text-names` \| `text-names-hex`) | `String` |
 
 **Event:** `color-hovered` → `{ x, y, info: ColorInfo, loupe: [[Rgb; N]; N] }`, emitted about 30 times per second while the picker is active.
 
@@ -395,15 +397,26 @@ Each phase lists its goal, tasks, acceptance criteria and a review checkpoint. P
     - `palette_colors(palette_id, position, hex, role)`
     - `settings(key, value)`
 - [ ] Save, rename, delete, list palettes; palette library view in the UI.
+    - *Added 2026-10-20:* "Save palette" in the palette builder keeps the current colours, roles and locks; a saved palette reopens in the builder.
 - [ ] `export.rs`:
     - CSS: `:root { --color-primary: #...; }` using role names.
     - JSON: palette with names, roles, hex, check summary.
     - Tailwind: `theme.extend.colors` snippet.
 - [ ] Export UI: copy to clipboard or save file.
+- [ ] *Added 2026-10-20:* copy a palette to the clipboard as plain text, with a choice of format:
+    - Detailed: role, name, hex and RGB for every colour (one colour per line).
+    - Hex values only (one per line).
+    - Names only (one per line).
+    - Names with hex values.
+- [ ] *Added 2026-10-20:* in Colour details, clicking the hex, RGB or OKLCH value copies it, with a short "Copied" confirmation.
+- [ ] *Added 2026-10-20:* delete history: remove a single entry or clear all (with a confirmation step in the page).
+- [ ] *Added 2026-10-20:* Settings → "Reset settings to default" (with a confirmation step; vision profile included, onboarding not shown again).
 
 **Acceptance criteria**
 - Data survives restarts; migrations run cleanly on a fresh install and on an existing DB.
 - Export output is valid (CSS parses, JSON validates, Tailwind snippet loads in a sample config).
+- Each plain-text clipboard format matches its description for a sample palette.
+- Deleted history entries and reset settings stay deleted/reset after a restart.
 
 **🔍 Review checkpoint 7:** sample export files for one palette in each format. Wait for approval.
 
