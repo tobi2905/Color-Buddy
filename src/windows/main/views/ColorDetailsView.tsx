@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { CopyValue } from "../../../components/CopyValue";
 import { Swatch } from "../../../components/Swatch";
 import { getColorDetails, getColorInfo } from "../../../lib/color";
 import { headlineName, matchLabel } from "../../../lib/names";
@@ -65,9 +66,13 @@ export function ColorDetailsView() {
             )}
           </h1>
           <p className="text-lg">{info.description}</p>
-          <p className="font-mono text-muted">
-            {info.hex} · rgb({info.rgb.r}, {info.rgb.g}, {info.rgb.b}) · oklch(
-            {(l * 100).toFixed(1)}% {c.toFixed(3)} {h.toFixed(1)})
+          <p className="flex flex-col items-start gap-0.5 text-muted">
+            <CopyValue label="hex" value={info.hex} />
+            <CopyValue label="RGB" value={`rgb(${info.rgb.r}, ${info.rgb.g}, ${info.rgb.b})`} />
+            <CopyValue
+              label="OKLCH"
+              value={`oklch(${(l * 100).toFixed(1)}% ${c.toFixed(3)} ${h.toFixed(1)})`}
+            />
           </p>
           <button
             type="button"

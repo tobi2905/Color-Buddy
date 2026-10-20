@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { createJSONStorage, persist } from "zustand/middleware";
+import { getSettings, resetSettings, updateSettings } from "../lib/storage";
 import type { VisionProfile, VisionType } from "../types/color";
 
 export type NameLevel = "basic" | "descriptive" | "precise";
@@ -51,24 +51,68 @@ export const SEVERITY_OPTIONS: { value: number; label: string }[] = [
 ];
 
 interface SettingsStore extends Settings {
+  /** Change settings; saved to the app database. */
   update: (patch: Partial<Settings>) => void;
+  /** Back to defaults (the welcome steps stay done). */
+  reset: () => Promise<void>;
 }
 
-/** Kept in local storage until Phase 7 moves settings into the app database. */
-export const useSettings = create<SettingsStore>()(
-  persist(
-    (set) => ({
-      ...DEFAULT_SETTINGS,
-      update: (patch) => set(patch),
-    }),
-    {
-      name: "color-buddy-settings",
-      version: 1,
-      storage: createJSONStorage(() => localStorage),
-      partialize: ({ update: _update, ...settings }) => settings,
-    },
-  ),
-);
+const pick = (s: Settings): Settings => ({
+  onboarded: s.onboarded,
+  profile: s.profile,
+  profileUnsure: s.profileUnsure,
+  hotkey: s.hotkey,
+  sampleSize: s.sampleSize,
+  theme: s.theme,
+  nameLevel: s.nameLevel,
+});
+
+export const useSettings = create<SettingsStore>()((set, get) => ({
+  ...DEFAULT_SETTINGS,
+  update: (patch) => {
+    set(patch);
+    updateSettings(pick(get())).catch((err) => console.error("saving settings:", err));
+  },
+  reset: async () => {
+    set(await resetSettings());
+  },
+}));
+
+/** Key used by versions that kept settings in local storage (before Phase 7). */
+export const LEGACY_STORAGE_KEY = "color-buddy-settings";
+
+/**
+ * Load settings from the app database before the first render. The first time, settings an
+ * older version kept in local storage are imported, so nothing resets after the update.
+ */
+export async function loadSettings(): Promise<void> {
+  try {
+    const stored = await getSettings();
+    let settings = stored.settings;
+    if (!stored.saved) {
+      const legacy = readLegacy();
+      if (legacy) {
+        settings = { ...settings, ...legacy };
+        await updateSettings(settings);
+      }
+    }
+    useSettings.setState(settings);
+  } catch (err) {
+    console.error("loading settings:", err);
+  }
+}
+
+function readLegacy(): Partial<Settings> | null {
+  try {
+    const raw = localStorage.getItem(LEGACY_STORAGE_KEY);
+    if (!raw) return null;
+    const state = JSON.parse(raw)?.state;
+    localStorage.removeItem(LEGACY_STORAGE_KEY);
+    return state && typeof state === "object" ? pick({ ...DEFAULT_SETTINGS, ...state }) : null;
+  } catch {
+    return null;
+  }
+}
 
 export function profileLabel(profile: VisionProfile): string {
   if (profile.vision === "normal") return "typical colour vision";

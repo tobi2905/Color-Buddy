@@ -122,7 +122,7 @@ impl std::fmt::Display for SampleError {
         match self {
             Self::PermissionDenied => write!(
                 f,
-                "Screen Recording permission is missing. Allow Color-Buddy in System Settings → \
+                "Screen Recording permission is missing. Allow ColorBuddy in System Settings → \
                  Privacy & Security → Screen & System Audio Recording, then restart the app."
             ),
             Self::NoDisplay => write!(f, "No display found under the cursor."),

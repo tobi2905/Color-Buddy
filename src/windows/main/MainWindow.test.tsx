@@ -27,7 +27,7 @@ describe("MainWindow", () => {
   it("starts with the welcome steps on first launch", async () => {
     useSettings.setState({ ...DEFAULT_SETTINGS });
     render(<MainWindow />);
-    expect(screen.getByRole("heading", { name: "Welcome to Color-Buddy" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Welcome to ColorBuddy" })).toBeInTheDocument();
   });
 
   it("goes through onboarding to the colour view with the keyboard", async () => {
@@ -40,10 +40,10 @@ describe("MainWindow", () => {
     await userEvent.click(screen.getByRole("button", { name: "Next" }));
     expect(screen.getByRole("heading", { name: "Picker shortcut" })).toBeInTheDocument();
     // Skip through the remaining steps (macOS adds screen access).
-    while (!screen.queryByRole("button", { name: "Start using Color-Buddy" })) {
+    while (!screen.queryByRole("button", { name: "Start using ColorBuddy" })) {
       await userEvent.click(screen.getByRole("button", { name: "Next" }));
     }
-    await userEvent.click(screen.getByRole("button", { name: "Start using Color-Buddy" }));
+    await userEvent.click(screen.getByRole("button", { name: "Start using ColorBuddy" }));
     expect(useSettings.getState()).toMatchObject({
       onboarded: true,
       profile: { vision: "protan" },

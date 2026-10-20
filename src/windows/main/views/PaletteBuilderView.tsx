@@ -1,11 +1,13 @@
 import { useEffect, useMemo, useState } from "react";
 import { CheckGrid } from "../../../components/CheckGrid";
 import { ColorInputBar } from "../../../components/ColorInputBar";
+import { ExportPanel } from "../../../components/ExportPanel";
 import { Swatch } from "../../../components/Swatch";
 import { Tabs } from "../../../components/Tabs";
 import { checkPalette, generatePalettes, getColorInfo } from "../../../lib/color";
 import { headlineName, ROLE_LABEL } from "../../../lib/names";
 import { mergeRegenerated, type WorkingColor } from "../../../lib/palette";
+import { savePalette } from "../../../lib/storage";
 import { useApp } from "../../../store/app";
 import { useSettings } from "../../../store/settings";
 import type { PairCheck, Scheme } from "../../../types/color";
@@ -21,6 +23,8 @@ const SCHEMES: { id: Scheme; label: string }[] = [
 /** Scheme tabs, editable swatches (replace / lock / regenerate) and the check grid. */
 export function PaletteBuilderView() {
   const base = useApp((s) => s.currentHex);
+  const openedPalette = useApp((s) => s.openedPalette);
+  const clearOpenedPalette = useApp((s) => s.clearOpenedPalette);
   const nameLevel = useSettings((s) => s.nameLevel);
   const vision = useSettings((s) => s.profile.vision);
   const [scheme, setScheme] = useState<Scheme>("complementary");
@@ -29,6 +33,12 @@ export function PaletteBuilderView() {
   const [checks, setChecks] = useState<PairCheck[]>([]);
   const [editing, setEditing] = useState<number | null>(null);
   const [error, setError] = useState<string | null>(null);
+  /** The base colour the current schemes were generated from. */
+  const [loadedBase, setLoadedBase] = useState<string | null>(null);
+  /** The saved palette being edited, if any. */
+  const [saved, setSaved] = useState<{ id: number; name: string } | null>(null);
+  const [name, setName] = useState("");
+  const [saveStatus, setSaveStatus] = useState<string | null>(null);
 
   // A new base colour starts every scheme afresh.
   useEffect(() => {
@@ -38,7 +48,11 @@ export function PaletteBuilderView() {
         if (!current) return;
         setWorking(Object.fromEntries(palettes.map((p) => [p.scheme, mergeRegenerated([], p)])));
         setExplanations(Object.fromEntries(palettes.map((p) => [p.scheme, p.explanation])));
+        setSaved(null);
+        setName("");
+        setSaveStatus(null);
         setError(null);
+        setLoadedBase(base);
       },
       (err) => current && setError(String(err)),
     );
@@ -47,7 +61,32 @@ export function PaletteBuilderView() {
     };
   }, [base]);
 
+  // Open a saved palette once its base colour's schemes are ready.
+  useEffect(() => {
+    if (!openedPalette || loadedBase !== openedPalette.baseHex) return;
+    let current = true;
+    Promise.all(openedPalette.colors.map((c) => getColorInfo(c.hex))).then(
+      (infos) => {
+        if (!current) return;
+        const restored = openedPalette.colors.map((c, i) => ({ ...c, info: infos[i] }));
+        setWorking((w) => ({ ...w, [openedPalette.scheme]: restored }));
+        setScheme(openedPalette.scheme);
+        setSaved({ id: openedPalette.id, name: openedPalette.name });
+        setName(openedPalette.name);
+        setSaveStatus(null);
+        clearOpenedPalette();
+      },
+      (err) => current && setError(String(err)),
+    );
+    return () => {
+      current = false;
+    };
+  }, [openedPalette, loadedBase, clearOpenedPalette]);
+
   const colors = useMemo(() => working[scheme] ?? [], [working, scheme]);
+  const primaryName = colors.find((c) => c.role === "primary")?.info.descriptive.name ?? base;
+  const schemeLabel = SCHEMES.find((x) => x.id === scheme)?.label ?? scheme;
+  const paletteName = name.trim() || `${primaryName} ${schemeLabel.toLowerCase()}`;
   const hexKey = colors.map((c) => c.hex).join(",");
 
   useEffect(() => {
@@ -73,6 +112,23 @@ export function PaletteBuilderView() {
     const info = await getColorInfo(hex);
     update(colors.map((c, i) => (i === index ? { ...c, hex: info.hex, info, locked: true } : c)));
     setEditing(null);
+  }
+
+  async function save(asNew: boolean) {
+    try {
+      const result = await savePalette({
+        id: asNew ? undefined : saved?.id,
+        name: paletteName,
+        baseHex: base,
+        scheme,
+        colors: colors.map(({ hex, role, locked }) => ({ hex, role, locked })),
+      });
+      setSaved({ id: result.id, name: result.name });
+      setName(result.name);
+      setSaveStatus(`✓ Saved “${result.name}”`);
+    } catch (err) {
+      setSaveStatus(`⚠ ${String(err)}`);
+    }
   }
 
   async function regenerate() {
@@ -174,6 +230,52 @@ export function PaletteBuilderView() {
             Regenerate unlocked colours
           </button>
         </div>
+
+        <section aria-labelledby="save-heading" className="flex flex-col gap-3">
+          <h2 id="save-heading" className="text-xl font-extrabold">
+            Save and export
+          </h2>
+          <div className="flex flex-wrap items-center gap-2">
+            <label htmlFor="palette-name" className="font-semibold">
+              Name
+            </label>
+            <input
+              id="palette-name"
+              type="text"
+              value={name}
+              placeholder={paletteName}
+              onChange={(e) => setName(e.target.value)}
+              className="w-72 max-w-full rounded-md border border-line bg-surface px-3 py-2 placeholder:text-muted"
+            />
+            <button
+              type="button"
+              onClick={() => void save(false)}
+              className="rounded-md bg-accent px-3 py-2 font-semibold text-on-accent"
+            >
+              {saved ? "Save changes" : "Save palette"}
+            </button>
+            {saved && (
+              <button
+                type="button"
+                onClick={() => void save(true)}
+                className="rounded-md border border-line bg-surface px-3 py-2 font-semibold hover:border-accent"
+              >
+                Save as new
+              </button>
+            )}
+            <span role="status" className="font-semibold">
+              {saveStatus}
+            </span>
+          </div>
+          <ExportPanel
+            palette={{
+              name: paletteName,
+              scheme,
+              baseHex: base,
+              colors: colors.map(({ hex, role }) => ({ hex, role })),
+            }}
+          />
+        </section>
 
         <section aria-labelledby="check-heading" className="flex flex-col gap-3">
           <h2 id="check-heading" className="text-xl font-extrabold">

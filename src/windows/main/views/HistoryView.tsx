@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+import { ConfirmButton } from "../../../components/ConfirmButton";
 import { Swatch } from "../../../components/Swatch";
 import { getColorInfo } from "../../../lib/color";
 import { headlineName } from "../../../lib/names";
 import { listHistory, onPickerFrozen, type HistoryEntry } from "../../../lib/picker";
+import { clearHistory, deleteHistoryEntry } from "../../../lib/storage";
 import { timeAgo } from "../../../lib/time";
 import { useApp } from "../../../store/app";
 import { useSettings } from "../../../store/settings";
@@ -38,10 +40,20 @@ export function HistoryView() {
       <header className="flex flex-col gap-1">
         <h1 className="text-3xl font-extrabold">History</h1>
         <p className="text-muted">
-          Colours you copied with the picker. Kept until you quit the app for now; saving them comes
-          with the next update.
+          Colours you copied with the picker, newest first. The last 500 are kept.
         </p>
       </header>
+      {entries && entries.length > 0 && (
+        <div>
+          <ConfirmButton
+            question="Remove every picked colour from history?"
+            confirmLabel="Clear history"
+            onConfirm={() => clearHistory().then(() => setEntries([]))}
+          >
+            Clear history
+          </ConfirmButton>
+        </div>
+      )}
       {entries === null ? (
         <p className="text-muted">Loading…</p>
       ) : entries.length === 0 ? (
@@ -51,18 +63,30 @@ export function HistoryView() {
       ) : (
         <ol className="flex flex-col divide-y divide-line rounded-md border border-line bg-surface">
           {entries.map((e) => (
-            <li key={e.id}>
+            <li key={e.id} className="flex items-center">
               <button
                 type="button"
                 onClick={() => selectColor(e.hex)}
-                className="flex w-full items-center gap-4 px-4 py-2 text-left hover:bg-raised"
+                className="flex min-w-0 flex-1 items-center gap-4 px-4 py-2 text-left hover:bg-raised"
               >
                 <Swatch hex={e.hex} size={28} />
                 <span className="flex-1 font-semibold">
                   {headlineName(e.info, nameLevel).name}
                 </span>{" "}
-                <span className="font-mono text-muted">{e.hex}</span>
+                <span className="font-mono text-muted">{e.hex}</span>{" "}
                 <span className="w-32 text-right text-sm text-muted">{timeAgo(e.pickedAt)}</span>
+              </button>
+              <button
+                type="button"
+                aria-label={`Remove ${e.hex} from history`}
+                onClick={() =>
+                  void deleteHistoryEntry(e.id).then(() =>
+                    setEntries((list) => list?.filter((x) => x.id !== e.id) ?? null),
+                  )
+                }
+                className="mx-2 rounded px-2 py-1 text-muted hover:bg-raised hover:text-ink"
+              >
+                <span aria-hidden="true">✕</span>
               </button>
             </li>
           ))}

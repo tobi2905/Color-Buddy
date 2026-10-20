@@ -1,4 +1,4 @@
-//! Pure color logic for Color-Buddy.
+//! Pure color logic for ColorBuddy.
 //!
 //! This crate has no Tauri dependency so it can be tested on its own. See `SPEC.md`.
 

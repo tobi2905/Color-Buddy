@@ -3,9 +3,11 @@
 use std::time::Instant;
 
 use serde::{Deserialize, Serialize};
-use tauri::{AppHandle, State, WebviewWindow};
+use tauri::{AppHandle, Emitter, Manager, State, WebviewWindow};
 
+use crate::export;
 use crate::sampler::{self, Sampler, SamplerStatus};
+use crate::storage::{self, Storage};
 
 #[tauri::command]
 pub fn get_color_info(hex: String) -> Result<color_core::ColorInfo, String> {
@@ -78,10 +80,154 @@ pub fn nudge_cursor(app: AppHandle, dx: i32, dy: i32) -> Result<(), String> {
 /// Newest first.
 #[tauri::command]
 pub fn list_history(
-    limit: Option<usize>,
-    history: State<'_, crate::history::History>,
-) -> Vec<crate::history::HistoryEntry> {
-    history.list(limit.unwrap_or(crate::history::CAPACITY))
+    limit: Option<i64>,
+    storage: State<'_, Storage>,
+) -> Result<Vec<storage::HistoryEntry>, String> {
+    storage.list_history(limit.unwrap_or(storage::HISTORY_CAP))
+}
+
+#[tauri::command]
+pub fn delete_history_entry(id: i64, storage: State<'_, Storage>) -> Result<(), String> {
+    storage.delete_history_entry(id)
+}
+
+#[tauri::command]
+pub fn clear_history(storage: State<'_, Storage>) -> Result<(), String> {
+    storage.clear_history()
+}
+
+// --- settings ---------------------------------------------------------------------------------
+
+#[tauri::command]
+pub fn get_settings(storage: State<'_, Storage>) -> Result<storage::StoredSettings, String> {
+    storage.settings()
+}
+
+/// Save all settings; other windows (the picker) get `settings-changed`.
+#[tauri::command]
+pub fn update_settings(
+    app: AppHandle,
+    settings: storage::Settings,
+    storage: State<'_, Storage>,
+) -> Result<(), String> {
+    storage.save_settings(&settings)?;
+    let _ = app.emit("settings-changed", &settings);
+    Ok(())
+}
+
+/// Defaults for everything except "welcome steps done".
+#[tauri::command]
+pub fn reset_settings(
+    app: AppHandle,
+    storage: State<'_, Storage>,
+) -> Result<storage::Settings, String> {
+    let settings = storage.reset_settings()?;
+    let _ = app.emit("settings-changed", &settings);
+    Ok(settings)
+}
+
+// --- palettes and export ------------------------------------------------------------------------
+
+#[tauri::command]
+pub fn save_palette(
+    palette: storage::PaletteInput,
+    storage: State<'_, Storage>,
+) -> Result<storage::SavedPalette, String> {
+    storage.save_palette(&palette)
+}
+
+#[tauri::command]
+pub fn list_palettes(storage: State<'_, Storage>) -> Result<Vec<storage::SavedPalette>, String> {
+    storage.list_palettes()
+}
+
+#[tauri::command]
+pub fn rename_palette(id: i64, name: String, storage: State<'_, Storage>) -> Result<(), String> {
+    storage.rename_palette(id, &name)
+}
+
+#[tauri::command]
+pub fn delete_palette(id: i64, storage: State<'_, Storage>) -> Result<(), String> {
+    storage.delete_palette(id)
+}
+
+/// A saved palette (`id`) or one given inline (`palette`), as text in `format`.
+fn export_text(
+    storage: &Storage,
+    id: Option<i64>,
+    palette: Option<export::ExportPalette>,
+    format: export::Format,
+    name_level: Option<export::NameLevel>,
+) -> Result<(String, String), String> {
+    let palette = match (id, palette) {
+        (_, Some(p)) => p,
+        (Some(id), None) => {
+            let saved = storage.palette(id)?;
+            export::ExportPalette {
+                name: saved.name,
+                scheme: saved.scheme,
+                base_hex: saved.base_hex,
+                colors: saved
+                    .colors
+                    .into_iter()
+                    .map(|c| export::ExportColor {
+                        hex: c.hex,
+                        role: c.role,
+                    })
+                    .collect(),
+            }
+        }
+        (None, None) => return Err("Nothing to export.".into()),
+    };
+    let text = export::export(&palette, format, name_level.unwrap_or_default())?;
+    Ok((text, export::slug(&palette.name)))
+}
+
+#[tauri::command]
+pub fn export_palette(
+    id: Option<i64>,
+    palette: Option<export::ExportPalette>,
+    format: export::Format,
+    name_level: Option<export::NameLevel>,
+    storage: State<'_, Storage>,
+) -> Result<String, String> {
+    export_text(&storage, id, palette, format, name_level).map(|(text, _)| text)
+}
+
+/// Ask where to save, then write the export. Returns the path, or None if cancelled.
+#[tauri::command]
+pub async fn export_palette_to_file(
+    app: AppHandle,
+    id: Option<i64>,
+    palette: Option<export::ExportPalette>,
+    format: export::Format,
+    name_level: Option<export::NameLevel>,
+) -> Result<Option<String>, String> {
+    use tauri_plugin_dialog::DialogExt;
+    let (text, slug) = export_text(&app.state::<Storage>(), id, palette, format, name_level)?;
+    let ext = export::extension(format);
+    let file_name = match format {
+        export::Format::Tailwind => format!("{slug}.tailwind.{ext}"),
+        _ => format!("{slug}.{ext}"),
+    };
+    let Some(path) = app
+        .dialog()
+        .file()
+        .set_file_name(&file_name)
+        .add_filter(ext.to_uppercase(), &[ext])
+        .blocking_save_file()
+    else {
+        return Ok(None);
+    };
+    let path = path.into_path().map_err(|e| e.to_string())?;
+    std::fs::write(&path, text).map_err(|e| format!("couldn't save the file: {e}"))?;
+    Ok(Some(path.display().to_string()))
+}
+
+#[tauri::command]
+pub fn copy_to_clipboard(app: AppHandle, text: String) -> Result<(), String> {
+    use tauri_plugin_clipboard_manager::ClipboardExt;
+    app.clipboard().write_text(text).map_err(|e| e.to_string())
 }
 
 // --- Phase 1 debug commands (temporary) ------------------------------------------------------

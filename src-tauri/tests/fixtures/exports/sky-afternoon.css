@@ -1,0 +1,9 @@
+/* Sky afternoon: split-complementary palette from #87CEEB (ColorBuddy) */
+:root {
+  --color-background: #F0FAFF; /* alice blue */
+  --color-surface: #DAEFF8; /* alice blue */
+  --color-primary: #87CEEB; /* sky blue */
+  --color-accent: #B07074; /* indian red */
+  --color-accent-2: #65440A; /* saddle brown */
+  --color-text: #0D252E; /* midnight blue */
+}

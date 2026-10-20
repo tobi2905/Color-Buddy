@@ -13,8 +13,8 @@ use std::time::Instant;
 use tauri::{AppHandle, Emitter, Manager, WebviewUrl, WebviewWindow, WebviewWindowBuilder};
 use tauri_plugin_clipboard_manager::ClipboardExt;
 
-use crate::history::History;
 use crate::sampler::{self, Display, HoveredEvent, Sampler};
+use crate::storage::Storage;
 
 pub const LABEL_PREFIX: &str = "picker-";
 
@@ -76,7 +76,7 @@ fn matches_geometry(w: &WebviewWindow, d: &Display) -> bool {
 fn create_window(app: &AppHandle, d: &Display) -> tauri::Result<WebviewWindow> {
     let url = WebviewUrl::App(format!("picker.html?display={}", d.id).into());
     let builder = WebviewWindowBuilder::new(app, label(d), url)
-        .title("Color-Buddy picker")
+        .title("ColorBuddy picker")
         .transparent(true)
         .decorations(false)
         .always_on_top(true)
@@ -199,7 +199,12 @@ pub fn freeze(app: &AppHandle) -> Result<HoveredEvent, String> {
     if let Err(err) = app.clipboard().write_text(hover.info.hex.clone()) {
         log::error!("copying {} failed: {err}", hover.info.hex);
     }
-    app.state::<History>().add(&hover.info.hex, "picker");
+    if let Err(err) = app
+        .state::<Storage>()
+        .add_history(&hover.info.hex, "picker")
+    {
+        log::error!("saving {} to history failed: {err}", hover.info.hex);
+    }
     log::info!("picker frozen on {}", hover.info.hex);
     let _ = app.emit("picker-frozen", &hover);
     Ok(hover)

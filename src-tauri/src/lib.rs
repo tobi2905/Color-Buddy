@@ -1,8 +1,9 @@
 mod commands;
-mod history;
+mod export;
 mod hotkey;
 mod picker;
 pub mod sampler;
+mod storage;
 
 use std::time::Instant;
 
@@ -32,10 +33,16 @@ pub fn run() {
                 .build(),
         )
         .plugin(tauri_plugin_clipboard_manager::init())
+        .plugin(tauri_plugin_dialog::init())
         .manage(sampler::Sampler::default())
-        .manage(history::History::default())
         .manage(hotkey::Hotkey::default())
         .setup(|app| {
+            let db_path = app.path().app_data_dir()?.join("app.db");
+            let storage = storage::Storage::open(&db_path).map_err(|e| {
+                log::error!("opening {}: {e}", db_path.display());
+                e
+            })?;
+            app.manage(storage);
             // Dev aid for Phase 1 measurements: keep the debug window (and its test patches) visible.
             if std::env::var("COLOR_BUDDY_ON_TOP").as_deref() == Ok("1")
                 && let Some(window) = app.get_webview_window("main")
@@ -73,6 +80,18 @@ pub fn run() {
             commands::freeze_pick,
             commands::nudge_cursor,
             commands::list_history,
+            commands::delete_history_entry,
+            commands::clear_history,
+            commands::get_settings,
+            commands::update_settings,
+            commands::reset_settings,
+            commands::save_palette,
+            commands::list_palettes,
+            commands::rename_palette,
+            commands::delete_palette,
+            commands::export_palette,
+            commands::export_palette_to_file,
+            commands::copy_to_clipboard,
             commands::set_sample_size,
             commands::get_sampler_status,
             commands::open_screen_recording_settings,

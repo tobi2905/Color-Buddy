@@ -1,0 +1,6 @@
+Background: alice blue, #F0FAFF, rgb(240, 250, 255)
+Surface: alice blue, #DAEFF8, rgb(218, 239, 248)
+Primary: sky blue, #87CEEB, rgb(135, 206, 235)
+Accent: indian red, #B07074, rgb(176, 112, 116)
+Accent 2: saddle brown, #65440A, rgb(101, 68, 10)
+Text: midnight blue, #0D252E, rgb(13, 37, 46)

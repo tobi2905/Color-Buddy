@@ -1,4 +1,4 @@
-# Color-Buddy — working notes for Claude Code
+# ColorBuddy — working notes for Claude Code
 
 Read `SPEC.md` first. It is the source of truth: work one phase at a time, stop at each
 Review checkpoint, tick tasks as they are done, and record decisions in its Decision log.
@@ -43,6 +43,12 @@ Review checkpoint, tick tasks as they are done, and record decisions in its Deci
 - `cargo run --release -p color-core --example naming_bench`: lookup timing.
 - `cargo run -p color-core --example name_table`: review table of the test colours.
 - Reference data: edit `tools/references_source.txt`, run `python3 tools/gen_references.py`, then `npm run lint:data`.
+
+## Storage and export (Phase 7)
+
+- Data lives in `app.db` (SQLite) in the app data directory (macOS: `~/Library/Application Support/com.colorbuddy.app/`).
+- Schema changes: append a script to `MIGRATIONS` in `src-tauri/src/storage.rs`; never edit an existing one.
+- Export samples: `UPDATE_EXPORT_FIXTURES=1 cargo test -p color-buddy export` rewrites `src-tauri/tests/fixtures/exports/`; `src/test/exports.test.ts` validates them.
 
 ## Conventions
 
