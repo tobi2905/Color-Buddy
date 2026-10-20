@@ -240,6 +240,7 @@ Each phase lists its goal, tasks, acceptance criteria and a review checkpoint. P
     - `cargo run --release --example sampler_bench` (timing per N) and `... -- watch` while hovering `tools/test-patches.png`.
     - `$env:VITE_SELFTEST="1"; npm run tauri dev` and check the `self-test` log lines (expect every patch exact at N = 1, 3, 5).
     - Press `Ctrl+Shift+C` in the app and read "Hotkey to first sample" in the debug window.
+    - Phase 5: the picker overlay appears on every monitor (try mixed scaling), and samples are unaffected by it (run the self-test with the picker open).
 
 **Acceptance criteria**
 - Hovering a known test image (pure #FF0000, #00FF00, #0000FF, #87CEEB patches) reports the exact hex on sRGB displays on both platforms, including on a scaled (e.g. 150%) display. On wide-gamut (e.g. Display P3) Macs, each channel is within 3 of the expected value; fully saturated colors at the gamut edge can't round-trip exactly through the 8-bit display buffer (see Decision log).
@@ -343,12 +344,12 @@ Each phase lists its goal, tasks, acceptance criteria and a review checkpoint. P
 **Goal:** the everyday picker experience.
 
 **Tasks**
-- [ ] Separate transparent, always-on-top, click-through picker window that follows the cursor (offset so it never covers the sampled point).
-- [ ] Loupe: magnified N×N grid with the center pixel outlined.
-- [ ] Label: descriptive name (large), basic name, hex, and short description. Show ΔE-based confidence subtly ("closest match").
-- [ ] Click or hotkey to freeze → copy hex to clipboard → toast "Copied #87CEEB (sky blue)" → add to history.
-- [ ] `Esc` closes the picker; arrow keys nudge one pixel.
-- [ ] Stays readable on any background (solid panel, high contrast).
+- [x] Separate transparent, always-on-top, click-through picker window that follows the cursor (offset so it never covers the sampled point). *(Changed: one full-display catcher window per monitor instead, so a click freezes without clicking the app underneath; overlays are excluded from capture.)*
+- [x] Loupe: magnified N×N grid with the center pixel outlined.
+- [x] Label: descriptive name (large), basic name, hex, and short description. Show ΔE-based confidence subtly ("closest match").
+- [x] Click or hotkey to freeze → copy hex to clipboard → toast "Copied #87CEEB (sky blue)" → add to history.
+- [x] `Esc` closes the picker; arrow keys nudge one pixel.
+- [x] Stays readable on any background (solid panel, high contrast).
 
 **Acceptance criteria**
 - Updates smoothly at 30+ fps with no visible lag.
@@ -492,3 +493,8 @@ Each phase lists its goal, tasks, acceptance criteria and a review checkpoint. P
 | 2026-10-19 | `tools/validate_references.py` runs in CI (macOS job) and in `npm run check` | Data is platform independent |
 | 2026-10-19 | Review of 30 samples: all fit. "Uses" rewritten for all 204 entries as [industry, design role, theme or occasion]; the validator enforces the middle slot from a fixed list | User's feedback: the three uses were often too similar (e.g. khaki: outdoor gear, menswear, uniforms) |
 | 2026-10-19 | The design-role slot uses 7 medium-neutral terms (large areas, small accents, focal points, text and line work, outlines and details, signals and warnings, illustration and data) instead of 19 UI terms | User's feedback: "surfaces", "headings" etc. read as web-only; the app also serves illustrators and print designers |
+| 2026-10-19 | Picker = one transparent full-display "catcher" window per monitor (created hidden at startup) | User's choice: a click freezes the colour without also clicking the app underneath; Esc and arrows work natively |
+| 2026-10-19 | Overlays never appear in samples: macOS captures only windows below the overlay (`kCGWindowListOptionOnScreenBelowWindow`), Windows uses `SetWindowDisplayAffinity(WDA_EXCLUDEFROMCAPTURE)` | The overlay needs a 1 % tint to catch clicks; verified on macOS with the patch self-test while the picker is open |
+| 2026-10-19 | Picker hotkey opens when closed, freezes when live, closes when frozen; click/Enter/Space freeze, Esc closes, arrows move the real cursor 1 physical px (Shift = 10) and resume live picking | One hotkey covers the whole flow |
+| 2026-10-19 | History kept in memory (cap 500, newest first) with `list_history`; SQLite persistence is Phase 7 | Phase 5 needs "add to history"; storage is specified for Phase 7 |
+| 2026-10-19 | macOS overlays sit at screen-saver level, on all Spaces and over full-screen apps; needs Tauri `macOSPrivateApi` for transparency | Covers the menu bar and Dock so a click there freezes instead of opening menus |
