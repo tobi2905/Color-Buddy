@@ -430,6 +430,7 @@ Each phase lists its goal, tasks, acceptance criteria and a review checkpoint. P
 - [ ] App icon, tray icon with quick actions (pick, open app, quit), launch-at-login option.
 - [ ] Error handling and friendly messages for all failure paths (permission missing, capture failure, DB error).
 - [ ] Performance pass: startup under 1 s, memory under 150 MB idle.
+- [ ] *Added 2026-10-20:* macOS sampler: replace the deprecated `CGWindowListCreateImage` with ScreenCaptureKit. On current macOS the old call is proxied through ScreenCaptureKit and can block for 30 s when another process captures at the same time (see Decision log).
 - [ ] Release workflow with `tauri-action`: Windows installer and macOS DMG.
 - [ ] Code signing: Apple Developer ID + notarization; Windows code-signing certificate (user to provide credentials; never commit them).
 - [ ] In-app "report a wrong name" option (writes to a local file the user can send; no network).
