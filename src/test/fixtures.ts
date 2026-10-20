@@ -9,6 +9,12 @@ export const skyBlue: ColorInfo = {
   descriptive: { name: "sky blue", hex: "#87CEEB", deltaE: 0 },
   precise: { name: "light blue", hex: "#95D0FC", deltaE: 4.9 },
   description: "light, slightly desaturated, cool blue",
+  values: {
+    hex: "#87CEEB",
+    rgb: "rgb(135, 206, 235)",
+    hsl: "hsl(197, 71%, 73%)",
+    oklch: "oklch(81.4% 0.088 225.3)",
+  },
 };
 
 export const info = (hex: string, name: string, basic = "blue"): ColorInfo => ({
@@ -17,6 +23,7 @@ export const info = (hex: string, name: string, basic = "blue"): ColorInfo => ({
   basic: { name: basic, hex, deltaE: 3 },
   descriptive: { name, hex, deltaE: 0 },
   precise: { name: `precise ${name}`, hex, deltaE: 2 },
+  values: { hex, rgb: `rgb(of ${hex})`, hsl: `hsl(of ${hex})`, oklch: `oklch(of ${hex})` },
 });
 
 export const skyBlueDetails: ColorDetails = {

@@ -13,6 +13,14 @@ export interface ColorName {
   deltaE: number;
 }
 
+/** One colour as text in every supported format. */
+export interface ColorValues {
+  hex: string;
+  rgb: string;
+  hsl: string;
+  oklch: string;
+}
+
 export interface ColorInfo {
   hex: string;
   rgb: Rgb;
@@ -25,6 +33,7 @@ export interface ColorInfo {
   descriptive: ColorName;
   precise: ColorName;
   description: string;
+  values: ColorValues;
 }
 
 export type VisionType = "normal" | "protan" | "deutan" | "tritan" | "achromat";

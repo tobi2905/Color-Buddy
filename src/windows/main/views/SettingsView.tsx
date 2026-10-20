@@ -2,7 +2,13 @@ import type { ReactNode } from "react";
 import { ConfirmButton } from "../../../components/ConfirmButton";
 import { HotkeyRecorder } from "../../../components/HotkeyRecorder";
 import { ProfilePicker } from "../../../components/ProfilePicker";
-import { useSettings, type NameLevel, type SampleSize, type Theme } from "../../../store/settings";
+import {
+  useSettings,
+  type NameLevel,
+  type SampleSize,
+  type Theme,
+  type ValueFormat,
+} from "../../../store/settings";
 import SamplerDebug from "../SamplerDebug";
 
 const card =
@@ -96,6 +102,25 @@ export function SettingsView() {
             { value: "precise", label: "Precise", hint: "e.g. light blue" },
           ]}
         />
+      </Section>
+
+      <Section title="Colour values">
+        <Choice<ValueFormat>
+          legend="Show colour values as"
+          name="value-format"
+          value={s.valueFormat}
+          onChange={(valueFormat) => s.update({ valueFormat })}
+          options={[
+            { value: "hex", label: "Hex", hint: "#87CEEB" },
+            { value: "rgb", label: "RGB", hint: "rgb(135, 206, 235)" },
+            { value: "hsl", label: "HSL", hint: "hsl(197, 71%, 73%)" },
+            { value: "oklch", label: "OKLCH", hint: "oklch(81.4% 0.088 225.3)" },
+          ]}
+        />
+        <p className="text-sm text-muted">
+          Used on palette cards, saved palettes, history and suggestions, and when you click a value
+          to copy it. Colour details always shows every format.
+        </p>
       </Section>
 
       <Section title="Appearance">

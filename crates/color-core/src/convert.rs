@@ -99,6 +99,27 @@ impl Rgb {
     pub fn to_oklch(self) -> Oklch {
         self.to_oklab().to_oklch()
     }
+
+    /// HSL of the gamma-encoded values: hue in degrees (0–360), saturation and lightness 0–1.
+    pub fn to_hsl(self) -> (f64, f64, f64) {
+        let [r, g, b] = [self.r, self.g, self.b].map(|v| v as f64 / 255.0);
+        let max = r.max(g).max(b);
+        let min = r.min(g).min(b);
+        let l = (max + min) / 2.0;
+        let d = max - min;
+        if d == 0.0 {
+            return (0.0, 0.0, l);
+        }
+        let s = d / (1.0 - (2.0 * l - 1.0).abs());
+        let h = if max == r {
+            60.0 * ((g - b) / d).rem_euclid(6.0)
+        } else if max == g {
+            60.0 * ((b - r) / d + 2.0)
+        } else {
+            60.0 * ((r - g) / d + 4.0)
+        };
+        (h, s, l)
+    }
 }
 
 impl LinearRgb {

@@ -23,6 +23,7 @@ const info: ColorInfo = {
   descriptive: { name: "sienna", hex: "#A0522D", deltaE: 0 },
   precise: { name: "rust", hex: "#A83C09", deltaE: 4.1 },
   description: "medium, vivid, warm orange, bordering on brown",
+  values: { hex: "#000000", rgb: "", hsl: "", oklch: "" },
 };
 const hover = (display: number): HoveredEvent => ({
   x: 100,

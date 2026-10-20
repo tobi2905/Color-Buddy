@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { ConfirmButton } from "../../../components/ConfirmButton";
+import { CopyValue } from "../../../components/CopyValue";
 import { ExportPanel } from "../../../components/ExportPanel";
 import { Swatch } from "../../../components/Swatch";
 import { ROLE_LABEL } from "../../../lib/names";
@@ -9,7 +10,9 @@ import {
   renamePalette,
   type SavedPalette,
 } from "../../../lib/storage";
+import { FORMAT_LABEL, useColorValues, valueIn } from "../../../lib/values";
 import { useApp } from "../../../store/app";
+import { useSettings } from "../../../store/settings";
 
 const SCHEME_LABEL = {
   complementary: "Complementary",
@@ -82,6 +85,8 @@ function PaletteCard({
   onDeleted: () => void;
 }) {
   const openPalette = useApp((s) => s.openPalette);
+  const valueFormat = useSettings((s) => s.valueFormat);
+  const values = useColorValues(p.colors.map((c) => c.hex));
   const [renaming, setRenaming] = useState(false);
   const [name, setName] = useState(p.name);
   const [exporting, setExporting] = useState(false);
@@ -156,9 +161,18 @@ function PaletteCard({
           <Swatch key={i} hex={c.hex} className="h-full flex-1 rounded-none border-0" />
         ))}
       </div>
-      <p className="font-mono text-sm text-muted">
-        {p.colors.map((c) => `${ROLE_LABEL[c.role]} ${c.hex}`).join(" · ")}
-      </p>
+      <ul className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-muted">
+        {p.colors.map((c, i) => (
+          <li key={i} className="inline-flex items-baseline gap-1">
+            {ROLE_LABEL[c.role]}{" "}
+            <CopyValue
+              label={`${ROLE_LABEL[c.role].toLowerCase()} ${FORMAT_LABEL[valueFormat]}`}
+              value={valueIn(c.hex, values[c.hex], valueFormat)}
+              compact
+            />
+          </li>
+        ))}
+      </ul>
 
       <div className="flex flex-wrap items-center gap-2">
         <button

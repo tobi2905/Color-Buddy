@@ -46,7 +46,6 @@ export function ColorDetailsView() {
   const { info } = details;
   const headline = headlineName(info, nameLevel);
   const confidence = matchLabel(headline.deltaE);
-  const [l, c, h] = info.oklch;
 
   return (
     <article className="flex max-w-4xl flex-col gap-8" aria-labelledby="color-headline">
@@ -67,12 +66,10 @@ export function ColorDetailsView() {
           </h1>
           <p className="text-lg">{info.description}</p>
           <p className="flex flex-col items-start gap-0.5 text-muted">
-            <CopyValue label="hex" value={info.hex} />
-            <CopyValue label="RGB" value={`rgb(${info.rgb.r}, ${info.rgb.g}, ${info.rgb.b})`} />
-            <CopyValue
-              label="OKLCH"
-              value={`oklch(${(l * 100).toFixed(1)}% ${c.toFixed(3)} ${h.toFixed(1)})`}
-            />
+            <CopyValue label="hex" value={info.values.hex} />
+            <CopyValue label="RGB" value={info.values.rgb} />
+            <CopyValue label="HSL" value={info.values.hsl} />
+            <CopyValue label="OKLCH" value={info.values.oklch} />
           </p>
           <button
             type="button"

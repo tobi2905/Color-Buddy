@@ -19,6 +19,7 @@ beforeEach(() => {
     check_palette: () => checks,
     list_history: () => [],
     get_screen_permission: () => true,
+    copy_to_clipboard: () => undefined,
     get_sampler_status: () => new Promise(() => {}),
   });
 });
@@ -66,6 +67,11 @@ describe("MainWindow", () => {
       "true",
     );
     expect(await screen.findByRole("table")).toBeInTheDocument();
+    // Palette values copy on click, with a short confirmation and no tooltip.
+    const value = screen.getByRole("button", { name: "Copy accent hex #E8A27C" });
+    expect(value).not.toHaveAttribute("title");
+    await userEvent.click(value);
+    expect(await screen.findByText("Copied")).toBeInTheDocument();
     await userEvent.click(screen.getByRole("button", { name: "Settings" }));
     expect(screen.getByRole("heading", { name: "Settings" })).toBeInTheDocument();
     expect(nav).toBeInTheDocument();

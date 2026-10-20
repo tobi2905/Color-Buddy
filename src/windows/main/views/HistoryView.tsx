@@ -15,6 +15,7 @@ const SHOWN = 50;
 export function HistoryView() {
   const selectColor = useApp((s) => s.selectColor);
   const nameLevel = useSettings((s) => s.nameLevel);
+  const valueFormat = useSettings((s) => s.valueFormat);
   const [entries, setEntries] = useState<(HistoryEntry & { info: ColorInfo })[] | null>(null);
 
   useEffect(() => {
@@ -73,7 +74,7 @@ export function HistoryView() {
                 <span className="flex-1 font-semibold">
                   {headlineName(e.info, nameLevel).name}
                 </span>{" "}
-                <span className="font-mono text-muted">{e.hex}</span>{" "}
+                <span className="font-mono text-muted">{e.info.values[valueFormat]}</span>{" "}
                 <span className="w-32 text-right text-sm text-muted">{timeAgo(e.pickedAt)}</span>
               </button>
               <button

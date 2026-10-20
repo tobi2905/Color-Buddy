@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { CheckGrid } from "../../../components/CheckGrid";
 import { ColorInputBar } from "../../../components/ColorInputBar";
+import { CopyValue } from "../../../components/CopyValue";
 import { ExportPanel } from "../../../components/ExportPanel";
 import { Swatch } from "../../../components/Swatch";
 import { Tabs } from "../../../components/Tabs";
@@ -8,6 +9,7 @@ import { checkPalette, generatePalettes, getColorInfo } from "../../../lib/color
 import { headlineName, ROLE_LABEL } from "../../../lib/names";
 import { mergeRegenerated, type WorkingColor } from "../../../lib/palette";
 import { savePalette } from "../../../lib/storage";
+import { FORMAT_LABEL } from "../../../lib/values";
 import { useApp } from "../../../store/app";
 import { useSettings } from "../../../store/settings";
 import type { PairCheck, Scheme } from "../../../types/color";
@@ -26,6 +28,7 @@ export function PaletteBuilderView() {
   const openedPalette = useApp((s) => s.openedPalette);
   const clearOpenedPalette = useApp((s) => s.clearOpenedPalette);
   const nameLevel = useSettings((s) => s.nameLevel);
+  const valueFormat = useSettings((s) => s.valueFormat);
   const vision = useSettings((s) => s.profile.vision);
   const [scheme, setScheme] = useState<Scheme>("complementary");
   const [working, setWorking] = useState<Partial<Record<Scheme, WorkingColor[]>>>({});
@@ -188,7 +191,13 @@ export function PaletteBuilderView() {
               <span className="leading-tight font-semibold">
                 {headlineName(c.info, nameLevel).name}
               </span>
-              <span className="font-mono text-sm text-muted">{c.hex}</span>
+              <span className="text-sm text-muted">
+                <CopyValue
+                  label={`${ROLE_LABEL[c.role].toLowerCase()} ${FORMAT_LABEL[valueFormat]}`}
+                  value={c.info.values[valueFormat]}
+                  compact
+                />
+              </span>
               <div className="mt-1 flex flex-wrap gap-2">
                 <button
                   type="button"

@@ -3,6 +3,7 @@ import type {
   ColorDetails,
   ColorInfo,
   ColorName,
+  ColorValues,
   PairCheck,
   Palette,
   Role,
@@ -18,3 +19,4 @@ export const generatePalettes = (baseHex: string) =>
   invoke<Palette[]>("generate_palettes", { baseHex });
 export const checkPalette = (hexes: string[], roles?: Role[]) =>
   invoke<PairCheck[]>("check_palette", { hexes, roles: roles ?? null });
+export const colorValues = (hexes: string[]) => invoke<ColorValues[]>("color_values", { hexes });

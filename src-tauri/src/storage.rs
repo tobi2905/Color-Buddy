@@ -63,6 +63,13 @@ pub struct Settings {
     pub sample_size: u32,
     pub theme: String,
     pub name_level: String,
+    /// How colour values are shown and copied in lists: "hex", "rgb", "hsl" or "oklch".
+    #[serde(default = "default_value_format")]
+    pub value_format: String,
+}
+
+fn default_value_format() -> String {
+    "hex".into()
 }
 
 impl Default for Settings {
@@ -78,6 +85,7 @@ impl Default for Settings {
             sample_size: 5,
             theme: "system".into(),
             name_level: "descriptive".into(),
+            value_format: default_value_format(),
         }
     }
 }
@@ -231,6 +239,7 @@ impl Storage {
                 "hotkey" => s.hotkey = from_json(&value)?,
                 "sample_size" => s.sample_size = from_json(&value)?,
                 "theme" => s.theme = from_json(&value)?,
+                "value_format" => s.value_format = from_json(&value)?,
                 _ => {} // keys from newer versions are ignored
             }
         }
@@ -257,6 +266,7 @@ impl Storage {
             ("hotkey", json(&s.hotkey)),
             ("sample_size", json(&s.sample_size)),
             ("theme", json(&s.theme)),
+            ("value_format", json(&s.value_format)),
         ];
         for (key, value) in pairs {
             tx.execute(
@@ -586,6 +596,7 @@ mod tests {
             sample_size: 3,
             theme: "light".into(),
             name_level: "basic".into(),
+            value_format: "oklch".into(),
         };
         db.save_settings(&s).unwrap();
         assert_eq!(db.settings().unwrap().settings, s);

@@ -68,6 +68,7 @@ describe("SamplerDebug", () => {
       descriptive: { name: "sky blue", hex: "#87CEEB", deltaE: 0 },
       precise: { name: "light blue", hex: "#95D0FC", deltaE: 3.2 },
       description: "light, slightly desaturated, cool blue",
+      values: { hex: "#87CEEB", rgb: "", hsl: "", oklch: "" },
     };
     await renderPanel();
     expect(screen.getByTestId("hovered-hex")).toHaveTextContent("—");

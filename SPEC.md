@@ -526,3 +526,5 @@ Each phase lists its goal, tasks, acceptance criteria and a review checkpoint. P
 | 2026-10-20 | A second accent is keyed `accent-2` in CSS, Tailwind and JSON; text formats follow the "name shown first" setting | Keys stay unique and valid identifiers |
 | 2026-10-20 | Deletes and resets use an in-page confirmation step; settings reset keeps "welcome steps done" | No system dialogs; resetting shouldn't restart onboarding |
 | 2026-10-20 | App name is "ColorBuddy" (no hyphen) in all user-facing text; repo, folder, crate names and the `com.colorbuddy.app` identifier stay | User's choice; the identifier decides where data is stored, so it must not change |
+| 2026-10-20 | Palette card values (builder and saved palettes) copy on click with a short "Copied", no tooltip | User's request after checkpoint 7 |
+| 2026-10-20 | Setting "Show colour values as" (hex / RGB / HSL / OKLCH) for palette cards, saved palettes, history and suggestions, and for click-to-copy there; Colour details shows every format; exports keep their own formats | User's request. Strings come from color-core (`ColorInfo.values`, `color_values` command) so colour maths stays in Rust |

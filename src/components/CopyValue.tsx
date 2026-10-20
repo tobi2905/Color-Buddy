@@ -2,7 +2,16 @@ import { useEffect, useRef, useState } from "react";
 import { copyToClipboard } from "../lib/storage";
 
 /** A value that copies itself when clicked, with a short spoken/visible confirmation. */
-export function CopyValue({ value, label }: { value: string; label: string }) {
+export function CopyValue({
+  value,
+  label,
+  compact = false,
+}: {
+  value: string;
+  label: string;
+  /** Short confirmation ("Copied") for narrow spots such as palette cards. */
+  compact?: boolean;
+}) {
   const [status, setStatus] = useState<string | null>(null);
   const timer = useRef<ReturnType<typeof setTimeout>>(undefined);
   useEffect(() => () => clearTimeout(timer.current), []);
@@ -10,7 +19,7 @@ export function CopyValue({ value, label }: { value: string; label: string }) {
   async function copy() {
     try {
       await copyToClipboard(value);
-      setStatus(`Copied ${value}`);
+      setStatus(compact ? "Copied" : `Copied ${value}`);
     } catch (err) {
       setStatus(`Couldn't copy: ${String(err)}`);
     }
@@ -19,7 +28,7 @@ export function CopyValue({ value, label }: { value: string; label: string }) {
   }
 
   return (
-    <span className="inline-flex items-baseline gap-2">
+    <span className="inline-flex flex-wrap items-baseline gap-x-2">
       <button
         type="button"
         onClick={() => void copy()}
