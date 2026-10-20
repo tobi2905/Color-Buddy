@@ -365,14 +365,14 @@ Each phase lists its goal, tasks, acceptance criteria and a review checkpoint. P
 **Goal:** the main app window with all MVP screens.
 
 **Tasks**
-- [ ] Onboarding (first launch): explain the app, choose vision type and severity (with a "not sure" option defaulting to deutan, moderate, and a note that this isn't a medical test), set the hotkey, macOS permission step.
-- [ ] Color input bar: hex, RGB, or name search with autocomplete; "pick from screen" button.
-- [ ] Color details view: swatch, three name levels, description, references, associations, pairings, "confused with" list for the user's profile.
-- [ ] Palette builder: scheme tabs, swatches with role and name labels, explanation, check grid (pairs × vision types) using icons + text (✓ distinct, ! caution, ✕ hard to tell), contrast badges.
-- [ ] Edit a palette: replace a color, lock colors, regenerate the rest.
-- [ ] History view.
-- [ ] Settings: profile, hotkey, sample size, theme (light/dark), default name level.
-- [ ] App UI itself never uses color as the only signal; passes an accessibility lint.
+- [x] Onboarding (first launch): explain the app, choose vision type and severity (with a "not sure" option defaulting to deutan, moderate, and a note that this isn't a medical test), set the hotkey, macOS permission step.
+- [x] Color input bar: hex, RGB, or name search with autocomplete; "pick from screen" button.
+- [x] Color details view: swatch, three name levels, description, references, associations, pairings, "confused with" list for the user's profile.
+- [x] Palette builder: scheme tabs, swatches with role and name labels, explanation, check grid (pairs × vision types) using icons + text (✓ distinct, ! caution, ✕ hard to tell), contrast badges.
+- [x] Edit a palette: replace a color, lock colors, regenerate the rest.
+- [x] History view.
+- [x] Settings: profile, hotkey, sample size, theme (light/dark), default name level.
+- [x] App UI itself never uses color as the only signal; passes an accessibility lint.
 
 **Acceptance criteria**
 - A first-time user can go from launch to an exported, checked palette in under 2 minutes.
@@ -499,3 +499,9 @@ Each phase lists its goal, tasks, acceptance criteria and a review checkpoint. P
 | 2026-10-20 | Arrow keys offset the sampled point in the sampler instead of moving the OS cursor; the offset clears when the mouse moves | Found in review: macOS only places the cursor on whole points (2 px on a 2× display), so right/down nudges snapped back and left/up jumped 2 px |
 | 2026-10-19 | History kept in memory (cap 500, newest first) with `list_history`; SQLite persistence is Phase 7 | Phase 5 needs "add to history"; storage is specified for Phase 7 |
 | 2026-10-19 | macOS overlays sit at screen-saver level, on all Spaces and over full-screen apps; needs Tauri `macOSPrivateApi` for transparency | Covers the menu bar and Dock so a click there freezes instead of opening menus |
+| 2026-10-20 | Settings (profile, hotkey, sample size, theme, name level, onboarding done) saved in the webview's local storage until Phase 7 moves them to SQLite | Onboarding must not repeat on every launch; storage is specified for Phase 7 |
+| 2026-10-20 | Profile option "Typical colour vision" (`normal`) | User's request: everyone can use the app; look-alike warnings are skipped, palette checks still cover every colour vision type |
+| 2026-10-20 | "Regenerate the rest" rebuilds the scheme from the current primary and keeps locked colours in their slots; replacing a colour locks it | Generation is deterministic, so unlocked colours change when the primary does |
+| 2026-10-20 | Picker hotkey is configurable (`set_hotkey`, needs Ctrl/Cmd/Alt); "Pick from screen" returns focus to the main window | Settings and onboarding both set it |
+| 2026-10-20 | Atkinson Hyperlegible Next/Mono bundled via @fontsource | Designed for legibility; bundled so the app works offline |
+| 2026-10-20 | Phase 6 acceptance "exported, checked palette in under 2 minutes" measured without export until Phase 7 builds it | Export is a Phase 7 task |

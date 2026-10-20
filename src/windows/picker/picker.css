@@ -1,4 +1,7 @@
 @import "tailwindcss";
+@import "@fontsource/atkinson-hyperlegible-next/400.css";
+@import "@fontsource/atkinson-hyperlegible-next/800.css";
+@import "@fontsource/atkinson-hyperlegible-mono/400.css";
 
 /* The overlay covers the whole display. A 1% tint lets it catch clicks; it never appears in
    samples because the sampler captures below (macOS) or excludes (Windows) this window. */
@@ -12,4 +15,8 @@ body,
   background: rgb(0 0 0 / 0.01);
   cursor: crosshair;
   user-select: none;
+}
+
+:root {
+  font-family: "Atkinson Hyperlegible Next", system-ui, sans-serif;
 }

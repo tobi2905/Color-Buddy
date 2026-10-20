@@ -18,7 +18,7 @@ const SIZES = [1, 3, 5];
 const isMac = typeof navigator !== "undefined" && navigator.userAgent.includes("Mac");
 const HOTKEY = isMac ? "⌘ Shift C" : "Ctrl + Shift + C";
 
-/** Bare Phase 1 debug panel for the screen sampler. Replaced by real UI in later phases. */
+/** Diagnostics for screen sampling (Settings → Diagnostics): self-test and measurements. */
 function SamplerDebug() {
   const [info, setInfo] = useState<ColorInfo | null>(null);
   const [history, setHistory] = useState<HistoryEntry[]>([]);
@@ -72,14 +72,11 @@ function SamplerDebug() {
   }
 
   return (
-    <div className="mx-auto flex max-w-3xl flex-col gap-6 p-6">
-      <header>
-        <h1 className="text-2xl font-semibold">Color-Buddy</h1>
-        <p className="text-neutral-700 dark:text-neutral-300">
-          Phase 1 sampler debug. Press <kbd className="rounded border px-1">{HOTKEY}</kbd> to start
-          or stop sampling, then move the cursor anywhere on screen.
-        </p>
-      </header>
+    <div className="flex flex-col gap-6 p-4">
+      <p className="text-muted">
+        Tests and measurements for screen sampling. Open the picker with{" "}
+        <kbd className="rounded border border-line px-1">{HOTKEY}</kbd> or the button below.
+      </p>
 
       <section aria-label="Sampler controls" className="flex flex-wrap items-center gap-3">
         <button
@@ -128,7 +125,7 @@ function SamplerDebug() {
           aria-hidden="true"
         />
         <div>
-          <p className="text-sm text-neutral-700 dark:text-neutral-300">Under cursor</p>
+          <p className="text-sm text-muted">Under cursor</p>
           <p className="font-mono text-3xl" data-testid="hovered-hex">
             {hex ?? "—"}
           </p>
@@ -160,9 +157,7 @@ function SamplerDebug() {
       <section aria-label="Picked colours">
         <h2 className="text-lg font-semibold">Picked colours</h2>
         {history.length === 0 ? (
-          <p className="text-neutral-700 dark:text-neutral-300">
-            None yet. Open the picker and click to copy a colour.
-          </p>
+          <p className="text-muted">None yet. Open the picker and click to copy a colour.</p>
         ) : (
           <ol className="flex flex-wrap gap-2" data-testid="history">
             {history.map((h) => (
@@ -204,7 +199,7 @@ function SamplerDebug() {
 
       <section aria-label="Test patches">
         <h2 className="text-lg font-semibold">Test patches</h2>
-        <p className="text-neutral-700 dark:text-neutral-300">
+        <p className="text-muted">
           Hover each patch, or run the self-test to sample them automatically at 1×1, 3×3 and 5×5.
         </p>
         <div className="mt-3 flex flex-wrap gap-4">

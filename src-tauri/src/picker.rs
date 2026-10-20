@@ -7,6 +7,7 @@
 //!
 //! States: closed → live (sampling) → frozen (colour copied) → closed.
 
+use std::sync::atomic::{AtomicBool, Ordering};
 use std::time::Instant;
 
 use tauri::{AppHandle, Emitter, Manager, WebviewUrl, WebviewWindow, WebviewWindowBuilder};
@@ -136,6 +137,15 @@ fn raise_overlay(window: &WebviewWindow) -> Option<u32> {
     }
 }
 
+/// Set when the picker was opened from the main window, so closing returns there.
+static RETURN_TO_MAIN: AtomicBool = AtomicBool::new(false);
+
+/// Open from the main window's "Pick from screen" button.
+pub fn open_from_main(app: &AppHandle, trigger: Instant) {
+    RETURN_TO_MAIN.store(true, Ordering::SeqCst);
+    open(app, trigger);
+}
+
 /// Show the overlays and start sampling. `trigger` is when the user asked (for latency).
 pub fn open(app: &AppHandle, trigger: Instant) {
     let sampler = app.state::<Sampler>().inner().clone();
@@ -213,6 +223,11 @@ pub fn close(app: &AppHandle) {
         let _ = w.hide();
     }
     let _ = app.emit("picker-closed", ());
+    if RETURN_TO_MAIN.swap(false, Ordering::SeqCst)
+        && let Some(main) = app.get_webview_window("main")
+    {
+        let _ = main.set_focus();
+    }
 }
 
 /// The picker hotkey: open when closed, freeze when live, close when frozen.

@@ -52,9 +52,10 @@ pub fn search_color_by_name(query: String) -> Vec<color_core::ColorName> {
     color_core::search_color_by_name(&query, 10)
 }
 
+/// Opened from the main window ("Pick from screen"): focus returns there afterwards.
 #[tauri::command]
 pub fn start_picker(app: AppHandle) {
-    crate::picker::open(&app, Instant::now());
+    crate::picker::open_from_main(&app, Instant::now());
 }
 
 #[tauri::command]
@@ -181,4 +182,22 @@ pub fn self_test(window: WebviewWindow, patches: Vec<Patch>) -> Result<Vec<Patch
         }
     }
     Ok(results)
+}
+
+/// Replace the picker hotkey, e.g. "CommandOrControl+Shift+C".
+#[tauri::command]
+pub fn set_hotkey(app: AppHandle, accelerator: String) -> Result<(), String> {
+    crate::hotkey::set(&app, &accelerator)
+}
+
+/// Whether screen capture is allowed (always true outside macOS).
+#[tauri::command]
+pub fn get_screen_permission() -> bool {
+    sampler::has_permission()
+}
+
+/// Ask macOS for Screen Recording permission (shows the system prompt the first time).
+#[tauri::command]
+pub fn request_screen_permission() -> bool {
+    sampler::request_permission()
 }

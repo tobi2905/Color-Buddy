@@ -1,6 +1,8 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { freezePick, nudgeCursor, onPickerFrozen, onPickerState } from "../../lib/picker";
 import { onColorHovered, stopPicker } from "../../lib/sampler";
+import { headlineName } from "../../lib/names";
+import { useSettings } from "../../store/settings";
 import type { Rgb } from "../../types/color";
 import type { HoveredEvent } from "../../types/sampler";
 import { matchLabel, placePanel } from "./placement";
@@ -173,11 +175,13 @@ function Label({
   error: string | null;
 }) {
   const { info } = event;
-  const confidence = matchLabel(info.descriptive.deltaE);
+  const nameLevel = useSettings((s) => s.nameLevel);
+  const headline = headlineName(info, nameLevel);
+  const confidence = matchLabel(headline.deltaE);
   return (
     <div className="flex min-w-0 flex-col gap-0.5">
       <p className="text-xl leading-tight font-bold" data-testid="descriptive">
-        {info.descriptive.name}
+        {headline.name}
         {confidence && (
           <span className="ml-2 align-middle text-xs font-normal text-white/70">{confidence}</span>
         )}
@@ -192,7 +196,7 @@ function Label({
       {frozen ? (
         <>
           <p className="mt-1 font-semibold" data-testid="toast">
-            ✓ Copied {info.hex} ({info.descriptive.name})
+            ✓ Copied {info.hex} ({headline.name})
           </p>
           <p className="text-xs text-white/70">Click or Esc to close · arrows keep picking</p>
         </>
