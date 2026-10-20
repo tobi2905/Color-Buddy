@@ -390,27 +390,27 @@ Each phase lists its goal, tasks, acceptance criteria and a review checkpoint. P
 **Goal:** persist user data and export palettes.
 
 **Tasks**
-- [ ] `storage.rs` SQLite schema with migrations:
+- [x] `storage.rs` SQLite schema with migrations:
     - `profile(vision, severity, name_level)`
     - `history(id, hex, picked_at, source)` — capped at 500 entries
     - `palettes(id, name, created_at, base_hex, scheme)`
     - `palette_colors(palette_id, position, hex, role)`
     - `settings(key, value)`
-- [ ] Save, rename, delete, list palettes; palette library view in the UI.
+- [x] Save, rename, delete, list palettes; palette library view in the UI.
     - *Added 2026-10-20:* "Save palette" in the palette builder keeps the current colours, roles and locks; a saved palette reopens in the builder.
-- [ ] `export.rs`:
+- [x] `export.rs`:
     - CSS: `:root { --color-primary: #...; }` using role names.
     - JSON: palette with names, roles, hex, check summary.
     - Tailwind: `theme.extend.colors` snippet.
-- [ ] Export UI: copy to clipboard or save file.
-- [ ] *Added 2026-10-20:* copy a palette to the clipboard as plain text, with a choice of format:
+- [x] Export UI: copy to clipboard or save file.
+- [x] *Added 2026-10-20:* copy a palette to the clipboard as plain text, with a choice of format:
     - Detailed: role, name, hex and RGB for every colour (one colour per line).
     - Hex values only (one per line).
     - Names only (one per line).
     - Names with hex values.
-- [ ] *Added 2026-10-20:* in Colour details, clicking the hex, RGB or OKLCH value copies it, with a short "Copied" confirmation.
-- [ ] *Added 2026-10-20:* delete history: remove a single entry or clear all (with a confirmation step in the page).
-- [ ] *Added 2026-10-20:* Settings → "Reset settings to default" (with a confirmation step; vision profile included, onboarding not shown again).
+- [x] *Added 2026-10-20:* in Colour details, clicking the hex, RGB or OKLCH value copies it, with a short "Copied" confirmation.
+- [x] *Added 2026-10-20:* delete history: remove a single entry or clear all (with a confirmation step in the page).
+- [x] *Added 2026-10-20:* Settings → "Reset settings to default" (with a confirmation step; vision profile included, onboarding not shown again).
 
 **Acceptance criteria**
 - Data survives restarts; migrations run cleanly on a fresh install and on an existing DB.
@@ -520,3 +520,8 @@ Each phase lists its goal, tasks, acceptance criteria and a review checkpoint. P
 | 2026-10-20 | Atkinson Hyperlegible Next/Mono bundled via @fontsource | Designed for legibility; bundled so the app works offline |
 | 2026-10-20 | Phase 6 acceptance "exported, checked palette in under 2 minutes" measured without export until Phase 7 builds it | Export is a Phase 7 task |
 | 2026-10-20 | Background/surface counts as "subtle" only while it is a tint (typical-vision ΔE 1–15); the check grid says which pair isn't counted | Review: the overview must not silently hide a pair; identical or clashing surfaces are checked like any pair |
+| 2026-10-20 | `app.db` (SQLite, bundled) in the app data directory; migrations tracked with `PRAGMA user_version`, one transaction each; `palette_colors` also stores `locked` | Fresh and existing databases converge; locks survive reopening a saved palette |
+| 2026-10-20 | Settings and history moved to SQLite; settings an older version kept in local storage are imported once on first start | Nothing resets after the update |
+| 2026-10-20 | Export formats are computed in Rust (`export.rs`) and checked against committed samples (`src-tauri/tests/fixtures/exports`), which a Vitest test validates with PostCSS, JSON shape checks and Tailwind's own compiler (`@config`) | Covers "CSS parses, JSON validates, Tailwind snippet loads in a sample config" |
+| 2026-10-20 | A second accent is keyed `accent-2` in CSS, Tailwind and JSON; text formats follow the "name shown first" setting | Keys stay unique and valid identifiers |
+| 2026-10-20 | Deletes and resets use an in-page confirmation step; settings reset keeps "welcome steps done" | No system dialogs; resetting shouldn't restart onboarding |

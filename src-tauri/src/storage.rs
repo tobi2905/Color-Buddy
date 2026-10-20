@@ -245,7 +245,8 @@ impl Storage {
              ON CONFLICT (id) DO UPDATE SET vision = ?1, severity = ?2, name_level = ?3",
             params![
                 json(&s.profile.vision),
-                s.profile.severity as f64,
+                // Stored via f32; round so the database shows 0.6, not 0.600000023841858.
+                (s.profile.severity as f64 * 1000.0).round() / 1000.0,
                 s.name_level
             ],
         )

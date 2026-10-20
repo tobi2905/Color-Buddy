@@ -44,6 +44,12 @@ Review checkpoint, tick tasks as they are done, and record decisions in its Deci
 - `cargo run -p color-core --example name_table`: review table of the test colours.
 - Reference data: edit `tools/references_source.txt`, run `python3 tools/gen_references.py`, then `npm run lint:data`.
 
+## Storage and export (Phase 7)
+
+- Data lives in `app.db` (SQLite) in the app data directory (macOS: `~/Library/Application Support/com.colorbuddy.app/`).
+- Schema changes: append a script to `MIGRATIONS` in `src-tauri/src/storage.rs`; never edit an existing one.
+- Export samples: `UPDATE_EXPORT_FIXTURES=1 cargo test -p color-buddy export` rewrites `src-tauri/tests/fixtures/exports/`; `src/test/exports.test.ts` validates them.
+
 ## Conventions
 
 - The app UI must never rely on color alone; pair color with text/icons. WCAG AA text contrast.
