@@ -1,0 +1,4694 @@
+{
+ "red": {
+  "hex": "#FF0000",
+  "references": [
+   "stop signs",
+   "ripe strawberries",
+   "fire engines"
+  ],
+  "associations": [
+   "energy",
+   "urgency",
+   "passion"
+  ],
+  "uses": [
+   "food brands",
+   "signals and warnings",
+   "sales events"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#000000",
+   "#000080"
+  ]
+ },
+ "orange": {
+  "hex": "#FFA500",
+  "references": [
+   "oranges",
+   "traffic cones",
+   "autumn leaves"
+  ],
+  "associations": [
+   "warmth",
+   "enthusiasm",
+   "playfulness"
+  ],
+  "uses": [
+   "sports brands",
+   "focal points",
+   "Halloween"
+  ],
+  "pairings": [
+   "#000080",
+   "#FFFFFF",
+   "#008080"
+  ]
+ },
+ "yellow": {
+  "hex": "#FFFF00",
+  "references": [
+   "lemons",
+   "school buses",
+   "sunflowers"
+  ],
+  "associations": [
+   "optimism",
+   "attention",
+   "cheerfulness"
+  ],
+  "uses": [
+   "children's brands",
+   "focal points",
+   "summer campaigns"
+  ],
+  "pairings": [
+   "#343837",
+   "#000080",
+   "#FFFFFF"
+  ]
+ },
+ "green": {
+  "hex": "#008000",
+  "references": [
+   "grass",
+   "leaves",
+   "traffic go lights"
+  ],
+  "associations": [
+   "nature",
+   "growth",
+   "safety"
+  ],
+  "uses": [
+   "eco brands",
+   "signals and warnings",
+   "spring campaigns"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#FFFFC2",
+   "#A52A2A"
+  ]
+ },
+ "blue": {
+  "hex": "#0000FF",
+  "references": [
+   "clear skies",
+   "the sea",
+   "denim jeans"
+  ],
+  "associations": [
+   "trust",
+   "calm",
+   "reliability"
+  ],
+  "uses": [
+   "banks",
+   "text and line work",
+   "corporate reports"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#FFA500",
+   "#808080"
+  ]
+ },
+ "purple": {
+  "hex": "#800080",
+  "references": [
+   "grapes",
+   "lavender fields",
+   "royal robes"
+  ],
+  "associations": [
+   "luxury",
+   "creativity",
+   "mystery"
+  ],
+  "uses": [
+   "beauty brands",
+   "small accents",
+   "spiritual themes"
+  ],
+  "pairings": [
+   "#FFD700",
+   "#FFFFFF",
+   "#9FFEB0"
+  ]
+ },
+ "pink": {
+  "hex": "#FFC0CB",
+  "references": [
+   "cherry blossoms",
+   "flamingos",
+   "bubblegum"
+  ],
+  "associations": [
+   "sweetness",
+   "romance",
+   "playfulness"
+  ],
+  "uses": [
+   "cosmetics",
+   "small accents",
+   "Valentine's Day"
+  ],
+  "pairings": [
+   "#808080",
+   "#000080",
+   "#9FFEB0"
+  ]
+ },
+ "brown": {
+  "hex": "#A52A2A",
+  "references": [
+   "tree bark",
+   "chocolate",
+   "coffee beans"
+  ],
+  "associations": [
+   "earthiness",
+   "reliability",
+   "comfort"
+  ],
+  "uses": [
+   "coffee shops",
+   "large areas",
+   "rustic themes"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#008080",
+   "#F5F5DC"
+  ]
+ },
+ "black": {
+  "hex": "#000000",
+  "references": [
+   "night sky",
+   "ink",
+   "tuxedos"
+  ],
+  "associations": [
+   "elegance",
+   "power",
+   "formality"
+  ],
+  "uses": [
+   "luxury brands",
+   "text and line work",
+   "formal events"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#FFD700",
+   "#FF0000"
+  ]
+ },
+ "white": {
+  "hex": "#FFFFFF",
+  "references": [
+   "snow",
+   "paper",
+   "clouds"
+  ],
+  "associations": [
+   "purity",
+   "simplicity",
+   "cleanliness"
+  ],
+  "uses": [
+   "healthcare",
+   "large areas",
+   "minimalist design"
+  ],
+  "pairings": [
+   "#000000",
+   "#000080",
+   "#FF0000"
+  ]
+ },
+ "grey": {
+  "hex": "#808080",
+  "references": [
+   "concrete",
+   "storm clouds",
+   "pencil graphite"
+  ],
+  "associations": [
+   "neutrality",
+   "balance",
+   "calm"
+  ],
+  "uses": [
+   "corporate brands",
+   "outlines and details",
+   "neutral layouts"
+  ],
+  "pairings": [
+   "#FFFF00",
+   "#FFC0CB",
+   "#000080"
+  ]
+ },
+ "light red": {
+  "hex": "#FF474C",
+  "references": [
+   "watermelon flesh",
+   "coral lipstick",
+   "poppies"
+  ],
+  "associations": [
+   "friendliness",
+   "warmth",
+   "energy"
+  ],
+  "uses": [
+   "food packaging",
+   "focal points",
+   "summer picnics"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#000080",
+   "#D3D3D3"
+  ]
+ },
+ "dark red": {
+  "hex": "#8B0000",
+  "references": [
+   "red wine",
+   "garnets",
+   "dried roses"
+  ],
+  "associations": [
+   "sophistication",
+   "seriousness",
+   "richness"
+  ],
+  "uses": [
+   "wineries",
+   "text and line work",
+   "autumn menus"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#FFD700",
+   "#343837"
+  ]
+ },
+ "pale red": {
+  "hex": "#D9544D",
+  "references": [
+   "faded brick",
+   "rose hips",
+   "salmon roe"
+  ],
+  "associations": [
+   "softness",
+   "nostalgia",
+   "warmth"
+  ],
+  "uses": [
+   "vintage shops",
+   "illustration and data",
+   "nostalgic themes"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#87AE73",
+   "#000080"
+  ]
+ },
+ "bright red": {
+  "hex": "#FF000D",
+  "references": [
+   "fire trucks",
+   "red lacquer",
+   "lifeguard gear"
+  ],
+  "associations": [
+   "alarm",
+   "excitement",
+   "boldness"
+  ],
+  "uses": [
+   "sports teams",
+   "signals and warnings",
+   "sales events"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#000000",
+   "#FFFF00"
+  ]
+ },
+ "deep red": {
+  "hex": "#9A0200",
+  "references": [
+   "pomegranate seeds",
+   "velvet curtains",
+   "cherries"
+  ],
+  "associations": [
+   "intensity",
+   "luxury",
+   "drama"
+  ],
+  "uses": [
+   "theatres",
+   "small accents",
+   "Christmas"
+  ],
+  "pairings": [
+   "#FFD700",
+   "#FFFFC2",
+   "#006400"
+  ]
+ },
+ "maroon": {
+  "hex": "#800000",
+  "references": [
+   "university sweaters",
+   "dried chili",
+   "mahogany wood"
+  ],
+  "associations": [
+   "tradition",
+   "maturity",
+   "strength"
+  ],
+  "uses": [
+   "universities",
+   "text and line work",
+   "graduation"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#FFD700",
+   "#808080"
+  ]
+ },
+ "burgundy": {
+  "hex": "#610023",
+  "references": [
+   "burgundy wine",
+   "leather armchairs",
+   "plums"
+  ],
+  "associations": [
+   "refinement",
+   "wealth",
+   "warmth"
+  ],
+  "uses": [
+   "fashion houses",
+   "small accents",
+   "formal invitations"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#FFD700",
+   "#000080"
+  ]
+ },
+ "crimson": {
+  "hex": "#DC143C",
+  "references": [
+   "rose petals",
+   "cardinal birds",
+   "blood"
+  ],
+  "associations": [
+   "passion",
+   "courage",
+   "intensity"
+  ],
+  "uses": [
+   "publishers",
+   "focal points",
+   "Valentine's Day"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#343837",
+   "#FFD700"
+  ]
+ },
+ "scarlet": {
+  "hex": "#BE0119",
+  "references": [
+   "scarlet macaws",
+   "British army coats",
+   "ladybirds"
+  ],
+  "associations": [
+   "boldness",
+   "confidence",
+   "energy"
+  ],
+  "uses": [
+   "fashion retail",
+   "focal points",
+   "Chinese New Year"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#000000",
+   "#000080"
+  ]
+ },
+ "cherry": {
+  "hex": "#CF0234",
+  "references": [
+   "cherries",
+   "cherry lipstick",
+   "red sports cars"
+  ],
+  "associations": [
+   "fun",
+   "flirtation",
+   "freshness"
+  ],
+  "uses": [
+   "confectionery",
+   "small accents",
+   "retro diner themes"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#9FFEB0",
+   "#000080"
+  ]
+ },
+ "ruby": {
+  "hex": "#CA0147",
+  "references": [
+   "rubies",
+   "red gemstones",
+   "pomegranate juice"
+  ],
+  "associations": [
+   "luxury",
+   "love",
+   "preciousness"
+  ],
+  "uses": [
+   "jewellers",
+   "small accents",
+   "anniversaries"
+  ],
+  "pairings": [
+   "#FFD700",
+   "#FFFFFF",
+   "#343837"
+  ]
+ },
+ "wine": {
+  "hex": "#80013F",
+  "references": [
+   "red wine",
+   "velvet",
+   "ripe plums"
+  ],
+  "associations": [
+   "elegance",
+   "indulgence",
+   "maturity"
+  ],
+  "uses": [
+   "restaurants",
+   "text and line work",
+   "dinner parties"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#FFD700",
+   "#87AE73"
+  ]
+ },
+ "brick red": {
+  "hex": "#8F1402",
+  "references": [
+   "brick walls",
+   "clay pots",
+   "red barns"
+  ],
+  "associations": [
+   "sturdiness",
+   "tradition",
+   "warmth"
+  ],
+  "uses": [
+   "architecture firms",
+   "illustration and data",
+   "rustic themes"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#000080",
+   "#87AE73"
+  ]
+ },
+ "blood red": {
+  "hex": "#980002",
+  "references": [
+   "blood",
+   "red roses",
+   "warning lights"
+  ],
+  "associations": [
+   "danger",
+   "intensity",
+   "drama"
+  ],
+  "uses": [
+   "film studios",
+   "signals and warnings",
+   "Halloween"
+  ],
+  "pairings": [
+   "#000000",
+   "#FFFFFF",
+   "#343837"
+  ]
+ },
+ "claret": {
+  "hex": "#680018",
+  "references": [
+   "claret wine",
+   "red leather",
+   "cranberries"
+  ],
+  "associations": [
+   "refinement",
+   "tradition",
+   "richness"
+  ],
+  "uses": [
+   "heritage brands",
+   "focal points",
+   "sports seasons"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#FFD700",
+   "#000080"
+  ]
+ },
+ "berry": {
+  "hex": "#990F4B",
+  "references": [
+   "raspberries",
+   "berry smoothies",
+   "jam"
+  ],
+  "associations": [
+   "juiciness",
+   "playfulness",
+   "sweetness"
+  ],
+  "uses": [
+   "smoothie brands",
+   "small accents",
+   "summer menus"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#9FFEB0",
+   "#FFFFFF"
+  ]
+ },
+ "cranberry": {
+  "hex": "#9E003A",
+  "references": [
+   "cranberries",
+   "holiday sauce",
+   "red berries"
+  ],
+  "associations": [
+   "festivity",
+   "tartness",
+   "warmth"
+  ],
+  "uses": [
+   "food brands",
+   "small accents",
+   "Thanksgiving"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#228B22",
+   "#FFD700"
+  ]
+ },
+ "raspberry": {
+  "hex": "#B00149",
+  "references": [
+   "raspberries",
+   "raspberry sorbet",
+   "magenta tulips"
+  ],
+  "associations": [
+   "fun",
+   "sweetness",
+   "energy"
+  ],
+  "uses": [
+   "dessert shops",
+   "focal points",
+   "summer markets"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#9FFEB0",
+   "#343837"
+  ]
+ },
+ "tomato": {
+  "hex": "#FF6347",
+  "references": [
+   "tomatoes",
+   "ketchup",
+   "red peppers"
+  ],
+  "associations": [
+   "freshness",
+   "appetite",
+   "warmth"
+  ],
+  "uses": [
+   "restaurants",
+   "focal points",
+   "Italian themes"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#808000",
+   "#FFFFC2"
+  ]
+ },
+ "indian red": {
+  "hex": "#CD5C5C",
+  "references": [
+   "red clay",
+   "terracotta tiles",
+   "spice markets"
+  ],
+  "associations": [
+   "earthiness",
+   "warmth",
+   "heritage"
+  ],
+  "uses": [
+   "spice brands",
+   "illustration and data",
+   "harvest festivals"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#008080",
+   "#87AE73"
+  ]
+ },
+ "light orange": {
+  "hex": "#FDAA48",
+  "references": [
+   "cantaloupe",
+   "orange sherbet",
+   "sunsets"
+  ],
+  "associations": [
+   "friendliness",
+   "warmth",
+   "approachability"
+  ],
+  "uses": [
+   "children's brands",
+   "focal points",
+   "summer camps"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#008080",
+   "#000080"
+  ]
+ },
+ "dark orange": {
+  "hex": "#FF8C00",
+  "references": [
+   "burnt toast",
+   "amber glass",
+   "pumpkins"
+  ],
+  "associations": [
+   "autumn",
+   "warmth",
+   "energy"
+  ],
+  "uses": [
+   "sports brands",
+   "text and line work",
+   "harvest themes"
+  ],
+  "pairings": [
+   "#000080",
+   "#FFFFC2",
+   "#343837"
+  ]
+ },
+ "pale orange": {
+  "hex": "#FFA756",
+  "references": [
+   "peach skin",
+   "apricot jam",
+   "sand at sunset"
+  ],
+  "associations": [
+   "gentleness",
+   "warmth",
+   "comfort"
+  ],
+  "uses": [
+   "skincare",
+   "large areas",
+   "spring themes"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#87AE73",
+   "#808080"
+  ]
+ },
+ "bright orange": {
+  "hex": "#FF5B00",
+  "references": [
+   "traffic cones",
+   "safety vests",
+   "goldfish"
+  ],
+  "associations": [
+   "alertness",
+   "energy",
+   "fun"
+  ],
+  "uses": [
+   "safety equipment",
+   "signals and warnings",
+   "road safety campaigns"
+  ],
+  "pairings": [
+   "#000080",
+   "#FFFFFF",
+   "#000000"
+  ]
+ },
+ "burnt orange": {
+  "hex": "#C04E01",
+  "references": [
+   "autumn leaves",
+   "rust",
+   "roasted squash"
+  ],
+  "associations": [
+   "coziness",
+   "earthiness",
+   "nostalgia"
+  ],
+  "uses": [
+   "interior design",
+   "small accents",
+   "70s retro themes"
+  ],
+  "pairings": [
+   "#000080",
+   "#FFFFC2",
+   "#008080"
+  ]
+ },
+ "tangerine": {
+  "hex": "#FF9408",
+  "references": [
+   "tangerines",
+   "marigolds",
+   "orange juice"
+  ],
+  "associations": [
+   "zest",
+   "cheerfulness",
+   "freshness"
+  ],
+  "uses": [
+   "juice brands",
+   "focal points",
+   "summer events"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#008080",
+   "#000080"
+  ]
+ },
+ "apricot": {
+  "hex": "#FFB16D",
+  "references": [
+   "apricots",
+   "peach blossom",
+   "terracotta pots"
+  ],
+  "associations": [
+   "softness",
+   "warmth",
+   "health"
+  ],
+  "uses": [
+   "food packaging",
+   "large areas",
+   "weddings"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#87AE73",
+   "#000080"
+  ]
+ },
+ "peach": {
+  "hex": "#FFB07C",
+  "references": [
+   "peaches",
+   "peach fuzz",
+   "summer skies"
+  ],
+  "associations": [
+   "gentleness",
+   "warmth",
+   "youthfulness"
+  ],
+  "uses": [
+   "cosmetics",
+   "large areas",
+   "weddings"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#808080",
+   "#9FFEB0"
+  ]
+ },
+ "salmon": {
+  "hex": "#FA8072",
+  "references": [
+   "salmon fillets",
+   "coral reefs",
+   "summer dresses"
+  ],
+  "associations": [
+   "softness",
+   "friendliness",
+   "warmth"
+  ],
+  "uses": [
+   "seafood restaurants",
+   "small accents",
+   "summer fashion"
+  ],
+  "pairings": [
+   "#000080",
+   "#FFFFFF",
+   "#808080"
+  ]
+ },
+ "coral": {
+  "hex": "#FF7F50",
+  "references": [
+   "coral reefs",
+   "hibiscus",
+   "tropical fish"
+  ],
+  "associations": [
+   "liveliness",
+   "summer",
+   "friendliness"
+  ],
+  "uses": [
+   "lifestyle apps",
+   "focal points",
+   "beach holidays"
+  ],
+  "pairings": [
+   "#000080",
+   "#FFFFFF",
+   "#008080"
+  ]
+ },
+ "melon": {
+  "hex": "#FF7855",
+  "references": [
+   "cantaloupe flesh",
+   "papaya",
+   "sorbet"
+  ],
+  "associations": [
+   "freshness",
+   "sweetness",
+   "summer"
+  ],
+  "uses": [
+   "fruit brands",
+   "focal points",
+   "summer menus"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#9FFEB0",
+   "#808080"
+  ]
+ },
+ "amber": {
+  "hex": "#FEB308",
+  "references": [
+   "amber jewellery",
+   "honey",
+   "traffic amber lights"
+  ],
+  "associations": [
+   "warmth",
+   "caution",
+   "nostalgia"
+  ],
+  "uses": [
+   "whisky distilleries",
+   "signals and warnings",
+   "vintage themes"
+  ],
+  "pairings": [
+   "#343837",
+   "#FFFFC2",
+   "#000080"
+  ]
+ },
+ "pumpkin": {
+  "hex": "#E17701",
+  "references": [
+   "pumpkins",
+   "Halloween",
+   "carrots"
+  ],
+  "associations": [
+   "autumn",
+   "harvest",
+   "playfulness"
+  ],
+  "uses": [
+   "farm shops",
+   "small accents",
+   "Halloween"
+  ],
+  "pairings": [
+   "#000000",
+   "#FFFFC2",
+   "#006400"
+  ]
+ },
+ "copper": {
+  "hex": "#B66325",
+  "references": [
+   "copper pans",
+   "pennies",
+   "copper pipes"
+  ],
+  "associations": [
+   "craftsmanship",
+   "warmth",
+   "durability"
+  ],
+  "uses": [
+   "breweries",
+   "outlines and details",
+   "industrial themes"
+  ],
+  "pairings": [
+   "#008080",
+   "#343837",
+   "#FFFFC2"
+  ]
+ },
+ "rust": {
+  "hex": "#A83C09",
+  "references": [
+   "rusty metal",
+   "autumn ferns",
+   "iron oxide"
+  ],
+  "associations": [
+   "ruggedness",
+   "age",
+   "warmth"
+  ],
+  "uses": [
+   "outdoor brands",
+   "small accents",
+   "autumn collections"
+  ],
+  "pairings": [
+   "#000080",
+   "#FFFFC2",
+   "#516572"
+  ]
+ },
+ "terracotta": {
+  "hex": "#CA6641",
+  "references": [
+   "flower pots",
+   "clay roof tiles",
+   "Mediterranean villas"
+  ],
+  "associations": [
+   "earthiness",
+   "warmth",
+   "craft"
+  ],
+  "uses": [
+   "ceramics studios",
+   "illustration and data",
+   "Mediterranean themes"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#87AE73",
+   "#000080"
+  ]
+ },
+ "cinnamon": {
+  "hex": "#AC4F06",
+  "references": [
+   "cinnamon sticks",
+   "ground spice",
+   "autumn bakes"
+  ],
+  "associations": [
+   "coziness",
+   "spice",
+   "comfort"
+  ],
+  "uses": [
+   "bakeries",
+   "small accents",
+   "Christmas markets"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#228B22",
+   "#FFD700"
+  ]
+ },
+ "saffron": {
+  "hex": "#FEB209",
+  "references": [
+   "saffron threads",
+   "monks' robes",
+   "paella"
+  ],
+  "associations": [
+   "richness",
+   "spirituality",
+   "warmth"
+  ],
+  "uses": [
+   "spice brands",
+   "focal points",
+   "Diwali"
+  ],
+  "pairings": [
+   "#000080",
+   "#FFFFC2",
+   "#800000"
+  ]
+ },
+ "light yellow": {
+  "hex": "#FFFFE0",
+  "references": [
+   "butter",
+   "lemon chiffon",
+   "morning sun"
+  ],
+  "associations": [
+   "lightness",
+   "calm optimism",
+   "softness"
+  ],
+  "uses": [
+   "baby products",
+   "large areas",
+   "Easter"
+  ],
+  "pairings": [
+   "#808080",
+   "#000080",
+   "#87AE73"
+  ]
+ },
+ "dark yellow": {
+  "hex": "#D5B60A",
+  "references": [
+   "mustard",
+   "old gold",
+   "autumn leaves"
+  ],
+  "associations": [
+   "warmth",
+   "vintage",
+   "earthiness"
+  ],
+  "uses": [
+   "furniture retail",
+   "small accents",
+   "retro themes"
+  ],
+  "pairings": [
+   "#000080",
+   "#343837",
+   "#FFFFC2"
+  ]
+ },
+ "pale yellow": {
+  "hex": "#FFFF84",
+  "references": [
+   "vanilla ice cream",
+   "primroses",
+   "parchment"
+  ],
+  "associations": [
+   "gentleness",
+   "calm",
+   "freshness"
+  ],
+  "uses": [
+   "stationery brands",
+   "large areas",
+   "spring themes"
+  ],
+  "pairings": [
+   "#808080",
+   "#E6E6FA",
+   "#87AE73"
+  ]
+ },
+ "bright yellow": {
+  "hex": "#FFFD01",
+  "references": [
+   "highlighter pens",
+   "taxis",
+   "rubber ducks"
+  ],
+  "associations": [
+   "attention",
+   "energy",
+   "fun"
+  ],
+  "uses": [
+   "taxi services",
+   "focal points",
+   "summer festivals"
+  ],
+  "pairings": [
+   "#000000",
+   "#343837",
+   "#000080"
+  ]
+ },
+ "mustard": {
+  "hex": "#CEB301",
+  "references": [
+   "mustard",
+   "dried grass",
+   "vintage sofas"
+  ],
+  "associations": [
+   "retro charm",
+   "warmth",
+   "quirkiness"
+  ],
+  "uses": [
+   "fashion retail",
+   "small accents",
+   "60s and 70s themes"
+  ],
+  "pairings": [
+   "#000080",
+   "#343837",
+   "#FFFFC2"
+  ]
+ },
+ "lemon": {
+  "hex": "#FDFF52",
+  "references": [
+   "lemons",
+   "lemon sorbet",
+   "canaries"
+  ],
+  "associations": [
+   "freshness",
+   "zest",
+   "cheerfulness"
+  ],
+  "uses": [
+   "cleaning products",
+   "focal points",
+   "summer drinks"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#808080",
+   "#000080"
+  ]
+ },
+ "lemon yellow": {
+  "hex": "#FDFF38",
+  "references": [
+   "lemon peel",
+   "rain jackets",
+   "road markings"
+  ],
+  "associations": [
+   "brightness",
+   "clarity",
+   "energy"
+  ],
+  "uses": [
+   "sports brands",
+   "signals and warnings",
+   "road signage"
+  ],
+  "pairings": [
+   "#343837",
+   "#000080",
+   "#FFFFFF"
+  ]
+ },
+ "canary yellow": {
+  "hex": "#FFFE40",
+  "references": [
+   "canaries",
+   "sticky notes",
+   "daffodils"
+  ],
+  "associations": [
+   "cheerfulness",
+   "playfulness",
+   "attention"
+  ],
+  "uses": [
+   "office supplies",
+   "focal points",
+   "back-to-school"
+  ],
+  "pairings": [
+   "#808080",
+   "#000080",
+   "#FFFFFF"
+  ]
+ },
+ "butter": {
+  "hex": "#FFFF81",
+  "references": [
+   "butter",
+   "cream crackers",
+   "vanilla custard"
+  ],
+  "associations": [
+   "softness",
+   "homeliness",
+   "comfort"
+  ],
+  "uses": [
+   "bakeries",
+   "large areas",
+   "farmhouse themes"
+  ],
+  "pairings": [
+   "#87AE73",
+   "#808080",
+   "#000080"
+  ]
+ },
+ "sunflower": {
+  "hex": "#FFC512",
+  "references": [
+   "sunflowers",
+   "sunshine",
+   "corn"
+  ],
+  "associations": [
+   "warmth",
+   "joy",
+   "summer"
+  ],
+  "uses": [
+   "florists",
+   "illustration and data",
+   "summer campaigns"
+  ],
+  "pairings": [
+   "#000080",
+   "#A52A2A",
+   "#FFFFFF"
+  ]
+ },
+ "goldenrod": {
+  "hex": "#DAA520",
+  "references": [
+   "goldenrod flowers",
+   "wheat fields",
+   "autumn meadows"
+  ],
+  "associations": [
+   "harvest",
+   "warmth",
+   "nostalgia"
+  ],
+  "uses": [
+   "farm brands",
+   "small accents",
+   "harvest themes"
+  ],
+  "pairings": [
+   "#000080",
+   "#A52A2A",
+   "#FFFFC2"
+  ]
+ },
+ "gold": {
+  "hex": "#FFD700",
+  "references": [
+   "gold coins",
+   "trophies",
+   "wedding rings"
+  ],
+  "associations": [
+   "wealth",
+   "success",
+   "celebration"
+  ],
+  "uses": [
+   "award ceremonies",
+   "small accents",
+   "New Year's Eve"
+  ],
+  "pairings": [
+   "#000000",
+   "#000080",
+   "#610023"
+  ]
+ },
+ "marigold": {
+  "hex": "#FCC006",
+  "references": [
+   "marigolds",
+   "turmeric",
+   "festival garlands"
+  ],
+  "associations": [
+   "celebration",
+   "warmth",
+   "spirituality"
+  ],
+  "uses": [
+   "textile brands",
+   "focal points",
+   "Diwali"
+  ],
+  "pairings": [
+   "#000080",
+   "#800000",
+   "#FFFFC2"
+  ]
+ },
+ "ochre": {
+  "hex": "#BF9005",
+  "references": [
+   "ochre pigment",
+   "desert rock",
+   "autumn hills"
+  ],
+  "associations": [
+   "earthiness",
+   "warmth",
+   "antiquity"
+  ],
+  "uses": [
+   "art suppliers",
+   "illustration and data",
+   "desert themes"
+  ],
+  "pairings": [
+   "#000080",
+   "#FFFFC2",
+   "#516572"
+  ]
+ },
+ "khaki": {
+  "hex": "#F0E68C",
+  "references": [
+   "military uniforms",
+   "safari jackets",
+   "chinos"
+  ],
+  "associations": [
+   "practicality",
+   "ruggedness",
+   "calm"
+  ],
+  "uses": [
+   "outdoor brands",
+   "large areas",
+   "safari themes"
+  ],
+  "pairings": [
+   "#000080",
+   "#FFFFFF",
+   "#A52A2A"
+  ]
+ },
+ "light green": {
+  "hex": "#90EE90",
+  "references": [
+   "spring leaves",
+   "lettuce",
+   "matcha latte"
+  ],
+  "associations": [
+   "freshness",
+   "renewal",
+   "calm"
+  ],
+  "uses": [
+   "health brands",
+   "signals and warnings",
+   "spring campaigns"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#000080",
+   "#808080"
+  ]
+ },
+ "dark green": {
+  "hex": "#006400",
+  "references": [
+   "pine forests",
+   "billiard tables",
+   "racing cars"
+  ],
+  "associations": [
+   "stability",
+   "tradition",
+   "wealth"
+  ],
+  "uses": [
+   "banks",
+   "text and line work",
+   "Christmas"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#FFD700",
+   "#FFFFFF"
+  ]
+ },
+ "pale green": {
+  "hex": "#98FB98",
+  "references": [
+   "mint ice cream",
+   "celery",
+   "sea glass"
+  ],
+  "associations": [
+   "softness",
+   "calm",
+   "cleanliness"
+  ],
+  "uses": [
+   "spas",
+   "large areas",
+   "spring themes"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#808080",
+   "#FFC0CB"
+  ]
+ },
+ "bright green": {
+  "hex": "#01FF07",
+  "references": [
+   "traffic go lights",
+   "tree frogs",
+   "tennis balls"
+  ],
+  "associations": [
+   "energy",
+   "go-ahead",
+   "vitality"
+  ],
+  "uses": [
+   "gaming brands",
+   "signals and warnings",
+   "sports events"
+  ],
+  "pairings": [
+   "#000000",
+   "#FFFFFF",
+   "#000080"
+  ]
+ },
+ "muted green": {
+  "hex": "#5FA052",
+  "references": [
+   "sage leaves",
+   "olive groves",
+   "army canvas"
+  ],
+  "associations": [
+   "calm",
+   "naturalness",
+   "restraint"
+  ],
+  "uses": [
+   "wellness brands",
+   "large areas",
+   "botanical themes"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#CA6641",
+   "#FFFFFF"
+  ]
+ },
+ "forest green": {
+  "hex": "#228B22",
+  "references": [
+   "forests",
+   "Christmas trees",
+   "hunting jackets"
+  ],
+  "associations": [
+   "nature",
+   "tradition",
+   "endurance"
+  ],
+  "uses": [
+   "outdoor brands",
+   "text and line work",
+   "Christmas"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#FFD700",
+   "#A52A2A"
+  ]
+ },
+ "olive green": {
+  "hex": "#677A04",
+  "references": [
+   "olives",
+   "military fatigues",
+   "olive oil"
+  ],
+  "associations": [
+   "earthiness",
+   "peace",
+   "ruggedness"
+  ],
+  "uses": [
+   "olive oil brands",
+   "small accents",
+   "military themes"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#A83C09",
+   "#000080"
+  ]
+ },
+ "sea green": {
+  "hex": "#2E8B57",
+  "references": [
+   "sea glass",
+   "shallow tropical water",
+   "algae"
+  ],
+  "associations": [
+   "calm",
+   "freshness",
+   "balance"
+  ],
+  "uses": [
+   "spas",
+   "small accents",
+   "coastal themes"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#FF7F50",
+   "#000080"
+  ]
+ },
+ "mint green": {
+  "hex": "#8FFF9F",
+  "references": [
+   "mint leaves",
+   "toothpaste",
+   "retro kitchenware"
+  ],
+  "associations": [
+   "freshness",
+   "cleanliness",
+   "calm"
+  ],
+  "uses": [
+   "ice cream brands",
+   "small accents",
+   "retro themes"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#FFC0CB",
+   "#343837"
+  ]
+ },
+ "mint": {
+  "hex": "#9FFEB0",
+  "references": [
+   "mint leaves",
+   "mint ice cream",
+   "medical scrubs"
+  ],
+  "associations": [
+   "freshness",
+   "clean",
+   "calm"
+  ],
+  "uses": [
+   "healthcare",
+   "signals and warnings",
+   "spring themes"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#FFC0CB",
+   "#343837"
+  ]
+ },
+ "olive": {
+  "hex": "#808000",
+  "references": [
+   "olives",
+   "olive oil",
+   "army uniforms"
+  ],
+  "associations": [
+   "earthiness",
+   "peace",
+   "maturity"
+  ],
+  "uses": [
+   "Mediterranean restaurants",
+   "small accents",
+   "harvest themes"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#A83C09",
+   "#000080"
+  ]
+ },
+ "lime": {
+  "hex": "#00FF00",
+  "references": [
+   "limes",
+   "tennis balls",
+   "neon highlighters"
+  ],
+  "associations": [
+   "zest",
+   "energy",
+   "freshness"
+  ],
+  "uses": [
+   "drinks brands",
+   "focal points",
+   "summer festivals"
+  ],
+  "pairings": [
+   "#343837",
+   "#FFFFFF",
+   "#000080"
+  ]
+ },
+ "lime green": {
+  "hex": "#32CD32",
+  "references": [
+   "lime wedges",
+   "new shoots",
+   "high-visibility vests"
+  ],
+  "associations": [
+   "vibrancy",
+   "youth",
+   "freshness"
+  ],
+  "uses": [
+   "tech startups",
+   "focal points",
+   "sports events"
+  ],
+  "pairings": [
+   "#343837",
+   "#000080",
+   "#FFFFFF"
+  ]
+ },
+ "emerald": {
+  "hex": "#01A049",
+  "references": [
+   "emeralds",
+   "rainforests",
+   "Irish hills"
+  ],
+  "associations": [
+   "luxury",
+   "renewal",
+   "prosperity"
+  ],
+  "uses": [
+   "jewellers",
+   "small accents",
+   "St Patrick's Day"
+  ],
+  "pairings": [
+   "#FFD700",
+   "#FFFFFF",
+   "#000000"
+  ]
+ },
+ "jade": {
+  "hex": "#1FA774",
+  "references": [
+   "jade carvings",
+   "celadon pottery",
+   "jade plants"
+  ],
+  "associations": [
+   "serenity",
+   "harmony",
+   "good fortune"
+  ],
+  "uses": [
+   "tea brands",
+   "small accents",
+   "Lunar New Year"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#FFD700",
+   "#343837"
+  ]
+ },
+ "sage": {
+  "hex": "#87AE73",
+  "references": [
+   "sage leaves",
+   "dried herbs",
+   "eucalyptus"
+  ],
+  "associations": [
+   "calm",
+   "wisdom",
+   "naturalness"
+  ],
+  "uses": [
+   "wellness brands",
+   "large areas",
+   "weddings"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#CA6641",
+   "#FFFFFF"
+  ]
+ },
+ "seafoam": {
+  "hex": "#80F9AD",
+  "references": [
+   "sea foam",
+   "beach glass",
+   "mint cream"
+  ],
+  "associations": [
+   "freshness",
+   "coastal calm",
+   "softness"
+  ],
+  "uses": [
+   "swimwear brands",
+   "large areas",
+   "beach themes"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#FF7F50",
+   "#000080"
+  ]
+ },
+ "pistachio": {
+  "hex": "#C0FA8B",
+  "references": [
+   "pistachio nuts",
+   "pistachio ice cream",
+   "pale leaves"
+  ],
+  "associations": [
+   "softness",
+   "freshness",
+   "whimsy"
+  ],
+  "uses": [
+   "gelato shops",
+   "large areas",
+   "spring themes"
+  ],
+  "pairings": [
+   "#FFC0CB",
+   "#FFFFC2",
+   "#A52A2A"
+  ]
+ },
+ "chartreuse": {
+  "hex": "#7FFF00",
+  "references": [
+   "chartreuse liqueur",
+   "spring buds",
+   "tennis balls"
+  ],
+  "associations": [
+   "vibrancy",
+   "quirkiness",
+   "freshness"
+  ],
+  "uses": [
+   "fashion brands",
+   "focal points",
+   "music festivals"
+  ],
+  "pairings": [
+   "#343837",
+   "#800080",
+   "#FFFFFF"
+  ]
+ },
+ "moss": {
+  "hex": "#769958",
+  "references": [
+   "moss on stones",
+   "forest floors",
+   "lichen"
+  ],
+  "associations": [
+   "calm",
+   "age",
+   "naturalness"
+  ],
+  "uses": [
+   "organic brands",
+   "illustration and data",
+   "woodland themes"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#A83C09",
+   "#808080"
+  ]
+ },
+ "hunter green": {
+  "hex": "#0B4008",
+  "references": [
+   "hunting jackets",
+   "pine needles",
+   "library lamps"
+  ],
+  "associations": [
+   "tradition",
+   "ruggedness",
+   "stability"
+  ],
+  "uses": [
+   "heritage brands",
+   "text and line work",
+   "hunting season"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#FFD700",
+   "#D2B48C"
+  ]
+ },
+ "kelly green": {
+  "hex": "#02AB2E",
+  "references": [
+   "Irish flags",
+   "shamrocks",
+   "sports pitches"
+  ],
+  "associations": [
+   "luck",
+   "energy",
+   "youth"
+  ],
+  "uses": [
+   "sports teams",
+   "focal points",
+   "St Patrick's Day"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#000080",
+   "#FFD700"
+  ]
+ },
+ "bottle green": {
+  "hex": "#044A05",
+  "references": [
+   "glass bottles",
+   "British racing cars",
+   "ivy"
+  ],
+  "associations": [
+   "tradition",
+   "class",
+   "depth"
+  ],
+  "uses": [
+   "spirits brands",
+   "large areas",
+   "British heritage themes"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#FFD700",
+   "#610023"
+  ]
+ },
+ "pine": {
+  "hex": "#2B5D34",
+  "references": [
+   "pine trees",
+   "pine needles",
+   "evergreen wreaths"
+  ],
+  "associations": [
+   "steadiness",
+   "nature",
+   "winter"
+  ],
+  "uses": [
+   "candle brands",
+   "small accents",
+   "winter holidays"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#A52A2A",
+   "#FF0000"
+  ]
+ },
+ "spring green": {
+  "hex": "#00FF7F",
+  "references": [
+   "new leaves",
+   "spring meadows",
+   "peas"
+  ],
+  "associations": [
+   "renewal",
+   "youth",
+   "optimism"
+  ],
+  "uses": [
+   "garden centres",
+   "signals and warnings",
+   "spring campaigns"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#FFFF00",
+   "#000080"
+  ]
+ },
+ "grass green": {
+  "hex": "#3F9B0B",
+  "references": [
+   "lawns",
+   "football pitches",
+   "fresh grass"
+  ],
+  "associations": [
+   "nature",
+   "vitality",
+   "play"
+  ],
+  "uses": [
+   "sports clubs",
+   "illustration and data",
+   "summer fêtes"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#FFFF00",
+   "#A52A2A"
+  ]
+ },
+ "avocado": {
+  "hex": "#90B134",
+  "references": [
+   "avocados",
+   "70s kitchen appliances",
+   "guacamole"
+  ],
+  "associations": [
+   "retro warmth",
+   "health",
+   "earthiness"
+  ],
+  "uses": [
+   "food brands",
+   "small accents",
+   "70s retro themes"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#A52A2A",
+   "#FFA500"
+  ]
+ },
+ "olive drab": {
+  "hex": "#6B8E23",
+  "references": [
+   "army uniforms",
+   "canvas tents",
+   "dry olive leaves"
+  ],
+  "associations": [
+   "utility",
+   "toughness",
+   "restraint"
+  ],
+  "uses": [
+   "workwear brands",
+   "large areas",
+   "military themes"
+  ],
+  "pairings": [
+   "#F0E68C",
+   "#FFFFC2",
+   "#A83C09"
+  ]
+ },
+ "neon green": {
+  "hex": "#0CFF0C",
+  "references": [
+   "glow sticks",
+   "highlighters",
+   "arcade signs"
+  ],
+  "associations": [
+   "electricity",
+   "youth",
+   "attention"
+  ],
+  "uses": [
+   "gaming brands",
+   "focal points",
+   "rave and nightlife themes"
+  ],
+  "pairings": [
+   "#000000",
+   "#343837",
+   "#800080"
+  ]
+ },
+ "pastel green": {
+  "hex": "#B0FF9D",
+  "references": [
+   "mint macarons",
+   "spring nurseries",
+   "celery"
+  ],
+  "associations": [
+   "gentleness",
+   "freshness",
+   "calm"
+  ],
+  "uses": [
+   "baby products",
+   "large areas",
+   "Easter"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#FFC0CB",
+   "#E6E6FA"
+  ]
+ },
+ "avocado green": {
+  "hex": "#87A922",
+  "references": [
+   "avocado skins",
+   "vintage fridges",
+   "olive groves"
+  ],
+  "associations": [
+   "retro",
+   "earthiness",
+   "health"
+  ],
+  "uses": [
+   "kitchenware",
+   "small accents",
+   "70s retro themes"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#FFA500",
+   "#A52A2A"
+  ]
+ },
+ "teal": {
+  "hex": "#008080",
+  "references": [
+   "teal ducks",
+   "peacock feathers",
+   "tropical lagoons"
+  ],
+  "associations": [
+   "sophistication",
+   "calm",
+   "balance"
+  ],
+  "uses": [
+   "tech brands",
+   "focal points",
+   "coastal themes"
+  ],
+  "pairings": [
+   "#FF7F50",
+   "#FFFFC2",
+   "#CEB301"
+  ]
+ },
+ "dark teal": {
+  "hex": "#014D4E",
+  "references": [
+   "deep sea water",
+   "peacock tails",
+   "ink"
+  ],
+  "associations": [
+   "depth",
+   "elegance",
+   "calm"
+  ],
+  "uses": [
+   "financial services",
+   "text and line work",
+   "winter themes"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#FFD700",
+   "#FF7F50"
+  ]
+ },
+ "light teal": {
+  "hex": "#90E4C1",
+  "references": [
+   "swimming pools",
+   "tropical shallows",
+   "sea glass"
+  ],
+  "associations": [
+   "freshness",
+   "clarity",
+   "calm"
+  ],
+  "uses": [
+   "health apps",
+   "large areas",
+   "summer themes"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#FF7F50",
+   "#000080"
+  ]
+ },
+ "turquoise": {
+  "hex": "#40E0D0",
+  "references": [
+   "turquoise stones",
+   "Caribbean sea",
+   "swimming pools"
+  ],
+  "associations": [
+   "refreshment",
+   "tranquillity",
+   "holidays"
+  ],
+  "uses": [
+   "travel agencies",
+   "small accents",
+   "tropical holidays"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#FF7F50",
+   "#000080"
+  ]
+ },
+ "cyan": {
+  "hex": "#00FFFF",
+  "references": [
+   "printer ink",
+   "ice",
+   "clear pool water"
+  ],
+  "associations": [
+   "clarity",
+   "coolness",
+   "technology"
+  ],
+  "uses": [
+   "printing companies",
+   "illustration and data",
+   "tech events"
+  ],
+  "pairings": [
+   "#000080",
+   "#FFFFFF",
+   "#343837"
+  ]
+ },
+ "aqua": {
+  "hex": "#13EAC9",
+  "references": [
+   "swimming pools",
+   "aquariums",
+   "tropical water"
+  ],
+  "associations": [
+   "refreshment",
+   "calm",
+   "playfulness"
+  ],
+  "uses": [
+   "water brands",
+   "large areas",
+   "pool parties"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#FF7F50",
+   "#000080"
+  ]
+ },
+ "aquamarine": {
+  "hex": "#7FFFD4",
+  "references": [
+   "aquamarine gems",
+   "glacial lakes",
+   "shallow seas"
+  ],
+  "associations": [
+   "serenity",
+   "clarity",
+   "freshness"
+  ],
+  "uses": [
+   "jewellers",
+   "small accents",
+   "birthdays in March"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#000080",
+   "#FF7F50"
+  ]
+ },
+ "petrol": {
+  "hex": "#005F6A",
+  "references": [
+   "petrol sheen",
+   "deep teal velvet",
+   "peacock feathers"
+  ],
+  "associations": [
+   "depth",
+   "sophistication",
+   "calm"
+  ],
+  "uses": [
+   "interior design",
+   "small accents",
+   "autumn collections"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#CEB301",
+   "#FF7F50"
+  ]
+ },
+ "light blue": {
+  "hex": "#ADD8E6",
+  "references": [
+   "summer sky",
+   "forget-me-nots",
+   "baby clothes"
+  ],
+  "associations": [
+   "calm",
+   "openness",
+   "gentleness"
+  ],
+  "uses": [
+   "healthcare",
+   "large areas",
+   "baby showers"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#000080",
+   "#FFFF00"
+  ]
+ },
+ "dark blue": {
+  "hex": "#00008B",
+  "references": [
+   "night sky",
+   "deep ocean",
+   "school blazers"
+  ],
+  "associations": [
+   "authority",
+   "depth",
+   "trust"
+  ],
+  "uses": [
+   "law firms",
+   "text and line work",
+   "corporate events"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#FFD700",
+   "#FFA500"
+  ]
+ },
+ "pale blue": {
+  "hex": "#D0FEFE",
+  "references": [
+   "ice",
+   "morning sky",
+   "hospital gowns"
+  ],
+  "associations": [
+   "serenity",
+   "coolness",
+   "cleanliness"
+  ],
+  "uses": [
+   "skincare",
+   "large areas",
+   "winter themes"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#808080",
+   "#FFB07C"
+  ]
+ },
+ "bright blue": {
+  "hex": "#0165FC",
+  "references": [
+   "swimming pool tiles",
+   "blue jays",
+   "sports kits"
+  ],
+  "associations": [
+   "energy",
+   "confidence",
+   "clarity"
+  ],
+  "uses": [
+   "tech brands",
+   "text and line work",
+   "sports events"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#FFA500",
+   "#FFFF00"
+  ]
+ },
+ "muted blue": {
+  "hex": "#3B719F",
+  "references": [
+   "faded denim",
+   "slate roofs",
+   "overcast sea"
+  ],
+  "associations": [
+   "calm",
+   "reliability",
+   "understatement"
+  ],
+  "uses": [
+   "consulting firms",
+   "large areas",
+   "minimalist themes"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#D2B48C",
+   "#FFFFFF"
+  ]
+ },
+ "navy": {
+  "hex": "#000080",
+  "references": [
+   "naval uniforms",
+   "blazers",
+   "the night sea"
+  ],
+  "associations": [
+   "authority",
+   "trust",
+   "formality"
+  ],
+  "uses": [
+   "financial services",
+   "text and line work",
+   "nautical themes"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#FFD700",
+   "#FF7F50"
+  ]
+ },
+ "sky blue": {
+  "hex": "#87CEEB",
+  "references": [
+   "clear daytime sky",
+   "bluebirds",
+   "summer days"
+  ],
+  "associations": [
+   "calm",
+   "openness",
+   "freedom"
+  ],
+  "uses": [
+   "airlines",
+   "large areas",
+   "summer holidays"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#FFFF00",
+   "#000080"
+  ]
+ },
+ "baby blue": {
+  "hex": "#A2CFFE",
+  "references": [
+   "baby clothes",
+   "nursery walls",
+   "robin's eggs"
+  ],
+  "associations": [
+   "gentleness",
+   "innocence",
+   "calm"
+  ],
+  "uses": [
+   "baby products",
+   "large areas",
+   "baby showers"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#FFC0CB",
+   "#808080"
+  ]
+ },
+ "royal blue": {
+  "hex": "#4169E1",
+  "references": [
+   "royal sashes",
+   "sports kits",
+   "sapphires"
+  ],
+  "associations": [
+   "confidence",
+   "loyalty",
+   "authority"
+  ],
+  "uses": [
+   "sports teams",
+   "focal points",
+   "royal occasions"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#FFD700",
+   "#FF0000"
+  ]
+ },
+ "powder blue": {
+  "hex": "#B0E0E6",
+  "references": [
+   "powder puffs",
+   "winter sky",
+   "vintage cars"
+  ],
+  "associations": [
+   "softness",
+   "calm",
+   "nostalgia"
+  ],
+  "uses": [
+   "stationery brands",
+   "large areas",
+   "weddings"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#808080",
+   "#FFC0CB"
+  ]
+ },
+ "cobalt": {
+  "hex": "#1E488F",
+  "references": [
+   "cobalt glass",
+   "Delft pottery",
+   "deep blue paint"
+  ],
+  "associations": [
+   "vibrancy",
+   "depth",
+   "confidence"
+  ],
+  "uses": [
+   "ceramics studios",
+   "small accents",
+   "tech events"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#FFA500",
+   "#FFFF00"
+  ]
+ },
+ "sapphire": {
+  "hex": "#2138AB",
+  "references": [
+   "sapphires",
+   "deep sea",
+   "evening gowns"
+  ],
+  "associations": [
+   "luxury",
+   "loyalty",
+   "depth"
+  ],
+  "uses": [
+   "jewellers",
+   "small accents",
+   "anniversaries"
+  ],
+  "pairings": [
+   "#C0C0C0",
+   "#FFFFFF",
+   "#FFD700"
+  ]
+ },
+ "cornflower blue": {
+  "hex": "#6495ED",
+  "references": [
+   "cornflowers",
+   "denim shirts",
+   "blue willow china"
+  ],
+  "associations": [
+   "friendliness",
+   "calm",
+   "trust"
+  ],
+  "uses": [
+   "homeware brands",
+   "illustration and data",
+   "country cottage themes"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#FFFF00",
+   "#000080"
+  ]
+ },
+ "steel blue": {
+  "hex": "#4682B4",
+  "references": [
+   "steel girders",
+   "overcast lakes",
+   "workwear"
+  ],
+  "associations": [
+   "reliability",
+   "strength",
+   "calm"
+  ],
+  "uses": [
+   "engineering firms",
+   "outlines and details",
+   "corporate reports"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#FFA500",
+   "#808080"
+  ]
+ },
+ "denim": {
+  "hex": "#3B638C",
+  "references": [
+   "blue jeans",
+   "workwear",
+   "chambray shirts"
+  ],
+  "associations": [
+   "casualness",
+   "reliability",
+   "youth"
+  ],
+  "uses": [
+   "fashion retail",
+   "large areas",
+   "casual themes"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#D2B48C",
+   "#FF0000"
+  ]
+ },
+ "azure": {
+  "hex": "#F0FFFF",
+  "references": [
+   "Mediterranean sky",
+   "azure seas",
+   "swimming pools"
+  ],
+  "associations": [
+   "clarity",
+   "serenity",
+   "holidays"
+  ],
+  "uses": [
+   "travel agencies",
+   "large areas",
+   "Mediterranean holidays"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#E2CA76",
+   "#FF7F50"
+  ]
+ },
+ "cerulean": {
+  "hex": "#0485D1",
+  "references": [
+   "cerulean sky",
+   "tropical lagoons",
+   "Greek shutters"
+  ],
+  "associations": [
+   "calm",
+   "freshness",
+   "optimism"
+  ],
+  "uses": [
+   "skincare",
+   "small accents",
+   "beach themes"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#E2CA76",
+   "#FF7F50"
+  ]
+ },
+ "indigo": {
+  "hex": "#4B0082",
+  "references": [
+   "indigo dye",
+   "denim",
+   "twilight sky"
+  ],
+  "associations": [
+   "depth",
+   "intuition",
+   "mystery"
+  ],
+  "uses": [
+   "yoga studios",
+   "large areas",
+   "night themes"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#FFD700",
+   "#C0C0C0"
+  ]
+ },
+ "ultramarine": {
+  "hex": "#2000B1",
+  "references": [
+   "lapis lazuli",
+   "ultramarine paint",
+   "deep sea"
+  ],
+  "associations": [
+   "intensity",
+   "creativity",
+   "depth"
+  ],
+  "uses": [
+   "art suppliers",
+   "illustration and data",
+   "poster campaigns"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#FFFF00",
+   "#FFA500"
+  ]
+ },
+ "midnight blue": {
+  "hex": "#191970",
+  "references": [
+   "midnight sky",
+   "formal suits",
+   "deep ocean"
+  ],
+  "associations": [
+   "elegance",
+   "mystery",
+   "calm"
+  ],
+  "uses": [
+   "luxury brands",
+   "large areas",
+   "evening events"
+  ],
+  "pairings": [
+   "#C0C0C0",
+   "#FFD700",
+   "#FFFFFF"
+  ]
+ },
+ "dark navy": {
+  "hex": "#000435",
+  "references": [
+   "officers' uniforms",
+   "night sky",
+   "ink"
+  ],
+  "associations": [
+   "authority",
+   "seriousness",
+   "elegance"
+  ],
+  "uses": [
+   "law firms",
+   "text and line work",
+   "formal events"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#FFD700",
+   "#808080"
+  ]
+ },
+ "electric blue": {
+  "hex": "#0652FF",
+  "references": [
+   "electric sparks",
+   "neon signs",
+   "sports cars"
+  ],
+  "associations": [
+   "excitement",
+   "technology",
+   "energy"
+  ],
+  "uses": [
+   "gaming brands",
+   "focal points",
+   "nightlife themes"
+  ],
+  "pairings": [
+   "#000000",
+   "#FFFFFF",
+   "#FFFF00"
+  ]
+ },
+ "ice blue": {
+  "hex": "#D7FFFE",
+  "references": [
+   "ice",
+   "glaciers",
+   "frosted glass"
+  ],
+  "associations": [
+   "coolness",
+   "clarity",
+   "cleanliness"
+  ],
+  "uses": [
+   "drinks brands",
+   "large areas",
+   "winter themes"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#000080",
+   "#C0C0C0"
+  ]
+ },
+ "robin's egg blue": {
+  "hex": "#98EFF9",
+  "references": [
+   "robin eggs",
+   "jewellery boxes",
+   "vintage enamel"
+  ],
+  "associations": [
+   "freshness",
+   "charm",
+   "calm"
+  ],
+  "uses": [
+   "gift shops",
+   "small accents",
+   "spring weddings"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#A52A2A",
+   "#FFC0CB"
+  ]
+ },
+ "slate blue": {
+  "hex": "#6A5ACD",
+  "references": [
+   "slate tiles",
+   "dusk sky",
+   "blueberries"
+  ],
+  "associations": [
+   "calm",
+   "maturity",
+   "creativity"
+  ],
+  "uses": [
+   "consultancies",
+   "outlines and details",
+   "autumn themes"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#FFB07C",
+   "#808080"
+  ]
+ },
+ "periwinkle": {
+  "hex": "#8E82FE",
+  "references": [
+   "periwinkle flowers",
+   "hydrangeas",
+   "twilight"
+  ],
+  "associations": [
+   "whimsy",
+   "calm",
+   "creativity"
+  ],
+  "uses": [
+   "stationery brands",
+   "small accents",
+   "spring themes"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#FFFF00",
+   "#808080"
+  ]
+ },
+ "pastel blue": {
+  "hex": "#A2BFFE",
+  "references": [
+   "baby blankets",
+   "spring sky",
+   "candy"
+  ],
+  "associations": [
+   "gentleness",
+   "calm",
+   "innocence"
+  ],
+  "uses": [
+   "baby products",
+   "large areas",
+   "Easter"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#FFC0CB",
+   "#FFFF00"
+  ]
+ },
+ "light purple": {
+  "hex": "#BF77F6",
+  "references": [
+   "lilac blossom",
+   "lavender sachets",
+   "amethyst"
+  ],
+  "associations": [
+   "gentleness",
+   "creativity",
+   "romance"
+  ],
+  "uses": [
+   "beauty brands",
+   "large areas",
+   "spring themes"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#808080",
+   "#9FFEB0"
+  ]
+ },
+ "dark purple": {
+  "hex": "#35063E",
+  "references": [
+   "aubergines",
+   "blackberries",
+   "royal velvet"
+  ],
+  "associations": [
+   "luxury",
+   "mystery",
+   "depth"
+  ],
+  "uses": [
+   "premium brands",
+   "text and line work",
+   "evening events"
+  ],
+  "pairings": [
+   "#FFD700",
+   "#FFFFC2",
+   "#C0C0C0"
+  ]
+ },
+ "pale purple": {
+  "hex": "#B790D4",
+  "references": [
+   "lavender fields at dusk",
+   "wisteria",
+   "lilac soap"
+  ],
+  "associations": [
+   "softness",
+   "nostalgia",
+   "calm"
+  ],
+  "uses": [
+   "skincare",
+   "large areas",
+   "weddings"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#87AE73",
+   "#808080"
+  ]
+ },
+ "bright purple": {
+  "hex": "#BE03FD",
+  "references": [
+   "violets",
+   "neon signs",
+   "ultraviolet light"
+  ],
+  "associations": [
+   "creativity",
+   "boldness",
+   "fun"
+  ],
+  "uses": [
+   "music venues",
+   "focal points",
+   "festivals"
+  ],
+  "pairings": [
+   "#FFFF00",
+   "#000000",
+   "#FFFFFF"
+  ]
+ },
+ "deep purple": {
+  "hex": "#36013F",
+  "references": [
+   "royal robes",
+   "ripe plums",
+   "amethyst geodes"
+  ],
+  "associations": [
+   "luxury",
+   "spirituality",
+   "drama"
+  ],
+  "uses": [
+   "chocolate brands",
+   "small accents",
+   "theatre nights"
+  ],
+  "pairings": [
+   "#FFD700",
+   "#FFFFC2",
+   "#C0C0C0"
+  ]
+ },
+ "muted purple": {
+  "hex": "#805B87",
+  "references": [
+   "dried lavender",
+   "heather",
+   "dusk sky"
+  ],
+  "associations": [
+   "calm",
+   "nostalgia",
+   "maturity"
+  ],
+  "uses": [
+   "homeware brands",
+   "large areas",
+   "autumn themes"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#87AE73",
+   "#808080"
+  ]
+ },
+ "lavender": {
+  "hex": "#E6E6FA",
+  "references": [
+   "lavender fields",
+   "lavender soap",
+   "lilac blossom"
+  ],
+  "associations": [
+   "calm",
+   "gentleness",
+   "nostalgia"
+  ],
+  "uses": [
+   "spas",
+   "large areas",
+   "weddings"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#87AE73",
+   "#808080"
+  ]
+ },
+ "lilac": {
+  "hex": "#CEA2FD",
+  "references": [
+   "lilac blossom",
+   "Easter eggs",
+   "violet sweets"
+  ],
+  "associations": [
+   "youthfulness",
+   "romance",
+   "charm"
+  ],
+  "uses": [
+   "cosmetics",
+   "small accents",
+   "spring themes"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#9FFEB0",
+   "#808080"
+  ]
+ },
+ "mauve": {
+  "hex": "#AE7181",
+  "references": [
+   "dried roses",
+   "vintage lipstick",
+   "heather"
+  ],
+  "associations": [
+   "sophistication",
+   "nostalgia",
+   "softness"
+  ],
+  "uses": [
+   "fashion retail",
+   "small accents",
+   "vintage weddings"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#808080",
+   "#87AE73"
+  ]
+ },
+ "plum": {
+  "hex": "#DDA0DD",
+  "references": [
+   "plums",
+   "plum wine",
+   "autumn heather"
+  ],
+  "associations": [
+   "richness",
+   "maturity",
+   "luxury"
+  ],
+  "uses": [
+   "wine brands",
+   "text and line work",
+   "autumn themes"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#FFD700",
+   "#87AE73"
+  ]
+ },
+ "violet": {
+  "hex": "#EE82EE",
+  "references": [
+   "violets",
+   "amethysts",
+   "twilight"
+  ],
+  "associations": [
+   "spirituality",
+   "creativity",
+   "individuality"
+  ],
+  "uses": [
+   "spiritual brands",
+   "small accents",
+   "art festivals"
+  ],
+  "pairings": [
+   "#FFFF00",
+   "#FFFFFF",
+   "#9FFEB0"
+  ]
+ },
+ "orchid": {
+  "hex": "#DA70D6",
+  "references": [
+   "orchids",
+   "tropical flowers",
+   "boutique hotels"
+  ],
+  "associations": [
+   "exoticism",
+   "grace",
+   "creativity"
+  ],
+  "uses": [
+   "florists",
+   "small accents",
+   "tropical themes"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#87AE73",
+   "#808080"
+  ]
+ },
+ "amethyst": {
+  "hex": "#9B5FC0",
+  "references": [
+   "amethyst crystals",
+   "violet glass",
+   "grape juice"
+  ],
+  "associations": [
+   "calm",
+   "spirituality",
+   "luxury"
+  ],
+  "uses": [
+   "jewellers",
+   "small accents",
+   "birthdays in February"
+  ],
+  "pairings": [
+   "#C0C0C0",
+   "#FFFFFF",
+   "#FFD700"
+  ]
+ },
+ "eggplant": {
+  "hex": "#380835",
+  "references": [
+   "aubergines",
+   "blackberries",
+   "plum skins"
+  ],
+  "associations": [
+   "depth",
+   "earthiness",
+   "sophistication"
+  ],
+  "uses": [
+   "restaurants",
+   "large areas",
+   "autumn menus"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#FFD700",
+   "#87AE73"
+  ]
+ },
+ "magenta": {
+  "hex": "#FF00FF",
+  "references": [
+   "printer ink",
+   "bougainvillea",
+   "fuchsia flowers"
+  ],
+  "associations": [
+   "boldness",
+   "creativity",
+   "energy"
+  ],
+  "uses": [
+   "printing companies",
+   "focal points",
+   "music festivals"
+  ],
+  "pairings": [
+   "#000000",
+   "#FFFFFF",
+   "#00FF00"
+  ]
+ },
+ "fuchsia": {
+  "hex": "#ED0DD9",
+  "references": [
+   "fuchsia flowers",
+   "dragon fruit",
+   "neon signs"
+  ],
+  "associations": [
+   "vibrancy",
+   "confidence",
+   "fun"
+  ],
+  "uses": [
+   "fashion brands",
+   "focal points",
+   "party themes"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#000000",
+   "#00FF00"
+  ]
+ },
+ "pastel purple": {
+  "hex": "#CAA0FF",
+  "references": [
+   "lavender macarons",
+   "lilac nurseries",
+   "candy"
+  ],
+  "associations": [
+   "gentleness",
+   "whimsy",
+   "calm"
+  ],
+  "uses": [
+   "baby products",
+   "large areas",
+   "Easter"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#9FFEB0",
+   "#FFC0CB"
+  ]
+ },
+ "light pink": {
+  "hex": "#FFB6C1",
+  "references": [
+   "ballet slippers",
+   "cherry blossoms",
+   "strawberry milk"
+  ],
+  "associations": [
+   "tenderness",
+   "romance",
+   "softness"
+  ],
+  "uses": [
+   "baby products",
+   "large areas",
+   "baby showers"
+  ],
+  "pairings": [
+   "#808080",
+   "#FFFFFF",
+   "#000080"
+  ]
+ },
+ "dark pink": {
+  "hex": "#CB416B",
+  "references": [
+   "raspberries",
+   "peonies",
+   "pink lipstick"
+  ],
+  "associations": [
+   "confidence",
+   "romance",
+   "energy"
+  ],
+  "uses": [
+   "cosmetics",
+   "focal points",
+   "Valentine's Day"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#000080",
+   "#808080"
+  ]
+ },
+ "pale pink": {
+  "hex": "#FFCFDC",
+  "references": [
+   "blush",
+   "seashells",
+   "rose petals"
+  ],
+  "associations": [
+   "gentleness",
+   "calm",
+   "innocence"
+  ],
+  "uses": [
+   "skincare",
+   "large areas",
+   "weddings"
+  ],
+  "pairings": [
+   "#808080",
+   "#FFFFFF",
+   "#87AE73"
+  ]
+ },
+ "bright pink": {
+  "hex": "#FE01B1",
+  "references": [
+   "flamingos",
+   "bubblegum",
+   "pink highlighters"
+  ],
+  "associations": [
+   "fun",
+   "energy",
+   "boldness"
+  ],
+  "uses": [
+   "youth brands",
+   "small accents",
+   "birthday parties"
+  ],
+  "pairings": [
+   "#000000",
+   "#FFFFFF",
+   "#00FF00"
+  ]
+ },
+ "hot pink": {
+  "hex": "#FF69B4",
+  "references": [
+   "hot pink lipstick",
+   "tropical flowers",
+   "neon signs"
+  ],
+  "associations": [
+   "boldness",
+   "fun",
+   "confidence"
+  ],
+  "uses": [
+   "fashion brands",
+   "focal points",
+   "nightlife themes"
+  ],
+  "pairings": [
+   "#000000",
+   "#FFFFFF",
+   "#00FF00"
+  ]
+ },
+ "dusty pink": {
+  "hex": "#D58A94",
+  "references": [
+   "dried roses",
+   "vintage linen",
+   "plaster walls"
+  ],
+  "associations": [
+   "nostalgia",
+   "softness",
+   "calm"
+  ],
+  "uses": [
+   "interior design",
+   "large areas",
+   "vintage weddings"
+  ],
+  "pairings": [
+   "#808080",
+   "#87AE73",
+   "#000080"
+  ]
+ },
+ "baby pink": {
+  "hex": "#FFB7CE",
+  "references": [
+   "baby clothes",
+   "candy floss",
+   "ballet tutus"
+  ],
+  "associations": [
+   "sweetness",
+   "innocence",
+   "softness"
+  ],
+  "uses": [
+   "baby products",
+   "large areas",
+   "baby showers"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#808080",
+   "#9FFEB0"
+  ]
+ },
+ "rose": {
+  "hex": "#CF6275",
+  "references": [
+   "roses",
+   "rosé wine",
+   "rose quartz"
+  ],
+  "associations": [
+   "romance",
+   "love",
+   "elegance"
+  ],
+  "uses": [
+   "florists",
+   "small accents",
+   "Valentine's Day"
+  ],
+  "pairings": [
+   "#808080",
+   "#FFFFC2",
+   "#87AE73"
+  ]
+ },
+ "blush": {
+  "hex": "#F29E8E",
+  "references": [
+   "blushing cheeks",
+   "peaches",
+   "rose quartz"
+  ],
+  "associations": [
+   "warmth",
+   "softness",
+   "modesty"
+  ],
+  "uses": [
+   "cosmetics",
+   "large areas",
+   "weddings"
+  ],
+  "pairings": [
+   "#808080",
+   "#FFFFFF",
+   "#000080"
+  ]
+ },
+ "carnation pink": {
+  "hex": "#FF7FA7",
+  "references": [
+   "carnations",
+   "strawberry ice cream",
+   "candy"
+  ],
+  "associations": [
+   "affection",
+   "sweetness",
+   "charm"
+  ],
+  "uses": [
+   "greeting card brands",
+   "illustration and data",
+   "Mother's Day"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#9FFEB0",
+   "#808080"
+  ]
+ },
+ "bubblegum": {
+  "hex": "#FF6CB5",
+  "references": [
+   "bubblegum",
+   "candy floss",
+   "toy figures"
+  ],
+  "associations": [
+   "playfulness",
+   "youth",
+   "fun"
+  ],
+  "uses": [
+   "toy brands",
+   "small accents",
+   "children's parties"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#9FFEB0",
+   "#000000"
+  ]
+ },
+ "pastel pink": {
+  "hex": "#FFBACD",
+  "references": [
+   "strawberry macarons",
+   "nursery walls",
+   "sea shells"
+  ],
+  "associations": [
+   "gentleness",
+   "sweetness",
+   "calm"
+  ],
+  "uses": [
+   "bakeries",
+   "large areas",
+   "Easter"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#9FFEB0",
+   "#808080"
+  ]
+ },
+ "neon pink": {
+  "hex": "#FE019A",
+  "references": [
+   "neon signs",
+   "highlighters",
+   "80s fashion"
+  ],
+  "associations": [
+   "excitement",
+   "nightlife",
+   "rebellion"
+  ],
+  "uses": [
+   "music venues",
+   "focal points",
+   "80s themes"
+  ],
+  "pairings": [
+   "#000000",
+   "#FFFFFF",
+   "#0CFF0C"
+  ]
+ },
+ "deep pink": {
+  "hex": "#FF1493",
+  "references": [
+   "peonies",
+   "raspberry sorbet",
+   "pink lipstick"
+  ],
+  "associations": [
+   "confidence",
+   "passion",
+   "fun"
+  ],
+  "uses": [
+   "cosmetics",
+   "focal points",
+   "breast cancer awareness"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#000000",
+   "#000080"
+  ]
+ },
+ "hot magenta": {
+  "hex": "#F504C9",
+  "references": [
+   "fuchsia flowers",
+   "neon signs",
+   "synthwave art"
+  ],
+  "associations": [
+   "boldness",
+   "energy",
+   "drama"
+  ],
+  "uses": [
+   "gaming brands",
+   "focal points",
+   "synthwave themes"
+  ],
+  "pairings": [
+   "#000000",
+   "#FFFFFF",
+   "#00FF00"
+  ]
+ },
+ "light brown": {
+  "hex": "#AD8150",
+  "references": [
+   "caramel",
+   "oak wood",
+   "cardboard boxes"
+  ],
+  "associations": [
+   "warmth",
+   "naturalness",
+   "comfort"
+  ],
+  "uses": [
+   "packaging companies",
+   "large areas",
+   "autumn themes"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#000080",
+   "#008080"
+  ]
+ },
+ "dark brown": {
+  "hex": "#341C02",
+  "references": [
+   "dark chocolate",
+   "espresso",
+   "walnut furniture"
+  ],
+  "associations": [
+   "richness",
+   "reliability",
+   "warmth"
+  ],
+  "uses": [
+   "coffee brands",
+   "text and line work",
+   "winter themes"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#FFD700",
+   "#008080"
+  ]
+ },
+ "pale brown": {
+  "hex": "#B1916E",
+  "references": [
+   "sand",
+   "oatmeal",
+   "kraft paper"
+  ],
+  "associations": [
+   "calm",
+   "naturalness",
+   "simplicity"
+  ],
+  "uses": [
+   "organic brands",
+   "large areas",
+   "harvest themes"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#87AE73",
+   "#000080"
+  ]
+ },
+ "reddish brown": {
+  "hex": "#7F2B0A",
+  "references": [
+   "red clay",
+   "chestnuts",
+   "terracotta"
+  ],
+  "associations": [
+   "earthiness",
+   "warmth",
+   "tradition"
+  ],
+  "uses": [
+   "pottery studios",
+   "illustration and data",
+   "autumn themes"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#008080",
+   "#87AE73"
+  ]
+ },
+ "chocolate": {
+  "hex": "#D2691E",
+  "references": [
+   "chocolate bars",
+   "cocoa",
+   "brownies"
+  ],
+  "associations": [
+   "indulgence",
+   "warmth",
+   "comfort"
+  ],
+  "uses": [
+   "chocolatiers",
+   "text and line work",
+   "Easter"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#FFC0CB",
+   "#008080"
+  ]
+ },
+ "coffee": {
+  "hex": "#A6814C",
+  "references": [
+   "coffee beans",
+   "latte",
+   "espresso cups"
+  ],
+  "associations": [
+   "comfort",
+   "warmth",
+   "energy"
+  ],
+  "uses": [
+   "cafés",
+   "large areas",
+   "cosy winter themes"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#FFFFFF",
+   "#FFA500"
+  ]
+ },
+ "sand": {
+  "hex": "#E2CA76",
+  "references": [
+   "beach sand",
+   "dunes",
+   "linen"
+  ],
+  "associations": [
+   "calm",
+   "naturalness",
+   "warmth"
+  ],
+  "uses": [
+   "travel agencies",
+   "large areas",
+   "beach themes"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#000080",
+   "#008080"
+  ]
+ },
+ "tan": {
+  "hex": "#D2B48C",
+  "references": [
+   "leather bags",
+   "suede",
+   "toast"
+  ],
+  "associations": [
+   "casualness",
+   "warmth",
+   "dependability"
+  ],
+  "uses": [
+   "leather goods",
+   "large areas",
+   "safari themes"
+  ],
+  "pairings": [
+   "#000080",
+   "#FFFFFF",
+   "#808000"
+  ]
+ },
+ "taupe": {
+  "hex": "#B9A281",
+  "references": [
+   "taupe stone",
+   "mushrooms",
+   "linen"
+  ],
+  "associations": [
+   "neutrality",
+   "sophistication",
+   "calm"
+  ],
+  "uses": [
+   "interior design",
+   "large areas",
+   "minimalist themes"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#000080",
+   "#F29E8E"
+  ]
+ },
+ "camel": {
+  "hex": "#C69F59",
+  "references": [
+   "camel coats",
+   "camel hair",
+   "desert sand"
+  ],
+  "associations": [
+   "classic style",
+   "warmth",
+   "comfort"
+  ],
+  "uses": [
+   "fashion retail",
+   "small accents",
+   "autumn collections"
+  ],
+  "pairings": [
+   "#000080",
+   "#FFFFFF",
+   "#610023"
+  ]
+ },
+ "caramel": {
+  "hex": "#AF6F09",
+  "references": [
+   "caramel sauce",
+   "toffee",
+   "honey"
+  ],
+  "associations": [
+   "sweetness",
+   "warmth",
+   "indulgence"
+  ],
+  "uses": [
+   "confectionery",
+   "small accents",
+   "Bonfire Night"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#D2691E",
+   "#008080"
+  ]
+ },
+ "sienna": {
+  "hex": "#A0522D",
+  "references": [
+   "sienna pigment",
+   "autumn leaves",
+   "clay"
+  ],
+  "associations": [
+   "earthiness",
+   "warmth",
+   "artistry"
+  ],
+  "uses": [
+   "art suppliers",
+   "illustration and data",
+   "autumn themes"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#008080",
+   "#000080"
+  ]
+ },
+ "umber": {
+  "hex": "#B26400",
+  "references": [
+   "umber pigment",
+   "tilled soil",
+   "old wood"
+  ],
+  "associations": [
+   "earthiness",
+   "depth",
+   "tradition"
+  ],
+  "uses": [
+   "furniture makers",
+   "text and line work",
+   "heritage themes"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#FFD700",
+   "#87AE73"
+  ]
+ },
+ "mahogany": {
+  "hex": "#4A0100",
+  "references": [
+   "mahogany furniture",
+   "violins",
+   "red-brown leather"
+  ],
+  "associations": [
+   "luxury",
+   "tradition",
+   "warmth"
+  ],
+  "uses": [
+   "furniture makers",
+   "text and line work",
+   "library themes"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#FFD700",
+   "#228B22"
+  ]
+ },
+ "chestnut": {
+  "hex": "#742802",
+  "references": [
+   "chestnuts",
+   "horse coats",
+   "autumn leaves"
+  ],
+  "associations": [
+   "warmth",
+   "reliability",
+   "autumn"
+  ],
+  "uses": [
+   "equestrian brands",
+   "small accents",
+   "autumn themes"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#87AE73",
+   "#000080"
+  ]
+ },
+ "cocoa": {
+  "hex": "#875F42",
+  "references": [
+   "cocoa powder",
+   "hot chocolate",
+   "brownies"
+  ],
+  "associations": [
+   "comfort",
+   "warmth",
+   "indulgence"
+  ],
+  "uses": [
+   "cafés",
+   "large areas",
+   "winter themes"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#FFC0CB",
+   "#9FFEB0"
+  ]
+ },
+ "bronze": {
+  "hex": "#A87900",
+  "references": [
+   "bronze medals",
+   "statues",
+   "old coins"
+  ],
+  "associations": [
+   "achievement",
+   "durability",
+   "warmth"
+  ],
+  "uses": [
+   "award ceremonies",
+   "outlines and details",
+   "third-place medals"
+  ],
+  "pairings": [
+   "#000000",
+   "#FFFFC2",
+   "#000080"
+  ]
+ },
+ "mushroom": {
+  "hex": "#BA9E88",
+  "references": [
+   "mushrooms",
+   "stone",
+   "linen"
+  ],
+  "associations": [
+   "calm",
+   "naturalness",
+   "understatement"
+  ],
+  "uses": [
+   "homeware brands",
+   "large areas",
+   "minimalist themes"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#87AE73",
+   "#F29E8E"
+  ]
+ },
+ "light grey": {
+  "hex": "#D3D3D3",
+  "references": [
+   "pebbles",
+   "morning fog",
+   "aluminium"
+  ],
+  "associations": [
+   "calm",
+   "neutrality",
+   "modernity"
+  ],
+  "uses": [
+   "software companies",
+   "large areas",
+   "minimalist themes"
+  ],
+  "pairings": [
+   "#FFFF00",
+   "#000080",
+   "#FFC0CB"
+  ]
+ },
+ "dark grey": {
+  "hex": "#A9A9A9",
+  "references": [
+   "slate",
+   "charcoal suits",
+   "asphalt"
+  ],
+  "associations": [
+   "seriousness",
+   "stability",
+   "modernity"
+  ],
+  "uses": [
+   "tech brands",
+   "text and line work",
+   "dark mode themes"
+  ],
+  "pairings": [
+   "#FFFF00",
+   "#FFFFFF",
+   "#FFA500"
+  ]
+ },
+ "charcoal": {
+  "hex": "#343837",
+  "references": [
+   "charcoal",
+   "business suits",
+   "graphite pencils"
+  ],
+  "associations": [
+   "seriousness",
+   "strength",
+   "sophistication"
+  ],
+  "uses": [
+   "consulting firms",
+   "text and line work",
+   "formal events"
+  ],
+  "pairings": [
+   "#FFFF00",
+   "#FFFFFF",
+   "#FF7F50"
+  ]
+ },
+ "slate": {
+  "hex": "#516572",
+  "references": [
+   "slate roofs",
+   "school chalkboards",
+   "rainy skies"
+  ],
+  "associations": [
+   "stability",
+   "calm",
+   "understatement"
+  ],
+  "uses": [
+   "architecture firms",
+   "text and line work",
+   "rainy-day themes"
+  ],
+  "pairings": [
+   "#FFFFC2",
+   "#CEB301",
+   "#FF7F50"
+  ]
+ },
+ "slate grey": {
+  "hex": "#708090",
+  "references": [
+   "slate tiles",
+   "storm clouds",
+   "pewter"
+  ],
+  "associations": [
+   "calm",
+   "maturity",
+   "neutrality"
+  ],
+  "uses": [
+   "software companies",
+   "outlines and details",
+   "corporate reports"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#FFFF00",
+   "#FF7F50"
+  ]
+ },
+ "silver": {
+  "hex": "#C0C0C0",
+  "references": [
+   "silver jewellery",
+   "cutlery",
+   "foil"
+  ],
+  "associations": [
+   "modernity",
+   "elegance",
+   "technology"
+  ],
+  "uses": [
+   "jewellers",
+   "outlines and details",
+   "25th anniversaries"
+  ],
+  "pairings": [
+   "#000080",
+   "#000000",
+   "#FFFFFF"
+  ]
+ },
+ "cool grey": {
+  "hex": "#95A3A6",
+  "references": [
+   "concrete",
+   "steel",
+   "overcast sky"
+  ],
+  "associations": [
+   "modernity",
+   "calm",
+   "professionalism"
+  ],
+  "uses": [
+   "tech brands",
+   "outlines and details",
+   "futuristic themes"
+  ],
+  "pairings": [
+   "#FFFF00",
+   "#000080",
+   "#FFFFFF"
+  ]
+ },
+ "warm grey": {
+  "hex": "#978A84",
+  "references": [
+   "stone walls",
+   "driftwood",
+   "elephant skin"
+  ],
+  "associations": [
+   "comfort",
+   "balance",
+   "understatement"
+  ],
+  "uses": [
+   "homeware brands",
+   "large areas",
+   "Scandinavian themes"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#CA6641",
+   "#000080"
+  ]
+ },
+ "stone": {
+  "hex": "#ADA587",
+  "references": [
+   "stone walls",
+   "pebbles",
+   "limestone"
+  ],
+  "associations": [
+   "stability",
+   "naturalness",
+   "calm"
+  ],
+  "uses": [
+   "architecture firms",
+   "large areas",
+   "natural themes"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#000080",
+   "#87AE73"
+  ]
+ },
+ "putty": {
+  "hex": "#BEAE8A",
+  "references": [
+   "putty",
+   "plaster",
+   "unbleached cotton"
+  ],
+  "associations": [
+   "calm",
+   "practicality",
+   "softness"
+  ],
+  "uses": [
+   "fashion retail",
+   "large areas",
+   "minimalist themes"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#000080",
+   "#CA6641"
+  ]
+ },
+ "gunmetal": {
+  "hex": "#536267",
+  "references": [
+   "gun barrels",
+   "steel tools",
+   "storm clouds"
+  ],
+  "associations": [
+   "toughness",
+   "modernity",
+   "seriousness"
+  ],
+  "uses": [
+   "car brands",
+   "outlines and details",
+   "industrial themes"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#FFA500",
+   "#C0C0C0"
+  ]
+ },
+ "off white": {
+  "hex": "#FFFFE4",
+  "references": [
+   "eggshells",
+   "cotton",
+   "old paper"
+  ],
+  "associations": [
+   "softness",
+   "calm",
+   "warmth"
+  ],
+  "uses": [
+   "stationery brands",
+   "large areas",
+   "minimalist themes"
+  ],
+  "pairings": [
+   "#000080",
+   "#000000",
+   "#87AE73"
+  ]
+ },
+ "cream": {
+  "hex": "#FFFFC2",
+  "references": [
+   "cream",
+   "vanilla ice cream",
+   "old lace"
+  ],
+  "associations": [
+   "warmth",
+   "softness",
+   "elegance"
+  ],
+  "uses": [
+   "bakeries",
+   "large areas",
+   "weddings"
+  ],
+  "pairings": [
+   "#000080",
+   "#610023",
+   "#228B22"
+  ]
+ },
+ "ivory": {
+  "hex": "#FFFFF0",
+  "references": [
+   "piano keys",
+   "ivory paper",
+   "wedding dresses"
+  ],
+  "associations": [
+   "elegance",
+   "purity",
+   "calm"
+  ],
+  "uses": [
+   "luxury stationery",
+   "large areas",
+   "weddings"
+  ],
+  "pairings": [
+   "#000080",
+   "#FFD700",
+   "#000000"
+  ]
+ },
+ "beige": {
+  "hex": "#F5F5DC",
+  "references": [
+   "sand",
+   "linen",
+   "oatmeal"
+  ],
+  "associations": [
+   "calm",
+   "neutrality",
+   "warmth"
+  ],
+  "uses": [
+   "skincare",
+   "large areas",
+   "neutral interiors"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#000080",
+   "#A52A2A"
+  ]
+ },
+ "eggshell": {
+  "hex": "#FFFFD4",
+  "references": [
+   "eggshells",
+   "matte paint",
+   "parchment"
+  ],
+  "associations": [
+   "softness",
+   "calm",
+   "subtlety"
+  ],
+  "uses": [
+   "paint brands",
+   "large areas",
+   "Scandinavian themes"
+  ],
+  "pairings": [
+   "#000080",
+   "#808080",
+   "#87AE73"
+  ]
+ },
+ "linen": {
+  "hex": "#FAF0E6",
+  "references": [
+   "linen sheets",
+   "flax",
+   "natural fabric"
+  ],
+  "associations": [
+   "naturalness",
+   "calm",
+   "simplicity"
+  ],
+  "uses": [
+   "bedding brands",
+   "large areas",
+   "natural themes"
+  ],
+  "pairings": [
+   "#000080",
+   "#87AE73",
+   "#A52A2A"
+  ]
+ },
+ "snow": {
+  "hex": "#FFFAFA",
+  "references": [
+   "fresh snow",
+   "white sheets",
+   "frost"
+  ],
+  "associations": [
+   "purity",
+   "freshness",
+   "quiet"
+  ],
+  "uses": [
+   "healthcare",
+   "large areas",
+   "winter holidays"
+  ],
+  "pairings": [
+   "#000080",
+   "#FF0000",
+   "#C0C0C0"
+  ]
+ },
+ "pastel yellow": {
+  "hex": "#FFFE71",
+  "references": [
+   "lemon meringue",
+   "baby chicks",
+   "primroses"
+  ],
+  "associations": [
+   "gentleness",
+   "cheer",
+   "calm"
+  ],
+  "uses": [
+   "baby products",
+   "large areas",
+   "Easter"
+  ],
+  "pairings": [
+   "#808080",
+   "#E6E6FA",
+   "#FFFFFF"
+  ]
+ },
+ "pastel orange": {
+  "hex": "#FF964F",
+  "references": [
+   "peach sorbet",
+   "apricot jam",
+   "sunset clouds"
+  ],
+  "associations": [
+   "warmth",
+   "gentleness",
+   "friendliness"
+  ],
+  "uses": [
+   "bakeries",
+   "large areas",
+   "summer themes"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#008080",
+   "#808080"
+  ]
+ },
+ "neon yellow": {
+  "hex": "#CFFF04",
+  "references": [
+   "highlighter pens",
+   "safety vests",
+   "tennis balls"
+  ],
+  "associations": [
+   "alertness",
+   "energy",
+   "fun"
+  ],
+  "uses": [
+   "sportswear",
+   "focal points",
+   "rave and nightlife themes"
+  ],
+  "pairings": [
+   "#000000",
+   "#343837",
+   "#800080"
+  ]
+ },
+ "dodger blue": {
+  "hex": "#1E90FF",
+  "references": [
+   "swimming pools",
+   "sports kits",
+   "summer skies"
+  ],
+  "associations": [
+   "energy",
+   "trust",
+   "friendliness"
+  ],
+  "uses": [
+   "tech brands",
+   "text and line work",
+   "sports events"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#FFA500",
+   "#FFFF00"
+  ]
+ },
+ "light coral": {
+  "hex": "#F08080",
+  "references": [
+   "coral",
+   "pink grapefruit",
+   "summer dresses"
+  ],
+  "associations": [
+   "warmth",
+   "friendliness",
+   "softness"
+  ],
+  "uses": [
+   "lifestyle brands",
+   "focal points",
+   "summer themes"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#000080",
+   "#008080"
+  ]
+ },
+ "dark salmon": {
+  "hex": "#E9967A",
+  "references": [
+   "smoked salmon",
+   "terracotta",
+   "papaya"
+  ],
+  "associations": [
+   "warmth",
+   "appetite",
+   "softness"
+  ],
+  "uses": [
+   "restaurants",
+   "small accents",
+   "summer menus"
+  ],
+  "pairings": [
+   "#FFFFFF",
+   "#000080",
+   "#008080"
+  ]
+ }
+}

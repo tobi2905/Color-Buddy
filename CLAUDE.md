@@ -31,7 +31,8 @@ Review checkpoint, tick tasks as they are done, and record decisions in its Deci
 
 - `VITE_SELFTEST=1 npm run tauri dev`: samples the debug window's test patches on launch; results in the log (`self-test ...`).
 - `COLOR_BUDDY_ON_TOP=1`: keeps the debug window above other windows.
-- `COLOR_BUDDY_AUTOSTART=<seconds>`: samples for that long after launch and logs `sampling stopped: ... /s`.
+- `COLOR_BUDDY_AUTOSTART=<seconds>`: opens the picker overlay for that long after launch and logs `sampling stopped: ... /s`.
+- `VITE_SELFTEST_DELAY_MS`: when the self-test runs (default 1500), e.g. after `COLOR_BUDDY_AUTOSTART` opened the picker.
 - `cargo run --release --example sampler_bench [-- watch]`: capture timing per N, or live hex under the cursor.
 - macOS: the app that launches these (e.g. VS Code) needs Screen Recording permission.
 
@@ -41,6 +42,7 @@ Review checkpoint, tick tasks as they are done, and record decisions in its Deci
 - Conversion test expectations: `tools/gen_reference_values.py` (needs `colour-science`).
 - `cargo run --release -p color-core --example naming_bench`: lookup timing.
 - `cargo run -p color-core --example name_table`: review table of the test colours.
+- Reference data: edit `tools/references_source.txt`, run `python3 tools/gen_references.py`, then `npm run lint:data`.
 
 ## Conventions
 

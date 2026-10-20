@@ -53,13 +53,34 @@ pub fn search_color_by_name(query: String) -> Vec<color_core::ColorName> {
 }
 
 #[tauri::command]
-pub fn start_picker(app: AppHandle, sampler: State<'_, Sampler>) {
-    sampler.start(app, Instant::now());
+pub fn start_picker(app: AppHandle) {
+    crate::picker::open(&app, Instant::now());
 }
 
 #[tauri::command]
-pub fn stop_picker(app: AppHandle, sampler: State<'_, Sampler>) {
-    sampler.stop(&app);
+pub fn stop_picker(app: AppHandle) {
+    crate::picker::close(&app);
+}
+
+/// Freeze on the colour under the cursor: copies its hex and adds it to history.
+#[tauri::command]
+pub fn freeze_pick(app: AppHandle) -> Result<color_core::ColorInfo, String> {
+    crate::picker::freeze(&app).map(|hover| hover.info)
+}
+
+/// Shift the sampled point by whole physical pixels (arrow keys in the picker).
+#[tauri::command]
+pub fn nudge_cursor(app: AppHandle, dx: i32, dy: i32) -> Result<(), String> {
+    crate::picker::nudge(&app, dx.clamp(-10, 10), dy.clamp(-10, 10))
+}
+
+/// Newest first.
+#[tauri::command]
+pub fn list_history(
+    limit: Option<usize>,
+    history: State<'_, crate::history::History>,
+) -> Vec<crate::history::HistoryEntry> {
+    history.list(limit.unwrap_or(crate::history::CAPACITY))
 }
 
 // --- Phase 1 debug commands (temporary) ------------------------------------------------------

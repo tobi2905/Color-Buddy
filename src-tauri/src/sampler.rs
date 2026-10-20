@@ -1,8 +1,9 @@
-//! Cursor + screen sampling (Phase 1 spike).
+//! Cursor + screen sampling.
 //!
 //! Platform backends live in `sampler/macos.rs` and `sampler/windows.rs`. Both return the
-//! N×N physical pixels centred on the cursor, as sRGB. Everything else here (window math,
-//! cropping, the sampling loop and its measurements) is platform independent.
+//! N×N physical pixels centred on the cursor, as sRGB, list the displays and move the cursor.
+//! Everything else here (window math, cropping, the sampling loop with freeze/resume and its
+//! measurements) is platform independent.
 
 use std::sync::atomic::{AtomicBool, AtomicU32, AtomicU64, Ordering};
 use std::sync::{Arc, Mutex};
@@ -34,9 +35,13 @@ mod platform {
     pub fn capture_at(_x: f64, _y: f64, _size: u32) -> Result<Capture, SampleError> {
         Err(SampleError::Unsupported)
     }
+    pub fn displays() -> Vec<Display> {
+        Vec::new()
+    }
+    pub fn set_excluded_window(_display: u32, _window: Option<u32>) {}
 }
 
-pub use platform::{has_permission, init, request_permission};
+pub use platform::{displays, has_permission, init, request_permission, set_excluded_window};
 
 /// Allowed sample sizes (N in N×N).
 pub const SIZES: [u32; 3] = [1, 3, 5];
@@ -57,8 +62,39 @@ pub struct DisplayInfo {
     pub converted_to_srgb: bool,
 }
 
+/// A display in platform-native global coordinates (macOS: points; Windows: physical pixels).
+#[derive(Debug, Clone, Copy, PartialEq, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Display {
+    pub id: u32,
+    pub x: f64,
+    pub y: f64,
+    pub width: f64,
+    pub height: f64,
+    /// CSS pixels of a webview on this display per native unit (macOS 1; Windows 1/scale).
+    pub css_per_native: f64,
+    /// Physical pixels per native unit (macOS: the backing scale, e.g. 2; Windows 1).
+    pub physical_per_native: f64,
+}
+
+impl Display {
+    pub fn contains(&self, x: f64, y: f64) -> bool {
+        x >= self.x && y >= self.y && x < self.x + self.width && y < self.y + self.height
+    }
+
+    /// A global point in CSS pixels relative to this display's top-left corner.
+    pub fn to_local_css(&self, x: f64, y: f64) -> (f64, f64) {
+        (
+            (x - self.x) * self.css_per_native,
+            (y - self.y) * self.css_per_native,
+        )
+    }
+}
+
 #[derive(Debug, Clone)]
 pub struct Capture {
+    /// Where the sample was taken, in platform-native global coordinates.
+    pub cursor: (f64, f64),
     pub size: u32,
     /// Row-major, `size * size` pixels; the centre is the pixel under the cursor.
     pub pixels: Vec<Rgb>,
@@ -109,6 +145,25 @@ impl SampleError {
 /// (macOS: points, origin top-left of the main display; Windows: physical pixels).
 pub fn cursor() -> Result<(f64, f64), SampleError> {
     platform::cursor()
+}
+
+/// `cursor` moved by whole physical pixels on the display under it. Used for arrow-key nudges:
+/// the OS only places the cursor on whole points (2 px on a 2× display), so the sampler keeps
+/// its own pixel offset instead of moving the cursor.
+pub(crate) fn offset_point(
+    cursor: (f64, f64),
+    offset: (i32, i32),
+    displays: &[Display],
+) -> (f64, f64) {
+    let per = displays
+        .iter()
+        .find(|d| d.contains(cursor.0, cursor.1))
+        .map(|d| d.physical_per_native)
+        .unwrap_or(1.0);
+    (
+        cursor.0 + offset.0 as f64 / per,
+        cursor.1 + offset.1 as f64 / per,
+    )
 }
 
 /// Sample the N×N area under the cursor.
@@ -182,10 +237,45 @@ impl RateMeter {
 // Sampling loop
 // ---------------------------------------------------------------------------------------------
 
-/// Payload of the temporary Phase 1 `color-hovered` event.
+/// Payload of the `color-hovered` event (see the Tauri command contract in SPEC.md).
 #[derive(Debug, Clone, Serialize)]
+#[serde(rename_all = "camelCase")]
 pub struct HoveredEvent {
-    pub hex: String,
+    /// Cursor in platform-native global coordinates.
+    pub x: f64,
+    pub y: f64,
+    /// Display under the cursor, and the cursor relative to it in CSS pixels.
+    pub display: u32,
+    pub local_x: f64,
+    pub local_y: f64,
+    pub info: color_core::ColorInfo,
+    /// The N×N sample, row by row; the centre is the pixel under the cursor.
+    pub loupe: Vec<Vec<Rgb>>,
+}
+
+impl HoveredEvent {
+    fn from_capture(cap: &Capture, displays: &[Display]) -> Self {
+        let (x, y) = cap.cursor;
+        let (local_x, local_y) = displays
+            .iter()
+            .find(|d| d.id == cap.display.id)
+            .map(|d| d.to_local_css(x, y))
+            .unwrap_or((0.0, 0.0));
+        HoveredEvent {
+            x,
+            y,
+            display: cap.display.id,
+            local_x,
+            local_y,
+            info: color_core::color_info(cap.center()),
+            loupe: to_grid(&cap.pixels, cap.size),
+        }
+    }
+}
+
+/// Row-major pixels to rows.
+pub(crate) fn to_grid(pixels: &[Rgb], size: u32) -> Vec<Vec<Rgb>> {
+    pixels.chunks(size as usize).map(|r| r.to_vec()).collect()
 }
 
 /// Payload of the `sampler-status` debug event.
@@ -208,9 +298,22 @@ pub struct SamplerStatus {
 #[derive(Default)]
 struct Shared {
     running: AtomicBool,
+    /// While frozen the loop keeps running but takes no samples.
+    frozen: AtomicBool,
     generation: AtomicU64,
     size: AtomicU32,
     status: Mutex<SamplerStatus>,
+    last: Mutex<Option<HoveredEvent>>,
+    displays: Mutex<Vec<Display>>,
+    nudge: Mutex<Nudge>,
+}
+
+/// Arrow-key offset from the cursor, in physical pixels. Cleared when the mouse moves away from
+/// `anchor`, the cursor position when the offset was set.
+#[derive(Debug, Default)]
+struct Nudge {
+    offset: (i32, i32),
+    anchor: Option<(f64, f64)>,
 }
 
 /// Starts/stops the background sampling thread. Cheap to clone.
@@ -241,6 +344,47 @@ impl Sampler {
         status
     }
 
+    pub fn is_frozen(&self) -> bool {
+        self.shared.frozen.load(Ordering::SeqCst)
+    }
+
+    /// Stop updating and return the colour under the cursor at that moment.
+    pub fn freeze(&self) -> Option<HoveredEvent> {
+        self.shared.frozen.store(true, Ordering::SeqCst);
+        self.shared.last.lock().unwrap().clone()
+    }
+
+    /// Shift the sampled point by whole physical pixels, relative to the current cursor.
+    pub fn nudge(&self, dx: i32, dy: i32) -> Result<(), SampleError> {
+        let cursor = cursor()?;
+        let mut n = self.shared.nudge.lock().unwrap();
+        if n.anchor != Some(cursor) {
+            n.offset = (0, 0);
+        }
+        n.offset = (n.offset.0 + dx, n.offset.1 + dy);
+        n.anchor = Some(cursor);
+        Ok(())
+    }
+
+    /// The point to sample: the cursor plus any arrow-key offset (cleared once the mouse moves).
+    fn sample_point(&self, displays: &[Display]) -> Result<(f64, f64), SampleError> {
+        let cursor = cursor()?;
+        let mut n = self.shared.nudge.lock().unwrap();
+        if n.anchor.is_some() && n.anchor != Some(cursor) {
+            *n = Nudge::default();
+        }
+        Ok(offset_point(cursor, n.offset, displays))
+    }
+
+    pub fn resume(&self) {
+        self.shared.frozen.store(false, Ordering::SeqCst);
+    }
+
+    /// Displays as of the last start.
+    pub fn displays(&self) -> Vec<Display> {
+        self.shared.displays.lock().unwrap().clone()
+    }
+
     pub fn set_size(&self, size: u32) -> Result<(), String> {
         if !SIZES.contains(&size) {
             return Err(format!("sample size must be one of {SIZES:?}"));
@@ -256,6 +400,10 @@ impl Sampler {
         }
         let generation = self.shared.generation.fetch_add(1, Ordering::SeqCst) + 1;
         *self.shared.status.lock().unwrap() = SamplerStatus::default();
+        *self.shared.last.lock().unwrap() = None;
+        *self.shared.displays.lock().unwrap() = displays();
+        *self.shared.nudge.lock().unwrap() = Nudge::default();
+        self.shared.frozen.store(false, Ordering::SeqCst);
 
         if !has_permission() {
             // Registers the app in System Settings and shows the system prompt the first time.
@@ -308,24 +456,30 @@ impl Sampler {
         let mut last_display: Option<DisplayInfo> = None;
         let mut next = Instant::now();
         let loop_started = Instant::now();
+        let displays = self.displays();
 
         while self.shared.running.load(Ordering::SeqCst)
             && self.shared.generation.load(Ordering::SeqCst) == generation
         {
+            if self.is_frozen() {
+                std::thread::sleep(interval);
+                next = Instant::now();
+                continue;
+            }
             let size = self.shared.size.load(Ordering::Relaxed);
             let started = Instant::now();
-            match capture(size) {
+            let sample = self
+                .sample_point(&displays)
+                .and_then(|(x, y)| capture_at(x, y, size));
+            match sample {
                 Ok(cap) => {
+                    let hover = HoveredEvent::from_capture(&cap, &displays);
                     let now = Instant::now();
                     capture_total += now - started;
                     capture_count += 1;
                     meter.tick(now);
-                    let _ = app.emit(
-                        "color-hovered",
-                        HoveredEvent {
-                            hex: cap.center().to_hex(),
-                        },
-                    );
+                    let _ = app.emit("color-hovered", &hover);
+                    *self.shared.last.lock().unwrap() = Some(hover);
 
                     let mut status = self.shared.status.lock().unwrap();
                     if status.first_sample_ms.is_none() {
@@ -462,6 +616,7 @@ mod tests {
     fn capture_center_is_middle_pixel() {
         let pixels = (0..25).map(|i| Rgb::new(i, 0, 0)).collect();
         let cap = Capture {
+            cursor: (0.0, 0.0),
             size: 5,
             pixels,
             display: DisplayInfo {
@@ -473,6 +628,57 @@ mod tests {
             },
         };
         assert_eq!(cap.center(), Rgb::new(12, 0, 0));
+    }
+
+    #[test]
+    fn grid_rows() {
+        let pixels: Vec<Rgb> = (0..9).map(|i| Rgb::new(i, 0, 0)).collect();
+        let grid = to_grid(&pixels, 3);
+        assert_eq!(grid.len(), 3);
+        assert_eq!(grid[1][2], Rgb::new(5, 0, 0));
+    }
+
+    #[test]
+    fn local_css_position() {
+        // A 150% Windows monitor right of the primary: physical origin 1920, 1 css px = 1.5 px.
+        let d = Display {
+            id: 2,
+            x: 1920.0,
+            y: 0.0,
+            width: 2880.0,
+            height: 1620.0,
+            css_per_native: 1.0 / 1.5,
+            physical_per_native: 1.0,
+        };
+        assert!(d.contains(1920.0, 0.0) && !d.contains(1919.0, 0.0));
+        assert_eq!(d.to_local_css(2220.0, 300.0), (200.0, 200.0));
+    }
+
+    #[test]
+    fn offsets_are_whole_physical_pixels() {
+        // A 2× Mac display: one physical pixel is half a point.
+        let retina = Display {
+            id: 1,
+            x: 0.0,
+            y: 0.0,
+            width: 1728.0,
+            height: 1117.0,
+            css_per_native: 1.0,
+            physical_per_native: 2.0,
+        };
+        assert_eq!(
+            offset_point((100.0, 50.0), (1, 1), &[retina]),
+            (100.5, 50.5)
+        );
+        assert_eq!(
+            offset_point((100.0, 50.0), (-3, 0), &[retina]),
+            (98.5, 50.0)
+        );
+        // Windows works in physical pixels already; off-display falls back to 1:1.
+        assert_eq!(
+            offset_point((5000.0, 5000.0), (1, -1), &[retina]),
+            (5001.0, 4999.0)
+        );
     }
 
     #[test]

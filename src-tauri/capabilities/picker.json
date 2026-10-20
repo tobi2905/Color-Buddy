@@ -1,0 +1,7 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "picker",
+  "description": "Capability for the per-display picker overlays",
+  "windows": ["picker-*"],
+  "permissions": ["core:default"]
+}

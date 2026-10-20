@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+/* The overlay covers the whole display. A 1% tint lets it catch clicks; it never appears in
+   samples because the sampler captures below (macOS) or excludes (Windows) this window. */
+html,
+body,
+#root {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: rgb(0 0 0 / 0.01);
+  cursor: crosshair;
+  user-select: none;
+}

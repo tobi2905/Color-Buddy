@@ -19,7 +19,29 @@ use windows_sys::Win32::UI::HiDpi::{
 };
 use windows_sys::Win32::UI::WindowsAndMessaging::GetCursorPos;
 
-use super::{Capture, DisplayInfo, SampleError, crop_rgba, window_start};
+use super::{Capture, Display, DisplayInfo, SampleError, crop_rgba, window_start};
+
+/// Picker overlays are excluded from capture with `SetWindowDisplayAffinity` instead.
+pub fn set_excluded_window(_display: u32, _window: Option<u32>) {}
+
+/// Monitors in physical virtual-screen pixels.
+pub fn displays() -> Vec<Display> {
+    xcap::Monitor::all()
+        .unwrap_or_default()
+        .into_iter()
+        .filter_map(|m| {
+            Some(Display {
+                id: m.id().ok()?,
+                x: m.x().ok()? as f64,
+                y: m.y().ok()? as f64,
+                width: m.width().ok()? as f64,
+                height: m.height().ok()? as f64,
+                css_per_native: 1.0 / m.scale_factor().ok()? as f64,
+                physical_per_native: 1.0,
+            })
+        })
+        .collect()
+}
 
 pub fn init() {
     // Fails harmlessly if awareness was already set (e.g. by Tauri).
@@ -61,6 +83,7 @@ pub fn capture_at(x: f64, y: f64, size: u32) -> Result<Capture, SampleError> {
     let scale = monitor.scale_factor().map_err(err)? as f64;
     let (profile, is_srgb) = display_profile(x, y);
     Ok(Capture {
+        cursor: (x as f64, y as f64),
         size,
         pixels: crop_rgba(image.as_raw(), image.width(), 0, 0, size),
         display: DisplayInfo {

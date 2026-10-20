@@ -240,6 +240,7 @@ Each phase lists its goal, tasks, acceptance criteria and a review checkpoint. P
     - `cargo run --release --example sampler_bench` (timing per N) and `... -- watch` while hovering `tools/test-patches.png`.
     - `$env:VITE_SELFTEST="1"; npm run tauri dev` and check the `self-test` log lines (expect every patch exact at N = 1, 3, 5).
     - Press `Ctrl+Shift+C` in the app and read "Hotkey to first sample" in the debug window.
+    - Phase 5: the picker overlay appears on every monitor (try mixed scaling), and samples are unaffected by it (run the self-test with the picker open).
 
 **Acceptance criteria**
 - Hovering a known test image (pure #FF0000, #00FF00, #0000FF, #87CEEB patches) reports the exact hex on sRGB displays on both platforms, including on a scaled (e.g. 150%) display. On wide-gamut (e.g. Display P3) Macs, each channel is within 3 of the expected value; fully saturated colors at the gamut edge can't round-trip exactly through the 8-bit display buffer (see Decision log).
@@ -312,7 +313,7 @@ Each phase lists its goal, tasks, acceptance criteria and a review checkpoint. P
 **Goal:** real-world references, associations and pairings for common colors.
 
 **Tasks**
-- [ ] Define `references.json` schema:
+- [x] Define `references.json` schema:
     ```json
     {
       "mint": {
@@ -324,10 +325,10 @@ Each phase lists its goal, tasks, acceptance criteria and a review checkpoint. P
       }
     }
     ```
-- [ ] Write entries for the top 200 colors (prioritize basic hues and their common light/dark/muted variants).
-- [ ] Fallback: when a color has no entry, use the nearest entry within a ΔE limit and label it "similar to <name>"; otherwise use the basic-name family entry.
-- [ ] Validation script: schema check, valid hex, no duplicate keys.
-- [ ] Complete `get_color_details` with references.
+- [x] Write entries for the top 200 colors (prioritize basic hues and their common light/dark/muted variants).
+- [x] Fallback: when a color has no entry, use the nearest entry within a ΔE limit and label it "similar to <name>"; otherwise use the basic-name family entry.
+- [x] Validation script: schema check, valid hex, no duplicate keys.
+- [x] Complete `get_color_details` with references.
 
 **Acceptance criteria**
 - 200 entries pass validation.
@@ -343,12 +344,12 @@ Each phase lists its goal, tasks, acceptance criteria and a review checkpoint. P
 **Goal:** the everyday picker experience.
 
 **Tasks**
-- [ ] Separate transparent, always-on-top, click-through picker window that follows the cursor (offset so it never covers the sampled point).
-- [ ] Loupe: magnified N×N grid with the center pixel outlined.
-- [ ] Label: descriptive name (large), basic name, hex, and short description. Show ΔE-based confidence subtly ("closest match").
-- [ ] Click or hotkey to freeze → copy hex to clipboard → toast "Copied #87CEEB (sky blue)" → add to history.
-- [ ] `Esc` closes the picker; arrow keys nudge one pixel.
-- [ ] Stays readable on any background (solid panel, high contrast).
+- [x] Separate transparent, always-on-top, click-through picker window that follows the cursor (offset so it never covers the sampled point). *(Changed: one full-display catcher window per monitor instead, so a click freezes without clicking the app underneath; overlays are excluded from capture.)*
+- [x] Loupe: magnified N×N grid with the center pixel outlined.
+- [x] Label: descriptive name (large), basic name, hex, and short description. Show ΔE-based confidence subtly ("closest match").
+- [x] Click or hotkey to freeze → copy hex to clipboard → toast "Copied #87CEEB (sky blue)" → add to history.
+- [x] `Esc` closes the picker; arrow keys nudge one pixel.
+- [x] Stays readable on any background (solid panel, high contrast).
 
 **Acceptance criteria**
 - Updates smoothly at 30+ fps with no visible lag.
@@ -486,3 +487,15 @@ Each phase lists its goal, tasks, acceptance criteria and a review checkpoint. P
 | 2026-10-19 | Thresholds: normal vision 15 / 8, simulated deficiencies 20 / 10 | User's choice at checkpoint 3. Red vs green under deutan measured 15.7 (lightness only); the margin flags it without adding noise for typical vision |
 | 2026-10-19 | Background/surface pairs marked `subtle` and excluded from warnings (`check_palette` takes optional roles) | User's choice: a deliberate subtle tint was "hard to tell" in every palette |
 | 2026-10-19 | Accents offset 0.2 OKLCH L from the primary (either side when both fit, else two steps one way; clamped 0.30–0.90) | User's choice. Across the 25 review palettes, hard-to-tell pairs fell: protan 12→3, deutan 13→1, tritan 7→0, achromat 78→19 |
+| 2026-10-19 | `references.json` (204 colours) is generated from `tools/references_source.txt`; entry and pairing hex values come from the name lists | Keeps names and values consistent; pairings are authored as names, not hand-typed hex |
+| 2026-10-19 | Reference lookup: nearest entry ≤ 2 ΔE = exact, ≤ 10 ΔE = "similar to <name>", else the basic family's entry | Over a 5,832-colour RGB grid: 7% exact, 85% similar, 8% family |
+| 2026-10-19 | `ColorDetails.associations` = associations followed by uses; new `referenceSource` field (name, hex, match, ΔE, label) | Spec defines associations as "moods, industries, uses"; the UI needs the "similar to …" label |
+| 2026-10-19 | `tools/validate_references.py` runs in CI (macOS job) and in `npm run check` | Data is platform independent |
+| 2026-10-19 | Review of 30 samples: all fit. "Uses" rewritten for all 204 entries as [industry, design role, theme or occasion]; the validator enforces the middle slot from a fixed list | User's feedback: the three uses were often too similar (e.g. khaki: outdoor gear, menswear, uniforms) |
+| 2026-10-19 | The design-role slot uses 7 medium-neutral terms (large areas, small accents, focal points, text and line work, outlines and details, signals and warnings, illustration and data) instead of 19 UI terms | User's feedback: "surfaces", "headings" etc. read as web-only; the app also serves illustrators and print designers |
+| 2026-10-19 | Picker = one transparent full-display "catcher" window per monitor (created hidden at startup) | User's choice: a click freezes the colour without also clicking the app underneath; Esc and arrows work natively |
+| 2026-10-19 | Overlays never appear in samples: macOS captures only windows below the overlay (`kCGWindowListOptionOnScreenBelowWindow`), Windows uses `SetWindowDisplayAffinity(WDA_EXCLUDEFROMCAPTURE)` | The overlay needs a 1 % tint to catch clicks; verified on macOS with the patch self-test while the picker is open |
+| 2026-10-19 | Picker hotkey opens when closed, freezes when live, closes when frozen; click/Enter/Space freeze, Esc closes, arrows shift the sampled point 1 physical px (Shift = 10) and resume live picking | One hotkey covers the whole flow |
+| 2026-10-20 | Arrow keys offset the sampled point in the sampler instead of moving the OS cursor; the offset clears when the mouse moves | Found in review: macOS only places the cursor on whole points (2 px on a 2× display), so right/down nudges snapped back and left/up jumped 2 px |
+| 2026-10-19 | History kept in memory (cap 500, newest first) with `list_history`; SQLite persistence is Phase 7 | Phase 5 needs "add to history"; storage is specified for Phase 7 |
+| 2026-10-19 | macOS overlays sit at screen-saver level, on all Spaces and over full-screen apps; needs Tauri `macOSPrivateApi` for transparency | Covers the menu bar and Dock so a click there freezes instead of opening menus |
